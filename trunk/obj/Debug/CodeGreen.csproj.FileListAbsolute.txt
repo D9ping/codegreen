@@ -1,0 +1,10 @@
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\bin\Debug\CodeGreen.exe
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\bin\Debug\CodeGreen.pdb
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\ResolveAssemblyReference.cache
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.frmMenu.resources
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.Properties.Resources.resources
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.csproj.GenerateResource.Cache
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.exe
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.pdb
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.GameScreen.resources
+M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\CodeGreen\obj\Debug\CodeGreen.GameOptions.resources
