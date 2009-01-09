@@ -11,10 +11,10 @@ namespace CodeGreen
 {
     public partial class GameOptions : Form
     {
-        #region datavelden
-        int curlenword;
+        #region datavelden        
         Misc misc;
         bool sound_enabled = true;
+        bool controller_enabled = true;
         #endregion
 
         #region constructor
@@ -43,6 +43,10 @@ namespace CodeGreen
                 {
                     lblOptionSound.ForeColor = Color.Yellow;
                 }
+                else if (sender == lbOptionController)
+                {
+                    lbOptionController.ForeColor = Color.Yellow;
+                }
                 else
                 {
                     misc.ToonBericht(2);
@@ -65,6 +69,10 @@ namespace CodeGreen
                 else if (sender == lblOptionSound)
                 {
                     lblOptionSound.ForeColor = Color.Lime;
+                }
+                else if (sender == lbOptionController)
+                {
+                    lbOptionController.ForeColor = Color.Lime;
                 }
                 else
                 {
@@ -109,6 +117,20 @@ namespace CodeGreen
             {
                 pbStateSound.Image = Image.FromFile("..\\..\\afb\\checkbox_on.png");
                 sound_enabled = true;
+            }
+        }
+
+        private void lbOptionController_Click(object sender, EventArgs e)
+        {
+            if (controller_enabled == true)
+            {
+                pbStateController.Image = Image.FromFile("..\\..\\afb\\checkbox_off.png");
+                controller_enabled = false;
+            }
+            else if (controller_enabled == false)
+            {
+                pbStateController.Image = Image.FromFile("..\\..\\afb\\checkbox_on.png");
+                controller_enabled = true;
             }
         }
     }

@@ -35,8 +35,11 @@
             this.lblTextOptions = new System.Windows.Forms.Label();
             this.pbBackMenu = new System.Windows.Forms.PictureBox();
             this.TimerTextEffect = new System.Windows.Forms.Timer(this.components);
+            this.lbOptionController = new System.Windows.Forms.Label();
+            this.pbStateController = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).BeginInit();
             this.SuspendLayout();
             // 
             // pbStateSound
@@ -88,12 +91,37 @@
             // 
             this.TimerTextEffect.Tick += new System.EventHandler(this.TimerTextEffect_Tick);
             // 
+            // lbOptionController
+            // 
+            this.lbOptionController.AutoSize = true;
+            this.lbOptionController.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOptionController.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lbOptionController.Location = new System.Drawing.Point(123, 255);
+            this.lbOptionController.Name = "lbOptionController";
+            this.lbOptionController.Size = new System.Drawing.Size(228, 31);
+            this.lbOptionController.TabIndex = 4;
+            this.lbOptionController.Text = "Remote controller";
+            this.lbOptionController.MouseLeave += new System.EventHandler(this.knop_normal);
+            this.lbOptionController.Click += new System.EventHandler(this.lbOptionController_Click);
+            this.lbOptionController.MouseHover += new System.EventHandler(this.knop_hover);
+            // 
+            // pbStateController
+            // 
+            this.pbStateController.Image = global::CodeGreen.Properties.Resources.checkbox_on;
+            this.pbStateController.Location = new System.Drawing.Point(33, 226);
+            this.pbStateController.Name = "pbStateController";
+            this.pbStateController.Size = new System.Drawing.Size(84, 82);
+            this.pbStateController.TabIndex = 5;
+            this.pbStateController.TabStop = false;
+            // 
             // GameOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.pbStateController);
+            this.Controls.Add(this.lbOptionController);
             this.Controls.Add(this.pbBackMenu);
             this.Controls.Add(this.lblTextOptions);
             this.Controls.Add(this.lblOptionSound);
@@ -104,6 +132,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameOptions_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +145,8 @@
         private System.Windows.Forms.Label lblTextOptions;
         private System.Windows.Forms.PictureBox pbBackMenu;
         public System.Windows.Forms.Timer TimerTextEffect;
+        private System.Windows.Forms.Label lbOptionController;
+        private System.Windows.Forms.PictureBox pbStateController;
 
     }
 }

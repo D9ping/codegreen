@@ -33,7 +33,7 @@
             this.TimerTextEffect = new System.Windows.Forms.Timer(this.components);
             this.lblIntroTextLine1 = new System.Windows.Forms.Label();
             this.gbxGameInstructions = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbPlayerMoney = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.progbarServerload = new System.Windows.Forms.ProgressBar();
             this.pbKnopInventory = new System.Windows.Forms.PictureBox();
@@ -45,7 +45,8 @@
             this.btnBuyWifiwepcracker = new System.Windows.Forms.Button();
             this.btnBuyneworkscanner = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbPlayerTime = new System.Windows.Forms.Label();
+            this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
@@ -75,25 +76,25 @@
             this.gbxGameInstructions.BackColor = System.Drawing.Color.Transparent;
             this.gbxGameInstructions.Controls.Add(this.lblIntroTextLine1);
             this.gbxGameInstructions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbxGameInstructions.Location = new System.Drawing.Point(163, 479);
+            this.gbxGameInstructions.Location = new System.Drawing.Point(160, 480);
             this.gbxGameInstructions.Name = "gbxGameInstructions";
-            this.gbxGameInstructions.Size = new System.Drawing.Size(619, 83);
+            this.gbxGameInstructions.Size = new System.Drawing.Size(620, 80);
             this.gbxGameInstructions.TabIndex = 5;
             this.gbxGameInstructions.TabStop = false;
             this.gbxGameInstructions.Text = ",";
             // 
-            // label2
+            // lbPlayerMoney
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(116, 540);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 22);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "0,00";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbPlayerMoney.AutoSize = true;
+            this.lbPlayerMoney.BackColor = System.Drawing.Color.Transparent;
+            this.lbPlayerMoney.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlayerMoney.ForeColor = System.Drawing.Color.Lime;
+            this.lbPlayerMoney.Location = new System.Drawing.Point(116, 540);
+            this.lbPlayerMoney.Name = "lbPlayerMoney";
+            this.lbPlayerMoney.Size = new System.Drawing.Size(31, 22);
+            this.lbPlayerMoney.TabIndex = 11;
+            this.lbPlayerMoney.Text = "0,00";
+            this.lbPlayerMoney.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
             // 
@@ -124,7 +125,6 @@
             this.pbKnopInventory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbKnopInventory.TabIndex = 7;
             this.pbKnopInventory.TabStop = false;
-            this.pbKnopInventory.Click += new System.EventHandler(this.pbKnopInventory_Click);
             // 
             // gbxInventory
             // 
@@ -211,18 +211,23 @@
             this.btnBuyneworkscanner.UseVisualStyleBackColor = true;
             this.btnBuyneworkscanner.Click += new System.EventHandler(this.btnBuyneworkscanner_Click);
             // 
-            // label3
+            // lbPlayerTime
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Lime;
-            this.label3.Location = new System.Drawing.Point(126, 508);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 22);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "0s";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbPlayerTime.AutoSize = true;
+            this.lbPlayerTime.BackColor = System.Drawing.Color.Transparent;
+            this.lbPlayerTime.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPlayerTime.ForeColor = System.Drawing.Color.Lime;
+            this.lbPlayerTime.Location = new System.Drawing.Point(126, 508);
+            this.lbPlayerTime.Name = "lbPlayerTime";
+            this.lbPlayerTime.Size = new System.Drawing.Size(21, 22);
+            this.lbPlayerTime.TabIndex = 12;
+            this.lbPlayerTime.Text = "0s";
+            this.lbPlayerTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // TimerGametime
+            // 
+            this.TimerGametime.Interval = 1000;
+            this.TimerGametime.Tick += new System.EventHandler(this.TimerGametime_Tick);
             // 
             // GameScreen
             // 
@@ -232,8 +237,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbPlayerTime);
+            this.Controls.Add(this.lbPlayerMoney);
             this.Controls.Add(this.btnBuyneworkscanner);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuyWifiwepcracker);
@@ -274,7 +279,8 @@
         private System.Windows.Forms.Button btnBuyneworkscanner;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbPlayerMoney;
+        private System.Windows.Forms.Label lbPlayerTime;
+        public System.Windows.Forms.Timer TimerGametime;
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using UsbLibrary; //ondersteuning voor atmel joystick
 
 namespace CodeGreen
 {
@@ -14,7 +15,7 @@ namespace CodeGreen
         #region datavelden
         Misc misc;        
         int curintroregel;
-        bool rowmoved;
+        int gametime;
         private string[] intro_regel;
         #endregion
 
@@ -36,6 +37,7 @@ namespace CodeGreen
         private void GameScreen_Shown(object sender, EventArgs e)
         {            
             TimerTextEffect.Enabled=true;
+            TimerGametime.Enabled = true;
         }        
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
@@ -65,10 +67,30 @@ namespace CodeGreen
             }           
         }
 
-        private void pbKnopInventory_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Deze methode verander groepbox op de werkbalk afhankelijk van het object dat als parameter meegeven wordt.
+        /// </summary>
+        /// <param name="sender">Object waarop geklikt(of eventeeul ander event) is.</param>
+        /// <param name="e"></param>
+        private void VeranderWerkbalk(object sender, EventArgs e)
         {
-            gbxInventory.Visible = true;
-            gbxInventory.Location = new Point(140, 480);             
+            if (sender == pbKnopInventory)
+            {
+                if (gbxInventory.Visible == true)
+                {
+                    gbxInventory.Visible = false;
+                }
+                else
+                {
+                    gbxInventory.Visible = true;
+                }
+            }
+            /*** todo ***
+            else if (sender == pbBank)
+            {
+
+            }
+             */
         }
 
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
@@ -87,6 +109,20 @@ namespace CodeGreen
         }
 
         #endregion
+
+        private void TimerGametime_Tick(object sender, EventArgs e)
+        {
+            gametime++;
+            if (gametime > 60)
+            {
+
+                lbPlayerTime.Text = Convert.ToString(gametime) + "s";
+            }
+            else
+            {
+                lbPlayerTime.Text = Convert.ToString(gametime) + "s";
+            }
+        }
     }
 
 }

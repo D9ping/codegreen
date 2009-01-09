@@ -363,14 +363,11 @@
         t17/Hwj1g8O+wRxWAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>153, 17</value>
-  </metadata>
   <data name="pbItemWepWifiCracker.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAAA/CAYAAAB3s08iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALCgAA
-        CwoBv0NmUwAAIa1JREFUeF7tW2d4lVXWvaJ+M9/MOOM0nVEQEVQ6gygl9FBSSC8kIQnpvSdUaSoICgIi
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALBwAA
+        CwcBtnMLwAAAIa1JREFUeF7tW2d4lVXWvaJ+M9/MOOM0nVEQEVQ6gygl9FBSSC8kIQnpvSdUaSoICgIi
         ggoMKOggKr0Yeq+hBAi9t5iEEtJ71rfXee+5uVFH86iPz/eDPNyHm3vf9z3nrL332mvvc/IQ5Mf0Az/8
         urbWZKqsgam8EqaSilr1f1Wt3Cb/Hm5kMj3S6CHT/zz6kOk3jxj///bRRqaH5JnVcl95Va2prAKmsspa
         U3F5relOYY2pqLzG9Lv/aWR68vFHTI/9rpHpD79pZHrsfxuZHnn4IXl2ramwrNZUVFpryiusNt2V6//+
@@ -517,6 +514,9 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>153, 17</value>
+  </metadata>
   <data name="pbItemNetworkSniffer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFIAAABSCAYAAADHLIObAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -691,8 +691,8 @@
   <data name="pbItemNetworkScanner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABNCAIAAAC+O3S/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALCgAA
-        CwoBv0NmUwAAKRZJREFUeF61fAdcU+f3vmQnhExCGGEPAfeW1r21blur1lH3rrWtq4KLbd24cS+ciIzk
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALBwAA
+        CwcBtnMLwAAAKRZJREFUeF61fAdcU+f3vmQnhExCGGEPAfeW1r21blur1lH3rrWtq4KLbd24cS+ciIzk
         JmEoiFur1TrrYmYzFAE1yf+89yYQAvZr29+fz/uJSby59z7vOe8ZzznvdTCbzc0a/BmbNSM1Mzs0a2Zq
         Bi/oDRxhanjMpz7BwTCa/EPfw5XgfA5mOIi4aN3xdvdgd4a6cxK3UfcR/Qo/Z/1F4cwOZuIwEv6fxBub
         PwCM/5nM5o8m8wez2QhvzPDGZETD/MFkfm8yvzOb3prQeGMyVtgPU6X1f6vQwaZak+kDMcym9zaD+P4j
@@ -870,8 +870,8 @@
         ddeyvbSdNuHTZJmdKqMZCitoHaGn0xA9lg3//h8Q7OkP2ungWAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>153, 17</value>
+  <metadata name="TimerGametime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>243, 17</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
