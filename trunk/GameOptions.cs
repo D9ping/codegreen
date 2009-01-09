@@ -25,6 +25,17 @@ namespace CodeGreen
         }
         #endregion
 
+        #region properties
+        public bool Optionsound
+        {
+            get { return sound_enabled; }
+        }
+        public bool Optioncontroller
+        {
+            get { return controller_enabled; }
+        }
+        #endregion
+
         #region methoden
         private void GameOptions_Shown(object sender, EventArgs e)
         {
@@ -76,14 +87,13 @@ namespace CodeGreen
                 }
                 else
                 {
-                    misc.ToonBericht(2);
+                    misc.ToonBericht(1);
                 }
 
             }
             catch (Exception)
             {
-                
-                throw;
+                misc.ToonBericht(2);
             }
         }
 
@@ -97,8 +107,6 @@ namespace CodeGreen
             Application.Exit();
         }
 
-        #endregion
-
         private void pbBackMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -108,12 +116,12 @@ namespace CodeGreen
 
         private void lblOptionSound_Click(object sender, EventArgs e)
         {
-            if (sound_enabled==true)
+            if (sound_enabled == true)
             {
                 pbStateSound.Image = Image.FromFile("..\\..\\afb\\checkbox_off.png");
                 sound_enabled = false;
             }
-            else if (sound_enabled==false)
+            else if (sound_enabled == false)
             {
                 pbStateSound.Image = Image.FromFile("..\\..\\afb\\checkbox_on.png");
                 sound_enabled = true;
@@ -133,5 +141,8 @@ namespace CodeGreen
                 controller_enabled = true;
             }
         }
+        #endregion
+
+
     }
 }

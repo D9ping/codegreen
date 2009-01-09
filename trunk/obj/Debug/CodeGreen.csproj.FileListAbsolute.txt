@@ -18,3 +18,13 @@ M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\trunk\obj\Debug\CodeGreen.G
 M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\trunk\obj\Debug\CodeGreen.frmMenu.resources
 M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\trunk\obj\Debug\CodeGreen.Properties.Resources.resources
 M:\users\Public\sourcecode\Projects_Csharp\CodeGreen\trunk\obj\Debug\CodeGreen.csproj.GenerateResource.Cache
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.exe
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.pdb
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\bin\Debug\CodeGreen.exe
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\bin\Debug\CodeGreen.pdb
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\ResolveAssemblyReference.cache
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.GameOptions.resources
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.GameScreen.resources
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.frmMenu.resources
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.Properties.Resources.resources
+M:\users\Public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.csproj.GenerateResource.Cache

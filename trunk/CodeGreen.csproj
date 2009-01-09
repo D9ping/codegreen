@@ -50,6 +50,8 @@
     <Reference Include="UsbLibrary, Version=1.0.3223.36496, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bank.cs" />
+    <Compile Include="BankAccount.cs" />
     <Compile Include="GameOptions.cs">
       <SubType>Form</SubType>
     </Compile>

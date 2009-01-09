@@ -5,6 +5,9 @@ using System.Text;
 
 namespace CodeGreen
 {
+    /// <summary>
+    /// Deze class handelt overige zaken.
+    /// </summary>
     class Misc
     {
         #region datavelden
@@ -19,6 +22,7 @@ namespace CodeGreen
         }
         #endregion
 
+        #region methoden
         public void ToonBericht(int msgnr)
         {
             switch (msgnr)
@@ -76,5 +80,8 @@ namespace CodeGreen
             }
         }
 
+
+
+        #endregion
     }
 }

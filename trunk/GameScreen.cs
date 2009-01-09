@@ -36,7 +36,7 @@ namespace CodeGreen
 
         private void GameScreen_Shown(object sender, EventArgs e)
         {            
-            TimerTextEffect.Enabled=true;
+            TimerTextEffect.Enabled = true;
             TimerGametime.Enabled = true;
         }        
 
@@ -105,10 +105,13 @@ namespace CodeGreen
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
         {
+            GameOptions go = GameOptions();
+            if (go.Optionsound == true)
+            {
+                //todo: speel geluid
+            }
             pbItemNetworkSniffer.Visible = true;
-        }
-
-        #endregion
+        }        
 
         private void TimerGametime_Tick(object sender, EventArgs e)
         {
@@ -123,6 +126,8 @@ namespace CodeGreen
                 lbPlayerTime.Text = Convert.ToString(gametime) + "s";
             }
         }
+
+        #endregion
     }
 
 }

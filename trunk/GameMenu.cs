@@ -11,8 +11,7 @@ namespace CodeGreen
 {
     public partial class frmMenu : Form
     {
-        #region datavelden
-        int curlenword = 0;
+        #region datavelden        
         Misc misc;
         #endregion
 
