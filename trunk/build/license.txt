@@ -1,7 +1,0 @@
-Public domain.
--NO WARRENTY AT ALL.
--Only members of Fontys ICT are allowed to change/copy/remix sourcecode.
--Only members of Fontys ICT that were assign to develop codegreen are allow to sell any work.
-
-(Keuze van licensie is is nog ter dissucie
-wellicht wordt GNU Public License (opensource) )
