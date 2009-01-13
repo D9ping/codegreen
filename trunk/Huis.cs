@@ -31,7 +31,6 @@ namespace CodeGreen
             this.windowsoutdated = windowsoutdated;
             this.virusscanner = virusscanner;
             this.ssid = ssid;
-            this.adsl = adsl;
             this.microsoftserver = microsoftserver;
         }
         #endregion
