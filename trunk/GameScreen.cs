@@ -82,6 +82,7 @@ namespace CodeGreen
         {
             TimerTextEffect.Enabled = true;
             TimerGametime.Enabled = true;
+            if (resourcehandler.playsound("backgroundmusic.mp3") == false) { misc.ToonBericht(5); }
         }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
@@ -222,9 +223,8 @@ namespace CodeGreen
         {
             if (options.sound_enabled == true)
             {
-                
-                
-                
+                //zoek een geluid voor iets dat verkocht is.
+                //resourcehandler.playsound("");                                
             }
             pbItemNetworkSniffer.Visible = true;
         }

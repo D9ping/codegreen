@@ -50,7 +50,7 @@ namespace CodeGreen
             try
             {
                 System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
-                myPlayer.SoundLocation = bestandsnaam;
+                myPlayer.SoundLocation = "M:\\users\\Public\\sourcecode\\Projects_Csharp\\codegreen_SVN\\trunk\\sounds\\"+bestandsnaam;
                 myPlayer.Play();
                 return true;
             }
