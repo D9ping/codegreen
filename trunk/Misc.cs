@@ -40,7 +40,9 @@ namespace CodeGreen
                 case 4:
                     System.Windows.Forms.MessageBox.Show("Fout: resource kon niet geladen worden.");
                     break;
-                
+                case 5:
+                    System.Windows.Forms.MessageBox.Show("Fout: geluid niet gevonden.");
+                    break;
                 default:
                     System.Windows.Forms.MessageBox.Show("onbekende fout");
                     break;
