@@ -14,16 +14,14 @@ namespace CodeGreen
     {
         INSTRUCTIE,
         INVENTORY,
-        BANK,
-        SHOP,
-        HUIS
-    } 
+        BANK   
+    }
     public partial class GameScreen : Form
     {
         #region datavelden
         Misc misc;
         OptionsHandler options;
-        int curintroregel, timesec, timemin;     
+        int curintroregel, timesec, timemin;
         private string[] intro_regel;
         Bankaccount PlayerBankaccount;
         Communication communication;
@@ -55,10 +53,6 @@ namespace CodeGreen
             gbxGameInstructions.Location = werkbalklocation;
             gbxInventory.Size = werkbalksize;
             gbxInventory.Location = werkbalklocation;
-            gbxInformatieHuis.Size = werkbalksize;
-            gbxInformatieHuis.Location = werkbalklocation;
-            gbxShop.Size = werkbalksize;
-            gbxShop.Location = werkbalklocation;
             gbxBank.Size = werkbalksize;
             gbxBank.Location = werkbalklocation;
         }
@@ -72,7 +66,7 @@ namespace CodeGreen
         private void GameScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }               
+        }
 
         private void ToonGB(GroupBox showGB)
         {
@@ -85,13 +79,13 @@ namespace CodeGreen
         }
 
         private void GameScreen_Shown(object sender, EventArgs e)
-        {            
+        {
             TimerTextEffect.Enabled = true;
             TimerGametime.Enabled = true;
-        }        
+        }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
-        {            
+        {
             intro_regel[0] = "This is your neighourhood.";
             intro_regel[1] = "Your objective is to take the microsoft server down.";
             intro_regel[2] = "To do this, you will need to setup a bot network";
@@ -104,7 +98,7 @@ namespace CodeGreen
                 {
                     misc.Curlenword = 0;
                     curintroregel++;
-                }  
+                }
             }
 
 
@@ -113,34 +107,29 @@ namespace CodeGreen
                 if (curintroregel == i)
                 {
                     lblIntroTextLine1.Text = misc.TypeWordEffect(intro_regel[i]);
-                }                
-            }           
+                }
+            }
         }
 
         public void ShowWerkbalk()
-            {
+        {
             switch (werkbalk)
             {
                 case WerkbalkState.INSTRUCTIE:
                     ToonGB(gbxGameInstructions);
                     tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-
                     tooltip.SetToolTip(this.pbKnopBank, "login bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-
                     tooltip.SetToolTip(this.pbKnopshop, "go to shop");
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png");
-
                     break;
                 case WerkbalkState.INVENTORY:
                     ToonGB(gbxInventory);
                     tooltip.SetToolTip(this.pbKnopInventory, "close inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");
-
                     tooltip.SetToolTip(this.pbKnopBank, "login bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-
                     tooltip.SetToolTip(this.pbKnopshop, "go to shop");
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
                     break;
@@ -148,39 +137,14 @@ namespace CodeGreen
                     ToonGB(gbxBank);
                     tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-
                     tooltip.SetToolTip(this.pbKnopBank, "logout bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_on.png");
-
-                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
-                    break;
-                case WerkbalkState.SHOP:
-                    ToonGB(gbxShop);
-                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-
-                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-
-                    tooltip.SetToolTip(this.pbKnopshop, "leave shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png");
-                    break;
-                case WerkbalkState.HUIS:
-                    ToonGB(gbxInformatieHuis);
-                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-
-                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-
                     tooltip.SetToolTip(this.pbKnopshop, "go to shop");
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
                     break;
             }
-         
 
-            }
+        }
 
         /// <summary>
         /// Deze methode verander groepbox op de werkbalk afhankelijk van het object dat als parameter meegeven wordt.
@@ -188,56 +152,46 @@ namespace CodeGreen
         /// <param name="sender">Object waarop geklikt(of eventeeul ander event) is.</param>
         /// <param name="e"></param>
         private void VeranderWerkbalk(object sender, EventArgs e)
-        {            
+        {
+            //op werkbalk
             if (sender == pbKnopInventory)
             {
-                if (werkbalk == WerkbalkState.INVENTORY)
-                {
-                    ShowWerkbalk();                      
-                }
+                if (werkbalk == WerkbalkState.INVENTORY) { ShowWerkbalk(); }
                 else
                 {
                     werkbalk = WerkbalkState.INVENTORY;
-                    ShowWerkbalk();                    
+                    ShowWerkbalk();
                 }
             }
             else if ((sender == pbKnopBank) || (sender == pbBank))
             {
-                if (werkbalk == WerkbalkState.BANK)
-                {
-                    ShowWerkbalk();                                                                
-                }
+                if (werkbalk == WerkbalkState.BANK) { ShowWerkbalk(); }
                 else
                 {
                     werkbalk = WerkbalkState.BANK;
-                    ShowWerkbalk();                                                            
-                }
-            }
-            else if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
-            {
-                if (werkbalk == WerkbalkState.SHOP)
-                {
-                    ShowWerkbalk();                                        
-                }
-                else
-                {
-                    werkbalk = WerkbalkState.SHOP;
                     ShowWerkbalk();
                 }
+            }
+            //groupbox in het midden,
+            else if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
+            {
+                gbxShop.Visible = !gbxShop.Visible;
             }
             else if (sender == pbHuis1)
             {
-                if (werkbalk == WerkbalkState.HUIS)
+                if (gbxInformatieHuis.Visible == true)
                 {
-                    ShowWerkbalk();                    
+                    gbxInformatieHuis.Visible = false;
                 }
-                else
+                else if (gbxInformatieHuis.Visible == false)
                 {
-                    werkbalk = WerkbalkState.HUIS;
-                    ShowWerkbalk();
+                    gbxInformatieHuis.Visible = true;
+                    //todo: controlleer welk huis
+
+                    //todo: haal informatie huis op.
                 }
 
-            }             
+            }
         }
 
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
@@ -251,7 +205,7 @@ namespace CodeGreen
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
-        {            
+        {
             if (options.sound_enabled == true)
             {
                 System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
@@ -259,7 +213,7 @@ namespace CodeGreen
                 myPlayer.Play();
             }
             pbItemNetworkSniffer.Visible = true;
-        }        
+        }
 
         /// <summary>
         /// update gametimer
@@ -271,7 +225,7 @@ namespace CodeGreen
             timesec++;
             if (timesec < 60)
             {
-                if (timemin == 0) { lbPlayerTime.Text = timesec + "s";  }
+                if (timemin == 0) { lbPlayerTime.Text = timesec + "s"; }
                 else { lbPlayerTime.Text = timemin + "m " + timesec + "s"; }
             }
             else
@@ -280,7 +234,7 @@ namespace CodeGreen
                 timesec = 0;
                 lbPlayerTime.Text = timemin + "m " + timesec + "s";
             }
-        }        
+        }
 
         /// <summary>
         /// Data verwerken van de remote controller.  
@@ -293,7 +247,7 @@ namespace CodeGreen
             //moet terug gegeven welk huis of de bank geselecteerd is.
         }
 
-        
+
 
         #endregion
     }

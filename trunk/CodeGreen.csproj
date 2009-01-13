@@ -145,8 +145,10 @@
     <EmbeddedResource Include="GameHighscore.resx">
       <DependentUpon>GameHighscore.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="afb\werkbalkknop_shop_off.png" />
-    <Content Include="afb\werkbalkknop_shop_on.png" />
+    <Content Include="afb\game_knop_inventory_off.png" />
+    <Content Include="afb\game_knop_inventory_on.png" />
+    <EmbeddedResource Include="afb\werkbalkknop_shop_off.png" />
+    <EmbeddedResource Include="afb\werkbalkknop_shop_on.png" />
     <Content Include="icon_codegreen.ico" />
   </ItemGroup>
   <ItemGroup>
