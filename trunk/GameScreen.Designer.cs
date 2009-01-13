@@ -55,6 +55,7 @@
             this.pbHuis4 = new System.Windows.Forms.PictureBox();
             this.pbHuis6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbKnopshop = new System.Windows.Forms.PictureBox();
             this.lbPlayerTime = new System.Windows.Forms.Label();
             this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.usb = new UsbLibrary.UsbHidPort(this.components);
@@ -63,7 +64,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gbxShop = new System.Windows.Forms.GroupBox();
             this.gbxBank = new System.Windows.Forms.GroupBox();
-            this.pbKnopshop = new System.Windows.Forms.PictureBox();
+            this.btnKoopWorm = new System.Windows.Forms.Button();
+            this.btnKoopVirus = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
@@ -80,9 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKnopshop)).BeginInit();
             this.gbxInformatieHuis.SuspendLayout();
             this.gbxShop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbKnopshop)).BeginInit();
             this.SuspendLayout();
             // 
             // TimerTextEffect
@@ -216,33 +223,33 @@
             // btnBuynetworksniffer
             // 
             this.btnBuynetworksniffer.ForeColor = System.Drawing.Color.Black;
-            this.btnBuynetworksniffer.Location = new System.Drawing.Point(129, 30);
+            this.btnBuynetworksniffer.Location = new System.Drawing.Point(230, 43);
             this.btnBuynetworksniffer.Name = "btnBuynetworksniffer";
-            this.btnBuynetworksniffer.Size = new System.Drawing.Size(115, 24);
+            this.btnBuynetworksniffer.Size = new System.Drawing.Size(65, 26);
             this.btnBuynetworksniffer.TabIndex = 8;
-            this.btnBuynetworksniffer.Text = "buy network sniffer";
+            this.btnBuynetworksniffer.Text = "Koop!";
             this.btnBuynetworksniffer.UseVisualStyleBackColor = true;
             this.btnBuynetworksniffer.Click += new System.EventHandler(this.btnBuynetworksniffer_Click);
             // 
             // btnBuyWifiwepcracker
             // 
             this.btnBuyWifiwepcracker.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(10, 30);
+            this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(228, 118);
             this.btnBuyWifiwepcracker.Name = "btnBuyWifiwepcracker";
-            this.btnBuyWifiwepcracker.Size = new System.Drawing.Size(115, 24);
+            this.btnBuyWifiwepcracker.Size = new System.Drawing.Size(67, 24);
             this.btnBuyWifiwepcracker.TabIndex = 9;
-            this.btnBuyWifiwepcracker.Text = "buy wep wifi cracker";
+            this.btnBuyWifiwepcracker.Text = "Koop!";
             this.btnBuyWifiwepcracker.UseVisualStyleBackColor = true;
             this.btnBuyWifiwepcracker.Click += new System.EventHandler(this.btnBuyWifiwepcracker_Click);
             // 
             // btnBuyneworkscanner
             // 
             this.btnBuyneworkscanner.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyneworkscanner.Location = new System.Drawing.Point(250, 30);
+            this.btnBuyneworkscanner.Location = new System.Drawing.Point(230, 155);
             this.btnBuyneworkscanner.Name = "btnBuyneworkscanner";
-            this.btnBuyneworkscanner.Size = new System.Drawing.Size(115, 24);
+            this.btnBuyneworkscanner.Size = new System.Drawing.Size(65, 24);
             this.btnBuyneworkscanner.TabIndex = 10;
-            this.btnBuyneworkscanner.Text = "buy networkscanner";
+            this.btnBuyneworkscanner.Text = "Koop!";
             this.btnBuyneworkscanner.UseVisualStyleBackColor = true;
             this.btnBuyneworkscanner.Click += new System.EventHandler(this.btnBuyneworkscanner_Click);
             // 
@@ -268,8 +275,7 @@
             this.pbSoftwareshop.Size = new System.Drawing.Size(127, 90);
             this.pbSoftwareshop.TabIndex = 13;
             this.pbSoftwareshop.TabStop = false;
-            this.tooltip.SetToolTip(this.pbSoftwareshop, "At this shopping centre there is a computer store\r\n were you can all stuff of han" +
-                    "dy tools.");
+            this.tooltip.SetToolTip(this.pbSoftwareshop, "Nixxons sells a whole bunch of handy PC tools.");
             this.pbSoftwareshop.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
             // pbBank
@@ -281,8 +287,8 @@
             this.pbBank.Size = new System.Drawing.Size(119, 90);
             this.pbBank.TabIndex = 14;
             this.pbBank.TabStop = false;
-            this.tooltip.SetToolTip(this.pbBank, "Pabobank ensures your money is safe store, \r\nthey offer an account with online ac" +
-                    "cess.");
+            this.tooltip.SetToolTip(this.pbBank, "Pabobank ensures that your money is safely stored, \r\nthey also offer an account w" +
+                    "ith online access.");
             this.pbBank.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
             // pbHuis2
@@ -330,8 +336,8 @@
             this.pbHuis3.Size = new System.Drawing.Size(83, 78);
             this.pbHuis3.TabIndex = 18;
             this.pbHuis3.TabStop = false;
-            this.tooltip.SetToolTip(this.pbHuis3, "Here do you live.\r\nBecause there are a lot of house around \r\nyour house you can r" +
-                    "eceice there wireless\r\n network traffic too.");
+            this.tooltip.SetToolTip(this.pbHuis3, "You live here.\r\n\'Cause there are a lot of houses nearby,\r\nyou can receive their w" +
+                    "ireless\r\nnetwork traffic too.");
             this.pbHuis3.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
             // pbHuis4
@@ -355,7 +361,7 @@
             this.pbHuis6.Size = new System.Drawing.Size(108, 79);
             this.pbHuis6.TabIndex = 20;
             this.pbHuis6.TabStop = false;
-            this.tooltip.SetToolTip(this.pbHuis6, "Someone lives here...");
+            this.tooltip.SetToolTip(this.pbHuis6, "Your ex\'s place...You REALLY don\'t want to be here!");
             this.pbHuis6.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
             // pictureBox1
@@ -367,7 +373,20 @@
             this.pictureBox1.Size = new System.Drawing.Size(203, 98);
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
-            this.tooltip.SetToolTip(this.pictureBox1, "Microsoft datacentre, \r\nhighly secured building.");
+            this.tooltip.SetToolTip(this.pictureBox1, "Microsoft datacenter... \r\nHighly secured building.");
+            // 
+            // pbKnopshop
+            // 
+            this.pbKnopshop.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopshop.Image = ((System.Drawing.Image)(resources.GetObject("pbKnopshop.Image")));
+            this.pbKnopshop.Location = new System.Drawing.Point(72, 486);
+            this.pbKnopshop.Name = "pbKnopshop";
+            this.pbKnopshop.Size = new System.Drawing.Size(24, 24);
+            this.pbKnopshop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbKnopshop.TabIndex = 24;
+            this.pbKnopshop.TabStop = false;
+            this.tooltip.SetToolTip(this.pbKnopshop, "login bank");
+            this.pbKnopshop.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
             // lbPlayerTime
             // 
@@ -430,16 +449,23 @@
             // gbxShop
             // 
             this.gbxShop.BackColor = System.Drawing.Color.Transparent;
+            this.gbxShop.Controls.Add(this.label8);
+            this.gbxShop.Controls.Add(this.label7);
+            this.gbxShop.Controls.Add(this.label6);
+            this.gbxShop.Controls.Add(this.label5);
+            this.gbxShop.Controls.Add(this.label4);
+            this.gbxShop.Controls.Add(this.btnKoopVirus);
+            this.gbxShop.Controls.Add(this.btnKoopWorm);
             this.gbxShop.Controls.Add(this.btnBuyWifiwepcracker);
             this.gbxShop.Controls.Add(this.btnBuyneworkscanner);
             this.gbxShop.Controls.Add(this.btnBuynetworksniffer);
             this.gbxShop.ForeColor = System.Drawing.Color.White;
-            this.gbxShop.Location = new System.Drawing.Point(12, 254);
+            this.gbxShop.Location = new System.Drawing.Point(342, 192);
             this.gbxShop.Name = "gbxShop";
-            this.gbxShop.Size = new System.Drawing.Size(333, 64);
+            this.gbxShop.Size = new System.Drawing.Size(351, 238);
             this.gbxShop.TabIndex = 22;
             this.gbxShop.TabStop = false;
-            this.gbxShop.Text = "Local software retailer";
+            this.gbxShop.Text = "Welcome to Nixxons!";
             this.gbxShop.Visible = false;
             // 
             // gbxBank
@@ -451,21 +477,73 @@
             this.gbxBank.Size = new System.Drawing.Size(324, 56);
             this.gbxBank.TabIndex = 22;
             this.gbxBank.TabStop = false;
-            this.gbxBank.Text = "Bank";
+            this.gbxBank.Text = "Pabobank INC.";
             this.gbxBank.Visible = false;
             // 
-            // pbKnopshop
+            // btnKoopWorm
             // 
-            this.pbKnopshop.BackColor = System.Drawing.Color.Transparent;
-            this.pbKnopshop.Image = ((System.Drawing.Image)(resources.GetObject("pbKnopshop.Image")));
-            this.pbKnopshop.Location = new System.Drawing.Point(72, 486);
-            this.pbKnopshop.Name = "pbKnopshop";
-            this.pbKnopshop.Size = new System.Drawing.Size(24, 24);
-            this.pbKnopshop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbKnopshop.TabIndex = 24;
-            this.pbKnopshop.TabStop = false;
-            this.tooltip.SetToolTip(this.pbKnopshop, "login bank");
-            this.pbKnopshop.Click += new System.EventHandler(this.VeranderWerkbalk);
+            this.btnKoopWorm.ForeColor = System.Drawing.Color.Black;
+            this.btnKoopWorm.Location = new System.Drawing.Point(230, 81);
+            this.btnKoopWorm.Name = "btnKoopWorm";
+            this.btnKoopWorm.Size = new System.Drawing.Size(65, 24);
+            this.btnKoopWorm.TabIndex = 11;
+            this.btnKoopWorm.Text = "Koop!";
+            this.btnKoopWorm.UseVisualStyleBackColor = true;
+            // 
+            // btnKoopVirus
+            // 
+            this.btnKoopVirus.ForeColor = System.Drawing.Color.Black;
+            this.btnKoopVirus.Location = new System.Drawing.Point(230, 190);
+            this.btnKoopVirus.Name = "btnKoopVirus";
+            this.btnKoopVirus.Size = new System.Drawing.Size(65, 24);
+            this.btnKoopVirus.TabIndex = 12;
+            this.btnKoopVirus.Text = "Koop!";
+            this.btnKoopVirus.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(33, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Keylogger                 20$";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(33, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Worm                       15$";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 124);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "WEPcracker            40$";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(30, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Netwerk scanner       40$";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(30, 196);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Code red-virus         100$";
             // 
             // GameScreen
             // 
@@ -517,10 +595,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKnopshop)).EndInit();
             this.gbxInformatieHuis.ResumeLayout(false);
             this.gbxInformatieHuis.PerformLayout();
             this.gbxShop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbKnopshop)).EndInit();
+            this.gbxShop.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,5 +641,12 @@
         private System.Windows.Forms.GroupBox gbxShop;
         private System.Windows.Forms.GroupBox gbxBank;
         private System.Windows.Forms.PictureBox pbKnopshop;
+        private System.Windows.Forms.Button btnKoopWorm;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnKoopVirus;
     }
 }
