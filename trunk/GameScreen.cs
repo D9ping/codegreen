@@ -217,6 +217,7 @@ namespace CodeGreen
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
         {
             pbItemNetworkScanner.Visible = true;
+            resourcehandler.playsound("missngod.wav");
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
