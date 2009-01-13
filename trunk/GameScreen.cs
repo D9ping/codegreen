@@ -10,7 +10,14 @@ using UsbLibrary; //ondersteuning voor atmel joystick
 
 namespace CodeGreen
 {
-
+    public enum WerkbalkState
+    {
+        INSTRUCTIE,
+        INVENTORY,
+        BANK,
+        SHOP,
+        HUIS
+    } 
     public partial class GameScreen : Form
     {
         #region datavelden
@@ -21,7 +28,8 @@ namespace CodeGreen
         Bankaccount PlayerBankaccount;
         Communication communication;
         ResourceHandler resourcehandler;
-        
+        WerkbalkState werkbalk;
+
         #endregion
 
         #region constructor
@@ -108,6 +116,71 @@ namespace CodeGreen
                 }                
             }           
         }
+
+        public void ShowWerkbalk()
+            {
+            switch (werkbalk)
+            {
+                case WerkbalkState.INSTRUCTIE:
+                    ToonGB(gbxGameInstructions);
+                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png");
+
+                    break;
+                case WerkbalkState.INVENTORY:
+                    ToonGB(gbxInventory);
+                    tooltip.SetToolTip(this.pbKnopInventory, "close inventory");
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");
+
+                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    break;
+                case WerkbalkState.BANK:
+                    ToonGB(gbxBank);
+                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopBank, "logout bank");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_on.png");
+
+                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    break;
+                case WerkbalkState.SHOP:
+                    ToonGB(gbxShop);
+                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopshop, "leave shop");
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png");
+                    break;
+                case WerkbalkState.HUIS:
+                    ToonGB(gbxInformatieHuis);
+                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+
+                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    break;
+            }
+         
+
+            }
 
         /// <summary>
         /// Deze methode verander groepbox op de werkbalk afhankelijk van het object dat als parameter meegeven wordt.
