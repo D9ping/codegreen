@@ -44,6 +44,23 @@ namespace CodeGreen
                 return null;
             }
         }
+
+        public bool playsound(String bestandsnaam)
+        {
+            try
+            {
+                System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
+                myPlayer.SoundLocation = bestandsnaam;
+                myPlayer.Play();
+                return true;
+            }
+            catch (Exception)
+            {
+                //misc.ToonBericht(5);
+                return false;
+            }            
+
+        }
         #endregion
 
     }
