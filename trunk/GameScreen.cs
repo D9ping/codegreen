@@ -97,7 +97,12 @@ namespace CodeGreen
                 if (lblIntroTextLine1.Text == (intro_regel[i] + "_"))
                 {
                     misc.Curlenword = 0;
+                    TimerTextEffect.Interval = 2000;
                     curintroregel++;
+                }
+                else
+                {
+                    TimerTextEffect.Interval = 100;
                 }
             }
 
@@ -175,7 +180,16 @@ namespace CodeGreen
             //groupbox in het midden,
             else if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
             {
-                gbxShop.Visible = !gbxShop.Visible;
+                if (gbxShop.Visible == true)
+                {
+                    gbxShop.Visible = false;
+                    pbKnopshop.Image = resourcehandler.loadimage("");
+                }
+                else if (gbxShop.Visible == false)
+                {
+                    gbxShop.Visible = true;
+                    pbKnopshop.Image = resourcehandler.loadimage("");
+                }
             }
             else if (sender == pbHuis1)
             {
@@ -208,9 +222,9 @@ namespace CodeGreen
         {
             if (options.sound_enabled == true)
             {
-                System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
-                myPlayer.SoundLocation = "sound_sold.wav";
-                myPlayer.Play();
+                
+                
+                
             }
             pbItemNetworkSniffer.Visible = true;
         }
@@ -250,6 +264,11 @@ namespace CodeGreen
 
 
         #endregion
+
+        private void btnKoopWorm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

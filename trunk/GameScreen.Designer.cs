@@ -175,7 +175,7 @@
             this.gbxInventory.ForeColor = System.Drawing.Color.White;
             this.gbxInventory.Location = new System.Drawing.Point(12, 120);
             this.gbxInventory.Name = "gbxInventory";
-            this.gbxInventory.Size = new System.Drawing.Size(75, 22);
+            this.gbxInventory.Size = new System.Drawing.Size(345, 66);
             this.gbxInventory.TabIndex = 6;
             this.gbxInventory.TabStop = false;
             this.gbxInventory.Text = "Inventory";
@@ -418,9 +418,9 @@
             this.gbxInformatieHuis.Controls.Add(this.label3);
             this.gbxInformatieHuis.Controls.Add(this.label2);
             this.gbxInformatieHuis.ForeColor = System.Drawing.Color.White;
-            this.gbxInformatieHuis.Location = new System.Drawing.Point(141, 138);
+            this.gbxInformatieHuis.Location = new System.Drawing.Point(22, 189);
             this.gbxInformatieHuis.Name = "gbxInformatieHuis";
-            this.gbxInformatieHuis.Size = new System.Drawing.Size(319, 159);
+            this.gbxInformatieHuis.Size = new System.Drawing.Size(285, 57);
             this.gbxInformatieHuis.TabIndex = 21;
             this.gbxInformatieHuis.TabStop = false;
             this.gbxInformatieHuis.Text = "Informatie Huis";
@@ -475,43 +475,43 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 13);
             this.label8.TabIndex = 17;
-            this.label8.Text = "Code red-virus         100$";
+            this.label8.Text = "Code red-virus         800$";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(30, 161);
+            this.label7.Location = new System.Drawing.Point(30, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 13);
+            this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Netwerk scanner       40$";
+            this.label7.Text = "Netwerk scanner       250$";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 124);
+            this.label6.Location = new System.Drawing.Point(27, 37);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 13);
+            this.label6.Size = new System.Drawing.Size(128, 13);
             this.label6.TabIndex = 15;
-            this.label6.Text = "WEPcracker            40$";
+            this.label6.Text = "WEPcracker            100$";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 87);
+            this.label5.Location = new System.Drawing.Point(30, 113);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 13);
+            this.label5.Size = new System.Drawing.Size(128, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Worm                       15$";
+            this.label5.Text = "Worm                       250$";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 50);
+            this.label4.Location = new System.Drawing.Point(27, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 13);
+            this.label4.Size = new System.Drawing.Size(129, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Keylogger                 20$";
+            this.label4.Text = "Keylogger                 100$";
             // 
             // btnKoopVirus
             // 
@@ -532,6 +532,7 @@
             this.btnKoopWorm.TabIndex = 11;
             this.btnKoopWorm.Text = "Koop!";
             this.btnKoopWorm.UseVisualStyleBackColor = true;
+            this.btnKoopWorm.Click += new System.EventHandler(this.btnKoopWorm_Click);
             // 
             // gbxBank
             // 
