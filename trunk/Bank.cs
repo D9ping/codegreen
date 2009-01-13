@@ -35,14 +35,11 @@ namespace CodeGreen
         /// Registreer een account bij de bank, controlleer of die al in lijst voor komt
         /// </summary>
         /// <returns>true als gelukt is.</returns>
-        public bool RegistreerAccount(String nm, String reknr, int password, double money)
+        public bool RegistreerAccount(String nm, String reknr, int lenpassw, double money)
         {
             Bankaccount bankaccount;
-            bankaccount = new Bankaccount(nm,reknr,password,money);
-            bankaccount.AccountNaam = nm;
-            bankaccount.AccountRekeningnr = reknr;
-            bankaccount.AccountPassword = Convert.ToString(password);
-            bankaccount.AccountSaldo = money;
+            bankaccount = new Bankaccount(nm, reknr, lenpassw, money);
+            //registreer bij bank.
             accounts.Add(bankaccount);
             return true;
         }
