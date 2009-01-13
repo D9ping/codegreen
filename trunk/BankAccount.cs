@@ -29,18 +29,25 @@ namespace CodeGreen
 
         #region properties
         public String AccountPassword
-        {           
+        {
             get { return password; }
+            set { password = value; }
         }
         public String AccountNaam
         {
             get { return naam; }
+            set { naam = value; }
         }
         public String AccountRekeningnr
         {
             get { return rekeningnr; }
             set { rekeningnr = value; }
-        }        
+        }
+        public double AccountSaldo
+        {
+            get { return saldo; }
+            set { saldo = value; }
+        }
         #endregion
 
         #region methoden
@@ -54,7 +61,12 @@ namespace CodeGreen
             }
             return password;
         }
-
+        private int MakeSaldo(int saldo)
+        {
+            Random generator = new Random();
+            saldo = generator.Next(100, 300);
+            return saldo;
+        }
         /// <summary>
         /// Neem geld op van deze account.
         /// </summary>
@@ -68,8 +80,9 @@ namespace CodeGreen
                 return true;
             }
             else
-            { return false;
-            }           
+            {
+                return false;
+            }
         }
         #endregion
     }
