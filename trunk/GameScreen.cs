@@ -14,7 +14,8 @@ namespace CodeGreen
     {
         INSTRUCTIE,
         INVENTORY,
-        BANK   
+        BANK,
+        HUIS
     }
     public partial class GameScreen : Form
     {
@@ -76,7 +77,8 @@ namespace CodeGreen
             gbxInventory.Visible = false;
             gbxShop.Visible = false;
             gbxBank.Visible = false;
-            gbxInformatieHuis.Visible = false;
+            gbxHuis.Visible = false;            
+
             showGB.Visible = true;
         }
 
@@ -119,6 +121,9 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Veranderd de getoonde werkbalk
+        /// </summary>
         public void ShowWerkbalk()
         {
             switch (werkbalk)
@@ -150,6 +155,15 @@ namespace CodeGreen
                     tooltip.SetToolTip(this.pbKnopshop, "go to shop");
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
                     break;
+                case WerkbalkState.HUIS:
+                    ToonGB(gbxHuis);
+                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    break;
             }
 
         }
@@ -161,46 +175,69 @@ namespace CodeGreen
         /// <param name="e"></param>
         private void VeranderWerkbalk(object sender, EventArgs e)
         {
-            //op werkbalk
+            //knoppen werkbalk:
             if (sender == pbKnopInventory)
             {
-                if (werkbalk != WerkbalkState.INVENTORY)
-                {
-                    werkbalk = WerkbalkState.INVENTORY;
-                }                           
+                if (werkbalk != WerkbalkState.INVENTORY) { werkbalk = WerkbalkState.INVENTORY; }                           
             }
             else if ((sender == pbKnopBank) || (sender == pbBank))
             {
-                if (werkbalk != WerkbalkState.BANK)
-                {
-                    werkbalk = WerkbalkState.BANK;
-                }        
+                if (werkbalk != WerkbalkState.BANK) { werkbalk = WerkbalkState.BANK; }        
             }
-            //groupbox in het midden van gamescreen
-            else if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
+
+            //huizen:
+            else if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6) )
             {
-                if (gbxShop.Visible == true)
+                if (werkbalk != WerkbalkState.HUIS)
                 {
-                    gbxShop.Visible = false;
-                    pbKnopshop.Image = resourcehandler.loadimage("");
-                }
-                else if (gbxShop.Visible == false)
-                {
-                    gbxShop.Visible = true;
-                    pbKnopshop.Image = resourcehandler.loadimage("");
-                }
-            }
-            else if (sender == pbHuis1)
-            {
-                
-                    gbxInformatieHuis.Visible = true;
-                    
-                    
-                    //todo: haal informatie huis op.
+                    werkbalk = WerkbalkState.HUIS;
                 }
 
+                Huis huis = new getHuisInfo(sender);
+                lbHuisNaam.Text = huis.Bewonernaam;
+                lbHuisIP.Text = huis.IPADRES;                
+                if (huis.wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
+                else if (huis.Wifi == false) { lbHuisWifi.text = "Geen draadloos netwerk"; }
+                
+                
             }
             ShowWerkbalk();
+        }
+
+
+        private Huis getHuisInfo(object huis)
+        {
+
+            switch (huis)
+            {
+                case pbHuis1:
+                    break;
+                case pbHuis2:
+                    break;
+                case pbHuis3:
+                    break;
+
+            }
+
+            return null;
+        }
+        private void VeranderVenster(object sender, EventArgs e)
+        {
+            //winkel is een groepbox
+            if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
+            {
+                gbxShop.Visible = !gbxShop.Visible;
+                if (gbxShop.Visible == true) { pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png"); }
+                else if (gbxShop.Visible == false) { pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png"); }
+            }
+            
+            else if (sender == pbHuis1)
+            {
+                {
+                    gbxHuis.Visible = true;                                        
+                    //todo: haal informatie huis op.
+                }
+            }            
         }
 
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace CodeGreen
         #endregion
 
         #region constructor
-        public Bankaccount(String naam, string rekeningnummer, int paswlength, double saldo)
+        public Bankaccount(String nm, string rekeningnummer, int paswlength, double saldo)
         {
             this.naam = naam;
             this.rekeningnr = rekeningnummer;

@@ -75,6 +75,18 @@ namespace CodeGreen
         #endregion
 
         #region methoden
+        public bool inithuizen
+        {
+            try 
+	        {	        
+		        new Huis("test", ,false, false, "84.162.0.45")
+	        }
+	catch (Exception)
+	{
+		
+		throw;
+	}
+        }
         #endregion
     }
 }
