@@ -11,7 +11,7 @@ namespace CodeGreen
     /// <summary>
     /// Deze class verzorgt het ophalen van embedded afbeeldingen/resources.
     /// </summary>
-    class ResourceHandler
+    public class ResourceHandler
     {
         #region datavelden
         Assembly myAssembly;
@@ -45,12 +45,19 @@ namespace CodeGreen
             }
         }
 
-        public bool playsound(String bestandsnaam)
+        /// <summary>
+        /// Speelt een geluid wav geluid af d.m.v. soundplayer object.        
+        /// </summary>
+        /// <param name="bestandsnaam">de bestandsnaam in de sound map</param>
+        /// <param name="herhalen">laat het geluidje herhalen</param>
+        /// <returns>true als afspelen lukt</returns>
+        public bool playsound(String bestandsnaam, bool herhalen)
         {
             try
             {
                 System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
                 myPlayer.SoundLocation = "..\\..\\sounds\\"+bestandsnaam;
+                if (herhalen == true) { myPlayer.PlayLooping(); }
                 myPlayer.Play();
                 return true;
             }

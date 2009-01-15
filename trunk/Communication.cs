@@ -11,8 +11,8 @@ namespace CodeGreen
     class Communication
     {
         #region datavelden
-        int gekozenX = 0;
-        int gekozenY = 0;
+        private int gekozenX = 0;
+        private int gekozenY = 0;
         #endregion
 
         #region constructor

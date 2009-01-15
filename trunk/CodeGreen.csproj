@@ -124,6 +124,7 @@
     <EmbeddedResource Include="afb\checkbox_on.png" />
     <None Include="Klasses_overzicht.cd" />
     <EmbeddedResource Include="afb\checkbox_off.png" />
+    <EmbeddedResource Include="afb\werkbalkknop_bank_on.png" />
     <EmbeddedResource Include="afb\werkbalkknop_inventory_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_inventory_on.png" />
     <EmbeddedResource Include="afb\item_aircrack_cracker.png" />
@@ -141,7 +142,6 @@
     <EmbeddedResource Include="afb\knop_start_selected.png" />
     <EmbeddedResource Include="afb\logo_CodeGreen.jpg" />
     <EmbeddedResource Include="afb\werkbalkknop_bank_off.png" />
-    <EmbeddedResource Include="afb\werkbalkknop_bank_on.png" />
     <EmbeddedResource Include="GameHighscore.resx">
       <DependentUpon>GameHighscore.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +150,7 @@
     <EmbeddedResource Include="afb\werkbalkknop_shop_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_shop_on.png" />
     <Content Include="icon_codegreen.ico" />
+    <Content Include="sounds\README.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

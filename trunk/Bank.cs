@@ -38,20 +38,37 @@ namespace CodeGreen
         public bool RegistreerAccount(String nm, String reknr, int lenpassw, double money)
         {
             Bankaccount bankaccount;
-            bankaccount = new Bankaccount(nm, reknr, lenpassw, money);
-            //registreer bij bank.
+            bankaccount = new Bankaccount(nm, reknr, lenpassw, money);            
             accounts.Add(bankaccount);
             return true;
         }
-        public Bankaccount GetRekening(String nr)
+        public void initbankaccounts()
+        {
+            RegistreerAccount("speler", "123.345.567.89", 0, 100);
+            RegistreerAccount("naam1", "123.345.567.89", 3, 200);
+            RegistreerAccount("naam2", "123.345.567.89", 5, 500);
+            RegistreerAccount("naam3", "123.345.567.89", 8, 1000);
+            RegistreerAccount("naam4", "123.345.567.89", 8, 2000);
+        }
+
+        public Bankaccount GetByRekening(String reknr)
         {
             foreach (Bankaccount bankaccount in accounts)
             {
-                if (bankaccount.AccountRekeningnr == nr) return bankaccount;
+                if (bankaccount.AccountRekeningnr == reknr) return bankaccount;
             }
             return null;
+        }
+        public Bankaccount GetByName(String nm)
+        {
+            foreach (Bankaccount bankaccount in accounts)
+            {
+                if (bankaccount.AccountNaam == nm) return bankaccount;
+            }
+            return null;
+        }
+
 
         #endregion
-        }
     }
 }

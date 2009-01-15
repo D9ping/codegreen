@@ -10,12 +10,12 @@ namespace CodeGreen
     /// Saves and load settings.
     /// </summary>
     /// <remarks>gevaarlijke dingen</remarks>
-    class OptionsHandler
+    public class OptionsHandler
     {
         #region datavelden
-        RegistryKey regsleutel;
-        bool soundsetting;
-        bool controllersetting;
+        private RegistryKey regsleutel;
+        private bool soundsetting;
+        private bool controllersetting;
         #endregion
 
         #region constructor

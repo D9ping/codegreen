@@ -19,15 +19,16 @@ namespace CodeGreen
     public partial class GameScreen : Form
     {
         #region datavelden
-        Misc misc;
-        OptionsHandler options;
-        int curintroregel, timesec, timemin;
-        private string[] intro_regel;
-        Bankaccount PlayerBankaccount;
-        Communication communication;
-        ResourceHandler resourcehandler;
-        WerkbalkState werkbalk;
+        public Misc misc;
+        public OptionsHandler options;
+        public ResourceHandler resourcehandler;
 
+        private int curintroregel, timesec, timemin;
+        private string[] intro_regel;
+        private Bankaccount PlayerBankaccount;
+        private Communication communication;        
+        private WerkbalkState werkbalk;
+        private Bank bank;
         #endregion
 
         #region constructor
@@ -38,8 +39,9 @@ namespace CodeGreen
             misc = new Misc();
             options = new OptionsHandler();
             resourcehandler = new ResourceHandler();
-
-            PlayerBankaccount = new Bankaccount("hacker", "12.45.87.355", 0, 100);
+            Bank bank = new Bank();
+            bank.initbankaccounts();
+            PlayerBankaccount = bank.GetByName("speler");
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard) 
             if (options.controller_enabled == true)
@@ -82,7 +84,7 @@ namespace CodeGreen
         {
             TimerTextEffect.Enabled = true;
             TimerGametime.Enabled = true;
-            if (resourcehandler.playsound("backgroundmusic.mp3") == false) { misc.ToonBericht(5); }
+            if (resourcehandler.playsound("backgroundmusic.wav", true) == false) { misc.ToonBericht(5); }
         }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
@@ -162,23 +164,19 @@ namespace CodeGreen
             //op werkbalk
             if (sender == pbKnopInventory)
             {
-                if (werkbalk == WerkbalkState.INVENTORY) { ShowWerkbalk(); }
-                else
+                if (werkbalk != WerkbalkState.INVENTORY)
                 {
                     werkbalk = WerkbalkState.INVENTORY;
-                    ShowWerkbalk();
-                }
+                }                           
             }
             else if ((sender == pbKnopBank) || (sender == pbBank))
             {
-                if (werkbalk == WerkbalkState.BANK) { ShowWerkbalk(); }
-                else
+                if (werkbalk != WerkbalkState.BANK)
                 {
                     werkbalk = WerkbalkState.BANK;
-                    ShowWerkbalk();
-                }
+                }        
             }
-            //groupbox in het midden,
+            //groupbox in het midden van gamescreen
             else if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
             {
                 if (gbxShop.Visible == true)
@@ -194,19 +192,15 @@ namespace CodeGreen
             }
             else if (sender == pbHuis1)
             {
-                if (gbxInformatieHuis.Visible == true)
-                {
-                    gbxInformatieHuis.Visible = false;
-                }
-                else if (gbxInformatieHuis.Visible == false)
-                {
+                
                     gbxInformatieHuis.Visible = true;
-                    //todo: controlleer welk huis
-
+                    
+                    
                     //todo: haal informatie huis op.
                 }
 
             }
+            ShowWerkbalk();
         }
 
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
@@ -217,7 +211,7 @@ namespace CodeGreen
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
         {
             pbItemNetworkScanner.Visible = true;
-            resourcehandler.playsound("missngod.wav");
+            resourcehandler.playsound("missngod.wav", true);
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
