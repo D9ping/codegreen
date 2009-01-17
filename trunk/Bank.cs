@@ -37,20 +37,37 @@ namespace CodeGreen
         /// <returns>true als gelukt is.</returns>
         public bool RegistreerAccount(String nm, String reknr, int lenpassw, double money)
         {
-            Bankaccount bankaccount;
-            bankaccount = new Bankaccount(nm, reknr, lenpassw, money);            
-            accounts.Add(bankaccount);
-            return true;
+            try
+            {
+                Bankaccount bankaccount;
+                bankaccount = new Bankaccount(nm, reknr, lenpassw, money);
+                accounts.Add(bankaccount);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
         }
+
+        /// <summary>
+        /// Creeer alle bankaacount in het spel.
+        /// </summary>
         public void initbankaccounts()
         {
             RegistreerAccount("speler", "123.345.567.89", 0, 100);
-            RegistreerAccount("naam1", "123.345.567.89", 3, 200);
-            RegistreerAccount("naam2", "123.345.567.89", 5, 500);
-            RegistreerAccount("naam3", "123.345.567.89", 8, 1000);
-            RegistreerAccount("naam4", "123.345.567.89", 8, 2000);
+            RegistreerAccount("naam1", "34.89.57.74", 3, 200);
+            RegistreerAccount("naam2", "23.45.56.81", 5, 500);
+            RegistreerAccount("naam3", "56.35.67.101", 8, 1000);
+            RegistreerAccount("naam4", "78.127.57.23", 8, 2000);
         }
 
+        /// <summary>
+        /// Verkrijg de bankaccount aan de hand van een rekening nummer van de gevraagde bankaccount.
+        /// </summary>
+        /// <param name="reknr">rekeningnummer</param>
+        /// <returns></returns>
         public Bankaccount GetByRekening(String reknr)
         {
             foreach (Bankaccount bankaccount in accounts)
@@ -59,7 +76,13 @@ namespace CodeGreen
             }
             return null;
         }
-        public Bankaccount GetByName(String nm)
+
+        /// <summary>
+        /// Verkrijg bankaccount van een bepaalde naam
+        /// </summary>
+        /// <param name="nm">naam bankaccount</param>
+        /// <returns></returns>
+        public Bankaccount GetByNaam(String nm)
         {
             foreach (Bankaccount bankaccount in accounts)
             {

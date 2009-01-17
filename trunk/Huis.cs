@@ -9,29 +9,32 @@ namespace CodeGreen
     {
         #region datavelden
         String bewonernaam;
-        Bankaccount bankaccount;
+        String bankaccountnaam;
+        String ipadres;        
         bool wifi;
-        bool wifisecure;
-        String IPadres;
+        String wifissid;
+        bool wifiwep;
+        bool wifiwpa;
         bool windowsoutdated;
-        bool virusscanner;
-        string ssid;
-        bool microsoftserver;
+        bool virusscanner;                
         #endregion
 
         #region constructor
-        public Huis(String bewonernaam, Bankaccount bankaccount, bool wifi, bool wifisecure, String IPadres, 
-            bool windowsoutdated, bool virusscanner, string ssid, bool microsoftserver )
+        public Huis(String bewonernaam, String bankaccountnaam, String ipadres, bool wifi, string wifissid, bool wifiwep, bool wifiwpa,   
+            bool windowsoutdated, bool virusscanner)
         {
             this.bewonernaam = bewonernaam;
-            this.bankaccount = bankaccount;
+            this.bankaccountnaam = bankaccountnaam;
+            this.ipadres = ipadres;
+
             this.wifi = wifi;
-            this.wifisecure = wifisecure;
-            this.IPadres = IPadres;
+            this.wifissid = wifissid;            
+            this.wifiwep = wifiwep;
+            this.wifiwpa = wifiwpa;
+
             this.windowsoutdated = windowsoutdated;
             this.virusscanner = virusscanner;
-            this.ssid = ssid;
-            this.microsoftserver = microsoftserver;
+            
         }
         #endregion
 
@@ -40,21 +43,29 @@ namespace CodeGreen
         {
             get { return bewonernaam; }
         }
-        public Bankaccount BankAccount
+        public String BankAccountnaam
         {
-            get { return bankaccount; }
+            get { return bankaccountnaam; }
+        }
+        public String IPAdres
+        {
+            get { return ipadres; }
         }
         public bool Wifi
         {
             get { return wifi; }
         }
-        public bool Wifisecure
+        public String WifiSSID
         {
-            get { return wifisecure; }
+            get { return wifissid; }
         }
-        public string IPADRES
+        public bool WifiWEP
         {
-            get { return IPadres; }
+            get { return wifiwep; }
+        }
+        public bool WifiWPA
+        {
+            get { return wifiwpa; }
         }
         public bool WindowsOutdated
         {
@@ -64,29 +75,10 @@ namespace CodeGreen
         {
             get { return virusscanner; }
         }
-        public string Ssid
-        {
-            get { return ssid; }
-        }
-        public bool MicrosoftServer
-        {
-            get { return microsoftserver; }
-        }
         #endregion
 
         #region methoden
-        public bool inithuizen
-        {
-            try 
-	        {	        
-		        new Huis("test", ,false, false, "84.162.0.45")
-	        }
-	catch (Exception)
-	{
-		
-		throw;
-	}
-        }
+
         #endregion
     }
 }

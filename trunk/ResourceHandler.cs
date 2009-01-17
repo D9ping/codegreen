@@ -61,13 +61,10 @@ namespace CodeGreen
                 myPlayer.Play();
                 return true;
             }
-            catch (Exception)
-            {
-                //misc.ToonBericht(5);
-                return false;
-            }            
-
+            catch (Exception) { return false; }  
         }
+
+
         #endregion
 
     }

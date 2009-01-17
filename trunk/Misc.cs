@@ -43,6 +43,9 @@ namespace CodeGreen
                 case 5:
                     System.Windows.Forms.MessageBox.Show("Fout: geluid niet gevonden.");
                     break;
+                case 6:
+                    System.Windows.Forms.MessageBox.Show("Fout: kan huizen niet aanmaken.");
+                    break;
                 default:
                     System.Windows.Forms.MessageBox.Show("onbekende fout");
                     break;

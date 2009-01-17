@@ -38,11 +38,12 @@ namespace CodeGreen
             InitializeComponent();
             intro_regel = new String[5];
             misc = new Misc();
-            options = new OptionsHandler();
+            //options = new OptionsHandler();
             resourcehandler = new ResourceHandler();
             Bank bank = new Bank();
             bank.initbankaccounts();
-            PlayerBankaccount = bank.GetByName("speler");
+
+            PlayerBankaccount = bank.GetByNaam("speler");
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard) 
             if (options.controller_enabled == true)
@@ -192,13 +193,14 @@ namespace CodeGreen
                 {
                     werkbalk = WerkbalkState.HUIS;
                 }
-
-                Huis huis = new getHuisInfo(sender);
+                /*
+                Huis getHuis = new Huis();
+                getHuis.
                 lbHuisNaam.Text = huis.Bewonernaam;
                 lbHuisIP.Text = huis.IPADRES;                
                 if (huis.wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
-                else if (huis.Wifi == false) { lbHuisWifi.text = "Geen draadloos netwerk"; }
-                
+                else if (huis.Wifi == false) { lbHuisWifi.Text = "Geen draadloos netwerk"; }
+                */
                 
             }
             ShowWerkbalk();
@@ -208,14 +210,12 @@ namespace CodeGreen
         private Huis getHuisInfo(object huis)
         {
 
-            switch (huis)
+            if (huis==pbHuis1)
+            {                
+
+            }
+            else if (huis == pbHuis2)
             {
-                case pbHuis1:
-                    break;
-                case pbHuis2:
-                    break;
-                case pbHuis3:
-                    break;
 
             }
 
@@ -242,13 +242,18 @@ namespace CodeGreen
 
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
         {
+            pbItemWifiWEPCracker.Visible = true;
+            //TODO: zoek CC of GPL 'ping' kassa geluid van iets gekocht.
+            resourcehandler.playsound("buy.wav", true);
+            //TODO: Van de speler wordt geld af gehaalt,
             //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
         }
 
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
         {
             pbItemNetworkScanner.Visible = true;
-            resourcehandler.playsound("missngod.wav", true);
+            
+            resourcehandler.playsound("buy.wav", true); 
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
@@ -261,6 +266,7 @@ namespace CodeGreen
             pbItemNetworkSniffer.Visible = true;
         }
 
+        static int n = 0;
         /// <summary>
         /// update gametimer
         /// </summary>
@@ -268,18 +274,23 @@ namespace CodeGreen
         /// <param name="e"></param>
         private void TimerGametime_Tick(object sender, EventArgs e)
         {
-            timesec++;
-            if (timesec < 60)
+            n++;
+            if (n == 20)
             {
-                if (timemin == 0) { lbPlayerTime.Text = timesec + "s"; }
-                else { lbPlayerTime.Text = timemin + "m " + timesec + "s"; }
-            }
-            else
-            {
-                timemin++;
-                timesec = 0;
-                lbPlayerTime.Text = timemin + "m " + timesec + "s";
-            }
+                timesec++;
+                if (timesec < 60)
+                {
+                    if (timemin == 0) { lbPlayerTime.Text = timesec + "s"; }
+                    else { lbPlayerTime.Text = timemin + "m " + timesec + "s"; }
+                }
+                else
+                {
+                    timemin++;
+                    timesec = 0;
+                    lbPlayerTime.Text = timemin + "m " + timesec + "s";
+                }
+            }                        
+            
         }
 
         /// <summary>
@@ -292,15 +303,29 @@ namespace CodeGreen
             communication.VerwerkData(data);
             //moet terug gegeven welk huis of de bank geselecteerd is.
         }
+        
+
+        private void btnKoopWorm_Click(object sender, EventArgs e)
+        {
+            //todo
+        }
+
+        public void inithuizen()
+        {
+            try
+            {
+                Huis huis1 = new Huis("naam", "naam1", "12.23.34.45", true, "naam1", true, true, false, false);
+            }
+            catch (Exception)
+            {
+                misc.ToonBericht(6);
+            }                              		    	        
+        }
+
 
 
 
         #endregion
-
-        private void btnKoopWorm_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

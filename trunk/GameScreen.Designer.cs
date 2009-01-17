@@ -38,7 +38,7 @@
             this.progbarServerload = new System.Windows.Forms.ProgressBar();
             this.pbKnopInventory = new System.Windows.Forms.PictureBox();
             this.gbxInventory = new System.Windows.Forms.GroupBox();
-            this.pbItemWepWifiCracker = new System.Windows.Forms.PictureBox();
+            this.pbItemWifiWEPCracker = new System.Windows.Forms.PictureBox();
             this.pbItemNetworkSniffer = new System.Windows.Forms.PictureBox();
             this.pbItemNetworkScanner = new System.Windows.Forms.PictureBox();
             this.btnBuynetworksniffer = new System.Windows.Forms.Button();
@@ -60,6 +60,8 @@
             this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.usb = new UsbLibrary.UsbHidPort(this.components);
             this.gbxHuis = new System.Windows.Forms.GroupBox();
+            this.lbHuisWifi = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbHuisNaam = new System.Windows.Forms.Label();
             this.lbTextHuis = new System.Windows.Forms.Label();
             this.gbxShop = new System.Windows.Forms.GroupBox();
@@ -71,12 +73,10 @@
             this.btnKoopVirus = new System.Windows.Forms.Button();
             this.btnKoopWorm = new System.Windows.Forms.Button();
             this.gbxBank = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbHuisWifi = new System.Windows.Forms.Label();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemWepWifiCracker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkSniffer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopBank)).BeginInit();
@@ -170,7 +170,7 @@
             // gbxInventory
             // 
             this.gbxInventory.BackColor = System.Drawing.Color.Transparent;
-            this.gbxInventory.Controls.Add(this.pbItemWepWifiCracker);
+            this.gbxInventory.Controls.Add(this.pbItemWifiWEPCracker);
             this.gbxInventory.Controls.Add(this.pbItemNetworkSniffer);
             this.gbxInventory.Controls.Add(this.pbItemNetworkScanner);
             this.gbxInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -183,18 +183,18 @@
             this.gbxInventory.Text = "Inventory";
             this.gbxInventory.Visible = false;
             // 
-            // pbItemWepWifiCracker
+            // pbItemWifiWEPCracker
             // 
-            this.pbItemWepWifiCracker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbItemWepWifiCracker.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWepWifiCracker.Image")));
-            this.pbItemWepWifiCracker.Location = new System.Drawing.Point(16, 16);
-            this.pbItemWepWifiCracker.Name = "pbItemWepWifiCracker";
-            this.pbItemWepWifiCracker.Size = new System.Drawing.Size(79, 47);
-            this.pbItemWepWifiCracker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbItemWepWifiCracker.TabIndex = 2;
-            this.pbItemWepWifiCracker.TabStop = false;
-            this.tooltip.SetToolTip(this.pbItemWepWifiCracker, "Wifi WEP cracker");
-            this.pbItemWepWifiCracker.Visible = false;
+            this.pbItemWifiWEPCracker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemWifiWEPCracker.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWifiWEPCracker.Image")));
+            this.pbItemWifiWEPCracker.Location = new System.Drawing.Point(16, 16);
+            this.pbItemWifiWEPCracker.Name = "pbItemWifiWEPCracker";
+            this.pbItemWifiWEPCracker.Size = new System.Drawing.Size(79, 47);
+            this.pbItemWifiWEPCracker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbItemWifiWEPCracker.TabIndex = 2;
+            this.pbItemWifiWEPCracker.TabStop = false;
+            this.tooltip.SetToolTip(this.pbItemWifiWEPCracker, "Wifi WEP cracker");
+            this.pbItemWifiWEPCracker.Visible = false;
             // 
             // pbItemNetworkSniffer
             // 
@@ -407,7 +407,7 @@
             // 
             // TimerGametime
             // 
-            this.TimerGametime.Interval = 1000;
+            this.TimerGametime.Interval = 50;
             this.TimerGametime.Tick += new System.EventHandler(this.TimerGametime_Tick);
             // 
             // usb
@@ -429,6 +429,26 @@
             this.gbxHuis.TabStop = false;
             this.gbxHuis.Text = "Informatie Huis";
             this.gbxHuis.Visible = false;
+            // 
+            // lbHuisWifi
+            // 
+            this.lbHuisWifi.AutoSize = true;
+            this.lbHuisWifi.ForeColor = System.Drawing.Color.Lime;
+            this.lbHuisWifi.Location = new System.Drawing.Point(78, 50);
+            this.lbHuisWifi.Name = "lbHuisWifi";
+            this.lbHuisWifi.Size = new System.Drawing.Size(19, 13);
+            this.lbHuisWifi.TabIndex = 3;
+            this.lbHuisWifi.Text = "(..)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Lime;
+            this.label3.Location = new System.Drawing.Point(25, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Huis:";
             // 
             // lbHuisNaam
             // 
@@ -550,26 +570,6 @@
             this.gbxBank.Text = "Pabobank INC.";
             this.gbxBank.Visible = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Lime;
-            this.label3.Location = new System.Drawing.Point(25, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Huis:";
-            // 
-            // lbHuisWifi
-            // 
-            this.lbHuisWifi.AutoSize = true;
-            this.lbHuisWifi.ForeColor = System.Drawing.Color.Lime;
-            this.lbHuisWifi.Location = new System.Drawing.Point(78, 50);
-            this.lbHuisWifi.Name = "lbHuisWifi";
-            this.lbHuisWifi.Size = new System.Drawing.Size(19, 13);
-            this.lbHuisWifi.TabIndex = 3;
-            this.lbHuisWifi.Text = "(..)";
-            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,7 +607,7 @@
             this.gbxGameInstructions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).EndInit();
             this.gbxInventory.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemWepWifiCracker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkSniffer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopBank)).EndInit();
@@ -641,7 +641,7 @@
         private System.Windows.Forms.Button btnBuynetworksniffer;
         private System.Windows.Forms.PictureBox pbItemNetworkScanner;
         private System.Windows.Forms.PictureBox pbItemNetworkSniffer;
-        private System.Windows.Forms.PictureBox pbItemWepWifiCracker;
+        private System.Windows.Forms.PictureBox pbItemWifiWEPCracker;
         private System.Windows.Forms.Button btnBuyWifiwepcracker;
         private System.Windows.Forms.Button btnBuyneworkscanner;
         private System.Windows.Forms.ToolTip tooltip;
