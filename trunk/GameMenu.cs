@@ -12,9 +12,11 @@ namespace CodeGreen
 {
     public partial class GameMenu : Form
     {
-        #region datavelden        
-        Misc misc;
-        ResourceHandler resourcehandler;
+        #region datavelden
+        private List<TextBox> droptexten;
+        private int n = 0;
+        private Misc misc;
+        private ResourceHandler resourcehandler;
         #endregion
 
         #region constructoren
@@ -23,6 +25,7 @@ namespace CodeGreen
             InitializeComponent();
             misc = new Misc();
             resourcehandler = new ResourceHandler();
+            droptexten = new List<TextBox>();
 
         }
         #endregion
@@ -85,7 +88,7 @@ namespace CodeGreen
             catch
             {
                 misc.ToonBericht(1);
-            }            
+            }
         }
 
         /// <summary>
@@ -120,8 +123,59 @@ namespace CodeGreen
             }
             catch
             {
-                misc.ToonBericht(1);            
-            } 
+                misc.ToonBericht(1);
+            }
+        }
+
+        private void newDropText()
+        {
+            Random ran = new Random();
+            int Xnewtextbox = ran.Next(20, 780);
+            String ent = "\r\n"; // opmerking: \r is enter en \n is een linefeed.
+            TextBox newtextbox = new TextBox();
+            newtextbox.AcceptsReturn = true;
+            newtextbox.Multiline = true;
+            newtextbox.ForeColor = Color.Green;
+            newtextbox.BackColor = Color.Black;
+            newtextbox.BorderStyle = BorderStyle.None;
+            newtextbox.ScrollBars = ScrollBars.None;
+            newtextbox.Location = new Point(Xnewtextbox, 0);
+            newtextbox.Height = 140;
+            newtextbox.Width = 15;
+            newtextbox.Cursor = Cursors.Default;
+            newtextbox.Text = "N" + ent + "E" + ent + "E" + ent + "R" + ent + "G" + ent + ent + "E" + ent + "D" + ent + "O" + ent + "C";
+            this.Controls.Add(newtextbox);
+            droptexten.Add(newtextbox);
+        }
+
+        private void updateDropText()
+        {
+            for (int i = 0; i < droptexten.Count; i++)
+            {
+                int Xtext = droptexten[i].Location.X;
+                int Ytext = droptexten[i].Location.Y + 4;
+                droptexten[i].Location = new Point(Xtext, Ytext);
+            }
+        }
+
+        private void timerDropText_Tick(object sender, EventArgs e)
+        {
+            this.updateDropText();
+            n++;
+            if (n == 4)
+            {
+                newDropText();
+                n = 0;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                newDropText();
+            }
+
         }
 
     }

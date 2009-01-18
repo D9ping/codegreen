@@ -93,6 +93,7 @@
       <DependentUpon>GameMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Huis.cs" />
+    <Compile Include="Items.cs" />
     <Compile Include="Misc.cs" />
     <Compile Include="OptionsHandler.cs" />
     <Compile Include="Program.cs" />
@@ -145,8 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="afb\werkbalkknop_shop_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_shop_on.png" />
+    <Content Include="afb\game_truck_driveright.png" />
     <Content Include="icon_codegreen.ico" />
-    <Content Include="sounds\ding.wav" />
+    <Content Include="sounds\buy.wav" />
     <Content Include="sounds\README.txt" />
   </ItemGroup>
   <ItemGroup>

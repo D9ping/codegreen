@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameMenu));
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.pbHighscore = new System.Windows.Forms.PictureBox();
             this.pbOptions = new System.Windows.Forms.PictureBox();
             this.pbStartGame = new System.Windows.Forms.PictureBox();
             this.pbTitel = new System.Windows.Forms.PictureBox();
+            this.timerDropText = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).BeginInit();
@@ -96,13 +98,19 @@
             // 
             // pbTitel
             // 
+            this.pbTitel.BackColor = System.Drawing.Color.Transparent;
             this.pbTitel.Image = ((System.Drawing.Image)(resources.GetObject("pbTitel.Image")));
-            this.pbTitel.Location = new System.Drawing.Point(1, -3);
+            this.pbTitel.Location = new System.Drawing.Point(-5, -1);
             this.pbTitel.Name = "pbTitel";
-            this.pbTitel.Size = new System.Drawing.Size(771, 339);
+            this.pbTitel.Size = new System.Drawing.Size(760, 324);
             this.pbTitel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTitel.TabIndex = 0;
             this.pbTitel.TabStop = false;
+            // 
+            // timerDropText
+            // 
+            this.timerDropText.Enabled = true;
+            this.timerDropText.Tick += new System.EventHandler(this.timerDropText_Tick);
             // 
             // GameMenu
             // 
@@ -133,6 +141,7 @@
         private System.Windows.Forms.PictureBox pbHighscore;
         private System.Windows.Forms.PictureBox pbOptions;
         private System.Windows.Forms.PictureBox pbStartGame;
+        private System.Windows.Forms.Timer timerDropText;
     }
 }
 

@@ -40,6 +40,7 @@
             this.gbxInventory = new System.Windows.Forms.GroupBox();
             this.pbItemWifiWEPCracker = new System.Windows.Forms.PictureBox();
             this.pbItemNetworkSniffer = new System.Windows.Forms.PictureBox();
+            this.pbItemNetworkScanner = new System.Windows.Forms.PictureBox();
             this.gbxShop = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,10 +52,9 @@
             this.btnBuyWifiwepcracker = new System.Windows.Forms.Button();
             this.btnBuyneworkscanner = new System.Windows.Forms.Button();
             this.btnBuynetworksniffer = new System.Windows.Forms.Button();
-            this.pbItemNetworkScanner = new System.Windows.Forms.PictureBox();
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.pbKnopBank = new System.Windows.Forms.PictureBox();
-            this.pbSoftwareshop = new System.Windows.Forms.PictureBox();
+            this.pbShop = new System.Windows.Forms.PictureBox();
             this.pbBank = new System.Windows.Forms.PictureBox();
             this.pbHuis2 = new System.Windows.Forms.PictureBox();
             this.pbHuis5 = new System.Windows.Forms.PictureBox();
@@ -79,10 +79,10 @@
             this.gbxInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkSniffer)).BeginInit();
-            this.gbxShop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).BeginInit();
+            this.gbxShop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopBank)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSoftwareshop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis5)).BeginInit();
@@ -174,7 +174,6 @@
             this.gbxInventory.BackColor = System.Drawing.Color.Transparent;
             this.gbxInventory.Controls.Add(this.pbItemWifiWEPCracker);
             this.gbxInventory.Controls.Add(this.pbItemNetworkSniffer);
-            this.gbxInventory.Controls.Add(this.gbxShop);
             this.gbxInventory.Controls.Add(this.pbItemNetworkScanner);
             this.gbxInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxInventory.ForeColor = System.Drawing.Color.White;
@@ -212,6 +211,19 @@
             this.tooltip.SetToolTip(this.pbItemNetworkSniffer, "Netwerk sniffer");
             this.pbItemNetworkSniffer.Visible = false;
             // 
+            // pbItemNetworkScanner
+            // 
+            this.pbItemNetworkScanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemNetworkScanner.Image = ((System.Drawing.Image)(resources.GetObject("pbItemNetworkScanner.Image")));
+            this.pbItemNetworkScanner.Location = new System.Drawing.Point(129, 13);
+            this.pbItemNetworkScanner.Name = "pbItemNetworkScanner";
+            this.pbItemNetworkScanner.Size = new System.Drawing.Size(73, 50);
+            this.pbItemNetworkScanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbItemNetworkScanner.TabIndex = 0;
+            this.pbItemNetworkScanner.TabStop = false;
+            this.tooltip.SetToolTip(this.pbItemNetworkScanner, "Netwerk scanner");
+            this.pbItemNetworkScanner.Visible = false;
+            // 
             // gbxShop
             // 
             this.gbxShop.BackColor = System.Drawing.Color.Transparent;
@@ -226,9 +238,9 @@
             this.gbxShop.Controls.Add(this.btnBuyneworkscanner);
             this.gbxShop.Controls.Add(this.btnBuynetworksniffer);
             this.gbxShop.ForeColor = System.Drawing.Color.White;
-            this.gbxShop.Location = new System.Drawing.Point(330, 56);
+            this.gbxShop.Location = new System.Drawing.Point(363, 129);
             this.gbxShop.Name = "gbxShop";
-            this.gbxShop.Size = new System.Drawing.Size(351, 238);
+            this.gbxShop.Size = new System.Drawing.Size(369, 258);
             this.gbxShop.TabIndex = 22;
             this.gbxShop.TabStop = false;
             this.gbxShop.Text = "Welcome to Nixxons!";
@@ -333,19 +345,6 @@
             this.btnBuynetworksniffer.UseVisualStyleBackColor = true;
             this.btnBuynetworksniffer.Click += new System.EventHandler(this.btnBuynetworksniffer_Click);
             // 
-            // pbItemNetworkScanner
-            // 
-            this.pbItemNetworkScanner.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbItemNetworkScanner.Image = ((System.Drawing.Image)(resources.GetObject("pbItemNetworkScanner.Image")));
-            this.pbItemNetworkScanner.Location = new System.Drawing.Point(129, 13);
-            this.pbItemNetworkScanner.Name = "pbItemNetworkScanner";
-            this.pbItemNetworkScanner.Size = new System.Drawing.Size(73, 50);
-            this.pbItemNetworkScanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbItemNetworkScanner.TabIndex = 0;
-            this.pbItemNetworkScanner.TabStop = false;
-            this.tooltip.SetToolTip(this.pbItemNetworkScanner, "Netwerk scanner");
-            this.pbItemNetworkScanner.Visible = false;
-            // 
             // pbKnopBank
             // 
             this.pbKnopBank.BackColor = System.Drawing.Color.Transparent;
@@ -359,17 +358,17 @@
             this.tooltip.SetToolTip(this.pbKnopBank, "login bank");
             this.pbKnopBank.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
-            // pbSoftwareshop
+            // pbShop
             // 
-            this.pbSoftwareshop.BackColor = System.Drawing.Color.Transparent;
-            this.pbSoftwareshop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSoftwareshop.Location = new System.Drawing.Point(141, 324);
-            this.pbSoftwareshop.Name = "pbSoftwareshop";
-            this.pbSoftwareshop.Size = new System.Drawing.Size(127, 90);
-            this.pbSoftwareshop.TabIndex = 13;
-            this.pbSoftwareshop.TabStop = false;
-            this.tooltip.SetToolTip(this.pbSoftwareshop, "Nixxons sells a whole bunch of handy PC tools.");
-            this.pbSoftwareshop.Click += new System.EventHandler(this.VeranderVenster);
+            this.pbShop.BackColor = System.Drawing.Color.Transparent;
+            this.pbShop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbShop.Location = new System.Drawing.Point(141, 324);
+            this.pbShop.Name = "pbShop";
+            this.pbShop.Size = new System.Drawing.Size(127, 90);
+            this.pbShop.TabIndex = 13;
+            this.pbShop.TabStop = false;
+            this.tooltip.SetToolTip(this.pbShop, "Nixxons sells a whole bunch of handy PC tools.");
+            this.pbShop.Click += new System.EventHandler(this.VeranderVenster);
             // 
             // pbBank
             // 
@@ -478,7 +477,7 @@
             this.pbKnopshop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbKnopshop.TabIndex = 24;
             this.pbKnopshop.TabStop = false;
-            this.tooltip.SetToolTip(this.pbKnopshop, "login bank");
+            this.tooltip.SetToolTip(this.pbKnopshop, "Go to software shop");
             this.pbKnopshop.Click += new System.EventHandler(this.VeranderVenster);
             // 
             // lbPlayerTime
@@ -593,6 +592,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.gbxShop);
             this.Controls.Add(this.pbHuis5);
             this.Controls.Add(this.pbKnopshop);
             this.Controls.Add(this.gbxBank);
@@ -604,7 +604,7 @@
             this.Controls.Add(this.pbHuis3);
             this.Controls.Add(this.pbHuis1);
             this.Controls.Add(this.pbHuis2);
-            this.Controls.Add(this.pbSoftwareshop);
+            this.Controls.Add(this.pbShop);
             this.Controls.Add(this.lbPlayerTime);
             this.Controls.Add(this.lbPlayerMoney);
             this.Controls.Add(this.label1);
@@ -625,11 +625,11 @@
             this.gbxInventory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkSniffer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).EndInit();
             this.gbxShop.ResumeLayout(false);
             this.gbxShop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopBank)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSoftwareshop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBank)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis5)).EndInit();
@@ -667,7 +667,7 @@
         private System.Windows.Forms.Label lbPlayerTime;
         public System.Windows.Forms.Timer TimerGametime;
         private UsbLibrary.UsbHidPort usb;
-        private System.Windows.Forms.PictureBox pbSoftwareshop;
+        private System.Windows.Forms.PictureBox pbShop;
         private System.Windows.Forms.PictureBox pbBank;
         private System.Windows.Forms.PictureBox pbHuis2;
         private System.Windows.Forms.PictureBox pbHuis5;

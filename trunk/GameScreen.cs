@@ -133,36 +133,28 @@ namespace CodeGreen
                     tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
                     tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
                     break;
                 case WerkbalkState.INVENTORY:
                     ToonGB(gbxInventory);
                     tooltip.SetToolTip(this.pbKnopInventory, "close inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");
                     tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
                     break;
                 case WerkbalkState.BANK:
                     ToonGB(gbxBank);
                     tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
                     tooltip.SetToolTip(this.pbKnopBank, "logout bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_on.png");
-                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_on.png");                    
                     break;
                 case WerkbalkState.HUIS:
                     ToonGB(gbxHuis);
                     tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
                     tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    tooltip.SetToolTip(this.pbKnopshop, "go to shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
                     break;
             }
 
@@ -220,14 +212,21 @@ namespace CodeGreen
 
             return null;
         }
+
         private void VeranderVenster(object sender, EventArgs e)
         {
-            //winkel is een groepbox
-            if ((sender == pbSoftwareshop) || (sender == pbKnopshop))
-            {
-                gbxShop.Visible = !gbxShop.Visible;
-                if (gbxShop.Visible == true) { pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png"); }
-                else if (gbxShop.Visible == false) { pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png"); }
+            //winkel niet op werkbalk
+            if ((sender == pbShop) || (sender == pbKnopshop))
+            {                
+                if (gbxShop.Visible == true) 
+                {
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png"); 
+                }
+                else if (gbxShop.Visible == false)
+                {
+                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png"); 
+                }                                               
+
             }
 
             else if (sender == pbHuis1)
