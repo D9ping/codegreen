@@ -20,7 +20,7 @@ namespace CodeGreen
         #region constructor
         public Bankaccount(String nm, string rekeningnummer, int paswlength, double saldo)
         {
-            this.naam = naam;
+            this.naam = nm;
             this.rekeningnr = rekeningnummer;
             this.password = MakePassword(paswlength);
             this.saldo = saldo;

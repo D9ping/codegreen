@@ -128,6 +128,7 @@
             this.Controls.Add(this.lblTextOptions);
             this.Controls.Add(this.lblOptionSound);
             this.Controls.Add(this.pbStateSound);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameOptions";
             this.Text = "Codegreen Options";
             this.Shown += new System.EventHandler(this.GameOptions_Shown);

@@ -33,8 +33,7 @@ namespace CodeGreen
             this.wifiwpa = wifiwpa;
 
             this.windowsoutdated = windowsoutdated;
-            this.virusscanner = virusscanner;
-            
+            this.virusscanner = virusscanner;            
         }
         #endregion
 

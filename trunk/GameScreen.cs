@@ -23,11 +23,10 @@ namespace CodeGreen
         public Misc misc;
         public OptionsHandler options;
         public ResourceHandler resourcehandler;
-
-        private int curintroregel, timesec, timemin;
+        private int curintroregel, n, timesec, timemin;
         private string[] intro_regel;
         private Bankaccount PlayerBankaccount;
-        private Communication communication;        
+        private Communication communication;
         private WerkbalkState werkbalk;
         private Bank bank;
         #endregion
@@ -38,7 +37,7 @@ namespace CodeGreen
             InitializeComponent();
             intro_regel = new String[5];
             misc = new Misc();
-            //options = new OptionsHandler();
+            options = new OptionsHandler();
             resourcehandler = new ResourceHandler();
             Bank bank = new Bank();
             bank.initbankaccounts();
@@ -78,7 +77,7 @@ namespace CodeGreen
             gbxInventory.Visible = false;
             gbxShop.Visible = false;
             gbxBank.Visible = false;
-            gbxHuis.Visible = false;            
+            gbxHuis.Visible = false;
 
             showGB.Visible = true;
         }
@@ -179,15 +178,15 @@ namespace CodeGreen
             //knoppen werkbalk:
             if (sender == pbKnopInventory)
             {
-                if (werkbalk != WerkbalkState.INVENTORY) { werkbalk = WerkbalkState.INVENTORY; }                           
+                if (werkbalk != WerkbalkState.INVENTORY) { werkbalk = WerkbalkState.INVENTORY; }
             }
             else if ((sender == pbKnopBank) || (sender == pbBank))
             {
-                if (werkbalk != WerkbalkState.BANK) { werkbalk = WerkbalkState.BANK; }        
+                if (werkbalk != WerkbalkState.BANK) { werkbalk = WerkbalkState.BANK; }
             }
 
             //huizen:
-            else if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6) )
+            else if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6))
             {
                 if (werkbalk != WerkbalkState.HUIS)
                 {
@@ -201,7 +200,7 @@ namespace CodeGreen
                 if (huis.wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
                 else if (huis.Wifi == false) { lbHuisWifi.Text = "Geen draadloos netwerk"; }
                 */
-                
+
             }
             ShowWerkbalk();
         }
@@ -210,8 +209,8 @@ namespace CodeGreen
         private Huis getHuisInfo(object huis)
         {
 
-            if (huis==pbHuis1)
-            {                
+            if (huis == pbHuis1)
+            {
 
             }
             else if (huis == pbHuis2)
@@ -230,14 +229,14 @@ namespace CodeGreen
                 if (gbxShop.Visible == true) { pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png"); }
                 else if (gbxShop.Visible == false) { pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png"); }
             }
-            
+
             else if (sender == pbHuis1)
             {
                 {
-                    gbxHuis.Visible = true;                                        
+                    gbxHuis.Visible = true;
                     //todo: haal informatie huis op.
                 }
-            }            
+            }
         }
 
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
@@ -252,8 +251,8 @@ namespace CodeGreen
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
         {
             pbItemNetworkScanner.Visible = true;
-            
-            resourcehandler.playsound("buy.wav", true); 
+
+            resourcehandler.playsound("buy.wav", true);
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
@@ -266,7 +265,7 @@ namespace CodeGreen
             pbItemNetworkSniffer.Visible = true;
         }
 
-        static int n = 0;
+
         /// <summary>
         /// update gametimer
         /// </summary>
@@ -275,8 +274,12 @@ namespace CodeGreen
         private void TimerGametime_Tick(object sender, EventArgs e)
         {
             n++;
+
+            this.truckdrive(n);
+
             if (n == 20)
             {
+                n = 0;
                 timesec++;
                 if (timesec < 60)
                 {
@@ -289,8 +292,35 @@ namespace CodeGreen
                     timesec = 0;
                     lbPlayerTime.Text = timemin + "m " + timesec + "s";
                 }
-            }                        
+            }
+        }
+
+        /// <summary>
+        /// tekent de bus op nieuwe plek, CPU intensief!!
+        /// </summary>
+        private void truckdrive(int n)
+        {
+            int Ytruck = pbTruck1.Location.Y;
+            int Xtruck = pbTruck1.Location.X + 1;
             
+            if ((Xtruck > 270) && (Xtruck < 290)) { Ytruck = pbTruck1.Location.Y + 1; }
+            else if (Xtruck > 675)
+            {
+                int maxn = 1000 / this.TimerGametime.Interval;
+                for (int i = 0; i < maxn; i=i+2)
+			        {
+			            if (n==i)
+                        { 
+                            Ytruck = pbTruck1.Location.Y - 1; 
+                        }
+                        //else { Ytruck = pbTruck1.Location.Y; }
+                    }
+            }
+            else if (Xtruck > 770) { Xtruck = 270; Ytruck = 306; }
+            else { Ytruck = pbTruck1.Location.Y; }
+
+            pbTruck1.Location = new Point(Xtruck, Ytruck);
+
         }
 
         /// <summary>
@@ -303,7 +333,7 @@ namespace CodeGreen
             communication.VerwerkData(data);
             //moet terug gegeven welk huis of de bank geselecteerd is.
         }
-        
+
 
         private void btnKoopWorm_Click(object sender, EventArgs e)
         {
@@ -319,10 +349,8 @@ namespace CodeGreen
             catch (Exception)
             {
                 misc.ToonBericht(6);
-            }                              		    	        
+            }
         }
-
-
 
 
         #endregion

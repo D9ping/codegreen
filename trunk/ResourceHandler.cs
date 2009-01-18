@@ -29,6 +29,11 @@ namespace CodeGreen
         #endregion
 
         #region methoden
+        /// <summary>
+        /// Haalt de afbeelding uit de assembly van de compiled executable.        
+        /// </summary>
+        /// <param name="bestandsnaam">kijk in afb map voor de bestandsnaam</param>
+        /// <returns>bitmap stream</returns>
         public Bitmap loadimage(string bestandsnaam)
         {
             Assembly myAssembly = Assembly.GetExecutingAssembly();
