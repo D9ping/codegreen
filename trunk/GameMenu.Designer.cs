@@ -99,11 +99,12 @@
             // pbTitel
             // 
             this.pbTitel.BackColor = System.Drawing.Color.Transparent;
-            this.pbTitel.Image = ((System.Drawing.Image)(resources.GetObject("pbTitel.Image")));
-            this.pbTitel.Location = new System.Drawing.Point(-5, -1);
+            this.pbTitel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbTitel.BackgroundImage")));
+            this.pbTitel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbTitel.Location = new System.Drawing.Point(12, 279);
             this.pbTitel.Name = "pbTitel";
-            this.pbTitel.Size = new System.Drawing.Size(760, 324);
-            this.pbTitel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTitel.Size = new System.Drawing.Size(531, 165);
+            this.pbTitel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbTitel.TabIndex = 0;
             this.pbTitel.TabStop = false;
             // 
@@ -125,6 +126,8 @@
             this.Controls.Add(this.pbTitel);
             this.Name = "GameMenu";
             this.Text = "CodeGreen";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameMenu_Paint);
+            this.Shown += new System.EventHandler(this.GameMenu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).EndInit();

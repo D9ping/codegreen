@@ -16,12 +16,13 @@ namespace CodeGreen
         bool wifiwep;
         bool wifiwpa;
         bool windowsoutdated;
-        bool virusscanner;                
+        bool virusscanner;
+        bool bot;     
         #endregion
 
         #region constructor
-        public Huis(String bewonernaam, String bankaccountnaam, String ipadres, bool wifi, string wifissid, bool wifiwep, bool wifiwpa,   
-            bool windowsoutdated, bool virusscanner)
+        public Huis(String bewonernaam, String bankaccountnaam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
+            bool windowsoutdated, bool virusscanner, bool bot)
         {
             this.bewonernaam = bewonernaam;
             this.bankaccountnaam = bankaccountnaam;
@@ -73,6 +74,11 @@ namespace CodeGreen
         public bool Virusscanner
         {
             get { return virusscanner; }
+        }
+        public bool IsBot
+        {
+            get { return this.bot; }
+            set { bot = value; }
         }
         #endregion
 

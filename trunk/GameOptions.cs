@@ -48,8 +48,7 @@ namespace CodeGreen
             {
                 if (sender == pbBackMenu)
                 {
-                    pbBackMenu.Image = resourceshandler.loadimage("knop_backmainmenu_selected.png");
-                    //Image.FromFile("..\\..\\afb\\knop_backmainmenu_selected.png");
+                    pbBackMenu.Image = resourceshandler.loadimage("knop_backmainmenu_selected.png");                    
                 }
                 else if (sender == lblOptionSound)
                 {
@@ -76,7 +75,7 @@ namespace CodeGreen
             {
                 if (sender == pbBackMenu)
                 {
-                    pbBackMenu.Image = Image.FromFile("..\\..\\afb\\knop_backmainmenu.png");
+                    pbBackMenu.Image = resourceshandler.loadimage("knop_backmainmenu.png");
                 }
                 else if (sender == lblOptionSound)
                 {
@@ -90,7 +89,6 @@ namespace CodeGreen
                 {
                     misc.ToonBericht(1);
                 }
-
             }
             catch (Exception)
             {
@@ -119,14 +117,12 @@ namespace CodeGreen
         {
             if (options.sound_enabled == true)
             {
-                pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");
-                //Image.FromFile("..\\..\\afb\\checkbox_off.png");
+                pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");                
                 if (options.UpdateSetting("sound", false) == false) { misc.ToonBericht(3); }
             }
             else if (options.sound_enabled == false)
             {
-                pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");
-                //Image.FromFile("..\\..\\afb\\checkbox_on.png");
+                pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");                
                 if (options.UpdateSetting("sound", true) == false) { misc.ToonBericht(3); }
             }
         }
@@ -135,14 +131,12 @@ namespace CodeGreen
         {
             if (options.controller_enabled == true)
             {
-                pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");
-                //Image.FromFile("..\\..\\afb\\checkbox_off.png");
+                pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");                
                 if (options.UpdateSetting("controller", false) == false) { misc.ToonBericht(3); }
             }
             else if (options.controller_enabled == false)
             {
                 pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
-                //Image.FromFile("..\\..\\afb\\checkbox_on.png");
                 if (options.UpdateSetting("sound", true) == false) { misc.ToonBericht(3); }
             }
         }

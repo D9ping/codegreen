@@ -16,12 +16,14 @@ namespace CodeGreen
         #region datavelden
         Assembly myAssembly;
         Misc misc;
+        OptionsHandler options;
         #endregion
 
         #region constructor
         public ResourceHandler()
         {
             misc = new Misc();
+            options = new OptionsHandler();
         }
         #endregion
 
@@ -37,7 +39,7 @@ namespace CodeGreen
         public Bitmap loadimage(string bestandsnaam)
         {
             Assembly myAssembly = Assembly.GetExecutingAssembly();
-            Stream myStream = myAssembly.GetManifestResourceStream("CodeGreen.afb."+bestandsnaam);
+            Stream myStream = myAssembly.GetManifestResourceStream("CodeGreen.afb." + bestandsnaam);
             try
             {
                 Bitmap bpm = new Bitmap(myStream);
@@ -58,15 +60,22 @@ namespace CodeGreen
         /// <returns>true als afspelen lukt</returns>
         public bool playsound(String bestandsnaam, bool herhalen)
         {
-            try
+            if (options.sound_enabled == true)
             {
-                System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
-                myPlayer.SoundLocation = "..\\..\\sounds\\"+bestandsnaam;
-                if (herhalen == true) { myPlayer.PlayLooping(); }
-                myPlayer.Play();
-                return true;
+                try
+                {
+                    System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer();
+                    myPlayer.SoundLocation = "..\\..\\sounds\\" + bestandsnaam;
+                    if (herhalen == true) { myPlayer.PlayLooping(); }
+                    myPlayer.Play();
+                    return true;
+                }
+                catch (Exception) { 
+                    //faild to play
+                    return false; }
             }
-            catch (Exception) { return false; }  
+            //sound is off
+            return true;
         }
 
 

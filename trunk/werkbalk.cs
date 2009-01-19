@@ -11,8 +11,7 @@ namespace CodeGreen
     {
         INSTRUCTIE,
         INVENTORY,
-        BANK,
-        SHOP,
+        BANK,        
         HUIS
     } 
             #region datavelden
@@ -33,7 +32,7 @@ namespace CodeGreen
             #region methoden
 
 
-            public toon()
+            public void toon()
             {
             switch (werkbalk)
             {
@@ -70,17 +69,6 @@ namespace CodeGreen
 
                     tooltip.SetToolTip(this.pbKnopshop, "go to shop");
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
-                    break;
-                case WerkbalkState.SHOP:
-                    ToonGB(gbxShop);
-                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-
-                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-
-                    tooltip.SetToolTip(this.pbKnopshop, "leave shop");
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png");
                     break;
                 case WerkbalkState.HUIS:
                     ToonGB(gbxInformatieHuis);

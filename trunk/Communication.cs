@@ -88,8 +88,7 @@ namespace CodeGreen
                 ms.ToonBericht(3);
             }
         }
-
-        /*
+        /*        
         /// <summary>
         /// gekozen huis updaten
         /// </summary>

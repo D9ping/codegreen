@@ -62,23 +62,19 @@ namespace CodeGreen
             {
                 if (sender == pbStartGame)
                 {
-                    pbStartGame.Image = resourcehandler.loadimage("knop_start_selected.png");
-                    //pbStartGame.Image = Image.FromFile("..\\..\\afb\\knop_start_selected.png");
+                    pbStartGame.Image = resourcehandler.loadimage("knop_start_selected.png");                    
                 }
                 else if (sender == pbOptions)
                 {
-                    pbOptions.Image = resourcehandler.loadimage("knop_options_selected.png");
-                    //pbOptions.Image = Image.FromFile("..\\..\\afb\\knop_options_selected.png");
+                    pbOptions.Image = resourcehandler.loadimage("knop_options_selected.png");                    
                 }
                 else if (sender == pbHighscore)
                 {
-                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore_selected.png");
-                    //pbHighscore.Image = Image.FromFile("..\\..\\afb\\knop_highscore_selected.png");
+                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore_selected.png");                    
                 }
                 else if (sender == pbExit)
                 {
-                    pbExit.Image = resourcehandler.loadimage("knop_exit_selected.png");
-                    //pbExit.Image = Image.FromFile("..\\..\\afb\\knop_exit_selected.png");
+                    pbExit.Image = resourcehandler.loadimage("knop_exit_selected.png");                    
                 }
                 else
                 {
@@ -102,24 +98,22 @@ namespace CodeGreen
             {
                 if (sender == pbStartGame)
                 {
-                    pbStartGame.Image = Image.FromFile("..\\..\\afb\\knop_start.png");
+                    pbStartGame.Image = resourcehandler.loadimage("knop_start.png");                        
                 }
                 else if (sender == pbOptions)
                 {
-                    pbOptions.Image = Image.FromFile("..\\..\\afb\\knop_options.png");
+                    pbOptions.Image = resourcehandler.loadimage("knop_options.png");                        
                 }
                 else if (sender == pbHighscore)
                 {
-                    pbHighscore.Image = Image.FromFile("..\\..\\afb\\knop_highscore.png");
+                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore.png");                        
                 }
                 else if (sender == pbExit)
                 {
-                    pbExit.Image = Image.FromFile("..\\..\\afb\\knop_exit.png");
+                    pbExit.Image = resourcehandler.loadimage("knop_exit.png");                        
                 }
-                else
-                {
-                    misc.ToonBericht(2);
-                }
+                    //sender not found...
+                else { misc.ToonBericht(2); }
             }
             catch
             {
@@ -132,18 +126,23 @@ namespace CodeGreen
             Random ran = new Random();
             int Xnewtextbox = ran.Next(20, 780);
             String ent = "\r\n"; // opmerking: \r is enter en \n is een linefeed.
-            TextBox newtextbox = new TextBox();
+            
+            TextBox newtextbox = new TextBox();            
             newtextbox.AcceptsReturn = true;
             newtextbox.Multiline = true;
-            newtextbox.ForeColor = Color.Green;
+            int numcolor = ran.Next(0, 3);
+                if(numcolor==0) { newtextbox.ForeColor = Color.Green; }
+                else if (numcolor == 1) { newtextbox.ForeColor = Color.LightGreen; }
+                else if (numcolor == 2) { newtextbox.ForeColor = Color.DarkGreen; }
+                else { newtextbox.ForeColor = Color.Green; }            
             newtextbox.BackColor = Color.Black;
             newtextbox.BorderStyle = BorderStyle.None;
             newtextbox.ScrollBars = ScrollBars.None;
-            newtextbox.Location = new Point(Xnewtextbox, 0);
+            newtextbox.Location = new Point(Xnewtextbox, -139);
             newtextbox.Height = 140;
             newtextbox.Width = 15;
             newtextbox.Cursor = Cursors.Default;
-            newtextbox.Text = "N" + ent + "E" + ent + "E" + ent + "R" + ent + "G" + ent + ent + "E" + ent + "D" + ent + "O" + ent + "C";
+            newtextbox.Text = "N" + ent + "E" + ent + "E" + ent + "R" + ent + "G" + ent + ent + "E" + ent + "D" + ent + "O" + ent + "C";            
             this.Controls.Add(newtextbox);
             droptexten.Add(newtextbox);
         }
@@ -154,7 +153,11 @@ namespace CodeGreen
             {
                 int Xtext = droptexten[i].Location.X;
                 int Ytext = droptexten[i].Location.Y + 4;
-                droptexten[i].Location = new Point(Xtext, Ytext);
+
+                if (Ytext > 600) {                     
+                    droptexten[i].Dispose();//dit verkomt dat programma steeds meer geheugen gaat verbruiken.
+                }
+                else { droptexten[i].Location = new Point(Xtext, Ytext); }
             }
         }
 
@@ -162,21 +165,23 @@ namespace CodeGreen
         {
             this.updateDropText();
             n++;
-            if (n == 4)
+            if (n == 2)
             {
                 newDropText();
-                n = 0;
+                n = 0;   
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void GameMenu_Shown(object sender, EventArgs e)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                newDropText();
-            }
-
+            this.Refresh();
         }
+
+        private void GameMenu_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.
+        }
+
 
     }
         #endregion methoden

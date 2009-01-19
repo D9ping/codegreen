@@ -29,6 +29,7 @@ namespace CodeGreen
         private Communication communication;
         private WerkbalkState werkbalk;
         private Bank bank;
+        private List<Huis> huizen;
         #endregion
 
         #region constructor
@@ -40,9 +41,11 @@ namespace CodeGreen
             options = new OptionsHandler();
             resourcehandler = new ResourceHandler();
             Bank bank = new Bank();
+            
             bank.initbankaccounts();
 
             PlayerBankaccount = bank.GetByNaam("speler");
+            huizen = new List<Huis>();
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard) 
             if (options.controller_enabled == true)
@@ -58,6 +61,8 @@ namespace CodeGreen
             gbxInventory.Location = werkbalklocation;
             gbxBank.Size = werkbalksize;
             gbxBank.Location = werkbalklocation;
+            gbxHuis.Size = werkbalksize;
+            gbxHuis.Location = werkbalklocation;
         }
         #endregion
 
@@ -130,30 +135,30 @@ namespace CodeGreen
             {
                 case WerkbalkState.INSTRUCTIE:
                     ToonGB(gbxGameInstructions);
-                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    //tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    //tooltip.SetToolTip(this.pbKnopBank, "login bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
                     break;
                 case WerkbalkState.INVENTORY:
                     ToonGB(gbxInventory);
-                    tooltip.SetToolTip(this.pbKnopInventory, "close inventory");
+                    //tooltip.SetToolTip(this.pbKnopInventory, "close inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");
-                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    //tooltip.SetToolTip(this.pbKnopBank, "login bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
                     break;
                 case WerkbalkState.BANK:
                     ToonGB(gbxBank);
-                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    //tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    tooltip.SetToolTip(this.pbKnopBank, "logout bank");
+                    //tooltip.SetToolTip(this.pbKnopBank, "logout bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_on.png");                    
                     break;
                 case WerkbalkState.HUIS:
                     ToonGB(gbxHuis);
-                    tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    //tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    tooltip.SetToolTip(this.pbKnopBank, "login bank");
+                    //tooltip.SetToolTip(this.pbKnopBank, "login bank");
                     pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
                     break;
             }
@@ -185,8 +190,8 @@ namespace CodeGreen
                     werkbalk = WerkbalkState.HUIS;
                 }
                 /*
-                Huis getHuis = new Huis();
-                getHuis.
+                Huis getHuis
+                
                 lbHuisNaam.Text = huis.Bewonernaam;
                 lbHuisIP.Text = huis.IPADRES;                
                 if (huis.wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
@@ -197,22 +202,6 @@ namespace CodeGreen
             ShowWerkbalk();
         }
 
-
-        private Huis getHuisInfo(object huis)
-        {
-
-            if (huis == pbHuis1)
-            {
-
-            }
-            else if (huis == pbHuis2)
-            {
-
-            }
-
-            return null;
-        }
-
         private void VeranderVenster(object sender, EventArgs e)
         {
             //winkel niet op werkbalk
@@ -221,10 +210,12 @@ namespace CodeGreen
                 if (gbxShop.Visible == true) 
                 {
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png"); 
+                    gbxShop.Visible=false;
                 }
                 else if (gbxShop.Visible == false)
                 {
                     pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png"); 
+                    gbxShop.Visible=true;
                 }                                               
 
             }
@@ -251,7 +242,7 @@ namespace CodeGreen
         {
             pbItemNetworkScanner.Visible = true;
 
-            resourcehandler.playsound("buy.wav", true);
+            resourcehandler.playsound("buy.wav", false);
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
@@ -259,7 +250,7 @@ namespace CodeGreen
             if (options.sound_enabled == true)
             {
                 //zoek een geluid voor iets dat verkocht is.
-                //resourcehandler.playsound("");                                
+                resourcehandler.playsound("buy.wav", false);
             }
             pbItemNetworkSniffer.Visible = true;
         }
@@ -295,7 +286,7 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// tekent de bus op nieuwe plek, CPU intensief!!
+        /// tekent de bus op nieuwe plek, CPU intensief!
         /// </summary>
         private void truckdrive(int n)
         {
@@ -336,22 +327,39 @@ namespace CodeGreen
 
         private void btnKoopWorm_Click(object sender, EventArgs e)
         {
-            //todo
+            //pbItemWorm.visible = true;
         }
 
         public void inithuizen()
         {
             try
-            {
-                Huis huis1 = new Huis("naam", "naam1", "12.23.34.45", true, "naam1", true, true, false, false);
+            {   
+                Huis[] huis = new Huis[5];
+                huis[0] = new Huis("naam", "naam1", "12.23.34.45", true, "linksystems", true, true, false, false, false);
+                huis[1] = new Huis("naam", "naam2", "12.23.34.45", true, "speedytouch", true, true, false, false, false);
+                huis[2] = new Huis("naam", "naam3", "12.23.34.45", true, "netgears", true, true, false, false, false);
+                huis[3] = new Huis("naam", "naam4", "12.23.34.45", true, "devries", true, true, false, false, false);
+                huis[4] = new Huis("naam", "naam5", "12.23.34.45", true, "draadloos324098", true, true, false, false, false);
+
+                huizen.AddRange(huis);   
             }
             catch (Exception)
             {
                 misc.ToonBericht(6);
             }
-        }
+        }        
 
-
+       private Huis getHuis(String huisnm)
+       {
+           foreach (Huis huis in huizen)
+	        {
+                if (huis.Bewonernaam == huisnm)
+                {
+                    return huis;
+                }
+	        }
+           return null;
+       }
         #endregion
     }
 

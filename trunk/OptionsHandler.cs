@@ -14,29 +14,39 @@ namespace CodeGreen
     {
         #region datavelden
         private RegistryKey regsleutel;
-        private bool soundsetting;
-        private bool controllersetting;
+        private Misc misc;
+        private bool setting_sound;
+        private bool setting_controller;
         #endregion
 
         #region constructor
         public OptionsHandler()
         {
-            if (GetSetting("Sound") == true && GetSetting("Controller") == true)
+            misc = new Misc();
+
+            try
             {
-                soundsetting = GetSetting("Sound");
-                controllersetting = GetSetting("Controller");
+                if (GetSettingBool("Sound") == true) { setting_sound = true; }
+                else if (GetSettingBool("Sound") == false) { setting_sound = false; }
+                if (GetSettingBool("Controller") == true) { setting_controller = true; }
+                else if (GetSettingBool("Controller") == false) { setting_controller = false; }
             }
+            catch (Exception)
+            {
+                misc.ToonBericht(3);                
+            }
+
         }
         #endregion
 
         #region properties
         public bool sound_enabled
         {
-            get { return this.soundsetting; }            
+            get { return this.setting_sound; }            
         }
         public bool controller_enabled
         {
-            get { return this.soundsetting; }
+            get { return this.setting_controller; }
         }
         #endregion
 
@@ -46,18 +56,11 @@ namespace CodeGreen
         /// </summary>
         /// <param name="regwaarde">de settings van de sleutel</param>
         /// <returns>Geeft true terug als ophalen gelukt is.</returns>
-        public bool GetSetting(String keysetting)
-        {
-            try 
-	        {	        
-		        regsleutel = Registry.CurrentUser.OpenSubKey("Software\\CodeGreen");
-                soundsetting = (bool)regsleutel.GetValue(keysetting);
-                return true;
-	        }
-	        catch (Exception)
-	        {
-		        return false;		
-	        }            
+        public bool GetSettingBool(String keysetting)
+        {                
+		     regsleutel = Registry.CurrentUser.OpenSubKey("Software\\CodeGreen", true);
+             bool settingbool = Convert.ToBoolean(regsleutel.GetValue(keysetting));
+             return settingbool;	                
         }
 
         /// <summary>
