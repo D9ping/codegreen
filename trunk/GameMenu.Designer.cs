@@ -110,7 +110,6 @@
             // 
             // timerDropText
             // 
-            this.timerDropText.Enabled = true;
             this.timerDropText.Interval = 30;
             this.timerDropText.Tick += new System.EventHandler(this.timerDropText_Tick);
             // 

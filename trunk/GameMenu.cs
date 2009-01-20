@@ -26,6 +26,7 @@ namespace CodeGreen
             misc = new Misc();
             resourcehandler = new ResourceHandler();
             droptexten = new List<TextBox>();
+            timerDropText.Enabled = true;
 
         }
         #endregion
