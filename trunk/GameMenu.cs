@@ -177,11 +177,6 @@ namespace CodeGreen
             this.Refresh();
         }
 
-        private void GameMenu_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.
-        }
-
 
     }
         #endregion methoden

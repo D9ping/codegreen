@@ -8,8 +8,8 @@ namespace CodeGreen
     class Huis
     {
         #region datavelden
-        String bewonernaam;
-        String bankaccountnaam;
+        String huisnaam;
+        String naam;
         String ipadres;        
         bool wifi;
         String wifissid;
@@ -21,15 +21,29 @@ namespace CodeGreen
         #endregion
 
         #region constructor
-        public Huis(String bewonernaam, String bankaccountnaam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="huisnaam">ook de naam van het object in gamescreen</param>
+        /// <param name="naam">de naam van de bewoner en rekening</param>
+        /// <param name="ipadres"></param>
+        /// <param name="wifi"></param>
+        /// <param name="wifissid"></param>
+        /// <param name="wifiwep"></param>
+        /// <param name="wifiwpa"></param>
+        /// <param name="windowsoutdated"></param>
+        /// <param name="virusscanner"></param>
+        /// <param name="bot"></param>
+        public Huis(String huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
             bool windowsoutdated, bool virusscanner, bool bot)
         {
-            this.bewonernaam = bewonernaam;
-            this.bankaccountnaam = bankaccountnaam;
+            this.huisnaam = huisnaam;
+            this.naam = naam;
             this.ipadres = ipadres;
 
             this.wifi = wifi;
-            this.wifissid = wifissid;            
+            if (wifi == false) { this.wifissid = ""; this.wifiwep = false; this.wifiwpa = false; }
+            this.wifissid = wifissid;
             this.wifiwep = wifiwep;
             this.wifiwpa = wifiwpa;
 
@@ -39,13 +53,15 @@ namespace CodeGreen
         #endregion
 
         #region properties
-        public String Bewonernaam
+        //huisnaam is hetzelfde als het object naam om het te vinden.
+        public String Huisnaam
         {
-            get { return bewonernaam; }
+            get { return huisnaam; }
         }
-        public String BankAccountnaam
+        //naam is het zelfde bij de bank account
+        public String Naam
         {
-            get { return bankaccountnaam; }
+            get { return naam; }
         }
         public String IPAdres
         {

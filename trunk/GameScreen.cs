@@ -47,7 +47,7 @@ namespace CodeGreen
             PlayerBankaccount = bank.GetByNaam("speler");
             huizen = new List<Huis>();
 
-            //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard) 
+            //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
             if (options.controller_enabled == true)
             {
                 Communication communication = new Communication();
@@ -91,7 +91,8 @@ namespace CodeGreen
         {
             TimerTextEffect.Enabled = true;
             TimerGametime.Enabled = true;
-            if (resourcehandler.playsound("backgroundmusic.wav", true) == false) { misc.ToonBericht(5); }
+            if (resourcehandler.playsound("backgroundmusic.wav", true) == false)
+            { misc.ToonBericht(5); }
         }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
@@ -189,17 +190,30 @@ namespace CodeGreen
                 {
                     werkbalk = WerkbalkState.HUIS;
                 }
-                /*
-                Huis getHuis
+
+
+                Huis huis = this.getHuis(sender.ToString());
                 
-                lbHuisNaam.Text = huis.Bewonernaam;
-                lbHuisIP.Text = huis.IPADRES;                
-                if (huis.wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
+                lbHuisNaam.Text = huis.Naam;
+                //lbHuisIP.Text = huis.IPADRES;                
+                if (huis.Wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
                 else if (huis.Wifi == false) { lbHuisWifi.Text = "Geen draadloos netwerk"; }
-                */
+                
 
             }
             ShowWerkbalk();
+        }
+
+        private Huis getHuis(String huisnm)
+        {
+            foreach (Huis curhuis in huizen)
+            {
+                if (curhuis.Huisnaam == huisnm)
+                {
+                    return curhuis;
+                }
+            }
+            return null;
         }
 
         private void VeranderVenster(object sender, EventArgs e)
@@ -232,7 +246,7 @@ namespace CodeGreen
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
         {
             pbItemWifiWEPCracker.Visible = true;
-            //TODO: zoek CC of GPL 'ping' kassa geluid van iets gekocht.
+            btnBuyWifiwepcracker.Enabled = false;
             resourcehandler.playsound("buy.wav", true);
             //TODO: Van de speler wordt geld af gehaalt,
             //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
@@ -241,18 +255,16 @@ namespace CodeGreen
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
         {
             pbItemNetworkScanner.Visible = true;
-
+            btnBuyneworkscanner.Enabled = false;
             resourcehandler.playsound("buy.wav", false);
         }
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
         {
-            if (options.sound_enabled == true)
-            {
-                //zoek een geluid voor iets dat verkocht is.
-                resourcehandler.playsound("buy.wav", false);
-            }
             pbItemNetworkSniffer.Visible = true;
+            btnBuynetworksniffer.Enabled = false;
+            resourcehandler.playsound("buy.wav", false);
+            
         }
 
 
@@ -334,12 +346,13 @@ namespace CodeGreen
         {
             try
             {   
+                //TODO: verzin betere namen.
                 Huis[] huis = new Huis[5];
-                huis[0] = new Huis("naam", "naam1", "12.23.34.45", true, "linksystems", true, true, false, false, false);
-                huis[1] = new Huis("naam", "naam2", "12.23.34.45", true, "speedytouch", true, true, false, false, false);
-                huis[2] = new Huis("naam", "naam3", "12.23.34.45", true, "netgears", true, true, false, false, false);
-                huis[3] = new Huis("naam", "naam4", "12.23.34.45", true, "devries", true, true, false, false, false);
-                huis[4] = new Huis("naam", "naam5", "12.23.34.45", true, "draadloos324098", true, true, false, false, false);
+                huis[0] = new Huis("pbHuis1", "Jan de Vries", "12.23.34.45", true, "linksystems", true, true, false, false, false);
+                huis[1] = new Huis("pbHuis2", "Marrieke ", "12.23.34.45", true, "speedytouch", true, true, false, false, false);
+                huis[2] = new Huis("pbHuis3", "Kees", "12.23.34.45", true, "netgears", true, true, false, false, false);
+                huis[3] = new Huis("pbHuis4", "Pieter", "12.23.34.45", false, "", true, true, false, false, false);
+                huis[4] = new Huis("pbHuis5", "Roel", "12.23.34.45", true, "draadloos324098", true, true, true, true, false);
 
                 huizen.AddRange(huis);   
             }
@@ -349,17 +362,6 @@ namespace CodeGreen
             }
         }        
 
-       private Huis getHuis(String huisnm)
-       {
-           foreach (Huis huis in huizen)
-	        {
-                if (huis.Bewonernaam == huisnm)
-                {
-                    return huis;
-                }
-	        }
-           return null;
-       }
         #endregion
     }
 
