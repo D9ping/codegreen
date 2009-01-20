@@ -20,7 +20,7 @@ namespace CodeGreen
         #endregion
 
         #region constructor
-        public Items(String naamitem)            
+        public Items(String naamitem)
             //(bool webcracker, bool keylogger, bool netwerkscanner, bool coderedvirus, bool trojanhorse, bool worm)
         {
         /*

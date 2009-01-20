@@ -198,7 +198,7 @@ namespace CodeGreen
                 if (huis == null) { misc.ToonBericht(7); return; }
 
                 lbNaam.Text = huis.Naam;
-                if (btnBuyneworkscanner.Visible == true) { lbIPadres.Text = huis.IPAdres; }
+                if (btnBuyNeworkscanner.Visible == true) { lbIPadres.Text = huis.IPAdres; }
                 else { lbIPadres.Text = "unknow"; }
                 if (huis.Wifi==true) {
                     lbWifi.Text = "Yes";
@@ -278,24 +278,24 @@ namespace CodeGreen
                 //TODO: Van de speler wordt geld af gehaalt,
                 //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
             }
-            else if (sender == btnBuyneworkscanner)
+            else if (sender == btnBuyNeworkscanner)
             {
                 pbItemNetworkScanner.Visible = true;
-                btnBuyneworkscanner.Enabled = false;
+                btnBuyNeworkscanner.Enabled = false;
             }
             else if (sender == btnBuyKeylogger)
             {
-                //pbItemKeylogger.Visible = true;
+                pbItemKeylogger.Visible = true;
                 btnBuyKeylogger.Enabled = false;
             }
             else if (sender == btnKoopWorm)
             {
                 //pbItemWorm.Visible = false;
-                btnKoopWorm.Enabled = false;
+                //btnKoopWorm.Enabled = false;
             }
             else if (sender == btnKoopVirus)
             {
-                //pbItemVirus.Visible = false;
+                pbItemCoderedvirus.Visible = true;
                 btnKoopVirus.Enabled = false;
             }
             else
@@ -318,7 +318,7 @@ namespace CodeGreen
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
         {
             pbItemNetworkScanner.Visible = true;
-            btnBuyneworkscanner.Enabled = false;
+            btnBuyNeworkscanner.Enabled = false;
             resourcehandler.playsound("buy.wav", false);
         }
 
@@ -411,11 +411,11 @@ namespace CodeGreen
                 //TODO: verzin betere namen.
                 Huis[] huis = new Huis[6];
                 huis[0] = new Huis(pbHuis1, "Your house", "33.23.34.45", true, "linksystems", false, true, true, true, false);
-                huis[1] = new Huis(pbHuis2, "Marrieke", "66.23.34.45", true, "speedytouch", false, true, false, false, false);
+                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "speedytouch", false, true, false, false, false);
                 huis[2] = new Huis(pbHuis3, "Kees", "72.23.34.45", true, "netgears", true, true, false, false, false);
                 huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
                 huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", true, true, true, true, false);
-                huis[5] = new Huis(pbHuis6, "Jan de Vries", "78.23.34.45", true, "linksystems", true, true, false, false, false);
+                huis[5] = new Huis(pbHuis6, "Marrieke", "78.23.34.45", true, "linksystems", true, true, false, false, false);
                 huizen.AddRange(huis);   
             }
             catch (Exception)
