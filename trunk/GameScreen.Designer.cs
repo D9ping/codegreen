@@ -51,7 +51,7 @@
             this.btnKoopWorm = new System.Windows.Forms.Button();
             this.btnBuyWifiwepcracker = new System.Windows.Forms.Button();
             this.btnBuyneworkscanner = new System.Windows.Forms.Button();
-            this.btnBuynetworksniffer = new System.Windows.Forms.Button();
+            this.btnBuyKeylogger = new System.Windows.Forms.Button();
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.pbKnopBank = new System.Windows.Forms.PictureBox();
             this.pbShop = new System.Windows.Forms.PictureBox();
@@ -68,8 +68,12 @@
             this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.usb = new UsbLibrary.UsbHidPort(this.components);
             this.gbxHuis = new System.Windows.Forms.GroupBox();
+            this.lbWifiWPA = new System.Windows.Forms.Label();
+            this.lbWifiWEP = new System.Windows.Forms.Label();
+            this.lbWifiSSID = new System.Windows.Forms.Label();
+            this.lbIPadres = new System.Windows.Forms.Label();
             this.lbTextIPadres = new System.Windows.Forms.Label();
-            this.lbTextWPA = new System.Windows.Forms.Label();
+            this.lbTextWifiWPA = new System.Windows.Forms.Label();
             this.lbTextWifiWEP = new System.Windows.Forms.Label();
             this.lbTextWifiSSID = new System.Windows.Forms.Label();
             this.lbWifi = new System.Windows.Forms.Label();
@@ -77,11 +81,12 @@
             this.lbNaam = new System.Windows.Forms.Label();
             this.lbTextNaam = new System.Windows.Forms.Label();
             this.gbxBank = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbLogin = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.pbTruck1 = new System.Windows.Forms.PictureBox();
-            this.lbIPadres = new System.Windows.Forms.Label();
-            this.lbWifiSSID = new System.Windows.Forms.Label();
-            this.lbWifiWEP = new System.Windows.Forms.Label();
-            this.lbWifiWPA = new System.Windows.Forms.Label();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
@@ -101,6 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopshop)).BeginInit();
             this.gbxHuis.SuspendLayout();
+            this.gbxBank.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTruck1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,7 +250,7 @@
             this.gbxShop.Controls.Add(this.btnKoopWorm);
             this.gbxShop.Controls.Add(this.btnBuyWifiwepcracker);
             this.gbxShop.Controls.Add(this.btnBuyneworkscanner);
-            this.gbxShop.Controls.Add(this.btnBuynetworksniffer);
+            this.gbxShop.Controls.Add(this.btnBuyKeylogger);
             this.gbxShop.ForeColor = System.Drawing.Color.White;
             this.gbxShop.Location = new System.Drawing.Point(363, 129);
             this.gbxShop.Name = "gbxShop";
@@ -302,56 +308,57 @@
             // btnKoopVirus
             // 
             this.btnKoopVirus.ForeColor = System.Drawing.Color.Black;
-            this.btnKoopVirus.Location = new System.Drawing.Point(230, 190);
+            this.btnKoopVirus.Location = new System.Drawing.Point(217, 185);
             this.btnKoopVirus.Name = "btnKoopVirus";
             this.btnKoopVirus.Size = new System.Drawing.Size(65, 24);
             this.btnKoopVirus.TabIndex = 12;
             this.btnKoopVirus.Text = "Koop!";
             this.btnKoopVirus.UseVisualStyleBackColor = true;
+            this.btnKoopVirus.Click += new System.EventHandler(this.BuyItem);
             // 
             // btnKoopWorm
             // 
             this.btnKoopWorm.ForeColor = System.Drawing.Color.Black;
-            this.btnKoopWorm.Location = new System.Drawing.Point(230, 81);
+            this.btnKoopWorm.Location = new System.Drawing.Point(219, 107);
             this.btnKoopWorm.Name = "btnKoopWorm";
             this.btnKoopWorm.Size = new System.Drawing.Size(65, 24);
             this.btnKoopWorm.TabIndex = 11;
             this.btnKoopWorm.Text = "Koop!";
             this.btnKoopWorm.UseVisualStyleBackColor = true;
-            this.btnKoopWorm.Click += new System.EventHandler(this.btnKoopWorm_Click);
+            this.btnKoopWorm.Click += new System.EventHandler(this.BuyItem);
             // 
             // btnBuyWifiwepcracker
             // 
             this.btnBuyWifiwepcracker.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(228, 118);
+            this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(217, 30);
             this.btnBuyWifiwepcracker.Name = "btnBuyWifiwepcracker";
             this.btnBuyWifiwepcracker.Size = new System.Drawing.Size(67, 24);
             this.btnBuyWifiwepcracker.TabIndex = 9;
             this.btnBuyWifiwepcracker.Text = "Koop!";
             this.btnBuyWifiwepcracker.UseVisualStyleBackColor = true;
-            this.btnBuyWifiwepcracker.Click += new System.EventHandler(this.btnBuyWifiwepcracker_Click);
+            this.btnBuyWifiwepcracker.Click += new System.EventHandler(this.BuyItem);
             // 
             // btnBuyneworkscanner
             // 
             this.btnBuyneworkscanner.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyneworkscanner.Location = new System.Drawing.Point(230, 155);
+            this.btnBuyneworkscanner.Location = new System.Drawing.Point(217, 149);
             this.btnBuyneworkscanner.Name = "btnBuyneworkscanner";
             this.btnBuyneworkscanner.Size = new System.Drawing.Size(65, 24);
             this.btnBuyneworkscanner.TabIndex = 10;
             this.btnBuyneworkscanner.Text = "Koop!";
             this.btnBuyneworkscanner.UseVisualStyleBackColor = true;
-            this.btnBuyneworkscanner.Click += new System.EventHandler(this.btnBuyneworkscanner_Click);
+            this.btnBuyneworkscanner.Click += new System.EventHandler(this.BuyItem);
             // 
-            // btnBuynetworksniffer
+            // btnBuyKeylogger
             // 
-            this.btnBuynetworksniffer.ForeColor = System.Drawing.Color.Black;
-            this.btnBuynetworksniffer.Location = new System.Drawing.Point(230, 43);
-            this.btnBuynetworksniffer.Name = "btnBuynetworksniffer";
-            this.btnBuynetworksniffer.Size = new System.Drawing.Size(65, 26);
-            this.btnBuynetworksniffer.TabIndex = 8;
-            this.btnBuynetworksniffer.Text = "Koop!";
-            this.btnBuynetworksniffer.UseVisualStyleBackColor = true;
-            this.btnBuynetworksniffer.Click += new System.EventHandler(this.btnBuynetworksniffer_Click);
+            this.btnBuyKeylogger.ForeColor = System.Drawing.Color.Black;
+            this.btnBuyKeylogger.Location = new System.Drawing.Point(217, 63);
+            this.btnBuyKeylogger.Name = "btnBuyKeylogger";
+            this.btnBuyKeylogger.Size = new System.Drawing.Size(65, 26);
+            this.btnBuyKeylogger.TabIndex = 8;
+            this.btnBuyKeylogger.Text = "Koop!";
+            this.btnBuyKeylogger.UseVisualStyleBackColor = true;
+            this.btnBuyKeylogger.Click += new System.EventHandler(this.BuyItem);
             // 
             // pbKnopBank
             // 
@@ -520,7 +527,7 @@
             this.gbxHuis.Controls.Add(this.lbWifiSSID);
             this.gbxHuis.Controls.Add(this.lbIPadres);
             this.gbxHuis.Controls.Add(this.lbTextIPadres);
-            this.gbxHuis.Controls.Add(this.lbTextWPA);
+            this.gbxHuis.Controls.Add(this.lbTextWifiWPA);
             this.gbxHuis.Controls.Add(this.lbTextWifiWEP);
             this.gbxHuis.Controls.Add(this.lbTextWifiSSID);
             this.gbxHuis.Controls.Add(this.lbWifi);
@@ -536,6 +543,46 @@
             this.gbxHuis.Text = "Informatie Huis";
             this.gbxHuis.Visible = false;
             // 
+            // lbWifiWPA
+            // 
+            this.lbWifiWPA.AutoSize = true;
+            this.lbWifiWPA.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifiWPA.Location = new System.Drawing.Point(266, 59);
+            this.lbWifiWPA.Name = "lbWifiWPA";
+            this.lbWifiWPA.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiWPA.TabIndex = 11;
+            this.lbWifiWPA.Text = "(..)";
+            // 
+            // lbWifiWEP
+            // 
+            this.lbWifiWEP.AutoSize = true;
+            this.lbWifiWEP.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifiWEP.Location = new System.Drawing.Point(266, 40);
+            this.lbWifiWEP.Name = "lbWifiWEP";
+            this.lbWifiWEP.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiWEP.TabIndex = 10;
+            this.lbWifiWEP.Text = "(..)";
+            // 
+            // lbWifiSSID
+            // 
+            this.lbWifiSSID.AutoSize = true;
+            this.lbWifiSSID.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifiSSID.Location = new System.Drawing.Point(266, 22);
+            this.lbWifiSSID.Name = "lbWifiSSID";
+            this.lbWifiSSID.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiSSID.TabIndex = 9;
+            this.lbWifiSSID.Text = "(..)";
+            // 
+            // lbIPadres
+            // 
+            this.lbIPadres.AutoSize = true;
+            this.lbIPadres.ForeColor = System.Drawing.Color.Lime;
+            this.lbIPadres.Location = new System.Drawing.Point(92, 37);
+            this.lbIPadres.Name = "lbIPadres";
+            this.lbIPadres.Size = new System.Drawing.Size(19, 13);
+            this.lbIPadres.TabIndex = 8;
+            this.lbIPadres.Text = "(..)";
+            // 
             // lbTextIPadres
             // 
             this.lbTextIPadres.AutoSize = true;
@@ -546,21 +593,21 @@
             this.lbTextIPadres.TabIndex = 7;
             this.lbTextIPadres.Text = "IP adres:";
             // 
-            // lbTextWPA
+            // lbTextWifiWPA
             // 
-            this.lbTextWPA.AutoSize = true;
-            this.lbTextWPA.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWPA.Location = new System.Drawing.Point(169, 55);
-            this.lbTextWPA.Name = "lbTextWPA";
-            this.lbTextWPA.Size = new System.Drawing.Size(63, 13);
-            this.lbTextWPA.TabIndex = 6;
-            this.lbTextWPA.Text = "using WPA:";
+            this.lbTextWifiWPA.AutoSize = true;
+            this.lbTextWifiWPA.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextWifiWPA.Location = new System.Drawing.Point(184, 59);
+            this.lbTextWifiWPA.Name = "lbTextWifiWPA";
+            this.lbTextWifiWPA.Size = new System.Drawing.Size(63, 13);
+            this.lbTextWifiWPA.TabIndex = 6;
+            this.lbTextWifiWPA.Text = "using WPA:";
             // 
             // lbTextWifiWEP
             // 
             this.lbTextWifiWEP.AutoSize = true;
             this.lbTextWifiWEP.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWifiWEP.Location = new System.Drawing.Point(169, 36);
+            this.lbTextWifiWEP.Location = new System.Drawing.Point(184, 40);
             this.lbTextWifiWEP.Name = "lbTextWifiWEP";
             this.lbTextWifiWEP.Size = new System.Drawing.Size(63, 13);
             this.lbTextWifiWEP.TabIndex = 5;
@@ -570,7 +617,7 @@
             // 
             this.lbTextWifiSSID.AutoSize = true;
             this.lbTextWifiSSID.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWifiSSID.Location = new System.Drawing.Point(197, 20);
+            this.lbTextWifiSSID.Location = new System.Drawing.Point(212, 24);
             this.lbTextWifiSSID.Name = "lbTextWifiSSID";
             this.lbTextWifiSSID.Size = new System.Drawing.Size(35, 13);
             this.lbTextWifiSSID.TabIndex = 4;
@@ -619,6 +666,11 @@
             // gbxBank
             // 
             this.gbxBank.BackColor = System.Drawing.Color.Transparent;
+            this.gbxBank.Controls.Add(this.textBox2);
+            this.gbxBank.Controls.Add(this.textBox1);
+            this.gbxBank.Controls.Add(this.label3);
+            this.gbxBank.Controls.Add(this.lbLogin);
+            this.gbxBank.Controls.Add(this.btnLogin);
             this.gbxBank.ForeColor = System.Drawing.Color.White;
             this.gbxBank.Location = new System.Drawing.Point(12, 335);
             this.gbxBank.Name = "gbxBank";
@@ -627,6 +679,49 @@
             this.gbxBank.TabStop = false;
             this.gbxBank.Text = "Pabobank INC.";
             this.gbxBank.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(85, 48);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(117, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(85, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(117, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Password:";
+            // 
+            // lbLogin
+            // 
+            this.lbLogin.AutoSize = true;
+            this.lbLogin.Location = new System.Drawing.Point(22, 30);
+            this.lbLogin.Name = "lbLogin";
+            this.lbLogin.Size = new System.Drawing.Size(36, 13);
+            this.lbLogin.TabIndex = 1;
+            this.lbLogin.Text = "Login:";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.Location = new System.Drawing.Point(235, 45);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "log in";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // pbTruck1
             // 
@@ -639,46 +734,6 @@
             this.pbTruck1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbTruck1.TabIndex = 25;
             this.pbTruck1.TabStop = false;
-            // 
-            // lbIPadres
-            // 
-            this.lbIPadres.AutoSize = true;
-            this.lbIPadres.ForeColor = System.Drawing.Color.Lime;
-            this.lbIPadres.Location = new System.Drawing.Point(92, 37);
-            this.lbIPadres.Name = "lbIPadres";
-            this.lbIPadres.Size = new System.Drawing.Size(19, 13);
-            this.lbIPadres.TabIndex = 8;
-            this.lbIPadres.Text = "(..)";
-            // 
-            // lbWifiSSID
-            // 
-            this.lbWifiSSID.AutoSize = true;
-            this.lbWifiSSID.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifiSSID.Location = new System.Drawing.Point(251, 18);
-            this.lbWifiSSID.Name = "lbWifiSSID";
-            this.lbWifiSSID.Size = new System.Drawing.Size(19, 13);
-            this.lbWifiSSID.TabIndex = 9;
-            this.lbWifiSSID.Text = "(..)";
-            // 
-            // lbWifiWEP
-            // 
-            this.lbWifiWEP.AutoSize = true;
-            this.lbWifiWEP.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifiWEP.Location = new System.Drawing.Point(251, 36);
-            this.lbWifiWEP.Name = "lbWifiWEP";
-            this.lbWifiWEP.Size = new System.Drawing.Size(19, 13);
-            this.lbWifiWEP.TabIndex = 10;
-            this.lbWifiWEP.Text = "(..)";
-            // 
-            // lbWifiWPA
-            // 
-            this.lbWifiWPA.AutoSize = true;
-            this.lbWifiWPA.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifiWPA.Location = new System.Drawing.Point(251, 55);
-            this.lbWifiWPA.Name = "lbWifiWPA";
-            this.lbWifiWPA.Size = new System.Drawing.Size(19, 13);
-            this.lbWifiWPA.TabIndex = 11;
-            this.lbWifiWPA.Text = "(..)";
             // 
             // GameScreen
             // 
@@ -737,6 +792,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopshop)).EndInit();
             this.gbxHuis.ResumeLayout(false);
             this.gbxHuis.PerformLayout();
+            this.gbxBank.ResumeLayout(false);
+            this.gbxBank.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTruck1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -751,7 +808,7 @@
         private System.Windows.Forms.ProgressBar progbarServerload;
         private System.Windows.Forms.PictureBox pbKnopInventory;
         private System.Windows.Forms.GroupBox gbxInventory;
-        private System.Windows.Forms.Button btnBuynetworksniffer;
+        private System.Windows.Forms.Button btnBuyKeylogger;
         private System.Windows.Forms.PictureBox pbItemNetworkScanner;
         private System.Windows.Forms.PictureBox pbItemNetworkSniffer;
         private System.Windows.Forms.PictureBox pbItemWifiWEPCracker;
@@ -790,12 +847,17 @@
         private System.Windows.Forms.Label lbTextWifi;
         private System.Windows.Forms.PictureBox pbTruck1;
         private System.Windows.Forms.Label lbTextWifiSSID;
-        private System.Windows.Forms.Label lbTextWPA;
+        private System.Windows.Forms.Label lbTextWifiWPA;
         private System.Windows.Forms.Label lbTextWifiWEP;
         private System.Windows.Forms.Label lbTextIPadres;
         private System.Windows.Forms.Label lbIPadres;
         private System.Windows.Forms.Label lbWifiWPA;
         private System.Windows.Forms.Label lbWifiWEP;
         private System.Windows.Forms.Label lbWifiSSID;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbLogin;
+        private System.Windows.Forms.Button btnLogin;
     }
 }

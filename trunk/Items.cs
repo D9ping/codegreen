@@ -8,23 +8,29 @@ namespace CodeGreen
     class Items
     {
         #region datavelden
+        String naamitem;
+        /*
         bool wepcracker;
         bool keylogger;
         bool netwerkscanner;
         bool coderedvirus;
         bool trojanhorse;
         bool worm;
+         */
         #endregion
 
         #region constructor
-        public Items(bool webcracker, bool keylogger, bool netwerkscanner, bool coderedvirus, bool trojanhorse, bool worm)
+        public Items(String naamitem)            
+            //(bool webcracker, bool keylogger, bool netwerkscanner, bool coderedvirus, bool trojanhorse, bool worm)
         {
+        /*
             this.wepcracker = wepcracker;
             this.keylogger = keylogger;
             this.netwerkscanner = netwerkscanner;
             this.coderedvirus = coderedvirus;
             this.trojanhorse = trojanhorse;
             this.worm = worm;
+        */
         }
         #endregion
 

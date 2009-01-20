@@ -16,6 +16,10 @@ namespace CodeGreen
         #endregion
 
         #region constructor
+        public Communication()
+        {
+
+        }
         #endregion
 
         #region properties

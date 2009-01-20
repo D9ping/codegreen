@@ -25,11 +25,11 @@ namespace CodeGreen
         public ResourceHandler resourcehandler;
         private int curintroregel, n, timesec, timemin;
         private string[] intro_regel;
-        private Bankaccount PlayerBankaccount;
-        private Communication communication;
+        private Bankaccount PlayerBankaccount;        
         private WerkbalkState werkbalk;
         private Bank bank;
         private List<Huis> huizen;
+        private bool IPadresrevealed = false;
         #endregion
 
         #region constructor
@@ -197,14 +197,34 @@ namespace CodeGreen
 
                 lbNaam.Text = huis.Naam;
                 if (btnBuyneworkscanner.Visible == true) { lbIPadres.Text = huis.IPAdres; }
+                else { lbIPadres.Text = "unknow"; }
+                if (huis.Wifi==true) {
+                    lbWifi.Text = "Yes";
+                    lbWifiSSID.Text = huis.WifiSSID;
+                    if (huis.WifiWEP == true) { lbWifiWEP.Text = "Yes"; }
+                    if (huis.WifiWPA == true) { lbWifiWPA.Text = "No"; }
+                    ShowWifiProperties(true);
+                }
+                else if (huis.Wifi == false) { 
+                    lbWifi.Text = "No";
+                    ShowWifiProperties(false);
+                } 
+               
                 
-                if (huis.Wifi==true) { lbWifi.Text = "Yes"; }
-                else if (huis.Wifi == false) { lbWifi.Text = "No"; }                
 
             }
             ShowWerkbalk();
         }
 
+        private void ShowWifiProperties(bool toon)
+        {
+            lbTextWifiSSID.Visible = toon;
+            lbTextWifiWEP.Visible = toon;
+            lbTextWifiWPA.Visible = toon;
+            lbWifiSSID.Visible = toon;
+            lbWifiWEP.Visible = toon;
+            lbWifiWPA.Visible = toon;
+        }
         private Huis getHuis(object huisnm)
         {
             foreach (Huis curhuis in huizen)
@@ -246,13 +266,45 @@ namespace CodeGreen
             }
         }
 
+        private void BuyItem(object sender, EventArgs e)
+        {
+            //op welke knop is geklikt?
+            if (sender == btnBuyWifiwepcracker)
+            {
+                pbItemWifiWEPCracker.Visible = true;
+                btnBuyWifiwepcracker.Enabled = false;
+                //TODO: Van de speler wordt geld af gehaalt,
+                //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
+            }
+            else if (sender == btnBuyneworkscanner)
+            {
+                pbItemNetworkScanner.Visible = true;
+                btnBuyneworkscanner.Enabled = false;
+            }
+            else if (sender == btnBuyKeylogger)
+            {
+                pbItemKeylogger.Visible = true;
+                btnBuyKeylogger.Enabled = false;
+            }
+            else if (sender == btnKoopWorm)
+            {
+
+            }
+            else
+            {
+                misc.ToonBericht(8);
+            }
+
+            resourcehandler.playsound("buy.wav", false);
+        }
+
         private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
         {
             pbItemWifiWEPCracker.Visible = true;
             btnBuyWifiwepcracker.Enabled = false;
+
             resourcehandler.playsound("buy.wav", true);
-            //TODO: Van de speler wordt geld af gehaalt,
-            //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
+            
         }
 
         private void btnBuyneworkscanner_Click(object sender, EventArgs e)
@@ -265,11 +317,15 @@ namespace CodeGreen
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
         {
             pbItemNetworkSniffer.Visible = true;
-            btnBuynetworksniffer.Enabled = false;
-            resourcehandler.playsound("buy.wav", false);
-            
+            btnBuyKeylogger.Enabled = false;
+            resourcehandler.playsound("buy.wav", false);            
         }
 
+        private void btnKoopWorm_Click(object sender, EventArgs e)
+        {
+            //pbItemWorm.visible = true;
+            //pbItemWorm.Enabled = false;
+        }
 
         /// <summary>
         /// update gametimer
@@ -335,14 +391,9 @@ namespace CodeGreen
         /// <param name="data">1 = omhoog, 2 = omlaag, 4 = links, 8 = rechts</param>
         private void usb_OnDataRecieved(object sender, byte[] data)
         {
-            communication.VerwerkData(data);
             //moet terug gegeven welk huis of de bank geselecteerd is.
-        }
 
-
-        private void btnKoopWorm_Click(object sender, EventArgs e)
-        {
-            //pbItemWorm.visible = true;
+            //communication.VerwerkData(data);            
         }
 
         public void inithuizen()
@@ -351,12 +402,12 @@ namespace CodeGreen
             {   
                 //TODO: verzin betere namen.
                 Huis[] huis = new Huis[6];
-                huis[0] = new Huis(pbHuis1, "Your house", "33.23.34.45", true, "linksystems", true, true, false, false, false);
-                huis[1] = new Huis(pbHuis2, "Marrieke ", "66.23.34.45", true, "speedytouch", true, true, false, false, false);
+                huis[0] = new Huis(pbHuis1, "Your house", "33.23.34.45", true, "linksystems", false, true, true, true, false);
+                huis[1] = new Huis(pbHuis2, "Marrieke", "66.23.34.45", true, "speedytouch", false, true, false, false, false);
                 huis[2] = new Huis(pbHuis3, "Kees", "72.23.34.45", true, "netgears", true, true, false, false, false);
                 huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
                 huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", true, true, true, true, false);
-                huis[5] = new Huis(pbHuis1, "Jan de Vries", "78.23.34.45", true, "linksystems", true, true, false, false, false);
+                huis[5] = new Huis(pbHuis6, "Jan de Vries", "78.23.34.45", true, "linksystems", true, true, false, false, false);
                 huizen.AddRange(huis);   
             }
             catch (Exception)
@@ -364,6 +415,13 @@ namespace CodeGreen
                 misc.ToonBericht(6);
             }
         }        
+
+       
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         #endregion
     }
