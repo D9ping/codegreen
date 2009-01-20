@@ -29,6 +29,7 @@ namespace CodeGreen
         private WerkbalkState werkbalk;
         private Bank bank;
         private List<Huis> huizen;
+        private List<Items> items;
         private bool IPadresrevealed = false;
         #endregion
 
@@ -46,6 +47,7 @@ namespace CodeGreen
 
             PlayerBankaccount = bank.GetByNaam("speler");
             huizen = new List<Huis>();
+            items = new List<Items>();
             inithuizen();
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
@@ -283,12 +285,18 @@ namespace CodeGreen
             }
             else if (sender == btnBuyKeylogger)
             {
-                pbItemKeylogger.Visible = true;
+                //pbItemKeylogger.Visible = true;
                 btnBuyKeylogger.Enabled = false;
             }
             else if (sender == btnKoopWorm)
             {
-
+                //pbItemWorm.Visible = false;
+                btnKoopWorm.Enabled = false;
+            }
+            else if (sender == btnKoopVirus)
+            {
+                //pbItemVirus.Visible = false;
+                btnKoopVirus.Enabled = false;
             }
             else
             {
@@ -316,7 +324,7 @@ namespace CodeGreen
 
         private void btnBuynetworksniffer_Click(object sender, EventArgs e)
         {
-            pbItemNetworkSniffer.Visible = true;
+            pbItemKeylogger.Visible = true;
             btnBuyKeylogger.Enabled = false;
             resourcehandler.playsound("buy.wav", false);            
         }

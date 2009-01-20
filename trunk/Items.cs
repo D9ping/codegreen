@@ -35,6 +35,7 @@ namespace CodeGreen
         #endregion
 
         #region properties
+        /*
         public bool Wepcracker
         {
             get { return wepcracker; }
@@ -59,6 +60,7 @@ namespace CodeGreen
         {
             get { return worm; }
         }
+         */
         #endregion
 
         #region methoden
