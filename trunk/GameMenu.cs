@@ -134,6 +134,7 @@ namespace CodeGreen
                 if(numcolor==0) { newtextbox.ForeColor = Color.Green; }
                 else if (numcolor == 1) { newtextbox.ForeColor = Color.LightGreen; }
                 else if (numcolor == 2) { newtextbox.ForeColor = Color.DarkGreen; }
+                //else if (numcolor == 3) { newtextbox.ForeColor = Color.Lime; }
                 else { newtextbox.ForeColor = Color.Green; }            
             newtextbox.BackColor = Color.Black;
             newtextbox.BorderStyle = BorderStyle.None;
@@ -152,7 +153,7 @@ namespace CodeGreen
             for (int i = 0; i < droptexten.Count; i++)
             {
                 int Xtext = droptexten[i].Location.X;
-                int Ytext = droptexten[i].Location.Y + 4;
+                int Ytext = droptexten[i].Location.Y + 10;
 
                 if (Ytext > 600) {                     
                     droptexten[i].Dispose();//dit verkomt dat programma steeds meer geheugen gaat verbruiken.

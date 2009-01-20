@@ -46,6 +46,7 @@ namespace CodeGreen
 
             PlayerBankaccount = bank.GetByNaam("speler");
             huizen = new List<Huis>();
+            inithuizen();
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
             if (options.controller_enabled == true)
@@ -190,21 +191,21 @@ namespace CodeGreen
                 {
                     werkbalk = WerkbalkState.HUIS;
                 }
+                             
+                Huis huis = this.getHuis(sender);
+                if (huis == null) { misc.ToonBericht(7); return; }
 
-
-                Huis huis = this.getHuis(sender.ToString());
+                lbNaam.Text = huis.Naam;
+                if (btnBuyneworkscanner.Visible == true) { lbIPadres.Text = huis.IPAdres; }
                 
-                lbHuisNaam.Text = huis.Naam;
-                //lbHuisIP.Text = huis.IPADRES;                
-                if (huis.Wifi==true) { lbHuisWifi.Text = "Heeft draadloos netwerk."; }
-                else if (huis.Wifi == false) { lbHuisWifi.Text = "Geen draadloos netwerk"; }
-                
+                if (huis.Wifi==true) { lbWifi.Text = "Yes"; }
+                else if (huis.Wifi == false) { lbWifi.Text = "No"; }                
 
             }
             ShowWerkbalk();
         }
 
-        private Huis getHuis(String huisnm)
+        private Huis getHuis(object huisnm)
         {
             foreach (Huis curhuis in huizen)
             {
@@ -213,7 +214,9 @@ namespace CodeGreen
                     return curhuis;
                 }
             }
+             
             return null;
+            
         }
 
         private void VeranderVenster(object sender, EventArgs e)
@@ -347,13 +350,13 @@ namespace CodeGreen
             try
             {   
                 //TODO: verzin betere namen.
-                Huis[] huis = new Huis[5];
-                huis[0] = new Huis("pbHuis1", "Jan de Vries", "12.23.34.45", true, "linksystems", true, true, false, false, false);
-                huis[1] = new Huis("pbHuis2", "Marrieke ", "12.23.34.45", true, "speedytouch", true, true, false, false, false);
-                huis[2] = new Huis("pbHuis3", "Kees", "12.23.34.45", true, "netgears", true, true, false, false, false);
-                huis[3] = new Huis("pbHuis4", "Pieter", "12.23.34.45", false, "", true, true, false, false, false);
-                huis[4] = new Huis("pbHuis5", "Roel", "12.23.34.45", true, "draadloos324098", true, true, true, true, false);
-
+                Huis[] huis = new Huis[6];
+                huis[0] = new Huis(pbHuis1, "Your house", "33.23.34.45", true, "linksystems", true, true, false, false, false);
+                huis[1] = new Huis(pbHuis2, "Marrieke ", "66.23.34.45", true, "speedytouch", true, true, false, false, false);
+                huis[2] = new Huis(pbHuis3, "Kees", "72.23.34.45", true, "netgears", true, true, false, false, false);
+                huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
+                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", true, true, true, true, false);
+                huis[5] = new Huis(pbHuis1, "Jan de Vries", "78.23.34.45", true, "linksystems", true, true, false, false, false);
                 huizen.AddRange(huis);   
             }
             catch (Exception)

@@ -46,6 +46,9 @@ namespace CodeGreen
                 case 6:
                     System.Windows.Forms.MessageBox.Show("Fout: kan huizen niet aanmaken.");
                     break;
+                case 7:
+                    System.Windows.Forms.MessageBox.Show("Fout: kan huis niet vinden.");
+                    break;
                 default:
                     System.Windows.Forms.MessageBox.Show("onbekende fout");
                     break;

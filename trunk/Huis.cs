@@ -8,7 +8,7 @@ namespace CodeGreen
     class Huis
     {
         #region datavelden
-        String huisnaam;
+        object huisnaam;
         String naam;
         String ipadres;        
         bool wifi;
@@ -34,7 +34,7 @@ namespace CodeGreen
         /// <param name="windowsoutdated"></param>
         /// <param name="virusscanner"></param>
         /// <param name="bot"></param>
-        public Huis(String huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
+        public Huis(object huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
             bool windowsoutdated, bool virusscanner, bool bot)
         {
             this.huisnaam = huisnaam;
@@ -54,7 +54,7 @@ namespace CodeGreen
 
         #region properties
         //huisnaam is hetzelfde als het object naam om het te vinden.
-        public String Huisnaam
+        public object Huisnaam
         {
             get { return huisnaam; }
         }

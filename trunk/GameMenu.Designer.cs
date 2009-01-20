@@ -101,7 +101,7 @@
             this.pbTitel.BackColor = System.Drawing.Color.Transparent;
             this.pbTitel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbTitel.BackgroundImage")));
             this.pbTitel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbTitel.Location = new System.Drawing.Point(1, 2);
+            this.pbTitel.Location = new System.Drawing.Point(-1, -7);
             this.pbTitel.Name = "pbTitel";
             this.pbTitel.Size = new System.Drawing.Size(783, 263);
             this.pbTitel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -111,6 +111,7 @@
             // timerDropText
             // 
             this.timerDropText.Enabled = true;
+            this.timerDropText.Interval = 30;
             this.timerDropText.Tick += new System.EventHandler(this.timerDropText_Tick);
             // 
             // GameMenu

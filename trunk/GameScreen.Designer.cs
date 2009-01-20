@@ -68,12 +68,20 @@
             this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.usb = new UsbLibrary.UsbHidPort(this.components);
             this.gbxHuis = new System.Windows.Forms.GroupBox();
-            this.lbHuisWifi = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbHuisNaam = new System.Windows.Forms.Label();
-            this.lbTextHuis = new System.Windows.Forms.Label();
+            this.lbTextIPadres = new System.Windows.Forms.Label();
+            this.lbTextWPA = new System.Windows.Forms.Label();
+            this.lbTextWifiWEP = new System.Windows.Forms.Label();
+            this.lbTextWifiSSID = new System.Windows.Forms.Label();
+            this.lbWifi = new System.Windows.Forms.Label();
+            this.lbTextWifi = new System.Windows.Forms.Label();
+            this.lbNaam = new System.Windows.Forms.Label();
+            this.lbTextNaam = new System.Windows.Forms.Label();
             this.gbxBank = new System.Windows.Forms.GroupBox();
             this.pbTruck1 = new System.Windows.Forms.PictureBox();
+            this.lbIPadres = new System.Windows.Forms.Label();
+            this.lbWifiSSID = new System.Windows.Forms.Label();
+            this.lbWifiWEP = new System.Windows.Forms.Label();
+            this.lbWifiWPA = new System.Windows.Forms.Label();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
@@ -507,58 +515,106 @@
             // gbxHuis
             // 
             this.gbxHuis.BackColor = System.Drawing.Color.Transparent;
-            this.gbxHuis.Controls.Add(this.lbHuisWifi);
-            this.gbxHuis.Controls.Add(this.label3);
-            this.gbxHuis.Controls.Add(this.lbHuisNaam);
-            this.gbxHuis.Controls.Add(this.lbTextHuis);
+            this.gbxHuis.Controls.Add(this.lbWifiWPA);
+            this.gbxHuis.Controls.Add(this.lbWifiWEP);
+            this.gbxHuis.Controls.Add(this.lbWifiSSID);
+            this.gbxHuis.Controls.Add(this.lbIPadres);
+            this.gbxHuis.Controls.Add(this.lbTextIPadres);
+            this.gbxHuis.Controls.Add(this.lbTextWPA);
+            this.gbxHuis.Controls.Add(this.lbTextWifiWEP);
+            this.gbxHuis.Controls.Add(this.lbTextWifiSSID);
+            this.gbxHuis.Controls.Add(this.lbWifi);
+            this.gbxHuis.Controls.Add(this.lbTextWifi);
+            this.gbxHuis.Controls.Add(this.lbNaam);
+            this.gbxHuis.Controls.Add(this.lbTextNaam);
             this.gbxHuis.ForeColor = System.Drawing.Color.White;
             this.gbxHuis.Location = new System.Drawing.Point(12, 192);
             this.gbxHuis.Name = "gbxHuis";
-            this.gbxHuis.Size = new System.Drawing.Size(341, 74);
+            this.gbxHuis.Size = new System.Drawing.Size(375, 90);
             this.gbxHuis.TabIndex = 21;
             this.gbxHuis.TabStop = false;
             this.gbxHuis.Text = "Informatie Huis";
             this.gbxHuis.Visible = false;
             // 
-            // lbHuisWifi
+            // lbTextIPadres
             // 
-            this.lbHuisWifi.AutoSize = true;
-            this.lbHuisWifi.ForeColor = System.Drawing.Color.Lime;
-            this.lbHuisWifi.Location = new System.Drawing.Point(78, 50);
-            this.lbHuisWifi.Name = "lbHuisWifi";
-            this.lbHuisWifi.Size = new System.Drawing.Size(19, 13);
-            this.lbHuisWifi.TabIndex = 3;
-            this.lbHuisWifi.Text = "(..)";
+            this.lbTextIPadres.AutoSize = true;
+            this.lbTextIPadres.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextIPadres.Location = new System.Drawing.Point(15, 37);
+            this.lbTextIPadres.Name = "lbTextIPadres";
+            this.lbTextIPadres.Size = new System.Drawing.Size(49, 13);
+            this.lbTextIPadres.TabIndex = 7;
+            this.lbTextIPadres.Text = "IP adres:";
             // 
-            // label3
+            // lbTextWPA
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Lime;
-            this.label3.Location = new System.Drawing.Point(25, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Huis:";
+            this.lbTextWPA.AutoSize = true;
+            this.lbTextWPA.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextWPA.Location = new System.Drawing.Point(169, 55);
+            this.lbTextWPA.Name = "lbTextWPA";
+            this.lbTextWPA.Size = new System.Drawing.Size(63, 13);
+            this.lbTextWPA.TabIndex = 6;
+            this.lbTextWPA.Text = "using WPA:";
             // 
-            // lbHuisNaam
+            // lbTextWifiWEP
             // 
-            this.lbHuisNaam.AutoSize = true;
-            this.lbHuisNaam.ForeColor = System.Drawing.Color.Lime;
-            this.lbHuisNaam.Location = new System.Drawing.Point(78, 24);
-            this.lbHuisNaam.Name = "lbHuisNaam";
-            this.lbHuisNaam.Size = new System.Drawing.Size(19, 13);
-            this.lbHuisNaam.TabIndex = 1;
-            this.lbHuisNaam.Text = "(..)";
+            this.lbTextWifiWEP.AutoSize = true;
+            this.lbTextWifiWEP.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextWifiWEP.Location = new System.Drawing.Point(169, 36);
+            this.lbTextWifiWEP.Name = "lbTextWifiWEP";
+            this.lbTextWifiWEP.Size = new System.Drawing.Size(63, 13);
+            this.lbTextWifiWEP.TabIndex = 5;
+            this.lbTextWifiWEP.Text = "using WEP:";
             // 
-            // lbTextHuis
+            // lbTextWifiSSID
             // 
-            this.lbTextHuis.AutoSize = true;
-            this.lbTextHuis.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextHuis.Location = new System.Drawing.Point(25, 24);
-            this.lbTextHuis.Name = "lbTextHuis";
-            this.lbTextHuis.Size = new System.Drawing.Size(31, 13);
-            this.lbTextHuis.TabIndex = 0;
-            this.lbTextHuis.Text = "Huis:";
+            this.lbTextWifiSSID.AutoSize = true;
+            this.lbTextWifiSSID.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextWifiSSID.Location = new System.Drawing.Point(197, 20);
+            this.lbTextWifiSSID.Name = "lbTextWifiSSID";
+            this.lbTextWifiSSID.Size = new System.Drawing.Size(35, 13);
+            this.lbTextWifiSSID.TabIndex = 4;
+            this.lbTextWifiSSID.Text = "SSID:";
+            // 
+            // lbWifi
+            // 
+            this.lbWifi.AutoSize = true;
+            this.lbWifi.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifi.Location = new System.Drawing.Point(92, 50);
+            this.lbWifi.Name = "lbWifi";
+            this.lbWifi.Size = new System.Drawing.Size(19, 13);
+            this.lbWifi.TabIndex = 3;
+            this.lbWifi.Text = "(..)";
+            // 
+            // lbTextWifi
+            // 
+            this.lbTextWifi.AutoSize = true;
+            this.lbTextWifi.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextWifi.Location = new System.Drawing.Point(33, 55);
+            this.lbTextWifi.Name = "lbTextWifi";
+            this.lbTextWifi.Size = new System.Drawing.Size(28, 13);
+            this.lbTextWifi.TabIndex = 2;
+            this.lbTextWifi.Text = "Wifi:";
+            // 
+            // lbNaam
+            // 
+            this.lbNaam.AutoSize = true;
+            this.lbNaam.ForeColor = System.Drawing.Color.Lime;
+            this.lbNaam.Location = new System.Drawing.Point(92, 24);
+            this.lbNaam.Name = "lbNaam";
+            this.lbNaam.Size = new System.Drawing.Size(19, 13);
+            this.lbNaam.TabIndex = 1;
+            this.lbNaam.Text = "(..)";
+            // 
+            // lbTextNaam
+            // 
+            this.lbTextNaam.AutoSize = true;
+            this.lbTextNaam.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextNaam.Location = new System.Drawing.Point(33, 24);
+            this.lbTextNaam.Name = "lbTextNaam";
+            this.lbTextNaam.Size = new System.Drawing.Size(31, 13);
+            this.lbTextNaam.TabIndex = 0;
+            this.lbTextNaam.Text = "Huis:";
             // 
             // gbxBank
             // 
@@ -583,6 +639,46 @@
             this.pbTruck1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbTruck1.TabIndex = 25;
             this.pbTruck1.TabStop = false;
+            // 
+            // lbIPadres
+            // 
+            this.lbIPadres.AutoSize = true;
+            this.lbIPadres.ForeColor = System.Drawing.Color.Lime;
+            this.lbIPadres.Location = new System.Drawing.Point(92, 37);
+            this.lbIPadres.Name = "lbIPadres";
+            this.lbIPadres.Size = new System.Drawing.Size(19, 13);
+            this.lbIPadres.TabIndex = 8;
+            this.lbIPadres.Text = "(..)";
+            // 
+            // lbWifiSSID
+            // 
+            this.lbWifiSSID.AutoSize = true;
+            this.lbWifiSSID.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifiSSID.Location = new System.Drawing.Point(251, 18);
+            this.lbWifiSSID.Name = "lbWifiSSID";
+            this.lbWifiSSID.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiSSID.TabIndex = 9;
+            this.lbWifiSSID.Text = "(..)";
+            // 
+            // lbWifiWEP
+            // 
+            this.lbWifiWEP.AutoSize = true;
+            this.lbWifiWEP.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifiWEP.Location = new System.Drawing.Point(251, 36);
+            this.lbWifiWEP.Name = "lbWifiWEP";
+            this.lbWifiWEP.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiWEP.TabIndex = 10;
+            this.lbWifiWEP.Text = "(..)";
+            // 
+            // lbWifiWPA
+            // 
+            this.lbWifiWPA.AutoSize = true;
+            this.lbWifiWPA.ForeColor = System.Drawing.Color.Lime;
+            this.lbWifiWPA.Location = new System.Drawing.Point(251, 55);
+            this.lbWifiWPA.Name = "lbWifiWPA";
+            this.lbWifiWPA.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiWPA.TabIndex = 11;
+            this.lbWifiWPA.Text = "(..)";
             // 
             // GameScreen
             // 
@@ -676,8 +772,8 @@
         private System.Windows.Forms.PictureBox pbHuis4;
         private System.Windows.Forms.PictureBox pbHuis6;
         private System.Windows.Forms.GroupBox gbxHuis;
-        private System.Windows.Forms.Label lbTextHuis;
-        private System.Windows.Forms.Label lbHuisNaam;
+        private System.Windows.Forms.Label lbTextNaam;
+        private System.Windows.Forms.Label lbNaam;
         private System.Windows.Forms.PictureBox pbKnopBank;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox gbxShop;
@@ -690,8 +786,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnKoopVirus;
-        private System.Windows.Forms.Label lbHuisWifi;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbWifi;
+        private System.Windows.Forms.Label lbTextWifi;
         private System.Windows.Forms.PictureBox pbTruck1;
+        private System.Windows.Forms.Label lbTextWifiSSID;
+        private System.Windows.Forms.Label lbTextWPA;
+        private System.Windows.Forms.Label lbTextWifiWEP;
+        private System.Windows.Forms.Label lbTextIPadres;
+        private System.Windows.Forms.Label lbIPadres;
+        private System.Windows.Forms.Label lbWifiWPA;
+        private System.Windows.Forms.Label lbWifiWEP;
+        private System.Windows.Forms.Label lbWifiSSID;
     }
 }
