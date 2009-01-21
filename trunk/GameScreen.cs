@@ -288,10 +288,10 @@ namespace CodeGreen
                 pbItemKeylogger.Visible = true;
                 btnBuyKeylogger.Enabled = false;
             }
-            else if (sender == btnKoopWorm)
+            else if (sender == btnBuyWorm)
             {
-                //pbItemWorm.Visible = false;
-                //btnKoopWorm.Enabled = false;
+                pbItemWorm.Visible = false;
+                btnBuyWorm.Enabled = false;
             }
             else if (sender == btnKoopVirus)
             {

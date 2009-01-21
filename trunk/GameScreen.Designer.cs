@@ -38,6 +38,7 @@
             this.progbarServerload = new System.Windows.Forms.ProgressBar();
             this.pbKnopInventory = new System.Windows.Forms.PictureBox();
             this.gbxInventory = new System.Windows.Forms.GroupBox();
+            this.pbItemWorm = new System.Windows.Forms.PictureBox();
             this.pbItemCoderedvirus = new System.Windows.Forms.PictureBox();
             this.pbItemWifiWEPCracker = new System.Windows.Forms.PictureBox();
             this.pbItemKeylogger = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnKoopVirus = new System.Windows.Forms.Button();
-            this.btnKoopWorm = new System.Windows.Forms.Button();
+            this.btnBuyWorm = new System.Windows.Forms.Button();
             this.btnBuyWifiwepcracker = new System.Windows.Forms.Button();
             this.btnBuyNeworkscanner = new System.Windows.Forms.Button();
             this.btnBuyKeylogger = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWorm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemCoderedvirus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemKeylogger)).BeginInit();
@@ -188,6 +190,7 @@
             // gbxInventory
             // 
             this.gbxInventory.BackColor = System.Drawing.Color.Transparent;
+            this.gbxInventory.Controls.Add(this.pbItemWorm);
             this.gbxInventory.Controls.Add(this.pbItemCoderedvirus);
             this.gbxInventory.Controls.Add(this.pbItemWifiWEPCracker);
             this.gbxInventory.Controls.Add(this.pbItemKeylogger);
@@ -202,11 +205,24 @@
             this.gbxInventory.Text = "Inventory";
             this.gbxInventory.Visible = false;
             // 
+            // pbItemWorm
+            // 
+            this.pbItemWorm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemWorm.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWorm.Image")));
+            this.pbItemWorm.Location = new System.Drawing.Point(340, 13);
+            this.pbItemWorm.Name = "pbItemWorm";
+            this.pbItemWorm.Size = new System.Drawing.Size(74, 50);
+            this.pbItemWorm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbItemWorm.TabIndex = 4;
+            this.pbItemWorm.TabStop = false;
+            this.tooltip.SetToolTip(this.pbItemWorm, "Deploy Codered virus");
+            this.pbItemWorm.Visible = false;
+            // 
             // pbItemCoderedvirus
             // 
             this.pbItemCoderedvirus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbItemCoderedvirus.Image = ((System.Drawing.Image)(resources.GetObject("pbItemCoderedvirus.Image")));
-            this.pbItemCoderedvirus.Location = new System.Drawing.Point(350, 13);
+            this.pbItemCoderedvirus.Location = new System.Drawing.Point(442, 16);
             this.pbItemCoderedvirus.Name = "pbItemCoderedvirus";
             this.pbItemCoderedvirus.Size = new System.Drawing.Size(74, 50);
             this.pbItemCoderedvirus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -263,7 +279,7 @@
             this.gbxShop.Controls.Add(this.label5);
             this.gbxShop.Controls.Add(this.label4);
             this.gbxShop.Controls.Add(this.btnKoopVirus);
-            this.gbxShop.Controls.Add(this.btnKoopWorm);
+            this.gbxShop.Controls.Add(this.btnBuyWorm);
             this.gbxShop.Controls.Add(this.btnBuyWifiwepcracker);
             this.gbxShop.Controls.Add(this.btnBuyNeworkscanner);
             this.gbxShop.Controls.Add(this.btnBuyKeylogger);
@@ -326,31 +342,31 @@
             this.btnKoopVirus.ForeColor = System.Drawing.Color.Black;
             this.btnKoopVirus.Location = new System.Drawing.Point(217, 185);
             this.btnKoopVirus.Name = "btnKoopVirus";
-            this.btnKoopVirus.Size = new System.Drawing.Size(65, 24);
+            this.btnKoopVirus.Size = new System.Drawing.Size(50, 24);
             this.btnKoopVirus.TabIndex = 12;
-            this.btnKoopVirus.Text = "Koop!";
+            this.btnKoopVirus.Text = "buy";
             this.btnKoopVirus.UseVisualStyleBackColor = true;
             this.btnKoopVirus.Click += new System.EventHandler(this.BuyItem);
             // 
-            // btnKoopWorm
+            // btnBuyWorm
             // 
-            this.btnKoopWorm.ForeColor = System.Drawing.Color.Black;
-            this.btnKoopWorm.Location = new System.Drawing.Point(219, 107);
-            this.btnKoopWorm.Name = "btnKoopWorm";
-            this.btnKoopWorm.Size = new System.Drawing.Size(65, 24);
-            this.btnKoopWorm.TabIndex = 11;
-            this.btnKoopWorm.Text = "Koop!";
-            this.btnKoopWorm.UseVisualStyleBackColor = true;
-            this.btnKoopWorm.Click += new System.EventHandler(this.BuyItem);
+            this.btnBuyWorm.ForeColor = System.Drawing.Color.Black;
+            this.btnBuyWorm.Location = new System.Drawing.Point(219, 107);
+            this.btnBuyWorm.Name = "btnBuyWorm";
+            this.btnBuyWorm.Size = new System.Drawing.Size(50, 24);
+            this.btnBuyWorm.TabIndex = 11;
+            this.btnBuyWorm.Text = "buy";
+            this.btnBuyWorm.UseVisualStyleBackColor = true;
+            this.btnBuyWorm.Click += new System.EventHandler(this.BuyItem);
             // 
             // btnBuyWifiwepcracker
             // 
             this.btnBuyWifiwepcracker.ForeColor = System.Drawing.Color.Black;
             this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(217, 30);
             this.btnBuyWifiwepcracker.Name = "btnBuyWifiwepcracker";
-            this.btnBuyWifiwepcracker.Size = new System.Drawing.Size(67, 24);
+            this.btnBuyWifiwepcracker.Size = new System.Drawing.Size(52, 24);
             this.btnBuyWifiwepcracker.TabIndex = 9;
-            this.btnBuyWifiwepcracker.Text = "Koop!";
+            this.btnBuyWifiwepcracker.Text = "buy";
             this.btnBuyWifiwepcracker.UseVisualStyleBackColor = true;
             this.btnBuyWifiwepcracker.Click += new System.EventHandler(this.BuyItem);
             // 
@@ -359,9 +375,9 @@
             this.btnBuyNeworkscanner.ForeColor = System.Drawing.Color.Black;
             this.btnBuyNeworkscanner.Location = new System.Drawing.Point(217, 149);
             this.btnBuyNeworkscanner.Name = "btnBuyNeworkscanner";
-            this.btnBuyNeworkscanner.Size = new System.Drawing.Size(65, 24);
+            this.btnBuyNeworkscanner.Size = new System.Drawing.Size(50, 24);
             this.btnBuyNeworkscanner.TabIndex = 10;
-            this.btnBuyNeworkscanner.Text = "Koop!";
+            this.btnBuyNeworkscanner.Text = "buy";
             this.btnBuyNeworkscanner.UseVisualStyleBackColor = true;
             this.btnBuyNeworkscanner.Click += new System.EventHandler(this.BuyItem);
             // 
@@ -370,9 +386,9 @@
             this.btnBuyKeylogger.ForeColor = System.Drawing.Color.Black;
             this.btnBuyKeylogger.Location = new System.Drawing.Point(217, 63);
             this.btnBuyKeylogger.Name = "btnBuyKeylogger";
-            this.btnBuyKeylogger.Size = new System.Drawing.Size(65, 26);
+            this.btnBuyKeylogger.Size = new System.Drawing.Size(50, 26);
             this.btnBuyKeylogger.TabIndex = 8;
-            this.btnBuyKeylogger.Text = "Koop!";
+            this.btnBuyKeylogger.Text = "buy";
             this.btnBuyKeylogger.UseVisualStyleBackColor = true;
             this.btnBuyKeylogger.Click += new System.EventHandler(this.BuyItem);
             // 
@@ -556,7 +572,7 @@
             this.gbxHuis.Size = new System.Drawing.Size(375, 90);
             this.gbxHuis.TabIndex = 21;
             this.gbxHuis.TabStop = false;
-            this.gbxHuis.Text = "Informatie Huis";
+            this.gbxHuis.Text = "House details";
             this.gbxHuis.Visible = false;
             // 
             // lbWifiWPA
@@ -790,6 +806,7 @@
             this.gbxGameInstructions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).EndInit();
             this.gbxInventory.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWorm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemCoderedvirus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemKeylogger)).EndInit();
@@ -853,7 +870,7 @@
         private System.Windows.Forms.GroupBox gbxShop;
         private System.Windows.Forms.GroupBox gbxBank;
         private System.Windows.Forms.PictureBox pbKnopshop;
-        private System.Windows.Forms.Button btnKoopWorm;
+        private System.Windows.Forms.Button btnBuyWorm;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblTextWEPCracker;
@@ -877,5 +894,6 @@
         private System.Windows.Forms.Label lbLogin;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pbItemCoderedvirus;
+        private System.Windows.Forms.PictureBox pbItemWorm;
     }
 }
