@@ -77,6 +77,31 @@ namespace CodeGreen
         #endregion
 
         #region methoden
+        public void inithuizen()
+        {
+            try
+            {
+                //TODO: verzin betere namen.
+                Huis[] huis = new Huis[6];
+                huis[0] = new Huis(pbHuis1, "Your house", "33.23.34.45", true, "linksystems", false, true, true, true, false);
+                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "speedytouch", false, true, false, false, false);
+                huis[2] = new Huis(pbHuis3, "Kees", "72.23.34.45", true, "netgears", true, true, false, false, false);
+                huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
+                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", true, true, true, true, false);
+                huis[5] = new Huis(pbHuis6, "Marrieke", "78.23.34.45", true, "linksystems", true, true, false, false, false);
+                huizen.AddRange(huis);
+            }
+            catch (Exception) { misc.ToonBericht(6); }
+        }
+
+        private void GameScreen_Shown(object sender, EventArgs e)
+        {
+            TimerTextEffect.Enabled = true;
+            TimerGametime.Enabled = true;
+            if (resourcehandler.playsound("backgroundmusic.wav", true) == false)
+            { misc.ToonBericht(5); }
+        }
+
         private void GameScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -93,13 +118,14 @@ namespace CodeGreen
             showGB.Visible = true;
         }
 
-        private void GameScreen_Shown(object sender, EventArgs e)
+        private void ToonWerkbalkknop(PictureBox ShowPB, String bestandsnaam)
         {
-            TimerTextEffect.Enabled = true;
-            TimerGametime.Enabled = true;
-            if (resourcehandler.playsound("backgroundmusic.wav", true) == false)
-            { misc.ToonBericht(5); }
+            this.pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+            this.pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+            this.pbKnopShop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+            if (ShowPB != null) { ShowPB.Image = resourcehandler.loadimage(bestandsnaam); }
         }
+
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
         {   
@@ -121,37 +147,26 @@ namespace CodeGreen
             switch (werkbalk)
             {
                 case WerkbalkState.INSTRUCTIE:
-                    ToonGB(gbxGameInstructions);                    
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");                    
-                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    ToonGB(gbxGameInstructions);
+                    ToonWerkbalkknop(null, null);
                     break;
                 case WerkbalkState.INVENTORY:
-                    ToonGB(gbxInventory);                    
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");                    
-                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    ToonGB(gbxInventory);
+                    ToonWerkbalkknop(pbKnopInventory, "werkbalkknop_inventory_on.png");
                     break;
                 case WerkbalkState.BANK:
-                    ToonGB(gbxBank);                    
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");                    
-                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_on.png");
-                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    ToonGB(gbxBank);
+                    ToonWerkbalkknop(pbKnopBank, "werkbalkknop_bank_on.png");
                     break;
                 case WerkbalkState.SHOP:
                     ToonGB(gbxShop);
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_on.png");
+                    ToonWerkbalkknop(pbKnopShop, "werkbalkknop_shop_on.png");
                     break;
                 case WerkbalkState.HUIS:
-                    ToonGB(gbxHuis);                    
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");                    
-                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    ToonGB(gbxHuis);
+                    ToonWerkbalkknop(null, null);
                     break;
             }
-
         }
 
         /// <summary>
@@ -173,8 +188,17 @@ namespace CodeGreen
 
             else if ((sender == pbShop) || (sender == pbKnopShop))
             {
-                if (TekenWinkel() == true) { TekenWinkel(); }
-                if (werkbalk != WerkbalkState.SHOP) { werkbalk = WerkbalkState.SHOP; }
+                if (werkbalk != WerkbalkState.SHOP)
+                {
+                    werkbalk = WerkbalkState.SHOP;
+                    
+                    TekenWinkel();
+                }
+                else
+                {
+                    gbxShopStock.Visible = false;
+                    VerbergWinkel();
+                }
             }
 
             //huizen:
@@ -304,95 +328,86 @@ namespace CodeGreen
             //moet terug gegeven welk huis of de bank geselecteerd is.
 
             //communication.VerwerkData(data);            
-        }
-
-        public void inithuizen()
-        {
-            try
-            {   
-                //TODO: verzin betere namen.
-                Huis[] huis = new Huis[6];
-                huis[0] = new Huis(pbHuis1, "Your house", "33.23.34.45", true, "linksystems", false, true, true, true, false);
-                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "speedytouch", false, true, false, false, false);
-                huis[2] = new Huis(pbHuis3, "Kees", "72.23.34.45", true, "netgears", true, true, false, false, false);
-                huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
-                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", true, true, true, true, false);
-                huis[5] = new Huis(pbHuis6, "Marrieke", "78.23.34.45", true, "linksystems", true, true, false, false, false);
-                huizen.AddRange(huis);   
-            }
-            catch (Exception)
-            {
-                misc.ToonBericht(6);
-            }
-        }        
-
+        }      
        
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //TODO: toon groepbox bank met saldo rekeningnummer etc. etc.            
         }
         
-
-        private bool TekenWinkel()
+        /// <summary>
+        /// Toon een winkel met alle items die gemaakt zijn in de inventory class.
+        /// Ja, als je "cookie" item in de constructor uitcommenteer komt die in de shop.
+        /// </summary>
+        private void TekenWinkel()
         {
-            int ypos = 220;
+            gbxShopStock.Visible = true;
+
+            int ypos = 20;
             for (int i = 0; i < inventory.numitems; i++)
             {
                 Item curitem = inventory.getItemPos(i);
                 Label lbitemnaam = new Label();
                 lbitemnaam.Text = curitem.NaamItem;
-                lbitemnaam.Location = new Point(280, ypos);
+                lbitemnaam.Location = new Point(20, ypos);
                 lbitemnaam.ForeColor = Color.Lime;
                 lbitemnaam.Visible = true;                
                 Label lbitemprijs = new Label();
                 lbitemprijs.Text = Convert.ToString(curitem.Prijs);
                 lbitemprijs.ForeColor = Color.Lime;
-                lbitemprijs.Location = new Point(380, ypos);
+                lbitemprijs.Width = 50;
+                lbitemprijs.Location = new Point(120, ypos);
                 lbitemnaam.Visible = true;                
                 Button btnItembuy = new Button();
                 btnItembuy.Name = curitem.NaamItem;
                 btnItembuy.Text = "buy";
-                btnItembuy.Location = new Point(480, ypos);
+                btnItembuy.Location = new Point(170, ypos);
                 btnItembuy.Width = 100;
                 btnItembuy.Visible = true;
                 btnItembuy.ForeColor = Color.Lime;
                 btnItembuy.BackColor = Color.Black;
                 btnItembuy.FlatStyle = FlatStyle.Flat;                
-                btnItembuy.Click += new System.EventHandler(BuyItem);                
-                this.Controls.Add(lbitemnaam);
-                this.Controls.Add(lbitemprijs);
-                this.Controls.Add(btnItembuy);
+                btnItembuy.Click += new System.EventHandler(BuyItem);
+                this.gbxShopStock.Controls.Add(lbitemnaam);
+                this.gbxShopStock.Controls.Add(lbitemprijs);
+                this.gbxShopStock.Controls.Add(btnItembuy);
                 components.Add(btnItembuy);
                 ypos += 20;
-            }
-            return true;                                
-        }    
+            }                                          
+        }
 
+        /// <summary>
+        /// Verwijder de winkel van gamescreen
+        /// </summary>
+        public void VerbergWinkel()
+        {
+            gbxShopStock.Visible = false;
+        }
 
         public void BuyItem(object sender, EventArgs e)
         {
             //MessageBox.Show(sender.ToString());
-
-            if (sender == this.components.Components[4])
+            Button buttontemp = (Button)sender;
+            if (buttontemp.Name == "wepcracker")
             {
                 this.pbItemWifiWEPCracker.Visible = true;
                 if (inventory.addItemInventory("wepcracker") == false) {
                     this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
                 }
             }
-            else if (sender == this.components.Components[5])
+            else if (buttontemp.Name == "keylogger")
             {
                 this.pbItemKeylogger.Visible = true;
             }
-            else if (sender == this.components.Components[6])
+            else if (buttontemp.Name == "netwerkscanner")
             {
                 this.pbItemNetworkScanner.Visible = true;
             }
-            else if (sender == this.components.Components[7])
+            else if (buttontemp.Name == "worm")
             {
                 this.pbItemWorm.Visible = true;
             }
-            else if (sender == this.components.Components[8])
+            else if (buttontemp.Name == "coderedvirus")
             {
                 this.pbItemCoderedvirus.Visible = true;
             }

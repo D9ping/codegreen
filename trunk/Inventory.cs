@@ -20,10 +20,14 @@ namespace CodeGreen
             youritems = new List<Item>();            
 
             allitems.Add(new Item("wepcracker", 100));
-            allitems.Add(new Item("keylogger", 100));
-            allitems.Add(new Item("worm", 250));
+            allitems.Add(new Item("keylogger", 100));            
             allitems.Add(new Item("netwerkscanner", 250));
+            allitems.Add(new Item("worm", 250));
             allitems.Add(new Item("coderedvirus", 800));
+            /*
+            allitems.Add(new Item("cookie", 999));
+            allitems.Add(new Item("pizza", 123));
+             */
         }
         #endregion
 
@@ -44,8 +48,6 @@ namespace CodeGreen
             if (buyitem == null) { return false; }
             
             //int prijs = buyitem.Prijs;
-
-
             //return false;
 
             youritems.Add(buyitem);

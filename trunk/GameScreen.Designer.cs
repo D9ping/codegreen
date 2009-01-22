@@ -81,6 +81,7 @@
             this.pbTruck1 = new System.Windows.Forms.PictureBox();
             this.pbQuitgame = new System.Windows.Forms.PictureBox();
             this.gbxShop = new System.Windows.Forms.GroupBox();
+            this.gbxShopStock = new System.Windows.Forms.GroupBox();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxInventory.SuspendLayout();
@@ -456,9 +457,9 @@
             this.gbxHuis.Controls.Add(this.lbNaam);
             this.gbxHuis.Controls.Add(this.lbTextNaam);
             this.gbxHuis.ForeColor = System.Drawing.Color.White;
-            this.gbxHuis.Location = new System.Drawing.Point(12, 138);
+            this.gbxHuis.Location = new System.Drawing.Point(463, 380);
             this.gbxHuis.Name = "gbxHuis";
-            this.gbxHuis.Size = new System.Drawing.Size(375, 90);
+            this.gbxHuis.Size = new System.Drawing.Size(294, 78);
             this.gbxHuis.TabIndex = 21;
             this.gbxHuis.TabStop = false;
             this.gbxHuis.Text = "House details";
@@ -593,7 +594,7 @@
             this.gbxBank.Controls.Add(this.lbTextLogin);
             this.gbxBank.Controls.Add(this.btnLogin);
             this.gbxBank.ForeColor = System.Drawing.Color.White;
-            this.gbxBank.Location = new System.Drawing.Point(12, 335);
+            this.gbxBank.Location = new System.Drawing.Point(50, 379);
             this.gbxBank.Name = "gbxBank";
             this.gbxBank.Size = new System.Drawing.Size(324, 79);
             this.gbxBank.TabIndex = 22;
@@ -672,12 +673,24 @@
             this.gbxShop.BackColor = System.Drawing.Color.Transparent;
             this.gbxShop.Controls.Add(this.lbTextShop);
             this.gbxShop.ForeColor = System.Drawing.Color.White;
-            this.gbxShop.Location = new System.Drawing.Point(199, 234);
+            this.gbxShop.Location = new System.Drawing.Point(22, 148);
             this.gbxShop.Name = "gbxShop";
             this.gbxShop.Size = new System.Drawing.Size(97, 33);
             this.gbxShop.TabIndex = 27;
             this.gbxShop.TabStop = false;
-            this.gbxShop.Visible = false;            
+            this.gbxShop.Visible = false;
+            // 
+            // gbxShopStock
+            // 
+            this.gbxShopStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbxShopStock.ForeColor = System.Drawing.Color.White;
+            this.gbxShopStock.Location = new System.Drawing.Point(177, 224);
+            this.gbxShopStock.Name = "gbxShopStock";
+            this.gbxShopStock.Size = new System.Drawing.Size(298, 166);
+            this.gbxShopStock.TabIndex = 28;
+            this.gbxShopStock.TabStop = false;
+            this.gbxShopStock.Text = "Nixxon stock";
+            this.gbxShopStock.Visible = false;
             // 
             // GameScreen
             // 
@@ -687,6 +700,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.gbxShopStock);
             this.Controls.Add(this.gbxShop);
             this.Controls.Add(this.pbQuitgame);
             this.Controls.Add(this.gbxInventory);
@@ -801,5 +815,6 @@
         private System.Windows.Forms.Label lbTextShop;
         private System.Windows.Forms.PictureBox pbQuitgame;
         private System.Windows.Forms.GroupBox gbxShop;
+        private System.Windows.Forms.GroupBox gbxShopStock;
     }
 }
