@@ -11,7 +11,12 @@ namespace CodeGreen
     public class Misc
     {
         #region datavelden
-        int curlenword;
+        private int curlenword;
+        private int wait =0;
+
+        private int curintroregel = 0;
+        private string[] intro_regel;
+
         #endregion
 
         #region properties
@@ -22,6 +27,13 @@ namespace CodeGreen
         }
         #endregion
 
+        #region constructor
+        public Misc()
+        {
+            intro_regel = new String[5];
+        }
+        #endregion
+
         #region methoden
         public void ToonBericht(int msgnr)
         {
@@ -29,10 +41,10 @@ namespace CodeGreen
             {
                 //berichten 01 t/m 10 voor fouten gereseveerd
                 case 1:
-                    System.Windows.Forms.MessageBox.Show("Fout: Afbeelding niet gevonden.");                    
+                    System.Windows.Forms.MessageBox.Show("Fout: Afbeelding niet gevonden.");
                     break;
                 case 2:
-                    System.Windows.Forms.MessageBox.Show("Fout: onbekende menu knop.");  
+                    System.Windows.Forms.MessageBox.Show("Fout: onbekende menu knop.");
                     break;
                 case 3:
                     System.Windows.Forms.MessageBox.Show("Fout: schrijven naar register mislukt.");
@@ -87,18 +99,41 @@ namespace CodeGreen
         /// <returns>positie</returns>
         private int get_len_type_text(int maxlenword)
         {
-            if (curlenword != maxlenword)
+            if (curlenword < maxlenword)
             {
                 curlenword++;
-                return curlenword;                
+                return curlenword;
             }
             else
             {
-                curlenword = 0;                
+                wait++;
+                if (wait == 20)
+                {
+                    curlenword = 0;
+                    wait = 0;
+                    curintroregel++;                   
+                }
                 return curlenword;
             }
         }
 
+        public String TypeTextIntro()
+        {
+            intro_regel[0] = "This is your neighourhood.";
+            intro_regel[1] = "Your objective is to take the microsoft server down.";
+            intro_regel[2] = "To do this, you will need to setup a bot network";
+            intro_regel[3] = "by hacking as many house in your neighhood as possible.";
+            intro_regel[4] = "It's time to take control of that micr$oft bastards.";
+
+            for (int i = 0; i < intro_regel.Length; i++)
+            {
+                if (curintroregel == i)
+                {
+                    return TypeWordEffect(intro_regel[i]);
+                }
+            }
+            return "";
+        }
 
 
         #endregion

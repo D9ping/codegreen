@@ -23,44 +23,38 @@ namespace CodeGreen
         public Misc misc;
         public OptionsHandler options;
         private Inventory inventory;
-        public ResourceHandler resourcehandler;
-        private int curintroregel, n, timesec, timemin;
-        private string[] intro_regel;
+        public ResourceHandler resourcehandler;        
+        private int n, timesec, timemin;        
         private Bankaccount PlayerBankaccount;        
         private WerkbalkState werkbalk;
         private Bank bank;
-        private List<Huis> huizen;
-        //private List<Items> items;
-        //private bool IPadresrevealed = false;        
+        private List<Huis> huizen;      
         #endregion
 
         #region constructor
         public GameScreen()
         {
-            InitializeComponent();
-            intro_regel = new String[5];
+            InitializeComponent();            
 
             bank = new Bank();
             misc = new Misc();
             inventory = new Inventory();
 
             huizen = new List<Huis>();
-            options = new OptionsHandler();
-            resourcehandler = new ResourceHandler();            
-
             inithuizen();
-            bank.initbankaccounts();
 
-            PlayerBankaccount = bank.GetByNaam("speler");
+            options = new OptionsHandler();
             
-            //items = new List<Items>();
-            
+            resourcehandler = new ResourceHandler();            
+                       
+            PlayerBankaccount = bank.GetByNaam("speler");                        
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
             if (options.controller_enabled == true)
             {
                 Communication communication = new Communication();
             }
+
             Size werkbalksize = new Size(620, 80);
             Point werkbalklocation = new Point(160, 480);
 
@@ -76,7 +70,6 @@ namespace CodeGreen
         #endregion
 
         #region properties
-
         #endregion
 
         #region methoden
@@ -105,28 +98,8 @@ namespace CodeGreen
         }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
-        {
-            intro_regel[0] = "This is your neighourhood.";
-            intro_regel[1] = "Your objective is to take the microsoft server down.";
-            intro_regel[2] = "To do this, you will need to setup a bot network";
-            intro_regel[3] = "by hacking as many house in your neighhood as possible.";
-            intro_regel[4] = "It's time to take control of that micr$oft bastards.";            
-            
-            for (int i = 0; i < intro_regel.Length; i++)
-            {
-                if (curintroregel == i)
-                {
-                    lblIntroTextLine1.Text = misc.TypeWordEffect(intro_regel[i]);
-                }
-
-                if (lblIntroTextLine1.Text == (intro_regel[i] + "_"))
-                {
-                    misc.Curlenword = 0;
-                    curintroregel++;
-                }
-            }
-            if (endline == true) { TimerTextEffect.Interval = 2000; }
-            else { TimerTextEffect.Interval = 100; }
+        {            
+            lblIntroTextLine1.Text = misc.TypeTextIntro();
         }
 
         /// <summary>
