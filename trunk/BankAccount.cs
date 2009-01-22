@@ -61,10 +61,11 @@ namespace CodeGreen
             }
             return password;
         }
+
         private int MakeSaldo(int saldo)
         {
             Random generator = new Random();
-            saldo = generator.Next(100, 300);
+            saldo = generator.Next(200, 300);
             return saldo;
         }
         /// <summary>

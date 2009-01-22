@@ -19,8 +19,8 @@ namespace CodeGreen
             nextRekeningNr = 1;
             accounts = new List<Bankaccount>();
 
-            RegistreerAccount("speler", "123.345.567.89", 0, 100);
-            RegistreerAccount("naam1", "34.89.57.74", 3, 200);
+            RegistreerAccount("speler", "123.345.567.89", 0, 200);
+            RegistreerAccount("naam1", "34.89.57.74", 3, 500);
             RegistreerAccount("naam2", "23.45.56.81", 5, 500);
             RegistreerAccount("naam3", "56.35.67.101", 8, 1000);
             RegistreerAccount("naam4", "78.127.57.23", 8, 2000);
@@ -57,21 +57,11 @@ namespace CodeGreen
             
         }
 
-        /*
-        /// <summary>
-        /// Creeer alle bankaacount in het spel.
-        /// </summary>
-        public void initbankaccounts()
-        {
-
-        }
-         */
-
         /// <summary>
         /// Verkrijg de bankaccount aan de hand van een rekening nummer van de gevraagde bankaccount.
         /// </summary>
         /// <param name="reknr">rekeningnummer</param>
-        /// <returns></returns>
+        /// <returns>de bank account</returns>
         public Bankaccount GetByRekening(String reknr)
         {
             foreach (Bankaccount bankaccount in accounts)
@@ -85,7 +75,7 @@ namespace CodeGreen
         /// Verkrijg bankaccount van een bepaalde naam
         /// </summary>
         /// <param name="nm">naam bankaccount</param>
-        /// <returns></returns>
+        /// <returns>de bank account</returns>
         public Bankaccount GetByNaam(String nm)
         {
             foreach (Bankaccount bankaccount in accounts)

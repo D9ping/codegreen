@@ -126,7 +126,7 @@ namespace CodeGreen
         private void newDropText()
         {
             Random ran = new Random();
-            int Xnewtextbox = ran.Next(20, 780);
+            int Xnewtextbox = ran.Next(10, 790);
             String ent = "\r\n"; // opmerking: \r is enter en \n is een linefeed.
             
             TextBox newtextbox = new TextBox();            
@@ -173,11 +173,6 @@ namespace CodeGreen
                 newDropText();
                 n = 0;   
             }
-        }
-
-        private void GameMenu_Shown(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
 
 

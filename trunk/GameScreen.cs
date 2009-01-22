@@ -15,6 +15,7 @@ namespace CodeGreen
         INSTRUCTIE,
         INVENTORY,
         BANK,
+        SHOP,
         HUIS
     }
     public partial class GameScreen : Form
@@ -24,7 +25,8 @@ namespace CodeGreen
         public OptionsHandler options;
         private Inventory inventory;
         public ResourceHandler resourcehandler;        
-        private int n, timesec, timemin;        
+        private int n, timesec, timemin;
+        private bool type_shop_intro;
         private Bankaccount PlayerBankaccount;        
         private WerkbalkState werkbalk;
         private Bank bank;
@@ -64,6 +66,8 @@ namespace CodeGreen
             gbxInventory.Location = werkbalklocation;
             gbxBank.Size = werkbalksize;
             gbxBank.Location = werkbalklocation;
+            gbxShop.Size = werkbalksize;
+            gbxShop.Location = werkbalklocation;
             gbxHuis.Size = werkbalksize;
             gbxHuis.Location = werkbalklocation;
         }
@@ -98,8 +102,15 @@ namespace CodeGreen
         }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
-        {            
-            lblIntroTextLine1.Text = misc.TypeTextIntro();
+        {   
+            if (gbxGameInstructions.Visible == true)
+            {
+                lblIntroTextLine1.Text = misc.TypeTextIntro();
+            }
+            else if (gbxShop.Visible == true)
+            {
+                lbTextShop.Text = misc.TypeWordEffect("Welkom to nixxons shop, for all your hacker tools.");
+            }
         }
 
         /// <summary>
@@ -110,32 +121,34 @@ namespace CodeGreen
             switch (werkbalk)
             {
                 case WerkbalkState.INSTRUCTIE:
-                    ToonGB(gbxGameInstructions);
-                    //tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    //tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
+                    ToonGB(gbxGameInstructions);                    
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");                    
+                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
                     break;
                 case WerkbalkState.INVENTORY:
-                    ToonGB(gbxInventory);
-                    //tooltip.SetToolTip(this.pbKnopInventory, "close inventory");
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");
-                    //tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
+                    ToonGB(gbxInventory);                    
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_on.png");                    
+                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
                     break;
                 case WerkbalkState.BANK:
-                    ToonGB(gbxBank);
-                    //tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
+                    ToonGB(gbxBank);                    
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");                    
+                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_on.png");
+                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
+                    break;
+                case WerkbalkState.SHOP:
+                    ToonGB(gbxShop);
                     pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    //tooltip.SetToolTip(this.pbKnopBank, "logout bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_on.png");                    
+                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_on.png");
                     break;
                 case WerkbalkState.HUIS:
-                    ToonGB(gbxHuis);
-                    //tooltip.SetToolTip(this.pbKnopInventory, "open inventory");
-                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-                    //tooltip.SetToolTip(this.pbKnopBank, "login bank");
-                    pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");                    
+                    ToonGB(gbxHuis);                    
+                    pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");                    
+                    pbKnopBank.Image      = resourcehandler.loadimage("werkbalkknop_bank_off.png");
+                    pbKnopShop.Image      = resourcehandler.loadimage("werkbalkknop_shop_off.png");
                     break;
             }
 
@@ -158,8 +171,14 @@ namespace CodeGreen
                 if (werkbalk != WerkbalkState.BANK) { werkbalk = WerkbalkState.BANK; }
             }
 
+            else if ((sender == pbShop) || (sender == pbKnopShop))
+            {
+                if (TekenWinkel() == true) { TekenWinkel(); }
+                if (werkbalk != WerkbalkState.SHOP) { werkbalk = WerkbalkState.SHOP; }
+            }
+
             //huizen:
-            else if ((sender == pbHuis3) || (sender == pbHuis2) || (sender == pbHuis1) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6))
+            else if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6))
             {
                 if (werkbalk != WerkbalkState.HUIS)
                 {
@@ -170,8 +189,14 @@ namespace CodeGreen
                 if (huis == null) { misc.ToonBericht(7); return; }
 
                 lbNaam.Text = huis.Naam;
-                //
-                if (btnBuyNeworkscanner.Visible == true) { lbIPadres.Text = huis.IPAdres; }
+                
+                
+                if (inventory.getItemInventory("netwerkscanner")!=null)
+                {
+                    Item checkitem = inventory.getItemInventory("netwerkscanner");
+                    if (checkitem.Active == true) { lbIPadres.Text = huis.IPAdres; }
+                    else { lbIPadres.Text = "not scanned"; }
+                }               
                 else { lbIPadres.Text = "unknow"; }
                 if (huis.Wifi==true) {
                     lbWifi.Text = "Yes";
@@ -183,9 +208,7 @@ namespace CodeGreen
                 else if (huis.Wifi == false) { 
                     lbWifi.Text = "No";
                     ShowWifiProperties(false);
-                } 
-               
-                
+                }                                
 
             }
             ShowWerkbalk();
@@ -213,78 +236,6 @@ namespace CodeGreen
             return null;
             
         }
-
-        private void VeranderVenster(object sender, EventArgs e)
-        {
-            //winkel niet op werkbalk
-            if ((sender == pbShop) || (sender == pbKnopshop))
-            {                
-                if (gbxShop.Visible == true) 
-                {
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png"); 
-                    gbxShop.Visible=false;
-                }
-                else if (gbxShop.Visible == false)
-                {
-                    pbKnopshop.Image = resourcehandler.loadimage("werkbalkknop_shop_on.png"); 
-                    gbxShop.Visible=true;
-                }                                               
-
-            }
-
-            else if (sender == pbHuis3)
-            {
-                {
-                    gbxHuis.Visible = true;
-                    //todo: haal informatie huis op.
-                }
-            }
-        }
-  
- /*
-                private void BuyItem(String itemnm)
-                //private void BuyItem(object sender, EventArgs e)
-                {
-                    //Item test = inventory.getItem(sender.ToString());
-                    //MessageBox.Show(test.NaamItem + " prijs: " + test.Prijs + " actief: "+Convert.ToString(test.Active));
-
-            
-
-                    if (itemnm == "wepcracker")
-                    {
-                        pbItemWifiWEPCracker.Visible = true;                
-                
-                        //TODO: Van de speler wordt geld af gehaalt,
-                        //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
-                    }
-                    else if (itemnm == )
-                    {
-                        pbItemNetworkScanner.Visible = true;
-                        btnBuyNeworkscanner.Enabled = false;
-                    }
-                    else if (sender == btnBuyKeylogger)
-                    {
-                        pbItemKeylogger.Visible = true;
-                        btnBuyKeylogger.Enabled = false;
-                    }
-                    else if (sender == btnBuyWorm)
-                    {
-                        pbItemWorm.Visible = true;
-                        btnBuyWorm.Enabled = false;
-                    }
-                    else if (sender == btnKoopVirus)
-                    {
-                        pbItemCoderedvirus.Visible = true;
-                        btnKoopVirus.Enabled = false;
-                    }
-                    else
-                    {
-                        misc.ToonBericht(8);
-                    }
- 
-                    resourcehandler.playsound("buy.wav", false);
-                }   
-         */
 
         /// <summary>
         /// update gametimer
@@ -382,26 +333,22 @@ namespace CodeGreen
         }
         
 
-        private void gbxShop_Paint(object sender, PaintEventArgs e)
+        private bool TekenWinkel()
         {
-
             int ypos = 220;
             for (int i = 0; i < inventory.numitems; i++)
             {
                 Item curitem = inventory.getItemPos(i);
-
                 Label lbitemnaam = new Label();
                 lbitemnaam.Text = curitem.NaamItem;
                 lbitemnaam.Location = new Point(280, ypos);
                 lbitemnaam.ForeColor = Color.Lime;
                 lbitemnaam.Visible = true;                
-
                 Label lbitemprijs = new Label();
                 lbitemprijs.Text = Convert.ToString(curitem.Prijs);
                 lbitemprijs.ForeColor = Color.Lime;
                 lbitemprijs.Location = new Point(380, ypos);
                 lbitemnaam.Visible = true;                
-
                 Button btnItembuy = new Button();
                 btnItembuy.Name = curitem.NaamItem;
                 btnItembuy.Text = "buy";
@@ -411,15 +358,14 @@ namespace CodeGreen
                 btnItembuy.ForeColor = Color.Lime;
                 btnItembuy.BackColor = Color.Black;
                 btnItembuy.FlatStyle = FlatStyle.Flat;                
-                btnItembuy.Click += new System.EventHandler(BuyItem);
-                
+                btnItembuy.Click += new System.EventHandler(BuyItem);                
                 this.Controls.Add(lbitemnaam);
                 this.Controls.Add(lbitemprijs);
                 this.Controls.Add(btnItembuy);
                 components.Add(btnItembuy);
                 ypos += 20;
-
-            }                                            
+            }
+            return true;                                
         }    
 
 
@@ -431,8 +377,7 @@ namespace CodeGreen
             {
                 this.pbItemWifiWEPCracker.Visible = true;
                 if (inventory.addItemInventory("wepcracker") == false) {
-                    werkbalk = WerkbalkState.INSTRUCTIE;
-
+                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
                 }
             }
             else if (sender == this.components.Components[5])
@@ -457,25 +402,57 @@ namespace CodeGreen
              
         }
 
-        #endregion
+        
+
+        private void pbQuitgame_Click(object sender, EventArgs e)
+        {
+            GameMenu gamemenu = new GameMenu();
+            gamemenu.Show();
+            this.Hide();
+            //reset game progress
+            inventory.youritems.Clear();
+        }
+     
+        private void lbPlayerMoney_Paint(object sender, PaintEventArgs e)
+        {
+            lbPlayerMoney.Text = Convert.ToString(PlayerBankaccount.AccountSaldo);
+        }
+
 
         /*
-        private void BuyItem2(object sender, EventArgs e)
-        {
-            if (sender == this.button1)
-            {
-                MessageBox.Show("ok");
-            }
-            else if (sender == e)
-            {
-                MessageBox.Show("ok2");
-            }
-            else
-            {
-                MessageBox.Show("wrong");
-            }            
-        }
+         * Een inventory items activeren.
         */
+        private void pbItemWifiWEPCracker_Click(object sender, EventArgs e)
+        {
+            Item wepcracker = inventory.getItemInventory("wepcracker");
+            wepcracker.Active = true;
+        }
+        private void pbItemKeylogger_Click(object sender, EventArgs e)
+        {
+            Item keylogger = inventory.getItemInventory("keylogger");
+            keylogger.Active = true;
+        }
+        private void pbItemNetworkScanner_Click(object sender, EventArgs e)
+        {
+            Item networkScanner = inventory.getItemInventory("networkscanner");
+            networkScanner.Active = true;
+        }
+        private void pbItemWorm_Click(object sender, EventArgs e)
+        {
+            Item networkScanner = inventory.getItemInventory("networkscanner");
+            networkScanner.Active = true;
+        }
+        private void pbItemCoderedvirus_Click(object sender, EventArgs e)
+        {
+            Item networkScanner = inventory.getItemInventory("networkscanner");
+            networkScanner.Active = true;
+        }
+
+
+
+
+
+        #endregion
     }
 
 }

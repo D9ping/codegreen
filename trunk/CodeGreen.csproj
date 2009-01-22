@@ -148,6 +148,7 @@
     <EmbeddedResource Include="afb\werkbalkknop_shop_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_shop_on.png" />
     <Content Include="afb\game_truck_driveright.png" />
+    <Content Include="afb\knop_quitgame.png" />
     <Content Include="icon_codegreen.ico" />
     <Content Include="sounds\buy.wav" />
     <Content Include="sounds\README.txt" />

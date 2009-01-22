@@ -14,8 +14,7 @@ namespace CodeGreen
         #endregion
 
         #region constructor
-        public Item(String naamitem, int prijs)
-            //(bool webcracker, bool keylogger, bool netwerkscanner, bool coderedvirus, bool trojanhorse, bool worm)
+        public Item(String naamitem, int prijs)            
         {
             this.naamitem = naamitem;
             this.prijs = prijs;

@@ -36,23 +36,37 @@ namespace CodeGreen
 
         #region methoden        
         public bool addItemInventory(String naam)
-        {
-            try
-            {
-                //if (getItem(naam) == null) { return false; }
-                Item buyitem = getItem(naam);
-                youritems.Add(buyitem);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+        {   
+                                     
+            Item buyitem = getItem(naam);
+
+            //onbestaande items zijn altijd te duur om te kopen.
+            if (buyitem == null) { return false; }
+            
+            //int prijs = buyitem.Prijs;
+
+
+            //return false;
+
+            youritems.Add(buyitem);
+            return true;
         }
 
         public Item getItem(string naam)
         {
             foreach (Item curitem in allitems)
+            {
+                if (curitem.NaamItem == naam)
+                {
+                    return curitem;
+                }
+            }
+            return null;
+        }
+
+        public Item getItemInventory(string naam)
+        {
+            foreach (Item curitem in youritems)
             {
                 if (curitem.NaamItem == naam)
                 {

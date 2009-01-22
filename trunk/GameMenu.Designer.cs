@@ -125,8 +125,7 @@
             this.Controls.Add(this.pbStartGame);
             this.Controls.Add(this.pbTitel);
             this.Name = "GameMenu";
-            this.Text = "CodeGreen";
-            this.Shown += new System.EventHandler(this.GameMenu_Shown);
+            this.Text = "CodeGreen";            
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).EndInit();
