@@ -22,6 +22,7 @@ namespace CodeGreen
         #region datavelden
         public Misc misc;
         public OptionsHandler options;
+        private Inventory inventory;
         public ResourceHandler resourcehandler;
         private int curintroregel, n, timesec, timemin;
         private string[] intro_regel;
@@ -29,8 +30,8 @@ namespace CodeGreen
         private WerkbalkState werkbalk;
         private Bank bank;
         private List<Huis> huizen;
-        private List<Items> items;
-        private bool IPadresrevealed = false;
+        //private List<Items> items;
+        //private bool IPadresrevealed = false;        
         #endregion
 
         #region constructor
@@ -38,17 +39,22 @@ namespace CodeGreen
         {
             InitializeComponent();
             intro_regel = new String[5];
+
+            bank = new Bank();
             misc = new Misc();
+            inventory = new Inventory();
+
+            huizen = new List<Huis>();
             options = new OptionsHandler();
-            resourcehandler = new ResourceHandler();
-            Bank bank = new Bank();
-            
+            resourcehandler = new ResourceHandler();            
+
+            inithuizen();
             bank.initbankaccounts();
 
             PlayerBankaccount = bank.GetByNaam("speler");
-            huizen = new List<Huis>();
-            items = new List<Items>();
-            inithuizen();
+            
+            //items = new List<Items>();
+            
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
             if (options.controller_enabled == true)
@@ -104,30 +110,23 @@ namespace CodeGreen
             intro_regel[1] = "Your objective is to take the microsoft server down.";
             intro_regel[2] = "To do this, you will need to setup a bot network";
             intro_regel[3] = "by hacking as many house in your neighhood as possible.";
-            intro_regel[4] = "It's time to take control of that micr$oft bastards.";
-
-            for (int i = 0; i < 5; i++)
-            {
-                if (lblIntroTextLine1.Text == (intro_regel[i] + "_"))
-                {
-                    misc.Curlenword = 0;
-                    TimerTextEffect.Interval = 2000;
-                    curintroregel++;
-                }
-                else
-                {
-                    TimerTextEffect.Interval = 100;
-                }
-            }
-
-
-            for (int i = 0; i < 5; i++)
+            intro_regel[4] = "It's time to take control of that micr$oft bastards.";            
+            
+            for (int i = 0; i < intro_regel.Length; i++)
             {
                 if (curintroregel == i)
                 {
                     lblIntroTextLine1.Text = misc.TypeWordEffect(intro_regel[i]);
                 }
+
+                if (lblIntroTextLine1.Text == (intro_regel[i] + "_"))
+                {
+                    misc.Curlenword = 0;
+                    curintroregel++;
+                }
             }
+            if (endline == true) { TimerTextEffect.Interval = 2000; }
+            else { TimerTextEffect.Interval = 100; }
         }
 
         /// <summary>
@@ -187,7 +186,7 @@ namespace CodeGreen
             }
 
             //huizen:
-            else if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6))
+            else if ((sender == pbHuis3) || (sender == pbHuis2) || (sender == pbHuis1) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6))
             {
                 if (werkbalk != WerkbalkState.HUIS)
                 {
@@ -198,6 +197,7 @@ namespace CodeGreen
                 if (huis == null) { misc.ToonBericht(7); return; }
 
                 lbNaam.Text = huis.Naam;
+                //
                 if (btnBuyNeworkscanner.Visible == true) { lbIPadres.Text = huis.IPAdres; }
                 else { lbIPadres.Text = "unknow"; }
                 if (huis.Wifi==true) {
@@ -259,7 +259,7 @@ namespace CodeGreen
 
             }
 
-            else if (sender == pbHuis1)
+            else if (sender == pbHuis3)
             {
                 {
                     gbxHuis.Visible = true;
@@ -267,73 +267,51 @@ namespace CodeGreen
                 }
             }
         }
+  
+ /*
+                private void BuyItem(String itemnm)
+                //private void BuyItem(object sender, EventArgs e)
+                {
+                    //Item test = inventory.getItem(sender.ToString());
+                    //MessageBox.Show(test.NaamItem + " prijs: " + test.Prijs + " actief: "+Convert.ToString(test.Active));
 
-        private void BuyItem(object sender, EventArgs e)
-        {
-            //op welke knop is geklikt?
-            if (sender == btnBuyWifiwepcracker)
-            {
-                pbItemWifiWEPCracker.Visible = true;
-                btnBuyWifiwepcracker.Enabled = false;
-                //TODO: Van de speler wordt geld af gehaalt,
-                //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
-            }
-            else if (sender == btnBuyNeworkscanner)
-            {
-                pbItemNetworkScanner.Visible = true;
-                btnBuyNeworkscanner.Enabled = false;
-            }
-            else if (sender == btnBuyKeylogger)
-            {
-                pbItemKeylogger.Visible = true;
-                btnBuyKeylogger.Enabled = false;
-            }
-            else if (sender == btnBuyWorm)
-            {
-                pbItemWorm.Visible = false;
-                btnBuyWorm.Enabled = false;
-            }
-            else if (sender == btnKoopVirus)
-            {
-                pbItemCoderedvirus.Visible = true;
-                btnKoopVirus.Enabled = false;
-            }
-            else
-            {
-                misc.ToonBericht(8);
-            }
-
-            resourcehandler.playsound("buy.wav", false);
-        }
-
-        private void btnBuyWifiwepcracker_Click(object sender, EventArgs e)
-        {
-            pbItemWifiWEPCracker.Visible = true;
-            btnBuyWifiwepcracker.Enabled = false;
-
-            resourcehandler.playsound("buy.wav", true);
             
-        }
 
-        private void btnBuyneworkscanner_Click(object sender, EventArgs e)
-        {
-            pbItemNetworkScanner.Visible = true;
-            btnBuyNeworkscanner.Enabled = false;
-            resourcehandler.playsound("buy.wav", false);
-        }
-
-        private void btnBuynetworksniffer_Click(object sender, EventArgs e)
-        {
-            pbItemKeylogger.Visible = true;
-            btnBuyKeylogger.Enabled = false;
-            resourcehandler.playsound("buy.wav", false);            
-        }
-
-        private void btnKoopWorm_Click(object sender, EventArgs e)
-        {
-            //pbItemWorm.visible = true;
-            //pbItemWorm.Enabled = false;
-        }
+                    if (itemnm == "wepcracker")
+                    {
+                        pbItemWifiWEPCracker.Visible = true;                
+                
+                        //TODO: Van de speler wordt geld af gehaalt,
+                        //if (GamePlayer.geldopnemen(200) == true) { pbItemWepWifiCracker.Visible = true; }            
+                    }
+                    else if (itemnm == )
+                    {
+                        pbItemNetworkScanner.Visible = true;
+                        btnBuyNeworkscanner.Enabled = false;
+                    }
+                    else if (sender == btnBuyKeylogger)
+                    {
+                        pbItemKeylogger.Visible = true;
+                        btnBuyKeylogger.Enabled = false;
+                    }
+                    else if (sender == btnBuyWorm)
+                    {
+                        pbItemWorm.Visible = true;
+                        btnBuyWorm.Enabled = false;
+                    }
+                    else if (sender == btnKoopVirus)
+                    {
+                        pbItemCoderedvirus.Visible = true;
+                        btnKoopVirus.Enabled = false;
+                    }
+                    else
+                    {
+                        misc.ToonBericht(8);
+                    }
+ 
+                    resourcehandler.playsound("buy.wav", false);
+                }   
+         */
 
         /// <summary>
         /// update gametimer
@@ -427,11 +405,104 @@ namespace CodeGreen
        
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //TODO: toon groepbox bank met saldo rekeningnummer etc. etc.            
+        }
+        
 
+        private void gbxShop_Paint(object sender, PaintEventArgs e)
+        {
+
+            int ypos = 220;
+            for (int i = 0; i < inventory.numitems; i++)
+            {
+                Item curitem = inventory.getItemPos(i);
+
+                Label lbitemnaam = new Label();
+                lbitemnaam.Text = curitem.NaamItem;
+                lbitemnaam.Location = new Point(280, ypos);
+                lbitemnaam.ForeColor = Color.Lime;
+                lbitemnaam.Visible = true;                
+
+                Label lbitemprijs = new Label();
+                lbitemprijs.Text = Convert.ToString(curitem.Prijs);
+                lbitemprijs.ForeColor = Color.Lime;
+                lbitemprijs.Location = new Point(380, ypos);
+                lbitemnaam.Visible = true;                
+
+                Button btnItembuy = new Button();
+                btnItembuy.Name = curitem.NaamItem;
+                btnItembuy.Text = "buy";
+                btnItembuy.Location = new Point(480, ypos);
+                btnItembuy.Width = 100;
+                btnItembuy.Visible = true;
+                btnItembuy.ForeColor = Color.Lime;
+                btnItembuy.BackColor = Color.Black;
+                btnItembuy.FlatStyle = FlatStyle.Flat;                
+                btnItembuy.Click += new System.EventHandler(BuyItem);
+                
+                this.Controls.Add(lbitemnaam);
+                this.Controls.Add(lbitemprijs);
+                this.Controls.Add(btnItembuy);
+                components.Add(btnItembuy);
+                ypos += 20;
+
+            }                                            
+        }    
+
+
+        public void BuyItem(object sender, EventArgs e)
+        {
+            //MessageBox.Show(sender.ToString());
+
+            if (sender == this.components.Components[4])
+            {
+                this.pbItemWifiWEPCracker.Visible = true;
+                if (inventory.addItemInventory("wepcracker") == false) {
+                    werkbalk = WerkbalkState.INSTRUCTIE;
+
+                }
+            }
+            else if (sender == this.components.Components[5])
+            {
+                this.pbItemKeylogger.Visible = true;
+            }
+            else if (sender == this.components.Components[6])
+            {
+                this.pbItemNetworkScanner.Visible = true;
+            }
+            else if (sender == this.components.Components[7])
+            {
+                this.pbItemWorm.Visible = true;
+            }
+            else if (sender == this.components.Components[8])
+            {
+                this.pbItemCoderedvirus.Visible = true;
+            }
+            else
+                misc.ToonBericht(8);
+            //throw new NotImplementedException();
+             
         }
 
-
         #endregion
+
+        /*
+        private void BuyItem2(object sender, EventArgs e)
+        {
+            if (sender == this.button1)
+            {
+                MessageBox.Show("ok");
+            }
+            else if (sender == e)
+            {
+                MessageBox.Show("ok2");
+            }
+            else
+            {
+                MessageBox.Show("wrong");
+            }            
+        }
+        */
     }
 
 }

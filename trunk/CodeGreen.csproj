@@ -93,7 +93,8 @@
       <DependentUpon>GameMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Huis.cs" />
-    <Compile Include="Items.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Misc.cs" />
     <Compile Include="OptionsHandler.cs" />
     <Compile Include="Program.cs" />

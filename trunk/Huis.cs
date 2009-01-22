@@ -43,10 +43,12 @@ namespace CodeGreen
 
             this.wifi = wifi;
             if (wifi == false) { this.wifissid = ""; this.wifiwep = false; this.wifiwpa = false; }
-            this.wifissid = wifissid;
-            this.wifiwep = wifiwep;
-            this.wifiwpa = wifiwpa;
-
+            else
+            {
+                this.wifissid = wifissid;
+                this.wifiwep = wifiwep;
+                this.wifiwpa = wifiwpa;
+            }
             this.windowsoutdated = windowsoutdated;
             this.virusscanner = virusscanner;            
         }

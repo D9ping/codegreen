@@ -15,7 +15,7 @@ namespace CodeGreen
     public class ResourceHandler
     {
         #region datavelden
-        Assembly myAssembly;
+        //Assembly myAssembly;
         Misc misc;
         OptionsHandler options;
         #endregion

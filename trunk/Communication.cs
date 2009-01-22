@@ -6,7 +6,7 @@ using System.Text;
 namespace CodeGreen
 {
     /// <summary>
-    /// Deze class handelt de communcatie met de Atmel controller.
+    /// Deze class handelt de communicatie met de Atmel controller.
     /// </summary>
     class Communication
     {
@@ -27,7 +27,7 @@ namespace CodeGreen
 
         #region methoden
         /// <summary>
-        /// 
+        /// verwerk binnen gekomen data controller.
         /// </summary>
         /// <param name="data"></param>
         public void VerwerkData(byte[] data)
@@ -92,6 +92,7 @@ namespace CodeGreen
                 ms.ToonBericht(3);
             }
         }
+
         /*        
         /// <summary>
         /// gekozen huis updaten

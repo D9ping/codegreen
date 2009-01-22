@@ -35,7 +35,7 @@ namespace CodeGreen
                     System.Windows.Forms.MessageBox.Show("Fout: onbekende menu knop.");  
                     break;
                 case 3:
-                    System.Windows.Forms.MessageBox.Show("Fout: Writing to registery failed.");
+                    System.Windows.Forms.MessageBox.Show("Fout: schrijven naar register mislukt.");
                     break;
                 case 4:
                     System.Windows.Forms.MessageBox.Show("Fout: resource kon niet geladen worden.");
@@ -48,6 +48,9 @@ namespace CodeGreen
                     break;
                 case 7:
                     System.Windows.Forms.MessageBox.Show("Fout: kan huis niet vinden.");
+                    break;
+                case 8:
+                    System.Windows.Forms.MessageBox.Show("Fout: kan item niet vinden.");
                     break;
                 default:
                     System.Windows.Forms.MessageBox.Show("onbekende fout");

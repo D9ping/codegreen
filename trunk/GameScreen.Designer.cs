@@ -60,8 +60,8 @@
             this.pbBank = new System.Windows.Forms.PictureBox();
             this.pbHuis2 = new System.Windows.Forms.PictureBox();
             this.pbHuis5 = new System.Windows.Forms.PictureBox();
-            this.pbHuis1 = new System.Windows.Forms.PictureBox();
             this.pbHuis3 = new System.Windows.Forms.PictureBox();
+            this.pbHuis1 = new System.Windows.Forms.PictureBox();
             this.pbHuis4 = new System.Windows.Forms.PictureBox();
             this.pbHuis6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -103,8 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuis1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHuis1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -197,7 +197,7 @@
             this.gbxInventory.Controls.Add(this.pbItemNetworkScanner);
             this.gbxInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxInventory.ForeColor = System.Drawing.Color.White;
-            this.gbxInventory.Location = new System.Drawing.Point(22, 61);
+            this.gbxInventory.Location = new System.Drawing.Point(12, 45);
             this.gbxInventory.Name = "gbxInventory";
             this.gbxInventory.Size = new System.Drawing.Size(542, 66);
             this.gbxInventory.TabIndex = 6;
@@ -284,13 +284,14 @@
             this.gbxShop.Controls.Add(this.btnBuyNeworkscanner);
             this.gbxShop.Controls.Add(this.btnBuyKeylogger);
             this.gbxShop.ForeColor = System.Drawing.Color.White;
-            this.gbxShop.Location = new System.Drawing.Point(434, 129);
+            this.gbxShop.Location = new System.Drawing.Point(520, 117);
             this.gbxShop.Name = "gbxShop";
-            this.gbxShop.Size = new System.Drawing.Size(369, 258);
+            this.gbxShop.Size = new System.Drawing.Size(85, 75);
             this.gbxShop.TabIndex = 22;
             this.gbxShop.TabStop = false;
             this.gbxShop.Text = "Welcome to Nixxons!";
             this.gbxShop.Visible = false;
+            this.gbxShop.Paint += new System.Windows.Forms.PaintEventHandler(this.gbxShop_Paint);
             // 
             // label8
             // 
@@ -300,6 +301,7 @@
             this.label8.Size = new System.Drawing.Size(126, 13);
             this.label8.TabIndex = 17;
             this.label8.Text = "Code red-virus         800$";
+            this.label8.Visible = false;
             // 
             // label7
             // 
@@ -309,15 +311,17 @@
             this.label7.Size = new System.Drawing.Size(133, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Netwerk scanner       250$";
+            this.label7.Visible = false;
             // 
             // lblTextWEPCracker
             // 
             this.lblTextWEPCracker.AutoSize = true;
-            this.lblTextWEPCracker.Location = new System.Drawing.Point(27, 37);
+            this.lblTextWEPCracker.Location = new System.Drawing.Point(27, 36);
             this.lblTextWEPCracker.Name = "lblTextWEPCracker";
             this.lblTextWEPCracker.Size = new System.Drawing.Size(128, 13);
             this.lblTextWEPCracker.TabIndex = 15;
             this.lblTextWEPCracker.Text = "WEPcracker            100$";
+            this.lblTextWEPCracker.Visible = false;
             // 
             // label5
             // 
@@ -327,6 +331,7 @@
             this.label5.Size = new System.Drawing.Size(128, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Worm                       250$";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -336,61 +341,63 @@
             this.label4.Size = new System.Drawing.Size(129, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Keylogger                 100$";
+            this.label4.Visible = false;
             // 
             // btnKoopVirus
             // 
             this.btnKoopVirus.ForeColor = System.Drawing.Color.Black;
-            this.btnKoopVirus.Location = new System.Drawing.Point(217, 185);
+            this.btnKoopVirus.Location = new System.Drawing.Point(180, 184);
             this.btnKoopVirus.Name = "btnKoopVirus";
             this.btnKoopVirus.Size = new System.Drawing.Size(50, 24);
             this.btnKoopVirus.TabIndex = 12;
             this.btnKoopVirus.Text = "buy";
             this.btnKoopVirus.UseVisualStyleBackColor = true;
-            this.btnKoopVirus.Click += new System.EventHandler(this.BuyItem);
+            this.btnKoopVirus.Visible = false;
             // 
             // btnBuyWorm
             // 
             this.btnBuyWorm.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyWorm.Location = new System.Drawing.Point(219, 107);
+            this.btnBuyWorm.Location = new System.Drawing.Point(182, 106);
             this.btnBuyWorm.Name = "btnBuyWorm";
             this.btnBuyWorm.Size = new System.Drawing.Size(50, 24);
             this.btnBuyWorm.TabIndex = 11;
             this.btnBuyWorm.Text = "buy";
             this.btnBuyWorm.UseVisualStyleBackColor = true;
-            this.btnBuyWorm.Click += new System.EventHandler(this.BuyItem);
+            this.btnBuyWorm.Visible = false;
             // 
             // btnBuyWifiwepcracker
             // 
+            this.btnBuyWifiwepcracker.AutoEllipsis = true;
             this.btnBuyWifiwepcracker.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(217, 30);
+            this.btnBuyWifiwepcracker.Location = new System.Drawing.Point(178, 29);
             this.btnBuyWifiwepcracker.Name = "btnBuyWifiwepcracker";
             this.btnBuyWifiwepcracker.Size = new System.Drawing.Size(52, 24);
             this.btnBuyWifiwepcracker.TabIndex = 9;
             this.btnBuyWifiwepcracker.Text = "buy";
             this.btnBuyWifiwepcracker.UseVisualStyleBackColor = true;
-            this.btnBuyWifiwepcracker.Click += new System.EventHandler(this.BuyItem);
+            this.btnBuyWifiwepcracker.Visible = false;
             // 
             // btnBuyNeworkscanner
             // 
             this.btnBuyNeworkscanner.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyNeworkscanner.Location = new System.Drawing.Point(217, 149);
+            this.btnBuyNeworkscanner.Location = new System.Drawing.Point(180, 148);
             this.btnBuyNeworkscanner.Name = "btnBuyNeworkscanner";
             this.btnBuyNeworkscanner.Size = new System.Drawing.Size(50, 24);
             this.btnBuyNeworkscanner.TabIndex = 10;
             this.btnBuyNeworkscanner.Text = "buy";
             this.btnBuyNeworkscanner.UseVisualStyleBackColor = true;
-            this.btnBuyNeworkscanner.Click += new System.EventHandler(this.BuyItem);
+            this.btnBuyNeworkscanner.Visible = false;
             // 
             // btnBuyKeylogger
             // 
             this.btnBuyKeylogger.ForeColor = System.Drawing.Color.Black;
-            this.btnBuyKeylogger.Location = new System.Drawing.Point(217, 63);
+            this.btnBuyKeylogger.Location = new System.Drawing.Point(180, 62);
             this.btnBuyKeylogger.Name = "btnBuyKeylogger";
             this.btnBuyKeylogger.Size = new System.Drawing.Size(50, 26);
             this.btnBuyKeylogger.TabIndex = 8;
             this.btnBuyKeylogger.Text = "buy";
             this.btnBuyKeylogger.UseVisualStyleBackColor = true;
-            this.btnBuyKeylogger.Click += new System.EventHandler(this.BuyItem);
+            this.btnBuyKeylogger.Visible = false;
             // 
             // pbKnopBank
             // 
@@ -454,30 +461,30 @@
             this.tooltip.SetToolTip(this.pbHuis5, "Someone lives here...");
             this.pbHuis5.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
-            // pbHuis1
-            // 
-            this.pbHuis1.BackColor = System.Drawing.Color.Transparent;
-            this.pbHuis1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHuis1.Location = new System.Drawing.Point(324, 148);
-            this.pbHuis1.Name = "pbHuis1";
-            this.pbHuis1.Size = new System.Drawing.Size(89, 70);
-            this.pbHuis1.TabIndex = 17;
-            this.pbHuis1.TabStop = false;
-            this.tooltip.SetToolTip(this.pbHuis1, "Someone lives here...");
-            this.pbHuis1.Click += new System.EventHandler(this.VeranderWerkbalk);
-            // 
             // pbHuis3
             // 
             this.pbHuis3.BackColor = System.Drawing.Color.Transparent;
             this.pbHuis3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHuis3.Location = new System.Drawing.Point(481, 138);
+            this.pbHuis3.Location = new System.Drawing.Point(324, 148);
             this.pbHuis3.Name = "pbHuis3";
-            this.pbHuis3.Size = new System.Drawing.Size(83, 78);
-            this.pbHuis3.TabIndex = 18;
+            this.pbHuis3.Size = new System.Drawing.Size(89, 70);
+            this.pbHuis3.TabIndex = 17;
             this.pbHuis3.TabStop = false;
-            this.tooltip.SetToolTip(this.pbHuis3, "You live here.\r\n\'Cause there are a lot of houses nearby,\r\nyou can receive their w" +
-                    "ireless\r\nnetwork traffic too.");
+            this.tooltip.SetToolTip(this.pbHuis3, "Someone lives here...");
             this.pbHuis3.Click += new System.EventHandler(this.VeranderWerkbalk);
+            // 
+            // pbHuis1
+            // 
+            this.pbHuis1.BackColor = System.Drawing.Color.Transparent;
+            this.pbHuis1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHuis1.Location = new System.Drawing.Point(481, 138);
+            this.pbHuis1.Name = "pbHuis1";
+            this.pbHuis1.Size = new System.Drawing.Size(83, 78);
+            this.pbHuis1.TabIndex = 18;
+            this.pbHuis1.TabStop = false;
+            this.tooltip.SetToolTip(this.pbHuis1, "You live here.\r\n\'Cause there are a lot of houses nearby,\r\nyou can receive their w" +
+                    "ireless\r\nnetwork traffic too.");
+            this.pbHuis1.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
             // pbHuis4
             // 
@@ -609,7 +616,7 @@
             // 
             this.lbIPadres.AutoSize = true;
             this.lbIPadres.ForeColor = System.Drawing.Color.Lime;
-            this.lbIPadres.Location = new System.Drawing.Point(92, 37);
+            this.lbIPadres.Location = new System.Drawing.Point(70, 37);
             this.lbIPadres.Name = "lbIPadres";
             this.lbIPadres.Size = new System.Drawing.Size(19, 13);
             this.lbIPadres.TabIndex = 8;
@@ -619,7 +626,7 @@
             // 
             this.lbTextIPadres.AutoSize = true;
             this.lbTextIPadres.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextIPadres.Location = new System.Drawing.Point(15, 37);
+            this.lbTextIPadres.Location = new System.Drawing.Point(19, 37);
             this.lbTextIPadres.Name = "lbTextIPadres";
             this.lbTextIPadres.Size = new System.Drawing.Size(49, 13);
             this.lbTextIPadres.TabIndex = 7;
@@ -659,7 +666,7 @@
             // 
             this.lbWifi.AutoSize = true;
             this.lbWifi.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifi.Location = new System.Drawing.Point(92, 50);
+            this.lbWifi.Location = new System.Drawing.Point(70, 55);
             this.lbWifi.Name = "lbWifi";
             this.lbWifi.Size = new System.Drawing.Size(19, 13);
             this.lbWifi.TabIndex = 3;
@@ -669,7 +676,7 @@
             // 
             this.lbTextWifi.AutoSize = true;
             this.lbTextWifi.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWifi.Location = new System.Drawing.Point(33, 55);
+            this.lbTextWifi.Location = new System.Drawing.Point(40, 55);
             this.lbTextWifi.Name = "lbTextWifi";
             this.lbTextWifi.Size = new System.Drawing.Size(28, 13);
             this.lbTextWifi.TabIndex = 2;
@@ -679,7 +686,7 @@
             // 
             this.lbNaam.AutoSize = true;
             this.lbNaam.ForeColor = System.Drawing.Color.Lime;
-            this.lbNaam.Location = new System.Drawing.Point(92, 24);
+            this.lbNaam.Location = new System.Drawing.Point(70, 24);
             this.lbNaam.Name = "lbNaam";
             this.lbNaam.Size = new System.Drawing.Size(19, 13);
             this.lbNaam.TabIndex = 1;
@@ -689,11 +696,11 @@
             // 
             this.lbTextNaam.AutoSize = true;
             this.lbTextNaam.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextNaam.Location = new System.Drawing.Point(33, 24);
+            this.lbTextNaam.Location = new System.Drawing.Point(11, 24);
             this.lbTextNaam.Name = "lbTextNaam";
-            this.lbTextNaam.Size = new System.Drawing.Size(31, 13);
+            this.lbTextNaam.Size = new System.Drawing.Size(57, 13);
             this.lbTextNaam.TabIndex = 0;
-            this.lbTextNaam.Text = "Huis:";
+            this.lbTextNaam.Text = "Here lives:";
             // 
             // gbxBank
             // 
@@ -785,8 +792,8 @@
             this.Controls.Add(this.gbxHuis);
             this.Controls.Add(this.pbHuis6);
             this.Controls.Add(this.pbHuis4);
-            this.Controls.Add(this.pbHuis3);
             this.Controls.Add(this.pbHuis1);
+            this.Controls.Add(this.pbHuis3);
             this.Controls.Add(this.pbHuis2);
             this.Controls.Add(this.pbShop);
             this.Controls.Add(this.lbPlayerTime);
@@ -818,8 +825,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBank)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuis1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHuis1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuis6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -858,8 +865,8 @@
         private System.Windows.Forms.PictureBox pbBank;
         private System.Windows.Forms.PictureBox pbHuis2;
         private System.Windows.Forms.PictureBox pbHuis5;
-        private System.Windows.Forms.PictureBox pbHuis1;
         private System.Windows.Forms.PictureBox pbHuis3;
+        private System.Windows.Forms.PictureBox pbHuis1;
         private System.Windows.Forms.PictureBox pbHuis4;
         private System.Windows.Forms.PictureBox pbHuis6;
         private System.Windows.Forms.GroupBox gbxHuis;
