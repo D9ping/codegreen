@@ -24,10 +24,10 @@ namespace CodeGreen
             allitems.Add(new Item("netwerkscanner", 250));
             allitems.Add(new Item("worm", 250));
             allitems.Add(new Item("coderedvirus", 800));
-            /*
-            allitems.Add(new Item("cookie", 999));
-            allitems.Add(new Item("pizza", 123));
-             */
+            
+            //allitems.Add(new Item("cookie", 999));
+            //allitems.Add(new Item("pizza", 123));
+            
         }
         #endregion
 
