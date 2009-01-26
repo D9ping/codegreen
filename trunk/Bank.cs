@@ -20,7 +20,7 @@ namespace CodeGreen
             accounts = new List<Bankaccount>();
 
             RegistreerAccount("speler", "123.345.567.89", 0, 200);
-            RegistreerAccount("naam1", "34.89.57.74", 3, 500);
+            RegistreerAccount("jan de vries", "34.89.57.74", 3, 500);
             RegistreerAccount("naam2", "23.45.56.81", 5, 500);
             RegistreerAccount("naam3", "56.35.67.101", 8, 1000);
             RegistreerAccount("naam4", "78.127.57.23", 8, 2000);

@@ -63,6 +63,7 @@
             this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.usb = new UsbLibrary.UsbHidPort(this.components);
             this.gbxWBHuis = new System.Windows.Forms.GroupBox();
+            this.btnDeployKeylogger = new System.Windows.Forms.Button();
             this.lbWifiWPA = new System.Windows.Forms.Label();
             this.lbWifiWEP = new System.Windows.Forms.Label();
             this.lbWifiSSID = new System.Windows.Forms.Label();
@@ -283,7 +284,7 @@
             // 
             // pbItemKeylogger
             // 
-            this.pbItemKeylogger.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemKeylogger.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pbItemKeylogger.Image = ((System.Drawing.Image)(resources.GetObject("pbItemKeylogger.Image")));
             this.pbItemKeylogger.Location = new System.Drawing.Point(123, 13);
             this.pbItemKeylogger.Name = "pbItemKeylogger";
@@ -293,7 +294,6 @@
             this.pbItemKeylogger.TabStop = false;
             this.tooltip.SetToolTip(this.pbItemKeylogger, "Deploy keylogger, you will need to have access.");
             this.pbItemKeylogger.Visible = false;
-            this.pbItemKeylogger.Click += new System.EventHandler(this.pbItemKeylogger_Click);
             // 
             // tbCommand
             // 
@@ -521,6 +521,7 @@
             // gbxWBHuis
             // 
             this.gbxWBHuis.BackColor = System.Drawing.Color.Transparent;
+            this.gbxWBHuis.Controls.Add(this.btnDeployKeylogger);
             this.gbxWBHuis.Controls.Add(this.lbWifiWPA);
             this.gbxWBHuis.Controls.Add(this.lbWifiWEP);
             this.gbxWBHuis.Controls.Add(this.lbWifiSSID);
@@ -534,12 +535,24 @@
             this.gbxWBHuis.Controls.Add(this.lbNaam);
             this.gbxWBHuis.Controls.Add(this.lbTextNaam);
             this.gbxWBHuis.ForeColor = System.Drawing.Color.White;
-            this.gbxWBHuis.Location = new System.Drawing.Point(454, 405);
+            this.gbxWBHuis.Location = new System.Drawing.Point(298, 405);
             this.gbxWBHuis.Name = "gbxWBHuis";
-            this.gbxWBHuis.Size = new System.Drawing.Size(294, 78);
+            this.gbxWBHuis.Size = new System.Drawing.Size(450, 78);
             this.gbxWBHuis.TabIndex = 21;
             this.gbxWBHuis.TabStop = false;
             this.gbxWBHuis.Visible = false;
+            // 
+            // btnDeployKeylogger
+            // 
+            this.btnDeployKeylogger.BackColor = System.Drawing.Color.Black;
+            this.btnDeployKeylogger.ForeColor = System.Drawing.Color.Lime;
+            this.btnDeployKeylogger.Location = new System.Drawing.Point(330, 49);
+            this.btnDeployKeylogger.Name = "btnDeployKeylogger";
+            this.btnDeployKeylogger.Size = new System.Drawing.Size(114, 23);
+            this.btnDeployKeylogger.TabIndex = 12;
+            this.btnDeployKeylogger.Text = "View keylogger";
+            this.btnDeployKeylogger.UseVisualStyleBackColor = false;
+            this.btnDeployKeylogger.Click += new System.EventHandler(this.btnDeployKeylogger_Click);
             // 
             // lbWifiWPA
             // 
@@ -714,6 +727,7 @@
             // 
             this.tbAccountPassword.Location = new System.Drawing.Point(100, 49);
             this.tbAccountPassword.Name = "tbAccountPassword";
+            this.tbAccountPassword.PasswordChar = '*';
             this.tbAccountPassword.Size = new System.Drawing.Size(94, 20);
             this.tbAccountPassword.TabIndex = 4;
             // 
@@ -955,5 +969,6 @@
         private System.Windows.Forms.ComboBox cbAccountnummer;
         private System.Windows.Forms.TextBox tbCommand;
         private System.Windows.Forms.Label lbWEPcrackerinfo;
+        private System.Windows.Forms.Button btnDeployKeylogger;
     }
 }
