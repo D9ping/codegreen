@@ -69,6 +69,7 @@
             // 
             // TimerTextEffect
             // 
+            this.TimerTextEffect.Enabled = true;
             this.TimerTextEffect.Tick += new System.EventHandler(this.TimerTextEffect_Tick);
             // 
             // lbOptionController
@@ -131,7 +132,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameOptions";
             this.Text = "Codegreen Options";
-            this.Shown += new System.EventHandler(this.GameOptions_Shown);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameOptions_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).EndInit();

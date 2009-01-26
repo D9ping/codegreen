@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using System.Diagnostics;
 
 namespace CodeGreen
 {
@@ -51,6 +52,7 @@ namespace CodeGreen
 
         public void GameShutdown(object sender, EventArgs e)
         {
+            timerDropText.Enabled = false;            
             Application.Exit();
         }
 
@@ -176,6 +178,10 @@ namespace CodeGreen
             }
         }
 
+        private void GameShutdown(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
     }
         #endregion methoden

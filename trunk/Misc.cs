@@ -56,12 +56,11 @@ namespace CodeGreen
             intro_regel[3] = "by hacking as many house in your neighhood as possible.";
             intro_regel[4] = "It's time to take control of that micr$oft bastards.";
 
-            friend_regel = new String[5];
-            friend_regel[0] = "Your friend lives here,";
-            friend_regel[1] = "he works for Pabobank.";
-            friend_regel[2] = "He is willing to give you a list of";
-            friend_regel[3] = "all bankaccount nummers in your neighbourhood.";
-            friend_regel[4] = "Click on accept, to get the list.";
+            friend_regel = new String[4];
+            friend_regel[0] = "Your friend lives here, he works for Pabobank.";
+            friend_regel[1] = "He is willing to give you a list of";
+            friend_regel[2] = "all bankaccount nummers in your neighbourhood.";
+            friend_regel[3] = "Click on accept, to get the list.";
         }
         #endregion
 
@@ -111,10 +110,9 @@ namespace CodeGreen
                         break;
                     default:
                         MessageBox.Show("onbekende fout");
-                        break;
-                    
-                    errorshowed = false;
+                        break;                                        
                 }
+                errorshowed = false;
             }
         }
 

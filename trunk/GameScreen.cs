@@ -83,7 +83,7 @@ namespace CodeGreen
                 //TODO: verzin betere namen.
                 Huis[] huis = new Huis[5];
                 huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, true, true, false);
-                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "speedytouch", true, false, false, false, false);
+                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "devries", true, false, false, false, false);
                 huis[2] = new Huis(pbHuis3, "Marrieke", "72.23.34.45", true, "netgears", false, true, false, false, false);
                 huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
                 huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", false, true, true, true, false);                
@@ -452,29 +452,46 @@ namespace CodeGreen
             Button buttontemp = (Button)sender;
             if (buttontemp.Name == "wepcracker")
             {
-                this.pbItemWifiWEPCracker.Visible = true;
+                //this.pbItemWifiWEPCracker.Visible = true;
                 if (inventory.addItemInventory("wepcracker") == false) {
                     this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
                 }
             }
             else if (buttontemp.Name == "keylogger")
             {
-                this.pbItemKeylogger.Visible = true;
+                if (inventory.addItemInventory("wepcracker") == false)
+                {
+                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
+                }
+                //this.pbItemKeylogger.Visible = true;
             }
             else if (buttontemp.Name == "netwerkscanner")
             {
-                this.pbItemNetworkScanner.Visible = true;
+                if (inventory.addItemInventory("netwerkscanner") == false)
+                {
+                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
+                }
+                //this.pbItemNetworkScanner.Visible = true;
             }
             else if (buttontemp.Name == "worm")
             {
-                this.pbItemWorm.Visible = true;
+                if (inventory.addItemInventory("worm") == false)
+                {
+                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
+                }
+                //this.pbItemWorm.Visible = true;
             }
             else if (buttontemp.Name == "coderedvirus")
             {
-                this.pbItemCoderedvirus.Visible = true;
+                if (inventory.addItemInventory("coderedvirus") == false)
+                {
+                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
+                }
+                //this.pbItemCoderedvirus.Visible = true;
             }
             else { misc.ToonBericht(8); }
-            //throw new NotImplementedException();             
+
+            ToonInventoryItems();
         }
 
         
@@ -511,8 +528,16 @@ namespace CodeGreen
          * Een inventory items clicked
         */
         private void pbItemWifiWEPCracker_Click(object sender, EventArgs e)
-        {
-            ActivedItem("wepcracker");
+        {                        
+            pbItemCoderedvirus.Visible = false;
+            pbItemKeylogger.Visible = false;
+            pbItemNetworkScanner.Visible = false;
+            pbItemWorm.Visible = false;
+
+            lbWEPcrackerinfo.Visible = true;
+            tbCommand.Visible = true;
+            tbCommand.Focus();
+            
         }
         private void pbItemKeylogger_Click(object sender, EventArgs e)
         {
@@ -548,11 +573,60 @@ namespace CodeGreen
             btnFriendGift.Enabled = false;
         }
 
+        private void tbCommand_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {                                
+                    if (tbCommand.Text == "crack " + getHuis(pbHuis2).WifiSSID)
+                    {
+                        lbWEPcrackerinfo.Text = "Succesfully cracked " + getHuis(pbHuis2).Naam + " connection";
+                        tbCommand.Text = "";
+                        ActivedItem("wepcracker");
 
+                    }
+                    else if (tbCommand.Text.StartsWith("crack ", false, null) == true)
+                    {
+                        lbWEPcrackerinfo.Text = "Wifi SSID not found.";
+                    }
+                    else
+                    {
+                        lbWEPcrackerinfo.Text = "Unknow command.";
+                    }
+                
+            }
+        }
 
+        private void ToonInventoryItems()
+        {
+            if (inventory.getItemInventory("wepcracker") != null)
+            {
+                pbItemWifiWEPCracker.Visible = true;
+            }
+            else { pbItemWifiWEPCracker.Visible = false; }
+            if (inventory.getItemInventory("netwerkscanner") != null)
+            {
+                pbItemNetworkScanner.Visible = true;
+            }
+            else { pbItemNetworkScanner.Visible = false; }
+            if (inventory.getItemInventory("keylogger") != null)
+            {
+                pbItemKeylogger.Visible = true;
+            }
+            else { pbItemKeylogger.Visible = false; }
+            if (inventory.getItemInventory("worm") != null)
+            {
+                pbItemWorm.Visible = true;
+            }
+            else { pbItemWorm.Visible = false; }
+            if (inventory.getItemInventory("coderedvirus") != null)
+            {
+                pbItemCoderedvirus.Visible = true;
+            }
+            else { pbItemCoderedvirus.Visible = false; }
+        }
         #endregion
 
-        
+
     }
 
 }

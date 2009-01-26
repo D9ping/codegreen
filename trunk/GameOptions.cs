@@ -24,6 +24,11 @@ namespace CodeGreen
             misc = new Misc();
             options = new OptionsHandler();
             resourceshandler = new ResourceHandler();
+
+            if (options.GetSettingBool("sound") == true) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png"); }
+            else { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png"); }
+            if (options.GetSettingBool("controller") == true) { this.pbStateController.Image = resourceshandler.loadimage("checkbox_on.png"); }
+            else { this.pbStateController.Image = resourceshandler.loadimage("checkbox_off.png"); }
         }
         #endregion
 
@@ -31,16 +36,6 @@ namespace CodeGreen
         #endregion
 
         #region methoden
-        private void GameOptions_Shown(object sender, EventArgs e)
-        {
-            this.TimerTextEffect.Enabled = true;
-
-            if (options.sound_enabled == true) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png"); }
-            else if (options.sound_enabled == false) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png"); }
-
-            if (options.controller_enabled == true) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png"); }
-            else if (options.controller_enabled == false) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png"); }
-        }
 
         private void knop_hover(object sender, EventArgs e)
         {
@@ -118,12 +113,12 @@ namespace CodeGreen
             if (options.sound_enabled == true)
             {
                 pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");                
-                if (options.UpdateSetting("sound", false) == false) { misc.ToonBericht(3); }
+                if (options.UpdateSetting("Sound", "False") == false) { misc.ToonBericht(3); }
             }
             else if (options.sound_enabled == false)
             {
                 pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");                
-                if (options.UpdateSetting("sound", true) == false) { misc.ToonBericht(3); }
+                if (options.UpdateSetting("Sound", "True") == false) { misc.ToonBericht(3); }
             }
         }
 
@@ -132,12 +127,12 @@ namespace CodeGreen
             if (options.controller_enabled == true)
             {
                 pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");                
-                if (options.UpdateSetting("controller", false) == false) { misc.ToonBericht(3); }
+                if (options.UpdateSetting("Controller", "False") == false) { misc.ToonBericht(3); }
             }
             else if (options.controller_enabled == false)
             {
                 pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
-                if (options.UpdateSetting("sound", true) == false) { misc.ToonBericht(3); }
+                if (options.UpdateSetting("Controller", "True") == false) { misc.ToonBericht(3); }
             }
         }
         #endregion

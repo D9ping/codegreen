@@ -28,6 +28,7 @@ namespace CodeGreen
             {
                 if (GetSettingBool("Sound") == true) { setting_sound = true; }
                 else if (GetSettingBool("Sound") == false) { setting_sound = false; }
+
                 if (GetSettingBool("Controller") == true) { setting_controller = true; }
                 else if (GetSettingBool("Controller") == false) { setting_controller = false; }
             }
@@ -69,7 +70,7 @@ namespace CodeGreen
         /// </summary>
         /// <param name="status">de waarde true of false.</param>
         /// <returns>geeft true terug als het gelukt is.</returns>
-        public bool UpdateSetting(String keysetting, bool status)
+        public bool UpdateSetting(String keysetting, String status)
         {
             try
             {

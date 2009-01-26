@@ -125,7 +125,8 @@
             this.Controls.Add(this.pbStartGame);
             this.Controls.Add(this.pbTitel);
             this.Name = "GameMenu";
-            this.Text = "CodeGreen";            
+            this.Text = "CodeGreen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameShutdown);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).EndInit();

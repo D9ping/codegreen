@@ -40,11 +40,13 @@
             this.progbarServerload = new System.Windows.Forms.ProgressBar();
             this.pbKnopInventory = new System.Windows.Forms.PictureBox();
             this.gbxWBInventory = new System.Windows.Forms.GroupBox();
-            this.pbItemWorm = new System.Windows.Forms.PictureBox();
             this.pbItemCoderedvirus = new System.Windows.Forms.PictureBox();
-            this.pbItemWifiWEPCracker = new System.Windows.Forms.PictureBox();
-            this.pbItemKeylogger = new System.Windows.Forms.PictureBox();
+            this.pbItemWorm = new System.Windows.Forms.PictureBox();
             this.pbItemNetworkScanner = new System.Windows.Forms.PictureBox();
+            this.pbItemKeylogger = new System.Windows.Forms.PictureBox();
+            this.tbCommand = new System.Windows.Forms.TextBox();
+            this.lbWEPcrackerinfo = new System.Windows.Forms.Label();
+            this.pbItemWifiWEPCracker = new System.Windows.Forms.PictureBox();
             this.tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.pbKnopBank = new System.Windows.Forms.PictureBox();
             this.pbShop = new System.Windows.Forms.PictureBox();
@@ -90,11 +92,11 @@
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxWBInventory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemWorm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemCoderedvirus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemKeylogger)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWorm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemKeylogger)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopBank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBank)).BeginInit();
@@ -220,34 +222,22 @@
             // gbxWBInventory
             // 
             this.gbxWBInventory.BackColor = System.Drawing.Color.Transparent;
-            this.gbxWBInventory.Controls.Add(this.pbItemWorm);
             this.gbxWBInventory.Controls.Add(this.pbItemCoderedvirus);
-            this.gbxWBInventory.Controls.Add(this.pbItemWifiWEPCracker);
-            this.gbxWBInventory.Controls.Add(this.pbItemKeylogger);
+            this.gbxWBInventory.Controls.Add(this.pbItemWorm);
             this.gbxWBInventory.Controls.Add(this.pbItemNetworkScanner);
+            this.gbxWBInventory.Controls.Add(this.pbItemKeylogger);
+            this.gbxWBInventory.Controls.Add(this.tbCommand);
+            this.gbxWBInventory.Controls.Add(this.lbWEPcrackerinfo);
+            this.gbxWBInventory.Controls.Add(this.pbItemWifiWEPCracker);
             this.gbxWBInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxWBInventory.ForeColor = System.Drawing.Color.White;
             this.gbxWBInventory.Location = new System.Drawing.Point(12, 45);
             this.gbxWBInventory.Name = "gbxWBInventory";
-            this.gbxWBInventory.Size = new System.Drawing.Size(542, 66);
+            this.gbxWBInventory.Size = new System.Drawing.Size(566, 66);
             this.gbxWBInventory.TabIndex = 6;
             this.gbxWBInventory.TabStop = false;
             this.gbxWBInventory.Text = "Inventory";
             this.gbxWBInventory.Visible = false;
-            // 
-            // pbItemWorm
-            // 
-            this.pbItemWorm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbItemWorm.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWorm.Image")));
-            this.pbItemWorm.Location = new System.Drawing.Point(340, 13);
-            this.pbItemWorm.Name = "pbItemWorm";
-            this.pbItemWorm.Size = new System.Drawing.Size(74, 50);
-            this.pbItemWorm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbItemWorm.TabIndex = 4;
-            this.pbItemWorm.TabStop = false;
-            this.tooltip.SetToolTip(this.pbItemWorm, "Release worm");
-            this.pbItemWorm.Visible = false;
-            this.pbItemWorm.Click += new System.EventHandler(this.pbItemWorm_Click);
             // 
             // pbItemCoderedvirus
             // 
@@ -263,19 +253,33 @@
             this.pbItemCoderedvirus.Visible = false;
             this.pbItemCoderedvirus.Click += new System.EventHandler(this.pbItemCoderedvirus_Click);
             // 
-            // pbItemWifiWEPCracker
+            // pbItemWorm
             // 
-            this.pbItemWifiWEPCracker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbItemWifiWEPCracker.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWifiWEPCracker.Image")));
-            this.pbItemWifiWEPCracker.Location = new System.Drawing.Point(16, 16);
-            this.pbItemWifiWEPCracker.Name = "pbItemWifiWEPCracker";
-            this.pbItemWifiWEPCracker.Size = new System.Drawing.Size(79, 47);
-            this.pbItemWifiWEPCracker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbItemWifiWEPCracker.TabIndex = 2;
-            this.pbItemWifiWEPCracker.TabStop = false;
-            this.tooltip.SetToolTip(this.pbItemWifiWEPCracker, "Crack a Wifi WEP connection.");
-            this.pbItemWifiWEPCracker.Visible = false;
-            this.pbItemWifiWEPCracker.Click += new System.EventHandler(this.pbItemWifiWEPCracker_Click);
+            this.pbItemWorm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemWorm.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWorm.Image")));
+            this.pbItemWorm.Location = new System.Drawing.Point(340, 13);
+            this.pbItemWorm.Name = "pbItemWorm";
+            this.pbItemWorm.Size = new System.Drawing.Size(74, 50);
+            this.pbItemWorm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbItemWorm.TabIndex = 4;
+            this.pbItemWorm.TabStop = false;
+            this.tooltip.SetToolTip(this.pbItemWorm, "Release worm");
+            this.pbItemWorm.Visible = false;
+            this.pbItemWorm.Click += new System.EventHandler(this.pbItemWorm_Click);
+            // 
+            // pbItemNetworkScanner
+            // 
+            this.pbItemNetworkScanner.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemNetworkScanner.Image = ((System.Drawing.Image)(resources.GetObject("pbItemNetworkScanner.Image")));
+            this.pbItemNetworkScanner.Location = new System.Drawing.Point(235, 13);
+            this.pbItemNetworkScanner.Name = "pbItemNetworkScanner";
+            this.pbItemNetworkScanner.Size = new System.Drawing.Size(73, 50);
+            this.pbItemNetworkScanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbItemNetworkScanner.TabIndex = 0;
+            this.pbItemNetworkScanner.TabStop = false;
+            this.tooltip.SetToolTip(this.pbItemNetworkScanner, "Use netwerk scanner to reveal all IP adressen.");
+            this.pbItemNetworkScanner.Visible = false;
+            this.pbItemNetworkScanner.Click += new System.EventHandler(this.pbItemNetworkScanner_Click);
             // 
             // pbItemKeylogger
             // 
@@ -291,19 +295,48 @@
             this.pbItemKeylogger.Visible = false;
             this.pbItemKeylogger.Click += new System.EventHandler(this.pbItemKeylogger_Click);
             // 
-            // pbItemNetworkScanner
+            // tbCommand
             // 
-            this.pbItemNetworkScanner.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbItemNetworkScanner.Image = ((System.Drawing.Image)(resources.GetObject("pbItemNetworkScanner.Image")));
-            this.pbItemNetworkScanner.Location = new System.Drawing.Point(235, 13);
-            this.pbItemNetworkScanner.Name = "pbItemNetworkScanner";
-            this.pbItemNetworkScanner.Size = new System.Drawing.Size(73, 50);
-            this.pbItemNetworkScanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbItemNetworkScanner.TabIndex = 0;
-            this.pbItemNetworkScanner.TabStop = false;
-            this.tooltip.SetToolTip(this.pbItemNetworkScanner, "Use netwerk scanner to reveal all IP adressen.");
-            this.pbItemNetworkScanner.Visible = false;
-            this.pbItemNetworkScanner.Click += new System.EventHandler(this.pbItemNetworkScanner_Click);
+            this.tbCommand.AutoCompleteCustomSource.AddRange(new string[] {
+            "crack"});
+            this.tbCommand.BackColor = System.Drawing.Color.Black;
+            this.tbCommand.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCommand.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCommand.ForeColor = System.Drawing.Color.Lime;
+            this.tbCommand.Location = new System.Drawing.Point(101, 35);
+            this.tbCommand.MaxLength = 255;
+            this.tbCommand.Name = "tbCommand";
+            this.tbCommand.Size = new System.Drawing.Size(351, 28);
+            this.tbCommand.TabIndex = 6;
+            this.tooltip.SetToolTip(this.tbCommand, "enter a command");
+            this.tbCommand.Visible = false;
+            this.tbCommand.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbCommand_KeyDown);
+            // 
+            // lbWEPcrackerinfo
+            // 
+            this.lbWEPcrackerinfo.AutoSize = true;
+            this.lbWEPcrackerinfo.ForeColor = System.Drawing.Color.Lime;
+            this.lbWEPcrackerinfo.Location = new System.Drawing.Point(94, 16);
+            this.lbWEPcrackerinfo.Name = "lbWEPcrackerinfo";
+            this.lbWEPcrackerinfo.Size = new System.Drawing.Size(468, 13);
+            this.lbWEPcrackerinfo.TabIndex = 5;
+            this.lbWEPcrackerinfo.Text = "Enter \"crack\" followed by the SSID of the house that uses the weak WEP encryption" +
+                " for their wifi.";
+            this.lbWEPcrackerinfo.Visible = false;
+            // 
+            // pbItemWifiWEPCracker
+            // 
+            this.pbItemWifiWEPCracker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbItemWifiWEPCracker.Image = ((System.Drawing.Image)(resources.GetObject("pbItemWifiWEPCracker.Image")));
+            this.pbItemWifiWEPCracker.Location = new System.Drawing.Point(9, 16);
+            this.pbItemWifiWEPCracker.Name = "pbItemWifiWEPCracker";
+            this.pbItemWifiWEPCracker.Size = new System.Drawing.Size(79, 47);
+            this.pbItemWifiWEPCracker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbItemWifiWEPCracker.TabIndex = 2;
+            this.pbItemWifiWEPCracker.TabStop = false;
+            this.tooltip.SetToolTip(this.pbItemWifiWEPCracker, "Crack a Wifi WEP connection.");
+            this.pbItemWifiWEPCracker.Visible = false;
+            this.pbItemWifiWEPCracker.Click += new System.EventHandler(this.pbItemWifiWEPCracker_Click);
             // 
             // pbKnopBank
             // 
@@ -501,12 +534,11 @@
             this.gbxWBHuis.Controls.Add(this.lbNaam);
             this.gbxWBHuis.Controls.Add(this.lbTextNaam);
             this.gbxWBHuis.ForeColor = System.Drawing.Color.White;
-            this.gbxWBHuis.Location = new System.Drawing.Point(463, 380);
+            this.gbxWBHuis.Location = new System.Drawing.Point(454, 405);
             this.gbxWBHuis.Name = "gbxWBHuis";
             this.gbxWBHuis.Size = new System.Drawing.Size(294, 78);
             this.gbxWBHuis.TabIndex = 21;
             this.gbxWBHuis.TabStop = false;
-            this.gbxWBHuis.Text = "House details";
             this.gbxWBHuis.Visible = false;
             // 
             // lbWifiWPA
@@ -659,7 +691,7 @@
             // 
             this.btnTranfermoney.BackColor = System.Drawing.Color.Gray;
             this.btnTranfermoney.ForeColor = System.Drawing.Color.Black;
-            this.btnTranfermoney.Location = new System.Drawing.Point(266, 31);
+            this.btnTranfermoney.Location = new System.Drawing.Point(274, 23);
             this.btnTranfermoney.Name = "btnTranfermoney";
             this.btnTranfermoney.Size = new System.Drawing.Size(97, 44);
             this.btnTranfermoney.TabIndex = 2;
@@ -796,6 +828,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.gbxWBHuis);
             this.Controls.Add(this.gbxBanklogin);
             this.Controls.Add(this.gbxShopStock);
             this.Controls.Add(this.gbxWBShop);
@@ -806,7 +839,6 @@
             this.Controls.Add(this.gbxWBBank);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbKnopBank);
-            this.Controls.Add(this.gbxWBHuis);
             this.Controls.Add(this.pbHuisVriend);
             this.Controls.Add(this.pbHuis4);
             this.Controls.Add(this.pbHuis1);
@@ -830,11 +862,12 @@
             this.gbxGameInstructions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).EndInit();
             this.gbxWBInventory.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemWorm)).EndInit();
+            this.gbxWBInventory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemCoderedvirus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbItemKeylogger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWorm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbItemNetworkScanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemKeylogger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbItemWifiWEPCracker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopBank)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBank)).EndInit();
@@ -920,5 +953,7 @@
         private System.Windows.Forms.Label lbBanklogininfo;
         private System.Windows.Forms.Button btnFriendGift;
         private System.Windows.Forms.ComboBox cbAccountnummer;
+        private System.Windows.Forms.TextBox tbCommand;
+        private System.Windows.Forms.Label lbWEPcrackerinfo;
     }
 }
