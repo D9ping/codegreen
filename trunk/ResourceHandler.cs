@@ -64,19 +64,21 @@ namespace CodeGreen
             if (options.sound_enabled == true)
             {
                 try
-                {
+                {                    
                     SoundPlayer soundplayer = new SoundPlayer();
+                    
                     soundplayer.LoadAsync();
-                    soundplayer.SoundLocation = "..\\..\\sounds\\" + bestandsnaam;                    
+                    soundplayer.SoundLocation = "..\\..\\sounds\\" + bestandsnaam;
                     if (herhalen == true) { soundplayer.PlayLooping(); }
-                    soundplayer.Play();
+                    soundplayer.Play();                    
                     return true;
+
+                    
                 }
                 catch (Exception) { 
                     //failed to play
                     return false; }
-            }
-            //sound is off
+            }            
             return true;
         }
 

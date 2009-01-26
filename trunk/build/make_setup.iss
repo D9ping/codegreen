@@ -3,15 +3,16 @@
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
 AppVerName=CodeGreen - DEVELOPMENT VERSION
-AppVersion=0.6 Alpha
+AppVersion=0.7 Alpha
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
 DefaultGroupName=CodeGreen
 AllowNoIcons=yes
 WizardImageFile=setupbanner_codegreen.bmp
+WizardImageBackColor=clBlack
 WizardSmallImageFile=setupicon_codegreen.bmp
-WizardSmallImageBackColor=Green
+WizardSmallImageBackColor=clWhite
 ; license.txt en changelog.txt worden in de setup gecompiled.
 LicenseFile=license.txt
 AppReadmeFile=changelog.txt
@@ -53,4 +54,8 @@ Name: "{commondesktop}\CodeGreen"; WorkingDir: "{app}"; Filename: "{app}\CodeGre
 
 [Run]
 Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Flags: nowait postinstall skipifsilent
+
+[Registry]
+Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Controller"; ValueType: string; ValueData: "False"; Flags: uninsdeletekeyifempty
+Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Sound"; ValueType: string; ValueData: "True"; Flags: uninsdeletekeyifempty
 

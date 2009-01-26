@@ -8,7 +8,7 @@ namespace CodeGreen
     class Inventory
     {
         #region datavelden
-        private List<Item> allitems;
+        private List<Item> shopitems;
         public List<Item> youritems;
         
         #endregion
@@ -16,17 +16,17 @@ namespace CodeGreen
         #region constructor
         public Inventory()
         {             
-            allitems = new List<Item>();            
+            shopitems = new List<Item>();            
             youritems = new List<Item>();            
 
-            allitems.Add(new Item("wepcracker", 100));
-            allitems.Add(new Item("keylogger", 100));            
-            allitems.Add(new Item("netwerkscanner", 250));
-            allitems.Add(new Item("worm", 250));
-            allitems.Add(new Item("coderedvirus", 800));
+            shopitems.Add(new Item("wepcracker", 100));
+            shopitems.Add(new Item("keylogger", 100));            
+            shopitems.Add(new Item("netwerkscanner", 250));
+            shopitems.Add(new Item("worm", 250));
+            shopitems.Add(new Item("coderedvirus", 800));
             
-            //allitems.Add(new Item("cookie", 999));
-            //allitems.Add(new Item("pizza", 123));
+            //shopitems.Add(new Item("cookie", 999));
+            //shopitems.Add(new Item("pizza", 123));
             
         }
         #endregion
@@ -34,7 +34,7 @@ namespace CodeGreen
         #region properties
         public int numitems
         {
-            get { return allitems.Count; }
+            get { return shopitems.Count; }
         }
         #endregion
 
@@ -56,7 +56,7 @@ namespace CodeGreen
 
         public Item getItem(string naam)
         {
-            foreach (Item curitem in allitems)
+            foreach (Item curitem in shopitems)
             {
                 if (curitem.NaamItem == naam)
                 {
@@ -80,10 +80,16 @@ namespace CodeGreen
 
         public Item getItemPos(int positie)
         {
-            return allitems[positie];
+            return shopitems[positie];
         }
 
-
+        /*
+        public void addBankaccountnrlist()
+        {
+            Item Bankaccountlist = new Item("Bankaccountlist", 0);
+            youritems.Add(Bankaccountlist);
+        }        
+        */
         #endregion
     }
 }

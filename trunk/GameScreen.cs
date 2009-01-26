@@ -25,12 +25,11 @@ namespace CodeGreen
         public OptionsHandler options;
         private Inventory inventory;
         public ResourceHandler resourcehandler;        
-        private int n, timesec, timemin;
-        private bool type_shop_intro;
+        private int n, timesec, timemin;        
         private Bankaccount PlayerBankaccount;        
         private WerkbalkState werkbalk;
         private Bank bank;
-        private List<Huis> huizen;      
+        private List<Huis> huizen;                        
         #endregion
 
         #region constructor
@@ -82,13 +81,12 @@ namespace CodeGreen
             try
             {
                 //TODO: verzin betere namen.
-                Huis[] huis = new Huis[6];
+                Huis[] huis = new Huis[5];
                 huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, true, true, false);
-                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "speedytouch", false, true, false, false, false);
-                huis[2] = new Huis(pbHuis3, "Kees", "72.23.34.45", true, "netgears", true, true, false, false, false);
+                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "speedytouch", true, false, false, false, false);
+                huis[2] = new Huis(pbHuis3, "Marrieke", "72.23.34.45", true, "netgears", false, true, false, false, false);
                 huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
-                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", true, true, true, true, false);
-                huis[5] = new Huis(pbHuis6, "Marrieke", "56.34.76.89", true, "linksystems", true, true, false, false, false);                
+                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", false, true, true, true, false);                
                 huizen.AddRange(huis);
 
                 for (int i = 0; i < huizen.Count; i++)
@@ -134,14 +132,44 @@ namespace CodeGreen
 
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
-        {   
-            if (gbxGameInstructions.Visible == true)
+        {
+            if (werkbalk == WerkbalkState.INSTRUCTIE)
             {
-                lblIntroTextLine1.Text = misc.TypeTextIntro();
+                if (misc.HuidigeTekst == "intro")
+                {
+                    lblIntroTextLine1.Text = misc.TypeTextFull("intro");
+                }
+                else if (misc.HuidigeTekst == "friend")
+                {
+                    lblIntroTextLine1.Text = misc.TypeTextFull("friend");
+                    if (misc.HuidigeRegel >= 4)
+                    {
+                        if (inventory.getItemInventory("bankaccountlist") == null)
+                        {
+                            btnFriendGift.Visible = true;
+                        }
+                        else
+                        {
+                            btnFriendGift.Visible = false;
+                        }
+                    }
+                }
+                else { misc.ToonBericht(10); }
             }
-            else if (gbxWBShop.Visible == true)
-            {
+            else if (werkbalk == WerkbalkState.SHOP)
+            {                
                 lbTextShop.Text = misc.TypeWordEffect("Welkom to nixxons shop, for all your hacker tools.");
+            }
+            else if (werkbalk == WerkbalkState.BANK)
+            {
+                if (gbxBanklogin.Visible == true)
+                {
+                    lbBanklogininfo.Text = misc.TypeWordEffect("To login you will need to have a bankaccount number and password.");
+                }
+                else
+                {
+                    lbBanklogininfo.Text = misc.BlinkWordEffect();
+                }
             }
         }
 
@@ -157,6 +185,7 @@ namespace CodeGreen
                     ToonWerkbalkknop(null, null);
                     VerbergWinkel();
                     gbxBanklogin.Visible = false;
+                    misc.Curlenword = 0;
                     break;
                 case WerkbalkState.INVENTORY:
                     ToonGB(gbxWBInventory);
@@ -169,12 +198,14 @@ namespace CodeGreen
                     ToonWerkbalkknop(pbKnopBank, "werkbalkknop_bank_on.png");
                     VerbergWinkel();
                     gbxBanklogin.Visible = true;
+                    misc.Curlenword = 0;
                     break;
                 case WerkbalkState.SHOP:
                     ToonGB(gbxWBShop);
                     ToonWerkbalkknop(pbKnopShop, "werkbalkknop_shop_on.png");
                     TekenWinkel();
                     gbxBanklogin.Visible = false;
+                    misc.Curlenword = 0;
                     break;
                 case WerkbalkState.HUIS:
                     ToonGB(gbxWBHuis);
@@ -204,35 +235,45 @@ namespace CodeGreen
             else if ((sender == pbShop) || (sender == pbKnopShop))
             {
                 if (werkbalk != WerkbalkState.SHOP) { werkbalk = WerkbalkState.SHOP; }
-            }            
-            else if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5) || (sender == pbHuis6))
+            }
+            else if (sender == pbHuisVriend)
+            {
+                if (werkbalk != WerkbalkState.INSTRUCTIE) { werkbalk = WerkbalkState.INSTRUCTIE; }
+                misc.HuidigeRegel = 0;
+
+                lblIntroTextLine1.Text = misc.TypeTextFull("friend");
+            }
+            else
+            //if ((sender == pbHuis1) || (sender == pbHuis2) || (sender == pbHuis3) || (sender == pbHuis4) || (sender == pbHuis5))
             {
                 if (werkbalk != WerkbalkState.HUIS) { werkbalk = WerkbalkState.HUIS; }
-                
+
                 Huis huis = this.getHuis(sender);
                 if (huis == null) { misc.ToonBericht(7); return; }
                 lbNaam.Text = huis.Naam;
-                if (inventory.getItemInventory("netwerkscanner")!=null)
+                if (inventory.getItemInventory("netwerkscanner") != null)
                 {
                     Item checkitem = inventory.getItemInventory("netwerkscanner");
                     if (checkitem.Active == true) { lbIPadres.Text = huis.IPAdres; }
                     else { lbIPadres.Text = "not scanned"; }
-                }               
+                }
                 else { lbIPadres.Text = "unknow"; }
-                if (huis.Wifi==true) {
+                if (huis.Wifi == true)
+                {
                     lbWifi.Text = "Yes";
                     ShowWifiProperties(true);
-                    
+
                     lbWifiSSID.Text = huis.WifiSSID;
                     if (huis.WifiWEP == true) { lbWifiWEP.Text = "Yes"; }
                     else { lbWifiWEP.Text = "No"; }
                     if (huis.WifiWPA == true) { lbWifiWPA.Text = "Yes"; }
                     else { lbWifiWPA.Text = "No"; }
                 }
-                else if (huis.Wifi == false) { 
+                else if (huis.Wifi == false)
+                {
                     lbWifi.Text = "No";
                     ShowWifiProperties(false);
-                }                                
+                }
 
             }
             ShowWerkbalk();
@@ -311,7 +352,8 @@ namespace CodeGreen
                         //else { Ytruck = pbTruck1.Location.Y; }
                     }
             }
-            else if (Xtruck > 770) { Xtruck = 270; Ytruck = 306; }
+            else if (Xtruck > 770) { Xtruck = 270; Ytruck = 306;
+            pbTruck1.Refresh();  }
             else { Ytruck = pbTruck1.Location.Y; }
 
             pbTruck1.Location = new Point(Xtruck, Ytruck);
@@ -325,17 +367,32 @@ namespace CodeGreen
         /// <param name="data">1 = omhoog, 2 = omlaag, 4 = links, 8 = rechts</param>
         private void usb_OnDataRecieved(object sender, byte[] data)
         {
-            //moet terug gegeven welk huis of de bank geselecteerd is.
+            //todo: moet terug gegeven welk huis of de bank geselecteerd is.
 
             //communication.VerwerkData(data);            
         }      
        
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //TODO: toon groepbox bank met saldo rekeningnummer etc. etc.            
-            Bankaccount getaccount = bank.GetByRekening(tbAccountnummer.Text);
+            gbxBanklogin.Visible = false;
+            Bankaccount getaccount = bank.GetByRekening(cbAccountnummer.Text);
             if (getaccount==null) {
-                lbBanklogininfo.Text = "No access, wrong account number.";
+                misc.BlinkTekst = "NO ACCESS, accountnummer doesn't exist.";
+                lbBanklogininfo.Text = misc.BlinkWordEffect();
+            }
+            else if (getaccount.AccountPassword != tbAccountPassword.Text)
+            {
+                misc.BlinkTekst = "NO ACCESS, wrong password.";
+                lbBanklogininfo.Text = misc.BlinkWordEffect();
+            }
+            else
+            {
+                //account nummer okay
+                //password okay
+                //TODO: toon groepbox bank met saldo rekeningnummer etc. etc.            
+                lbBanklogininfo.Text = "Access granted! Account details from: " + getaccount.AccountRekeningnr;
+                lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;
+                btnTranfermoney.Enabled = true;
             }
             //Bankaccount getaccount = bank.GetByRekening(tbAccountnummer.Text);
             
@@ -416,10 +473,8 @@ namespace CodeGreen
             {
                 this.pbItemCoderedvirus.Visible = true;
             }
-            else
-                misc.ToonBericht(8);
-            //throw new NotImplementedException();
-             
+            else { misc.ToonBericht(8); }
+            //throw new NotImplementedException();             
         }
 
         
@@ -439,40 +494,65 @@ namespace CodeGreen
         }
 
 
+        private void ActivedItem(string item)
+        {
+            Item getitem = inventory.getItemInventory(item);
+            if (getitem != null)
+            {
+                getitem.Active = !getitem.Active;
+            }
+            else
+            {
+                misc.ToonBericht(9);
+            }
+        }
+
         /*
-         * Een inventory items activeren.
+         * Een inventory items clicked
         */
         private void pbItemWifiWEPCracker_Click(object sender, EventArgs e)
         {
-            Item wepcracker = inventory.getItemInventory("wepcracker");
-            wepcracker.Active = true;
+            ActivedItem("wepcracker");
         }
         private void pbItemKeylogger_Click(object sender, EventArgs e)
         {
-            Item keylogger = inventory.getItemInventory("keylogger");
-            keylogger.Active = true;
+            ActivedItem("keylogger");
+            
         }
         private void pbItemNetworkScanner_Click(object sender, EventArgs e)
         {
-            Item networkScanner = inventory.getItemInventory("networkscanner");
-            networkScanner.Active = true;
+            ActivedItem("netwerkscanner");            
+
+                                    
         }
         private void pbItemWorm_Click(object sender, EventArgs e)
         {
-            Item worm = inventory.getItemInventory("worm");
-            worm.Active = true;
+            ActivedItem("worm");
         }
         private void pbItemCoderedvirus_Click(object sender, EventArgs e)
         {
-            Item coderedword = inventory.getItemInventory("coderedword");
-            coderedword.Active = true;
+            ActivedItem("coderedvirus");
         }
 
+        private void btnFriendGift_Click(object sender, EventArgs e)
+        {
+            //inventory.addBankaccountnrlist();
 
+            //begin bij 1 en niet 0 omdat we niet de account van de speler willen.
+            for (int pos = 1; pos < bank.numaccount; pos++)
+			{
+			    cbAccountnummer.Items.Add(bank.GetByPos(pos).AccountRekeningnr);
+			}
+
+            btnFriendGift.Visible = false;
+            btnFriendGift.Enabled = false;
+        }
 
 
 
         #endregion
+
+        
     }
 
 }

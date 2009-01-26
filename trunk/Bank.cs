@@ -33,6 +33,10 @@ namespace CodeGreen
         {
             get { return Convert.ToString(nextRekeningNr); }
         }
+        public Int32 numaccount
+        {
+            get { return accounts.Count; }
+        }
 
         #endregion
 
@@ -83,6 +87,16 @@ namespace CodeGreen
                 if (bankaccount.AccountNaam == nm) return bankaccount;
             }
             return null;
+        }
+
+        /// <summary>
+        /// Verkrijg account op positie in lijst.
+        /// </summary>
+        /// <param name="positie"></param>
+        /// <returns></returns>
+        public Bankaccount GetByPos(int positie)
+        {
+            return accounts[positie];
         }
 
 

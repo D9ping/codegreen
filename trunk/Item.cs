@@ -22,7 +22,7 @@ namespace CodeGreen
         }
         #endregion
 
-        #region properties        
+        #region properties
         public String NaamItem
         {
             get { return this.naamitem; }
