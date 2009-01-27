@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CodeGreen.Bank" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAIAAAAABAAAAAAIAAAAAIIAAABAAAACAAAAAAA=</HashCode>
+      <FileName>Bank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Bankaccount" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAABAAAAAAAAAAAAIAQAQAAAAAAABiACCAI=</HashCode>
+      <FileName>Bankaccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Communication" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Communication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.GameHighscore" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameHighscore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.GameMenu" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAISACCAAAAAAAASAiIACAIAIMAAAEAAABAACCAA=</HashCode>
+      <FileName>GameMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.GameOptions" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIQACiAAAAABEMCAAIECAABADAAADAAAAAAAAAA=</HashCode>
+      <FileName>GameOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.GameScreen" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>tEGAwMcCASRUSRDMnCHpieuLAOK5SCqidYCAgAjAOCQ=</HashCode>
+      <FileName>GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Huis" Collapsed="true">
+    <Position X="7" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAEQAAADABEAQBgAAiAQAAAgGgACIAAQAhAA=</HashCode>
+      <FileName>Huis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Inventory" Collapsed="true">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAEAIAAAAAAQAAAgEAAIgAAAAAAAA=</HashCode>
+      <FileName>Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Item" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAIAAgAAAAIAAgAAAAIAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Misc" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAEIAAAAGACAQAiAgAIAEAAEAFBBAAAA=</HashCode>
+      <FileName>Misc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.OptionsHandler" Collapsed="true">
+    <Position X="2" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAIBCAAAAAAAAAAAAIAAAAAAAAIQAAAAAAAAAAAI=</HashCode>
+      <FileName>OptionsHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Program" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.ResourceHandler">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>ResourceHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CodeGreen.Properties.Resources" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

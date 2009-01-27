@@ -25,9 +25,9 @@ namespace CodeGreen
             shopitems.Add(new Item("worm", 250));
             shopitems.Add(new Item("coderedvirus", 800));
             
+            //shopitems.Add(new Item("metal detector", 50));
             //shopitems.Add(new Item("cookie", 999));
-            //shopitems.Add(new Item("pizza", 123));
-            
+            //shopitems.Add(new Item("pizza", 123));            
         }
         #endregion
 
@@ -39,22 +39,24 @@ namespace CodeGreen
         #endregion
 
         #region methoden        
+        /// <summary>
+        /// Voeg een item van de winkel aan je inventory toe.
+        /// </summary>
+        /// <param name="naam">item naam: kijk in lijst constructor inventory.</param>
+        /// <returns>als gelukt geeft true terug.</returns>
         public bool addItemInventory(String naam)
-        {   
-                                     
-            Item buyitem = getItem(naam);
+        {
 
-            //onbestaande items zijn altijd te duur om te kopen.
-            if (buyitem == null) { return false; }
-            
-            //int prijs = buyitem.Prijs;
-            //return false;
-
-            youritems.Add(buyitem);
-            return true;
+            if (getItemShop(naam) != null)
+            {
+                youritems.Add(getItemShop(naam));
+                return true;
+            }
+            else
+            { return false; }
         }
 
-        public Item getItem(string naam)
+        public Item getItemShop(string naam)
         {
             foreach (Item curitem in shopitems)
             {
@@ -83,13 +85,15 @@ namespace CodeGreen
             return shopitems[positie];
         }
 
-        /*
+        /// <summary>
+        /// Voegt het item van vriend toe.
+        /// </summary>
         public void addBankaccountnrlist()
         {
-            Item Bankaccountlist = new Item("Bankaccountlist", 0);
+            Item Bankaccountlist = new Item("listbankaccounts", 0);
             youritems.Add(Bankaccountlist);
         }        
-        */
+        
         #endregion
     }
 }

@@ -16,18 +16,19 @@ namespace CodeGreen
         bool wifiwep;
         bool wifiwpa;
         bool windowsoutdated;
-        bool virusscanner;
+        bool wepcracked;
+        bool keylogger;
         bool bot;     
         #endregion
 
         #region constructor
         /// <summary>
-        /// 
+        /// Huis met zijn eigenschappen/zwakheden.
         /// </summary>
         /// <param name="huisnaam">ook de naam van het object in gamescreen</param>
         /// <param name="naam">de naam van de bewoner en rekening</param>
         /// <param name="ipadres"></param>
-        /// <param name="wifi"></param>
+        /// <param name="wifi">wel of geen wifi (als niet dan WEP, WPA zijn false enn SSID niks)</param>
         /// <param name="wifissid"></param>
         /// <param name="wifiwep"></param>
         /// <param name="wifiwpa"></param>
@@ -35,7 +36,8 @@ namespace CodeGreen
         /// <param name="virusscanner"></param>
         /// <param name="bot"></param>
         public Huis(object huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
-            bool windowsoutdated, bool virusscanner, bool bot)
+            bool windowsoutdated)
+        //, bool wepcracked, bool keylogger, bool bot
         {
             this.huisnaam = huisnaam;
             this.naam = naam;
@@ -49,8 +51,10 @@ namespace CodeGreen
                 this.wifiwep = wifiwep;
                 this.wifiwpa = wifiwpa;
             }
-            this.windowsoutdated = windowsoutdated;
-            this.virusscanner = virusscanner;            
+            this.wepcracked = false;
+            this.keylogger = false;
+            this.windowsoutdated = windowsoutdated;                       
+            this.bot = false;
         }
         #endregion
 
@@ -89,14 +93,20 @@ namespace CodeGreen
         {
             get { return WindowsOutdated; }
         }
-        public bool Virusscanner
+        public bool Wepcracked
         {
-            get { return virusscanner; }
+            get { return wepcracked; }
+            set { this.wepcracked = value; }
+        }
+        public bool KeyloggerInstalled
+        {
+            get { return this.keylogger; }
+            set { this.keylogger = value; }
         }
         public bool IsBot
         {
             get { return this.bot; }
-            set { bot = value; }
+            set { this.bot = value; }
         }
         #endregion
 

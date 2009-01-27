@@ -8,15 +8,13 @@ namespace CodeGreen
     class Bank
     {
         #region datavelden
-        private List<Bankaccount> accounts;
-        private int nextRekeningNr;
-        
+        private List<Bankaccount> accounts;           
         #endregion
 
         #region constructor
         public Bank()
         {
-            nextRekeningNr = 1;
+            //nextRekeningNr = 1;
             accounts = new List<Bankaccount>();
 
             RegistreerAccount("speler", "123.345.567.89", 0, 200);
@@ -28,11 +26,6 @@ namespace CodeGreen
         #endregion
 
         #region properties
-        //n.v.t.
-        public String Nr
-        {
-            get { return Convert.ToString(nextRekeningNr); }
-        }
         public Int32 numaccount
         {
             get { return accounts.Count; }

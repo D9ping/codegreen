@@ -58,8 +58,8 @@ namespace CodeGreen
 
             friend_regel = new String[4];
             friend_regel[0] = "Your friend lives here, he works for Pabobank.";
-            friend_regel[1] = "He is willing to give you a list of";
-            friend_regel[2] = "all bankaccount nummers in your neighbourhood.";
+            friend_regel[1] = "He is willing to give you a list";
+            friend_regel[2] = "of all bankaccounts in your neighbourhood.";
             friend_regel[3] = "Click on accept, to get the list.";
         }
         #endregion

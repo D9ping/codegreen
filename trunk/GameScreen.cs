@@ -10,16 +10,18 @@ using UsbLibrary; //ondersteuning voor atmel joystick
 
 namespace CodeGreen
 {
-    public enum WerkbalkState
-    {
-        INSTRUCTIE,
-        INVENTORY,
-        BANK,
-        SHOP,
-        HUIS
-    }
+
     public partial class GameScreen : Form
     {
+        private enum WerkbalkState
+        {
+            INSTRUCTIE,
+            INVENTORY,
+            BANK,
+            SHOP,
+            HUIS
+        }
+
         #region datavelden
         public Misc misc;
         public OptionsHandler options;
@@ -82,11 +84,11 @@ namespace CodeGreen
             {
                 //TODO: verzin betere namen.
                 Huis[] huis = new Huis[5];
-                huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, true, true, false);
-                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "devries", true, false, false, false, false);
-                huis[2] = new Huis(pbHuis3, "Marrieke", "72.23.34.45", true, "netgears", false, true, false, false, false);
-                huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false, false, false);
-                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", false, true, true, true, false);                
+                huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, false);
+                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "devries", true, false, false);
+                huis[2] = new Huis(pbHuis3, "Marrieke", "72.23.34.45", true, "netgears", false, true, false);
+                huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, false);
+                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "draadloos324098", false, true, true);                
                 huizen.AddRange(huis);
 
                 for (int i = 0; i < huizen.Count; i++)
@@ -122,6 +124,9 @@ namespace CodeGreen
             showGB.Visible = true;
         }
 
+        /// <summary>
+        /// Veranderd de werkbalk knoppen
+        /// </summary>
         private void ToonWerkbalkknop(PictureBox ShowPB, String bestandsnaam)
         {
             this.pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
@@ -142,7 +147,7 @@ namespace CodeGreen
                 else if (misc.HuidigeTekst == "friend")
                 {
                     lblIntroTextLine1.Text = misc.TypeTextFull("friend");
-                    if (misc.HuidigeRegel >= 4)
+                    if (misc.HuidigeRegel >= 3)
                     {
                         if (inventory.getItemInventory("bankaccountlist") == null)
                         {
@@ -226,7 +231,7 @@ namespace CodeGreen
             //knoppen werkbalk:
             if (sender == pbKnopInventory)
             {
-                if (werkbalk != WerkbalkState.INVENTORY) { werkbalk = WerkbalkState.INVENTORY;  }
+                if (werkbalk != WerkbalkState.INVENTORY) { werkbalk = WerkbalkState.INVENTORY; }
             }
             else if ((sender == pbKnopBank) || (sender == pbBank))
             {
@@ -254,6 +259,9 @@ namespace CodeGreen
             ShowWerkbalk();
         }
 
+        /// <summary>
+        /// Haal huis informatie op.
+        /// </summary>
         private void ToonHuisInfo(Huis huis)
         {
             lbNaam.Text = huis.Naam;
@@ -276,11 +284,18 @@ namespace CodeGreen
                 {
                     if (inventory.getItemInventory("wepcracker") != null)
                     {
-                        if (inventory.getItemInventory("wepcracker").Active == true)
+                        if (huis.Wepcracked==true)
                         {
                             lbWifiWEP.Text = "CRACKED";
                             lbWifiWEP.ForeColor = Color.Red;
-                        }
+                            if (huis.IsBot == false) { this.btnCreateBot.Visible = true; }
+                            if (inventory.getItemInventory("keylogger") != null)
+                            {
+                                btnGetKeyloggerLog.Visible = true;                                
+                                if (huis.KeyloggerInstalled == true) { btnGetKeyloggerLog.Enabled = true; }
+                                else { btnGetKeyloggerLog.Enabled = false; }
+                            }
+                        }                        
                         else { lbWifiWEP.Text = "Yes"; }
                     }
                     else { lbWifiWEP.Text = "Yes"; }
@@ -299,6 +314,10 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Toont wel of niet huis wifi instellingen.
+        /// </summary>
+        /// <param name="toon"></param>
         private void ShowWifiProperties(bool toon)
         {
             lbTextWifiSSID.Visible = toon;
@@ -347,6 +366,15 @@ namespace CodeGreen
                     timesec = 0;
                     lbPlayerTime.Text = timemin + "m " + timesec + "s";
                 }
+            }
+
+            if (this.progbarServerload.Value > 99)
+            {
+                GameHighscore highscore = new GameHighscore();
+                highscore.Show();
+                this.Hide();
+                
+                
             }
         }
 
@@ -409,13 +437,12 @@ namespace CodeGreen
                 //password okay
                 //TODO: toon groepbox bank met saldo rekeningnummer etc. etc.            
                 lbBanklogininfo.Text = "Access granted! Account details from: " + getaccount.AccountRekeningnr;
-                lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;
-                btnTranfermoney.Enabled = true;
+                lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;                
             }
             //Bankaccount getaccount = bank.GetByRekening(tbAccountnummer.Text);
             
         }
-        
+                
         /// <summary>
         /// Toon een winkel met alle items die gemaakt zijn in de inventory class.
         /// Ja, als je "cookie" item in de constructor uitcommenteer komt die in de shop.
@@ -423,7 +450,7 @@ namespace CodeGreen
         private void TekenWinkel()
         {
             gbxShopStock.Visible = true;
-
+            gbxShopStock.Text = "nixxon stock";
             int ypos = 20;
             for (int i = 0; i < inventory.numitems; i++)
             {
@@ -463,11 +490,34 @@ namespace CodeGreen
         public void VerbergWinkel()
         {
             gbxShopStock.Visible = false;
+            gbxShopStock.Controls.Clear();
+        }
+
+        private void TekenListaccounts()
+        {
+            gbxShopStock.Visible = true;
+            gbxShopStock.Text = "Account of pabobank";
+            int ypos = 20;
+            for (int i = 1; i < bank.numaccount; i++)
+            {
+                Bankaccount account = bank.GetByPos(i);
+                
+                Label lbaccount = new Label();
+                String regellistaccount = account.AccountNaam + "   account nr:" + account.AccountRekeningnr;
+                lbaccount.Text = regellistaccount;
+                lbaccount.Location = new Point(20, ypos);
+                lbaccount.ForeColor = Color.Lime;
+                lbaccount.AutoSize = true;
+                ypos = ypos + 20;
+                this.gbxShopStock.Controls.Add(lbaccount);
+            }
         }
 
         public void BuyItem(object sender, EventArgs e)
         {            
             Button buttontemp = (Button)sender;
+            buttontemp.Text = "sold";
+
             if (buttontemp.Name == "wepcracker")
             {                
                 if (inventory.addItemInventory("wepcracker") == false) {
@@ -503,8 +553,9 @@ namespace CodeGreen
                 }                
             }
             else { misc.ToonBericht(8); }
-            buttontemp.Enabled = false;
-            ToonInventoryItems();
+                        
+            buttontemp.Click += null;            
+            ToonAllItems();
         }
 
         
@@ -523,42 +574,172 @@ namespace CodeGreen
             lbPlayerMoney.Text = Convert.ToString(PlayerBankaccount.AccountSaldo);
         }
 
+        private void btnFriendGift_Click(object sender, EventArgs e)
+        {
+            inventory.addBankaccountnrlist();
+            pbItemListaccountumbersbank.Visible = true;
+            //voeg ook even alle accountnummers aan combobox toe.
+            //begin bij 1 en niet 0 omdat we niet de account van de speler willen.
+            for (int pos = 1; pos < bank.numaccount; pos++)
+            {
+                cbAccountnummer.Items.Add(bank.GetByPos(pos).AccountRekeningnr);
+            }
+            btnFriendGift.Visible = false;
+            btnFriendGift.Enabled = false;
+        }
 
         private void ActivedItem(string item)
         {
             Item getitem = inventory.getItemInventory(item);
             if (getitem != null)
             {
-                getitem.Active = !getitem.Active;
+                getitem.Active = true;
             }
-            else
+            else { misc.ToonBericht(9); }
+        }
+
+        private void btnCreateBot_Click(object sender, EventArgs e)
+        {
+            btnCreateBot.Enabled = false;
+            progbarServerload.Value = progbarServerload.Value + 25;
+        }
+
+        private void btnDeployKeylogger_Click(object sender, EventArgs e)
+        {
+            lbTextNaam.Text = " Your keylogger has captures the password!";
+            lbNaam.Text = "";
+            lbTextIPadres.Text = "His password appears to be: " + bank.GetByNaam("jan de vries").AccountPassword;
+            lbIPadres.Text = "";
+            lbTextWifi.Text = "";
+            lbWifi.Text = "";
+            lbTextWifiSSID.Text = "";
+            lbWifiSSID.Text = "";
+            lbTextWifiWEP.Text = "";
+            lbWifiWEP.Text = "";
+            lbTextWifiWPA.Text = "";
+            lbWifiWPA.Text = "";
+        }
+
+        /// <summary>
+        /// Toon alle items in inventory uit inventorylijst
+        /// </summary>
+        private void ToonAllItems()
+        {
+            if (inventory.getItemInventory("listbankaccounts") != null)
             {
-                misc.ToonBericht(9);
+                pbItemListaccountumbersbank.Location = new Point(10, 14);
+                pbItemListaccountumbersbank.Visible = true;
+            }
+            else { pbItemListaccountumbersbank.Visible = false; }
+
+            if (inventory.getItemInventory("wepcracker") != null)
+            {
+                pbItemWifiWEPCracker.Location = new Point(110, 14);
+                pbItemWifiWEPCracker.Visible = true;
+            }
+            else { pbItemWifiWEPCracker.Visible = false; }
+
+            if (inventory.getItemInventory("keylogger") != null)
+            {
+                pbItemKeylogger.Location = new Point(210, 14);
+                pbItemKeylogger.Visible = true;
+            }
+            else { pbItemKeylogger.Visible = false; }
+
+            if (inventory.getItemInventory("netwerkscanner") != null)
+            {
+                pbItemNetworkScanner.Location = new Point(310, 14);
+                pbItemNetworkScanner.Visible = true;
+            }
+            else { pbItemNetworkScanner.Visible = false; }
+
+            if (inventory.getItemInventory("worm") != null)
+            {
+                pbItemWorm.Location = new Point(410, 14);
+                pbItemWorm.Visible = true;
+            }
+            else { pbItemWorm.Visible = false; }
+            if (inventory.getItemInventory("coderedvirus") != null)
+            {
+                pbItemCoderedvirus.Location = new Point(510, 14);
+                pbItemCoderedvirus.Visible = true;
+            }
+            else { pbItemCoderedvirus.Visible = false; }
+        }
+
+        private void ToonSlechtItem(PictureBox pbitem)
+        {
+            pbItemListaccountumbersbank.Visible = false;
+            pbItemWifiWEPCracker.Visible = false;
+            pbItemKeylogger.Visible = false;            
+            pbItemNetworkScanner.Visible = false;
+            pbItemWorm.Visible = false;
+            pbItemCoderedvirus.Visible = false;
+
+            pbitem.Visible = true;
+            pbitem.Location = new Point(10, 14);
+        }
+
+        /***********************************************************
+         * 
+         *    Een inventory item clicked
+         *         
+         */
+        private void pbItemWifiWEPCracker_Click(object sender, EventArgs e)
+        {
+            if (lbItemCommandInfo.Visible == false)
+            {
+                ToonSlechtItem(this.pbItemWifiWEPCracker);                
+                lbItemCommandInfo.Text = "Enter \"crack\" followed by the SSID of the house that uses the weak WEP encryption for their wifi.";
+                lbItemCommandInfo.Visible = true;                
+                tbCommand.Visible = true;                
+                tbCommand.Focus();
+            }
+            else if (lbItemCommandInfo.Visible == true)
+            {
+                ToonAllItems();                
+                lbItemCommandInfo.Visible = false;
+                tbCommand.Visible = false;                
             }
         }
 
-        /*
-         * Een inventory items clicked
-        */
-        private void pbItemWifiWEPCracker_Click(object sender, EventArgs e)
+        private void pbItemListaccountumbersbank_Click(object sender, EventArgs e)
         {
-            if (lbWEPcrackerinfo.Visible == false)
+            if (lbItemCommandInfo.Visible == false)
             {
-                pbItemCoderedvirus.Visible = false;
-                pbItemKeylogger.Visible = false;
-                pbItemNetworkScanner.Visible = false;
-                pbItemWorm.Visible = false;
+                ToonSlechtItem(this.pbItemListaccountumbersbank);
+                lbItemCommandInfo.Text = "This is the list of bankaccount nummers in your neighbourhood with names.";
+                lbItemCommandInfo.Visible = true;
+                TekenListaccounts();
 
-                lbWEPcrackerinfo.Visible = true;
+                //todo: display image or something
+            }
+            else if (lbItemCommandInfo.Visible == true)
+            {
+                ToonAllItems();
+                lbItemCommandInfo.Visible = false;
+                tbCommand.Visible = false;
+                VerbergWinkel();
+            }
+            
+        }
+
+        private void pbItemKeylogger_Click(object sender, EventArgs e)
+        {
+            if (lbItemCommandInfo.Visible == false)
+            {
+                ToonSlechtItem(this.pbItemKeylogger);
+                lbItemCommandInfo.Text = "Enter \"deploy\" followed by the SSID of a cracked wifi connection or a vulnerable IP adres.)";
+                lbItemCommandInfo.Visible = true;
                 tbCommand.Visible = true;
                 tbCommand.Focus();
             }
-            else if (lbWEPcrackerinfo.Visible == true)
+            else if (lbItemCommandInfo.Visible == true)
             {
-                lbWEPcrackerinfo.Visible = false;
+                ToonAllItems();
+                lbItemCommandInfo.Visible = false;
                 tbCommand.Visible = false;
-                ToonInventoryItems();
-            }
+            }            
         }
 
         private void pbItemNetworkScanner_Click(object sender, EventArgs e)
@@ -574,90 +755,53 @@ namespace CodeGreen
             ActivedItem("coderedvirus");
         }
 
-        private void btnFriendGift_Click(object sender, EventArgs e)
-        {
-            //inventory.addBankaccountnrlist();
-
-            //begin bij 1 en niet 0 omdat we niet de account van de speler willen.
-            for (int pos = 1; pos < bank.numaccount; pos++)
-			{
-			    cbAccountnummer.Items.Add(bank.GetByPos(pos).AccountRekeningnr);
-			}
-
-            btnFriendGift.Visible = false;
-            btnFriendGift.Enabled = false;
-        }
 
         private void tbCommand_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {                                
+            {
+                if (inventory.getItemInventory("wepcracker")!=null)
+                {
                     if (tbCommand.Text == "crack " + getHuis(pbHuis2).WifiSSID)
                     {
-                        lbWEPcrackerinfo.Text = "Succesfully cracked " + getHuis(pbHuis2).Naam + " connection";
+                        lbItemCommandInfo.Text = "Succesfully cracked " + getHuis(pbHuis2).Naam + " connection";
                         tbCommand.Text = "";
-                        ActivedItem("wepcracker");
-
+                        getHuis(pbHuis2).Wepcracked = true;                        
                     }
                     else if (tbCommand.Text.StartsWith("crack ", false, null) == true)
                     {
-                        lbWEPcrackerinfo.Text = "Wifi SSID not found.";
+                        lbItemCommandInfo.Text = "Wifi SSID not found.";
                     }
-                    else
+                    else { lbItemCommandInfo.Text = "Unknow command."; }
+                }
+                if (inventory.getItemInventory("keylogger") != null)
+                {
+                    foreach (Huis huis in huizen)
                     {
-                        lbWEPcrackerinfo.Text = "Unknow command.";
+                        if (tbCommand.Text == "deploy " + huis.WifiSSID) 
+                        {
+                            if (huis.Wepcracked==true)
+                            {
+                                lbItemCommandInfo.Text = "Keylogger succesfully installed on " + getHuis(pbHuis2).Naam + " house.";
+                                tbCommand.Text = "";
+                                getHuis(pbHuis2).KeyloggerInstalled = true;
+                            }
+                            else
+                            {
+                               lbItemCommandInfo.Text = "No access.";
+                               tbCommand.Text = "";
+                            }
+                        }   
                     }
-                
-            }
-        }
 
-        private void ToonInventoryItems()
-        {
-            if (inventory.getItemInventory("wepcracker") != null)
-            {
-                pbItemWifiWEPCracker.Visible = true;
-            }
-            else { pbItemWifiWEPCracker.Visible = false; }
-            if (inventory.getItemInventory("netwerkscanner") != null)
-            {
-                pbItemNetworkScanner.Visible = true;
-            }
-            else { pbItemNetworkScanner.Visible = false; }
-            if (inventory.getItemInventory("keylogger") != null)
-            {
-                pbItemKeylogger.Visible = true;
-            }
-            else { pbItemKeylogger.Visible = false; }
-            if (inventory.getItemInventory("worm") != null)
-            {
-                pbItemWorm.Visible = true;
-            }
-            else { pbItemWorm.Visible = false; }
-            if (inventory.getItemInventory("coderedvirus") != null)
-            {
-                pbItemCoderedvirus.Visible = true;
-            }
-            else { pbItemCoderedvirus.Visible = false; }
-        }
 
-        private void btnDeployKeylogger_Click(object sender, EventArgs e)
-        {
-            lbTextNaam.Text = "Bankaccount number is: " + bank.GetByNaam("jan de vries").AccountRekeningnr;
-            lbNaam.Text = "";
-            lbTextIPadres.Text = "And the password appears to be: " + bank.GetByNaam("jan de vries").AccountPassword;
-            lbIPadres.Text = "";
-            lbTextWifi.Text = "";
-            lbWifi.Text = "";
-            lbTextWifiSSID.Text = "";
-            lbWifiSSID.Text = "";
-            lbTextWifiWEP.Text = "";
-            lbWifiWEP.Text = "";
-            lbTextWifiWPA.Text = "";
-            lbWifiWPA.Text = "";
+                }
+            }
             
         }
-
+ 
         #endregion
+
 
 
 
