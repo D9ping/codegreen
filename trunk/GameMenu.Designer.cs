@@ -67,6 +67,7 @@
             this.pbHighscore.TabIndex = 2;
             this.pbHighscore.TabStop = false;
             this.pbHighscore.MouseLeave += new System.EventHandler(this.knop_normal);
+            this.pbHighscore.Click += new System.EventHandler(this.pbHighscore_Click);
             this.pbHighscore.MouseHover += new System.EventHandler(this.knop_hover);
             // 
             // pbOptions

@@ -64,6 +64,10 @@
             this.TimerGametime = new System.Windows.Forms.Timer(this.components);
             this.usb = new UsbLibrary.UsbHidPort(this.components);
             this.gbxWBHuis = new System.Windows.Forms.GroupBox();
+            this.lbInfectie = new System.Windows.Forms.Label();
+            this.lbTextInfectie = new System.Windows.Forms.Label();
+            this.lbWindowsuptodate = new System.Windows.Forms.Label();
+            this.lbTextWindowsUpdatetodate = new System.Windows.Forms.Label();
             this.btnCreateBot = new System.Windows.Forms.Button();
             this.btnGetKeyloggerLog = new System.Windows.Forms.Button();
             this.lbWifiWPA = new System.Windows.Forms.Label();
@@ -540,6 +544,10 @@
             // gbxWBHuis
             // 
             this.gbxWBHuis.BackColor = System.Drawing.Color.Transparent;
+            this.gbxWBHuis.Controls.Add(this.lbInfectie);
+            this.gbxWBHuis.Controls.Add(this.lbTextInfectie);
+            this.gbxWBHuis.Controls.Add(this.lbWindowsuptodate);
+            this.gbxWBHuis.Controls.Add(this.lbTextWindowsUpdatetodate);
             this.gbxWBHuis.Controls.Add(this.btnCreateBot);
             this.gbxWBHuis.Controls.Add(this.btnGetKeyloggerLog);
             this.gbxWBHuis.Controls.Add(this.lbWifiWPA);
@@ -555,12 +563,56 @@
             this.gbxWBHuis.Controls.Add(this.lbNaam);
             this.gbxWBHuis.Controls.Add(this.lbTextNaam);
             this.gbxWBHuis.ForeColor = System.Drawing.Color.White;
-            this.gbxWBHuis.Location = new System.Drawing.Point(298, 405);
+            this.gbxWBHuis.Location = new System.Drawing.Point(199, 405);
             this.gbxWBHuis.Name = "gbxWBHuis";
-            this.gbxWBHuis.Size = new System.Drawing.Size(450, 78);
+            this.gbxWBHuis.Size = new System.Drawing.Size(549, 78);
             this.gbxWBHuis.TabIndex = 21;
             this.gbxWBHuis.TabStop = false;
             this.gbxWBHuis.Visible = false;
+            // 
+            // lbInfectie
+            // 
+            this.lbInfectie.AutoSize = true;
+            this.lbInfectie.ForeColor = System.Drawing.Color.Lime;
+            this.lbInfectie.Location = new System.Drawing.Point(428, 40);
+            this.lbInfectie.Name = "lbInfectie";
+            this.lbInfectie.Size = new System.Drawing.Size(45, 13);
+            this.lbInfectie.TabIndex = 17;
+            this.lbInfectie.Text = "unknow";
+            this.lbInfectie.Visible = false;
+            // 
+            // lbTextInfectie
+            // 
+            this.lbTextInfectie.AutoSize = true;
+            this.lbTextInfectie.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextInfectie.Location = new System.Drawing.Point(360, 40);
+            this.lbTextInfectie.Name = "lbTextInfectie";
+            this.lbTextInfectie.Size = new System.Drawing.Size(71, 13);
+            this.lbTextInfectie.TabIndex = 16;
+            this.lbTextInfectie.Text = "Geinfecteerd:";
+            this.lbTextInfectie.Visible = false;
+            // 
+            // lbWindowsuptodate
+            // 
+            this.lbWindowsuptodate.AutoSize = true;
+            this.lbWindowsuptodate.ForeColor = System.Drawing.Color.Lime;
+            this.lbWindowsuptodate.Location = new System.Drawing.Point(428, 19);
+            this.lbWindowsuptodate.Name = "lbWindowsuptodate";
+            this.lbWindowsuptodate.Size = new System.Drawing.Size(45, 13);
+            this.lbWindowsuptodate.TabIndex = 15;
+            this.lbWindowsuptodate.Text = "unknow";
+            this.lbWindowsuptodate.Visible = false;
+            // 
+            // lbTextWindowsUpdatetodate
+            // 
+            this.lbTextWindowsUpdatetodate.AutoSize = true;
+            this.lbTextWindowsUpdatetodate.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextWindowsUpdatetodate.Location = new System.Drawing.Point(332, 19);
+            this.lbTextWindowsUpdatetodate.Name = "lbTextWindowsUpdatetodate";
+            this.lbTextWindowsUpdatetodate.Size = new System.Drawing.Size(99, 13);
+            this.lbTextWindowsUpdatetodate.TabIndex = 14;
+            this.lbTextWindowsUpdatetodate.Text = "Windows uptodate:";
+            this.lbTextWindowsUpdatetodate.Visible = false;
             // 
             // btnCreateBot
             // 
@@ -568,7 +620,7 @@
             this.btnCreateBot.BackColor = System.Drawing.Color.Black;
             this.btnCreateBot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateBot.ForeColor = System.Drawing.Color.Lime;
-            this.btnCreateBot.Location = new System.Drawing.Point(390, 19);
+            this.btnCreateBot.Location = new System.Drawing.Point(479, 15);
             this.btnCreateBot.Name = "btnCreateBot";
             this.btnCreateBot.Size = new System.Drawing.Size(131, 25);
             this.btnCreateBot.TabIndex = 13;
@@ -583,7 +635,7 @@
             this.btnGetKeyloggerLog.BackColor = System.Drawing.Color.Black;
             this.btnGetKeyloggerLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetKeyloggerLog.ForeColor = System.Drawing.Color.Lime;
-            this.btnGetKeyloggerLog.Location = new System.Drawing.Point(390, 49);
+            this.btnGetKeyloggerLog.Location = new System.Drawing.Point(479, 46);
             this.btnGetKeyloggerLog.Name = "btnGetKeyloggerLog";
             this.btnGetKeyloggerLog.Size = new System.Drawing.Size(131, 25);
             this.btnGetKeyloggerLog.TabIndex = 12;
@@ -596,7 +648,7 @@
             // 
             this.lbWifiWPA.AutoSize = true;
             this.lbWifiWPA.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifiWPA.Location = new System.Drawing.Point(266, 59);
+            this.lbWifiWPA.Location = new System.Drawing.Point(228, 56);
             this.lbWifiWPA.Name = "lbWifiWPA";
             this.lbWifiWPA.Size = new System.Drawing.Size(19, 13);
             this.lbWifiWPA.TabIndex = 11;
@@ -606,7 +658,7 @@
             // 
             this.lbWifiWEP.AutoSize = true;
             this.lbWifiWEP.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifiWEP.Location = new System.Drawing.Point(266, 40);
+            this.lbWifiWEP.Location = new System.Drawing.Point(228, 37);
             this.lbWifiWEP.Name = "lbWifiWEP";
             this.lbWifiWEP.Size = new System.Drawing.Size(19, 13);
             this.lbWifiWEP.TabIndex = 10;
@@ -616,7 +668,7 @@
             // 
             this.lbWifiSSID.AutoSize = true;
             this.lbWifiSSID.ForeColor = System.Drawing.Color.Lime;
-            this.lbWifiSSID.Location = new System.Drawing.Point(266, 22);
+            this.lbWifiSSID.Location = new System.Drawing.Point(228, 19);
             this.lbWifiSSID.Name = "lbWifiSSID";
             this.lbWifiSSID.Size = new System.Drawing.Size(19, 13);
             this.lbWifiSSID.TabIndex = 9;
@@ -646,7 +698,7 @@
             // 
             this.lbTextWifiWPA.AutoSize = true;
             this.lbTextWifiWPA.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWifiWPA.Location = new System.Drawing.Point(184, 59);
+            this.lbTextWifiWPA.Location = new System.Drawing.Point(159, 56);
             this.lbTextWifiWPA.Name = "lbTextWifiWPA";
             this.lbTextWifiWPA.Size = new System.Drawing.Size(63, 13);
             this.lbTextWifiWPA.TabIndex = 6;
@@ -656,7 +708,7 @@
             // 
             this.lbTextWifiWEP.AutoSize = true;
             this.lbTextWifiWEP.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWifiWEP.Location = new System.Drawing.Point(184, 40);
+            this.lbTextWifiWEP.Location = new System.Drawing.Point(159, 37);
             this.lbTextWifiWEP.Name = "lbTextWifiWEP";
             this.lbTextWifiWEP.Size = new System.Drawing.Size(63, 13);
             this.lbTextWifiWEP.TabIndex = 5;
@@ -666,7 +718,7 @@
             // 
             this.lbTextWifiSSID.AutoSize = true;
             this.lbTextWifiSSID.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextWifiSSID.Location = new System.Drawing.Point(212, 24);
+            this.lbTextWifiSSID.Location = new System.Drawing.Point(187, 21);
             this.lbTextWifiSSID.Name = "lbTextWifiSSID";
             this.lbTextWifiSSID.Size = new System.Drawing.Size(35, 13);
             this.lbTextWifiSSID.TabIndex = 4;
@@ -1011,5 +1063,9 @@
         private System.Windows.Forms.Button btnGetKeyloggerLog;
         private System.Windows.Forms.PictureBox pbItemListaccountumbersbank;
         private System.Windows.Forms.Button btnCreateBot;
+        private System.Windows.Forms.Label lbTextWindowsUpdatetodate;
+        private System.Windows.Forms.Label lbWindowsuptodate;
+        private System.Windows.Forms.Label lbInfectie;
+        private System.Windows.Forms.Label lbTextInfectie;
     }
 }

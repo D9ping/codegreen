@@ -183,6 +183,12 @@ namespace CodeGreen
             Application.Exit();
         }
 
+        private void pbHighscore_Click(object sender, EventArgs e)
+        {
+            GameHighscore highscore = new GameHighscore();
+            highscore.Show();
+        }
+
     }
         #endregion methoden
 }

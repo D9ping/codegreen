@@ -52,15 +52,16 @@ namespace CodeGreen
                 this.wifiwpa = wifiwpa;
             }
             this.wepcracked = false;
-            this.keylogger = false;
-            this.windowsoutdated = windowsoutdated;                       
+            this.keylogger = false;                                   
             this.bot = false;
+
+            this.windowsoutdated = windowsoutdated;
         }
         #endregion
 
         #region properties
         //huisnaam is hetzelfde als het object naam om het te vinden.
-        public object Huisnaam
+        public object Huisobj
         {
             get { return huisnaam; }
         }
@@ -91,7 +92,7 @@ namespace CodeGreen
         }
         public bool WindowsOutdated
         {
-            get { return WindowsOutdated; }
+            get { return this.windowsoutdated; }
         }
         public bool Wepcracked
         {

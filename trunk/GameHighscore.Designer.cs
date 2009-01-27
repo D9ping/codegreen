@@ -40,6 +40,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameHighscore";
             this.Text = "Highscore";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameHighscore_Paint);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameHighscore_FormClosed);
             this.ResumeLayout(false);
 
         }
