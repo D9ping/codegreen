@@ -4,5 +4,9 @@ Here are some basic instructions on how to get the latest sourcecode.
 
 Install [http://tortoisesvn.net/downloads TortoiseSVN] if you have Visual Studio express edition. 
 Or install [http://ankhsvn.open.collab.net/servlets/ProjectProcess?pageID=3794 ankhsvn] if you own a professional or teambuilder edition of Visual Studio.
-If you use TortoiseSVN then after you installed it you will be able to right click in a folder and select `checkout` then enter: `http://codegreen.googlecode.com/svn/trunk/` as url of repository. Then enter a folder where you want the sourcecode to be stored, hit OK and downloading of the latest available sourcecode will start.
-If you use ankhsvn start visual studio, click `file` select `open` then click `open from subversion`. Then enter as URL `http://codegreen.googlecode.com/svn/trunk/` and select `CodeGreen.csproj` and click open. Next select a empty/new local directory and press ok.
+
+If you use TortoiseSVN, then after you installed it you will be able to right click in a folder and select `checkout`. Then enter: `http://codegreen.googlecode.com/svn/trunk/` as url of repository. Then enter a folder where you want the sourcecode to be stored, hit OK and downloading of the latest available source code will start.
+
+If you use ankhsvn a subversion plugin for visual studio. You will need to start visual studio click `file` select `open` then click `open from subversion`. Then enter as URL `http://codegreen.googlecode.com/svn/trunk/` and select `CodeGreen.csproj` and to open. Next select a empty/new local directory and press ok.
+
+Please note that the sourcecode in the trunk is very latest and will contain some errors or unfinished work. So don't be surprised if it does not compile. 
