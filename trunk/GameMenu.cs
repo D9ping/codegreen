@@ -160,8 +160,9 @@ namespace CodeGreen
                 int Xtext = droptexten[i].Location.X;
                 int Ytext = droptexten[i].Location.Y + 10;
 
-                if (Ytext > 600) {                     
-                    droptexten[i].Dispose();//dit verkomt dat programma steeds meer geheugen gaat verbruiken.
+                if (Ytext > 600) {
+                    //dit verkomt dat programma steeds meer geheugen gaat verbruiken.
+                    droptexten[i].Dispose();                    
                 }
                 else { droptexten[i].Location = new Point(Xtext, Ytext); }
             }
@@ -185,6 +186,7 @@ namespace CodeGreen
 
         private void pbHighscore_Click(object sender, EventArgs e)
         {
+            this.Hide();
             GameHighscore highscore = new GameHighscore();
             highscore.Show();
         }

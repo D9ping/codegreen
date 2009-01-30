@@ -21,6 +21,9 @@ namespace CodeGreen
         public GameHighscore()
         {
             InitializeComponent();
+
+            connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+
             gethighscore();
         }
         #endregion
@@ -31,7 +34,6 @@ namespace CodeGreen
         #region methoden
         private void gethighscore()
         {
-            connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
 
             try
             {
@@ -42,48 +44,62 @@ namespace CodeGreen
 
                 OleDbDataReader reader;
                 reader = selectcommand.ExecuteReader();
-                
+
                 int ypos = 80;
                 while (reader.Read())
                 {
                     Label lbscore = new Label();
-                    lbscore.Text = reader["Naam"].ToString()+" - "+reader["Scoren"];
+                    lbscore.Text = reader["Naam"].ToString() + " - " + reader["Scoren"];
                     lbscore.AutoSize = true;
                     lbscore.ForeColor = Color.Lime;
                     lbscore.Location = new Point(200, ypos);
                     lbscore.TextAlign = ContentAlignment.MiddleCenter;
-                    //lbscore.Font = new Font(fontFamily, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-                    //e.Graphics.DrawString(""); 
                     ypos = ypos + 30;
                     this.Controls.Add(lbscore);
                 }
 
             }
-            catch (Exception)
+            catch (Exception exc)
             {
-                MessageBox.Show("fout db ophalen.");
+                MessageBox.Show("fout db ophalen.: " + exc.Message);
             }
             finally
             {
                 connection.Close();
             }
-        }        
+        }
+
+        public void addscore(int score)
+        {
+            try
+            {
+                connection.Open();
+
+                String query = "INSERT INTO SPELERS ()";
+                OleDbCommand InsertCommand = new OleDbCommand(query, connection);
+                InsertCommand.ExecuteNonQuery();
+            }
+
+            catch (Exception foutobj)
+            {
+                MessageBox.Show(foutobj.Message);                
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         private void GameHighscore_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }        
+        }
 
-        private void GameHighscore_Paint(object sender, PaintEventArgs e)
+        private void pbBackMenu_Click(object sender, EventArgs e)
         {
-            Graphics g = e.Graphics;
-
-            /*
-            Font myfont = new Font(
-            Brush myBrush = Brushes.Black;
-            Point mypoint = new Point(20, 100);
-            g.DrawString("test", myfont, mybrush, mypoint);
-             */
+            this.Hide();
+            GameMenu menu = new GameMenu();
+            menu.Show();
         }
 
         #endregion

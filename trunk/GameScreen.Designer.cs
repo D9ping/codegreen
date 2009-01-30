@@ -357,7 +357,6 @@
             this.tbCommand.Name = "tbCommand";
             this.tbCommand.Size = new System.Drawing.Size(351, 28);
             this.tbCommand.TabIndex = 6;
-            this.tooltip.SetToolTip(this.tbCommand, "enter a command");
             this.tbCommand.Visible = false;
             this.tbCommand.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbCommand_KeyDown);
             // 

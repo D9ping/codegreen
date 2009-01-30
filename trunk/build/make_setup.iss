@@ -3,7 +3,7 @@
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
 AppVerName=CodeGreen - DEVELOPMENT VERSION
-AppVersion=0.7 Alpha
+AppVersion=0.8 Alpha
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -39,11 +39,12 @@ Source: "..\bin\Debug\CodeGreen.exe"; DestDir: "{app}";
 ;Source: "..\bin\Debug\CodeGreen.vshost.exe"; DestDir: "{app}\bin\Debug";
 ;Source: "..\bin\Debug\CodeGreen.vshost.exe.manifest"; DestDir: "{app}\bin\Debug";
 Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\hiscoren.mdb"; DestDir: "{app}"; Flags: touch
 
 ; externe afbeeldingen, niet gebruiken want alle afbeeldingen zijn nu in exe compiled.
 ;Source: "..\afb\*"; DestDir: "{app}\afb"; Flags: ignoreversion touch
 
-; externe geluid bestanden, deze zijn NIET in executable compiled.
+; externe geluid bestanden, deze betstanden zijn NIET in executable compiled.
 Source: "..\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
 
 [Icons]
