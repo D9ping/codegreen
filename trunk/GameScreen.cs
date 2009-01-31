@@ -29,7 +29,7 @@ namespace CodeGreen
         public OptionsHandler options;
         public ResourceHandler resourcehandler;
         private Inventory inventory;        
-        private Bankaccount PlayerBankaccount;        
+        private Bankaccount Speler;        
         private WerkbalkState werkbalk;
         private Bank bank;
         private List<Huis> huizen;                        
@@ -49,7 +49,7 @@ namespace CodeGreen
             
             resetgame();
                        
-            PlayerBankaccount = bank.GetByNaam("speler");
+            Speler = bank.GetByNaam("speler");
 
             //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
             if (options.controller_enabled == true)
@@ -101,11 +101,11 @@ namespace CodeGreen
         private void resetgame()
         {
             inventory.youritems.Clear();
-            huizen.Clear();
-
+            huizen.Clear();            
             inithuizen();
             timesec = 0;
             timemin = 0;
+            UpdateStateKnopSound();
         }
 
         private void GameScreen_Shown(object sender, EventArgs e)
@@ -133,7 +133,7 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Veranderd de werkbalk knoppen
+        /// Veranderd de werkbalk knoppen status (behalve geluid en quit knop)
         /// </summary>
         private void ToonWerkbalkknop(PictureBox ShowPB, String bestandsnaam)
         {
@@ -143,6 +143,23 @@ namespace CodeGreen
             if (ShowPB != null) { ShowPB.Image = resourcehandler.loadimage(bestandsnaam); }
         }
 
+        private void UpdateStateKnopSound()
+        {
+            if (options.sound_enabled == true)
+            {
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");
+            }
+            else if (options.sound_enabled == false)
+            {
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");
+            }
+        }
+
+        /// <summary>
+        /// Timer voor tekst effecten.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimerTextEffect_Tick(object sender, EventArgs e)
         {
             if (werkbalk == WerkbalkState.INSTRUCTIE)
@@ -168,7 +185,7 @@ namespace CodeGreen
                         }
                     }
                     else {
-                        lblIntroTextLine1.Text = misc.TypeWordEffect("Hi, how are you?");
+                        lblIntroTextLine1.Text = misc.TypeWordEffect("Hi, nice for dropping by.");
                     }
                 }
                 else { misc.ToonBericht(10); }
@@ -298,6 +315,7 @@ namespace CodeGreen
             this.lbTextNaam.Text = "Here lives:";
             this.lbIPadres.Text = "IP adres:";            
         }
+
         /// <summary>
         /// Haal huis informatie op.
         /// </summary>
@@ -410,17 +428,13 @@ namespace CodeGreen
                         }
                     }
                 }
-
             }
             else
             {
                 lbWindowsuptodate.Visible = false;
                 lbTextWindowsUpdatetodate.Visible = false;
             }
-        }
-
-        
-        //inventory.getItemInventory(item);
+        }      
 
         /// <summary>
         /// Kijk of item in inventory zit.
@@ -511,18 +525,15 @@ namespace CodeGreen
             if (this.progbarServerload.Value == 100)
             {
                 TimerGametime.Enabled = false;
-                GameHighscore highscore = new GameHighscore();
-                
-                int score = 1000 - (timemin * 60) - timesec;
-                highscore.addscore(score);
-                
+                int geld = Convert.ToInt32(Speler.AccountSaldo);
+                GameHighscore highscore = new GameHighscore(timemin, timesec, geld);  
                 highscore.Show();
                 this.Hide();                             
             }
         }
 
         /// <summary>
-        /// tekent de bus op nieuwe plek, CPU intensief!
+        /// tekent de bus op nieuwe plek, (CPU intensief)
         /// </summary>
         private void truckdrive(int n)
         {
@@ -564,8 +575,18 @@ namespace CodeGreen
         {
             gbxBanklogin.Visible = false;
             Bankaccount getaccount = bank.GetByRekening(cbAccountnummer.Text);
-            if (getaccount==null) {
+            if (cbAccountnummer.Text == "")
+            {
+                misc.BlinkTekst = "NO ACCESS, enter a account number.";
+                lbBanklogininfo.Text = misc.BlinkWordEffect();
+            }            
+            else if (getaccount==null) {
                 misc.BlinkTekst = "NO ACCESS, accountnummer doesn't exist.";
+                lbBanklogininfo.Text = misc.BlinkWordEffect();
+            }
+            else if (tbAccountPassword.Text == "")
+            {
+                misc.BlinkTekst = "NO ACCESS, enter a password.";
                 lbBanklogininfo.Text = misc.BlinkWordEffect();
             }
             else if (getaccount.AccountPassword != tbAccountPassword.Text)
@@ -575,13 +596,16 @@ namespace CodeGreen
             }
             else
             {
-                //account nummer okay
-                //password okay
-                //TODO: toon groepbox bank met saldo rekeningnummer etc. etc.            
-                lbBanklogininfo.Text = "Access granted! Account details from: " + getaccount.AccountRekeningnr;
-                lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;                
-            }
-            //Bankaccount getaccount = bank.GetByRekening(tbAccountnummer.Text);
+                //login was succesvol.
+                lbBanklogininfo.Visible = true;
+                lbSaldo.Visible = true;
+                btnTranfermoney.Visible = true;
+                if (getaccount.AccountSaldo == 0) { btnTranfermoney.Enabled = false; }
+                else { btnTranfermoney.Enabled = true; }
+                lbBanklogininfo.Text = "Access granted! Account nr: " + getaccount.AccountRekeningnr + "\r\n Registert at " + getaccount.AccountNaam;
+                lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;
+                
+            }            
         }
                 
         /// <summary>
@@ -590,6 +614,7 @@ namespace CodeGreen
         /// </summary>
         private void TekenWinkel()
         {
+            gbxShopStock.Controls.Clear();
             gbxShopStock.Visible = true;
             gbxShopStock.Text = "nixxon stock";
             int ypos = 20;
@@ -615,19 +640,21 @@ namespace CodeGreen
                 btnItembuy.ForeColor = Color.Lime;
                 btnItembuy.BackColor = Color.Black;
                 btnItembuy.FlatStyle = FlatStyle.Flat;
+               
                 if (IsItemInventory(curitem.NaamItem) == false)
                 {
                     btnItembuy.Text = "buy";
                     btnItembuy.Click += new System.EventHandler(BuyItem);
                 }
-                else
+                else if (IsItemInventory(curitem.NaamItem) == true)
                 {
                     btnItembuy.Text = "sold";
-                }                                    
+                }            
+                        
                 this.gbxShopStock.Controls.Add(lbitemnaam);
                 this.gbxShopStock.Controls.Add(lbitemprijs);
                 this.gbxShopStock.Controls.Add(btnItembuy);
-                components.Add(btnItembuy);
+                //components.Add(btnItembuy);
                 ypos += 20;
             }                                          
         }
@@ -661,49 +688,36 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Controlleer of er genoeg geld bij de speler is.
+        /// Zoja dan wordt het item aan de inventory list toegevoegd.
+        /// </summary>
+        /// <param name="sender">het item</param>
+        /// <param name="e"></param>
         public void BuyItem(object sender, EventArgs e)
         {            
-            Button buttontemp = (Button)sender;
-            buttontemp.Text = "sold";
+            Button buttontemp = (Button)sender;            
 
-            if (buttontemp.Name == "wepcracker")
-            {                
-                if (inventory.addItemInventory("wepcracker") == false) {
-                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
+            Item buyitem = inventory.getItemShop(buttontemp.Name);            
+
+            //controlleer voor genoeg geld.
+            if (Speler.AccountSaldo >= buyitem.Prijs)
+            {   
+                if (inventory.addItemInventory(buttontemp.Name) == true) {
+                    Speler.geldopnemen(buyitem.Prijs);
+                    buttontemp.Click += null;
+                    lbSpelerGeld.Refresh();
                 }
-            }
-            else if (buttontemp.Name == "keylogger")
-            {
-                if (inventory.addItemInventory("keylogger") == false)
-                {
-                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
+                else {
+                    lbTextShop.Text = "You already have this item.";
                 }                
             }
-            else if (buttontemp.Name == "netwerkscanner")
-            {
-                if (inventory.addItemInventory("netwerkscanner") == false)
-                {
-                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
-                }                
+            else
+            { 
+                lbTextShop.Text = "You don't have enough money to buy that.";
             }
-            else if (buttontemp.Name == "worm")
-            {
-                if (inventory.addItemInventory("worm") == false)
-                {
-                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
-                }                
-            }
-            else if (buttontemp.Name == "coderedvirus")
-            {
-                if (inventory.addItemInventory("coderedvirus") == false)
-                {
-                    this.lbTextShop.Text = "Not enough money, try hacking some bankaccount first.";
-                }                
-            }
-            else { misc.ToonBericht(8); }
-                        
-            buttontemp.Click += null;            
-            ToonAllItems();
+            TekenWinkel();
+            ToonInventoryItems();
         }
 
         
@@ -718,7 +732,7 @@ namespace CodeGreen
      
         private void lbPlayerMoney_Paint(object sender, PaintEventArgs e)
         {
-            lbPlayerMoney.Text = Convert.ToString(PlayerBankaccount.AccountSaldo);
+            lbSpelerGeld.Text = Convert.ToString(Speler.AccountSaldo);
         }
 
         private void btnFriendGift_Click(object sender, EventArgs e)
@@ -754,9 +768,7 @@ namespace CodeGreen
             {
                 getHuis.IsBot = true;                
                 progbarServerload.Value = progbarServerload.Value + 25;
-            }
-
-            
+            }            
         }
 
         private void btnDeployKeylogger_Click(object sender, EventArgs e)
@@ -778,11 +790,24 @@ namespace CodeGreen
         /// <summary>
         /// Toon alle items in inventory uit inventorylijst
         /// </summary>
-        private void ToonAllItems()
+        private void ToonInventoryItems()
         {
             lbItemCommandInfo.Visible = false;
             tbCommand.Visible = false;
-
+            tbCommand.Text = "";
+            
+            int xpos = 10;
+            
+            /*
+            foreach (Item curitem in inventory.youritems)
+            {
+                PictureBox curpb = (PictureBox)curitem.item;
+                curpb.Location = new Point(xpos, 14);
+                xpos += 100;
+            }
+            */
+            
+            // /*
             if (IsItemInventory("listbankaccounts") == true)
             {
                 pbItemListaccountumbersbank.Location = new Point(10, 14);
@@ -823,6 +848,8 @@ namespace CodeGreen
                 pbItemCoderedvirus.Visible = true;
             }
             else { pbItemCoderedvirus.Visible = false; }
+            // */
+            
         }
 
         /// <summary>
@@ -844,6 +871,20 @@ namespace CodeGreen
              
             pbitem.Visible = true;
             pbitem.Location = new Point(10, 14);
+        }
+        
+      
+        /// <summary>
+        /// schakel sound in of uit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pbKnopSound_Click(object sender, EventArgs e)
+        {            
+            if (options.sound_enabled == true) { options.UpdateSetting("sound", "False"); }
+            else if (options.sound_enabled == false)
+            { options.UpdateSetting("sound", "True"); }
+            this.UpdateStateKnopSound();
         }
 
         /// <summary>
@@ -896,7 +937,7 @@ namespace CodeGreen
                         tbCommand.Text = "";
                     }
                 }
-                if (IsItemInventory("worm") ==true)
+                if (IsItemInventory("worm") == true)
                 {
                     foreach (Huis huis in huizen)
                     {
@@ -906,6 +947,17 @@ namespace CodeGreen
                             lbItemCommandInfo.Text = "You infected " + huis.IPAdres + " with a worm, now other houses can get infected soon.";
                             tbCommand.Text = "";
                         }
+                        else if ((tbCommand.Text == "infect " + huis.IPAdres) && (huis.WindowsOutdated == false))
+                        {
+                            lbItemCommandInfo.Text = "House is not vurnable.";
+                        }
+                        else if (tbCommand.Text.StartsWith("infect")==true)
+                        {
+                            lbItemCommandInfo.Text = "Unknow IP adres.";
+                        }
+                        else {
+                            //lbItemCommandInfo.Text = "unknow command.";
+                        }
                     }
                 }
                 if (IsItemInventory("coderedvirus") ==true)
@@ -913,7 +965,7 @@ namespace CodeGreen
                     if (tbCommand.Text == "release")
                     {
                         ActivedItem("coderedvirus");
-                        lbItemCommandInfo.Text = "Codered virus has infected your whole neigherhood.";
+                        lbItemCommandInfo.Text = "Code red virus has infected your whole neigherhood.";
                         tbCommand.Text = "";
                     }
                 }
@@ -935,7 +987,7 @@ namespace CodeGreen
             }
             else if (lbItemCommandInfo.Visible == true)
             {
-                ToonAllItems();                                      
+                ToonInventoryItems();
             }
         }
         private void pbItemListaccountumbersbank_Click(object sender, EventArgs e)
@@ -948,7 +1000,7 @@ namespace CodeGreen
             }
             else if (lbItemCommandInfo.Visible == true)
             {
-                ToonAllItems();                
+                ToonInventoryItems();               
                 VerbergWinkel();
             }
             
@@ -962,7 +1014,7 @@ namespace CodeGreen
             }
             else if (lbItemCommandInfo.Visible == true)
             {
-                ToonAllItems();
+                ToonInventoryItems();
             }            
         }
         private void pbItemNetworkScanner_Click(object sender, EventArgs e)
@@ -974,7 +1026,7 @@ namespace CodeGreen
             }
             else if (lbItemCommandInfo.Visible == true)
             {
-                ToonAllItems();
+                ToonInventoryItems();
             }            
         }
         private void pbItemWorm_Click(object sender, EventArgs e)
@@ -986,7 +1038,7 @@ namespace CodeGreen
             }
             else if (lbItemCommandInfo.Visible == true)
             {
-                ToonAllItems();
+                ToonInventoryItems();
             }             
         }
         private void pbItemCoderedvirus_Click(object sender, EventArgs e)
@@ -998,7 +1050,7 @@ namespace CodeGreen
             }
             else if (lbItemCommandInfo.Visible == true)
             {
-                ToonAllItems();
+                ToonInventoryItems();
             } 
             
         }

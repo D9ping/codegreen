@@ -108,6 +108,9 @@ namespace CodeGreen
                     case 10:                        
                         MessageBox.Show("Fout: Onbekende huidige tekst");                        
                         break;
+                    case 11:
+                        MessageBox.Show("Fout: kan item niet in database stoppen");
+                        break;
                     default:
                         MessageBox.Show("onbekende fout");
                         break;                                        

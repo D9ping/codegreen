@@ -10,7 +10,7 @@ namespace CodeGreen
         #region datavelden
         private List<Item> shopitems;
         public List<Item> youritems;
-        
+        //private void int[] i;
         #endregion
 
         #region constructor
@@ -19,15 +19,17 @@ namespace CodeGreen
             shopitems = new List<Item>();            
             youritems = new List<Item>();            
 
-            shopitems.Add(new Item("wepcracker", 100));
-            shopitems.Add(new Item("keylogger", 100));            
-            shopitems.Add(new Item("netwerkscanner", 250));
-            shopitems.Add(new Item("worm", 250));
-            shopitems.Add(new Item("coderedvirus", 800));
-            
-            //shopitems.Add(new Item("metal detector", 50));
-            //shopitems.Add(new Item("cookie", 999));
-            //shopitems.Add(new Item("pizza", 123));            
+            Item[] items = new Item[5];
+            items[0] = new Item("wepcracker", 100);
+            items[1] = new Item("keylogger", 100);
+            items[2] = new Item("netwerkscanner", 250);
+            items[3] = new Item("worm", 250);
+            items[4] = new Item("coderedvirus", 800);            
+            //shopitems.Add(new Item(gs.Controls["pbItem_NO_IMAGE"], "metal detector", 50));            
+            //shopitems.Add(new Item(gs.Controls["pbItem_NO_IMAGE"], "pizza", 123));        
+            //shopitems.Add(new Item(gs.Controls["pbItem_NO_IMAGE"], "cookie", 999));
+
+            shopitems.AddRange(items);
         }
         #endregion
 
@@ -46,11 +48,14 @@ namespace CodeGreen
         /// <returns>als gelukt geeft true terug.</returns>
         public bool addItemInventory(String naam)
         {
-
             if (getItemShop(naam) != null)
             {
-                youritems.Add(getItemShop(naam));
-                return true;
+                if (getItemInventory(naam) == null)
+                {
+                    youritems.Add(getItemShop(naam));
+                    return true;
+                }
+                else { return false; }
             }
             else
             { return false; }

@@ -13,18 +13,31 @@ namespace CodeGreen
     public partial class GameHighscore : Form
     {
         #region datavelden
-        public int score;
+        private int score;
         private OleDbConnection connection;
+        private Misc misc;
         #endregion
 
         #region contructor
         public GameHighscore()
         {
             InitializeComponent();
+            misc = new Misc();
+            connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+            
+
+            gethighscore();
+            gbxHighscoren.Visible = true;
+        }
+        public GameHighscore(int timemin, int timesec, int geldover)
+        {
+            InitializeComponent();
 
             connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
 
-            gethighscore();
+            berekenscore(timemin, timesec, geldover);
+            //gethighscore();
+            gbxNewHighscore.Visible = true;
         }
         #endregion
 
@@ -32,6 +45,18 @@ namespace CodeGreen
         #endregion
 
         #region methoden
+        private void berekenscore(int timemin, int timesec, int geldover)
+        {            
+            if (timemin < 20)
+            {
+                score = 1200 - (timemin * 60) - timesec + geldover;
+            }
+            else
+            {
+                score = geldover;
+            }
+        }
+
         private void gethighscore()
         {
 
@@ -52,10 +77,10 @@ namespace CodeGreen
                     lbscore.Text = reader["Naam"].ToString() + " - " + reader["Scoren"];
                     lbscore.AutoSize = true;
                     lbscore.ForeColor = Color.Lime;
-                    lbscore.Location = new Point(200, ypos);
+                    lbscore.Location = new Point(50, ypos);
                     lbscore.TextAlign = ContentAlignment.MiddleCenter;
                     ypos = ypos + 30;
-                    this.Controls.Add(lbscore);
+                    this.gbxHighscoren.Controls.Add(lbscore);
                 }
 
             }
@@ -66,6 +91,15 @@ namespace CodeGreen
             finally
             {
                 connection.Close();
+            }
+        }
+
+        private void btAddHighscore_Click(object sender, EventArgs e)
+        {            
+            if ((tbName.Text!=null) || (tbName.Text!=""))
+            {                
+                gbxHighscoren.Text = DateTime.Now.ToString();
+                //todo add score, datetime
             }
         }
 
@@ -80,9 +114,9 @@ namespace CodeGreen
                 InsertCommand.ExecuteNonQuery();
             }
 
-            catch (Exception foutobj)
+            catch (Exception)
             {
-                MessageBox.Show(foutobj.Message);                
+                misc.ToonBericht(11);
             }
             finally
             {
@@ -101,6 +135,7 @@ namespace CodeGreen
             GameMenu menu = new GameMenu();
             menu.Show();
         }
+
 
         #endregion
     }

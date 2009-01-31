@@ -8,6 +8,8 @@ namespace CodeGreen
     class Item
     {
         #region datavelden
+        int pos;
+        //object pbitem;
         String naamitem;
         int prijs;
         bool active;
@@ -15,7 +17,7 @@ namespace CodeGreen
 
         #region constructor
         public Item(String naamitem, int prijs)            
-        {
+        {            
             this.naamitem = naamitem;
             this.prijs = prijs;
             this.active = false;            
@@ -23,6 +25,7 @@ namespace CodeGreen
         #endregion
 
         #region properties
+        
         public String NaamItem
         {
             get { return this.naamitem; }

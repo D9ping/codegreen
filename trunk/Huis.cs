@@ -38,8 +38,7 @@ namespace CodeGreen
         /// <param name="virusscanner"></param>
         /// <param name="bot"></param>
         public Huis(object huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
-            bool windowsoutdated)
-        //, bool wepcracked, bool keylogger, bool bot
+            bool windowsoutdated)        
         {
             this.huisnaam = huisnaam;
             this.naam = naam;

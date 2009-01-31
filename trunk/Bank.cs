@@ -38,7 +38,7 @@ namespace CodeGreen
         /// Registreer een account bij de bank, controlleer of die al in lijst voor komt
         /// </summary>
         /// <returns>true als gelukt is.</returns>
-        public bool RegistreerAccount(String nm, String reknr, int lenpassw, double money)
+        public bool RegistreerAccount(String nm, String reknr, int lenpassw, int money)
         {
             try
             {

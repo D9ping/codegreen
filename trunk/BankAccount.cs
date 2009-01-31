@@ -14,11 +14,11 @@ namespace CodeGreen
         private String naam;
         private String password;
         private String rekeningnr;
-        private double saldo;
+        private int saldo;
         #endregion
 
         #region constructor
-        public Bankaccount(String nm, string rekeningnummer, int paswlength, double saldo)
+        public Bankaccount(String nm, string rekeningnummer, int paswlength, int saldo)
         {
             this.naam = nm;
             this.rekeningnr = rekeningnummer;
@@ -43,7 +43,7 @@ namespace CodeGreen
             get { return rekeningnr; }
             set { rekeningnr = value; }
         }
-        public double AccountSaldo
+        public int AccountSaldo
         {
             get { return saldo; }
             set { saldo = value; }
@@ -62,10 +62,10 @@ namespace CodeGreen
             return password;
         }
 
-        private int MakeSaldo(int saldo)
+        private int MakeSaldo(int minsaldo, int maxsaldo)
         {
             Random generator = new Random();
-            saldo = generator.Next(200, 300);
+            int saldo = generator.Next(minsaldo, maxsaldo);
             return saldo;
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace CodeGreen
         /// </summary>
         /// <param name="bedrag">hoeveel er van de rekening moet.</param>
         /// <returns>true als gelukt</returns>
-        public bool geldopnemen(double bedrag)
+        public bool geldopnemen(int bedrag)
         {
             if (this.saldo >= bedrag)
             {

@@ -35,7 +35,7 @@
             this.gbxGameInstructions = new System.Windows.Forms.GroupBox();
             this.btnFriendGift = new System.Windows.Forms.Button();
             this.lbTextShop = new System.Windows.Forms.Label();
-            this.lbPlayerMoney = new System.Windows.Forms.Label();
+            this.lbSpelerGeld = new System.Windows.Forms.Label();
             this.lbTextMoneySign = new System.Windows.Forms.Label();
             this.progbarServerload = new System.Windows.Forms.ProgressBar();
             this.pbKnopInventory = new System.Windows.Forms.PictureBox();
@@ -96,6 +96,7 @@
             this.gbxShopStock = new System.Windows.Forms.GroupBox();
             this.gbxBanklogin = new System.Windows.Forms.GroupBox();
             this.cbAccountnummer = new System.Windows.Forms.ComboBox();
+            this.pbKnopSound = new System.Windows.Forms.PictureBox();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxWBInventory.SuspendLayout();
@@ -122,6 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbQuitgame)).BeginInit();
             this.gbxWBShop.SuspendLayout();
             this.gbxBanklogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKnopSound)).BeginInit();
             this.SuspendLayout();
             // 
             // TimerTextEffect
@@ -182,19 +184,19 @@
             this.lbTextShop.TabIndex = 5;
             this.lbTextShop.Text = "(..)";
             // 
-            // lbPlayerMoney
+            // lbSpelerGeld
             // 
-            this.lbPlayerMoney.AutoSize = true;
-            this.lbPlayerMoney.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlayerMoney.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPlayerMoney.ForeColor = System.Drawing.Color.Lime;
-            this.lbPlayerMoney.Location = new System.Drawing.Point(116, 540);
-            this.lbPlayerMoney.Name = "lbPlayerMoney";
-            this.lbPlayerMoney.Size = new System.Drawing.Size(31, 22);
-            this.lbPlayerMoney.TabIndex = 11;
-            this.lbPlayerMoney.Text = "0,00";
-            this.lbPlayerMoney.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lbPlayerMoney.Paint += new System.Windows.Forms.PaintEventHandler(this.lbPlayerMoney_Paint);
+            this.lbSpelerGeld.AutoSize = true;
+            this.lbSpelerGeld.BackColor = System.Drawing.Color.Transparent;
+            this.lbSpelerGeld.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSpelerGeld.ForeColor = System.Drawing.Color.Lime;
+            this.lbSpelerGeld.Location = new System.Drawing.Point(116, 540);
+            this.lbSpelerGeld.Name = "lbSpelerGeld";
+            this.lbSpelerGeld.Size = new System.Drawing.Size(31, 22);
+            this.lbSpelerGeld.TabIndex = 11;
+            this.lbSpelerGeld.Text = "0,00";
+            this.lbSpelerGeld.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbSpelerGeld.Paint += new System.Windows.Forms.PaintEventHandler(this.lbPlayerMoney_Paint);
             // 
             // lbTextMoneySign
             // 
@@ -411,7 +413,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pbHuisVriend.BackColor = System.Drawing.Color.Transparent;
             this.pbHuisVriend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHuisVriend.Location = new System.Drawing.Point(595, 351);
+            this.pbHuisVriend.Location = new System.Drawing.Point(581, 358);
             this.pbHuisVriend.Name = "pbHuisVriend";
             this.pbHuisVriend.Size = new System.Drawing.Size(108, 79);
             this.pbHuisVriend.TabIndex = 20;
@@ -770,7 +772,7 @@
             this.gbxWBBank.Controls.Add(this.btnTranfermoney);
             this.gbxWBBank.Controls.Add(this.lbSaldo);
             this.gbxWBBank.ForeColor = System.Drawing.Color.White;
-            this.gbxWBBank.Location = new System.Drawing.Point(50, 379);
+            this.gbxWBBank.Location = new System.Drawing.Point(12, 347);
             this.gbxWBBank.Name = "gbxWBBank";
             this.gbxWBBank.Size = new System.Drawing.Size(324, 79);
             this.gbxWBBank.TabIndex = 22;
@@ -923,6 +925,16 @@
             this.cbAccountnummer.Size = new System.Drawing.Size(91, 21);
             this.cbAccountnummer.TabIndex = 5;
             // 
+            // pbKnopSound
+            // 
+            this.pbKnopSound.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopSound.Location = new System.Drawing.Point(72, 518);
+            this.pbKnopSound.Name = "pbKnopSound";
+            this.pbKnopSound.Size = new System.Drawing.Size(18, 18);
+            this.pbKnopSound.TabIndex = 30;
+            this.pbKnopSound.TabStop = false;
+            this.pbKnopSound.Click += new System.EventHandler(this.pbKnopSound_Click);
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -931,6 +943,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.pbKnopSound);
             this.Controls.Add(this.gbxWBHuis);
             this.Controls.Add(this.gbxBanklogin);
             this.Controls.Add(this.gbxShopStock);
@@ -949,7 +962,7 @@
             this.Controls.Add(this.pbHuis2);
             this.Controls.Add(this.pbShop);
             this.Controls.Add(this.lbPlayerTime);
-            this.Controls.Add(this.lbPlayerMoney);
+            this.Controls.Add(this.lbSpelerGeld);
             this.Controls.Add(this.lbTextMoneySign);
             this.Controls.Add(this.pbKnopInventory);
             this.Controls.Add(this.progbarServerload);
@@ -993,6 +1006,7 @@
             this.gbxWBShop.PerformLayout();
             this.gbxBanklogin.ResumeLayout(false);
             this.gbxBanklogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKnopSound)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1011,7 +1025,7 @@
         private System.Windows.Forms.PictureBox pbItemWifiWEPCracker;
         private System.Windows.Forms.ToolTip tooltip;
         private System.Windows.Forms.Label lbTextMoneySign;
-        private System.Windows.Forms.Label lbPlayerMoney;
+        private System.Windows.Forms.Label lbSpelerGeld;
         private System.Windows.Forms.Label lbPlayerTime;
         public System.Windows.Forms.Timer TimerGametime;
         private UsbLibrary.UsbHidPort usb;
@@ -1066,5 +1080,6 @@
         private System.Windows.Forms.Label lbWindowsuptodate;
         private System.Windows.Forms.Label lbInfectie;
         private System.Windows.Forms.Label lbTextInfectie;
+        private System.Windows.Forms.PictureBox pbKnopSound;
     }
 }
