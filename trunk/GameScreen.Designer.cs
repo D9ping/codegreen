@@ -624,6 +624,7 @@
             this.btnCreateBot.Size = new System.Drawing.Size(131, 25);
             this.btnCreateBot.TabIndex = 13;
             this.btnCreateBot.Text = "Make a bot";
+            this.tooltip.SetToolTip(this.btnCreateBot, "Make this house part of the bot network.");
             this.btnCreateBot.UseVisualStyleBackColor = false;
             this.btnCreateBot.Visible = false;
             this.btnCreateBot.Click += new System.EventHandler(this.btnCreateBot_Click);
@@ -782,7 +783,7 @@
             this.lbBanklogininfo.BackColor = System.Drawing.Color.Transparent;
             this.lbBanklogininfo.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBanklogininfo.ForeColor = System.Drawing.Color.Lime;
-            this.lbBanklogininfo.Location = new System.Drawing.Point(5, 16);
+            this.lbBanklogininfo.Location = new System.Drawing.Point(14, 16);
             this.lbBanklogininfo.Name = "lbBanklogininfo";
             this.lbBanklogininfo.Size = new System.Drawing.Size(48, 18);
             this.lbBanklogininfo.TabIndex = 6;
@@ -791,21 +792,23 @@
             // lbSaldo
             // 
             this.lbSaldo.AutoSize = true;
+            this.lbSaldo.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSaldo.ForeColor = System.Drawing.Color.Lime;
             this.lbSaldo.Location = new System.Drawing.Point(11, 46);
             this.lbSaldo.Name = "lbSaldo";
-            this.lbSaldo.Size = new System.Drawing.Size(73, 13);
+            this.lbSaldo.Size = new System.Drawing.Size(128, 18);
             this.lbSaldo.TabIndex = 1;
-            this.lbSaldo.Text = "Saldo:      ???";
+            this.lbSaldo.Text = "Saldo:   ???";
             this.lbSaldo.Visible = false;
             // 
             // tbAccountPassword
             // 
             this.tbAccountPassword.Location = new System.Drawing.Point(100, 49);
             this.tbAccountPassword.Name = "tbAccountPassword";
-            this.tbAccountPassword.PasswordChar = '*';
+            this.tbAccountPassword.PasswordChar = 'X';
             this.tbAccountPassword.Size = new System.Drawing.Size(94, 20);
             this.tbAccountPassword.TabIndex = 4;
+            this.tbAccountPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAccountPassword_KeyDown);
             // 
             // lbTextLogin
             // 
