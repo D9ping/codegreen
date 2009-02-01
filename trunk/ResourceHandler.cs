@@ -72,7 +72,6 @@ namespace CodeGreen
                     if (herhalen == true) { soundplayer.PlayLooping(); }
                     soundplayer.Play();                    
                     return true;
-
                     
                 }
                 catch (Exception) { 
@@ -81,38 +80,7 @@ namespace CodeGreen
             }            
             return true;
         }
-
-        /*
-        /// <summary>
-        /// Speel de achtergrond muziek af, deze methode wordt
-        /// ook aanroepen voor stoppen van de achtergrond muziek.
-        /// </summary>
-        /// <param name="bestandsnaam">bestandsnaam in sound map</param>
-        /// <param name="speel">moet het starten of stoppen</param>
-        /// <returns>true als gelukt</returns>
-        public bool playmusic(String bestandsnaam, bool speel)
-        {
-            if (options.sound_enabled == true)
-            {
-                try
-                {
-                    SoundPlayer musicplayer = new SoundPlayer();
-                    musicplayer.SoundLocation = "..\\..\\sounds\\" + bestandsnaam;
-                    musicplayer.LoadAsync();
-                    if (speel == true) { musicplayer.Play(); }
-                    else if (speel == false) { musicplayer.Stop(); }
-                    return true;
-                }
-                catch (Exception)
-                {
-                    //failed to play
-                    return false;
-                }
-            }
-            //sound is off
-            return true;
-        }
-        */
+        
         #endregion
 
     }

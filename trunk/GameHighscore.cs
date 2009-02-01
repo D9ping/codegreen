@@ -15,7 +15,7 @@ namespace CodeGreen
         #region datavelden
         private int score;
         private OleDbConnection connection;
-        private Misc misc;
+        private Misc misc;        
         #endregion
 
         #region contructor
@@ -24,17 +24,18 @@ namespace CodeGreen
             InitializeComponent();
             misc = new Misc();
             connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
-            
 
+            setGroupboxen();
             gethighscore();
             gbxHighscoren.Visible = true;
         }
         public GameHighscore(int timemin, int timesec, int geldover)
         {
             InitializeComponent();
+            setGroupboxen();
 
             connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
-
+            
             berekenscore(timemin, timesec, geldover);
             //gethighscore();
             gbxNewHighscore.Visible = true;
@@ -57,6 +58,13 @@ namespace CodeGreen
             }
         }
 
+        private void setGroupboxen()
+        {
+            gbxHighscoren.Location = new Point(10, 10);            
+            gbxHighscoren.Size = new Size(780, 580);
+            gbxNewHighscore.Location = new Point(10, 10);
+            gbxNewHighscore.Size = new Size(780, 580);
+        }
         private void gethighscore()
         {
 

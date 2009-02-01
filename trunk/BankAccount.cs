@@ -85,6 +85,19 @@ namespace CodeGreen
                 return false;
             }
         }
+
+        public bool geldstorten(int bedrag)
+        {
+            if (bedrag>0)
+            {
+                this.saldo = this.saldo + bedrag;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }

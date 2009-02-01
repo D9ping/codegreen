@@ -84,7 +84,6 @@
             this.lbTextNaam = new System.Windows.Forms.Label();
             this.gbxWBBank = new System.Windows.Forms.GroupBox();
             this.lbBanklogininfo = new System.Windows.Forms.Label();
-            this.btnTranfermoney = new System.Windows.Forms.Button();
             this.lbSaldo = new System.Windows.Forms.Label();
             this.tbAccountPassword = new System.Windows.Forms.TextBox();
             this.lbTextLogin = new System.Windows.Forms.Label();
@@ -221,9 +220,9 @@
             // 
             this.pbKnopInventory.BackColor = System.Drawing.Color.Transparent;
             this.pbKnopInventory.Image = ((System.Drawing.Image)(resources.GetObject("pbKnopInventory.Image")));
-            this.pbKnopInventory.Location = new System.Drawing.Point(12, 447);
+            this.pbKnopInventory.Location = new System.Drawing.Point(71, 485);
             this.pbKnopInventory.Name = "pbKnopInventory";
-            this.pbKnopInventory.Size = new System.Drawing.Size(32, 29);
+            this.pbKnopInventory.Size = new System.Drawing.Size(24, 24);
             this.pbKnopInventory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbKnopInventory.TabIndex = 7;
             this.pbKnopInventory.TabStop = false;
@@ -366,9 +365,9 @@
             // 
             this.pbKnopBank.BackColor = System.Drawing.Color.Transparent;
             this.pbKnopBank.Image = ((System.Drawing.Image)(resources.GetObject("pbKnopBank.Image")));
-            this.pbKnopBank.Location = new System.Drawing.Point(48, 454);
+            this.pbKnopBank.Location = new System.Drawing.Point(12, 448);
             this.pbKnopBank.Name = "pbKnopBank";
-            this.pbKnopBank.Size = new System.Drawing.Size(32, 29);
+            this.pbKnopBank.Size = new System.Drawing.Size(32, 32);
             this.pbKnopBank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbKnopBank.TabIndex = 22;
             this.pbKnopBank.TabStop = false;
@@ -439,7 +438,7 @@
             // 
             this.pbKnopShop.BackColor = System.Drawing.Color.Transparent;
             this.pbKnopShop.Image = ((System.Drawing.Image)(resources.GetObject("pbKnopShop.Image")));
-            this.pbKnopShop.Location = new System.Drawing.Point(72, 486);
+            this.pbKnopShop.Location = new System.Drawing.Point(53, 456);
             this.pbKnopShop.Name = "pbKnopShop";
             this.pbKnopShop.Size = new System.Drawing.Size(24, 24);
             this.pbKnopShop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -769,12 +768,11 @@
             // 
             this.gbxWBBank.BackColor = System.Drawing.Color.Transparent;
             this.gbxWBBank.Controls.Add(this.lbBanklogininfo);
-            this.gbxWBBank.Controls.Add(this.btnTranfermoney);
             this.gbxWBBank.Controls.Add(this.lbSaldo);
             this.gbxWBBank.ForeColor = System.Drawing.Color.White;
-            this.gbxWBBank.Location = new System.Drawing.Point(12, 347);
+            this.gbxWBBank.Location = new System.Drawing.Point(12, 117);
             this.gbxWBBank.Name = "gbxWBBank";
-            this.gbxWBBank.Size = new System.Drawing.Size(324, 79);
+            this.gbxWBBank.Size = new System.Drawing.Size(173, 77);
             this.gbxWBBank.TabIndex = 22;
             this.gbxWBBank.TabStop = false;
             this.gbxWBBank.Visible = false;
@@ -783,31 +781,19 @@
             // 
             this.lbBanklogininfo.AutoSize = true;
             this.lbBanklogininfo.BackColor = System.Drawing.Color.Transparent;
-            this.lbBanklogininfo.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBanklogininfo.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBanklogininfo.ForeColor = System.Drawing.Color.Lime;
             this.lbBanklogininfo.Location = new System.Drawing.Point(5, 16);
             this.lbBanklogininfo.Name = "lbBanklogininfo";
-            this.lbBanklogininfo.Size = new System.Drawing.Size(44, 17);
+            this.lbBanklogininfo.Size = new System.Drawing.Size(48, 18);
             this.lbBanklogininfo.TabIndex = 6;
             this.lbBanklogininfo.Text = "(..)";
-            // 
-            // btnTranfermoney
-            // 
-            this.btnTranfermoney.BackColor = System.Drawing.Color.Gray;
-            this.btnTranfermoney.ForeColor = System.Drawing.Color.Black;
-            this.btnTranfermoney.Location = new System.Drawing.Point(274, 23);
-            this.btnTranfermoney.Name = "btnTranfermoney";
-            this.btnTranfermoney.Size = new System.Drawing.Size(97, 44);
-            this.btnTranfermoney.TabIndex = 2;
-            this.btnTranfermoney.Text = "Transfer money to your account";
-            this.btnTranfermoney.UseVisualStyleBackColor = false;
-            this.btnTranfermoney.Visible = false;
             // 
             // lbSaldo
             // 
             this.lbSaldo.AutoSize = true;
             this.lbSaldo.ForeColor = System.Drawing.Color.Lime;
-            this.lbSaldo.Location = new System.Drawing.Point(22, 47);
+            this.lbSaldo.Location = new System.Drawing.Point(11, 46);
             this.lbSaldo.Name = "lbSaldo";
             this.lbSaldo.Size = new System.Drawing.Size(73, 13);
             this.lbSaldo.TabIndex = 1;
@@ -880,9 +866,9 @@
             this.gbxWBShop.BackColor = System.Drawing.Color.Transparent;
             this.gbxWBShop.Controls.Add(this.lbTextShop);
             this.gbxWBShop.ForeColor = System.Drawing.Color.White;
-            this.gbxWBShop.Location = new System.Drawing.Point(12, 117);
+            this.gbxWBShop.Location = new System.Drawing.Point(298, 129);
             this.gbxWBShop.Name = "gbxWBShop";
-            this.gbxWBShop.Size = new System.Drawing.Size(97, 33);
+            this.gbxWBShop.Size = new System.Drawing.Size(162, 65);
             this.gbxWBShop.TabIndex = 27;
             this.gbxWBShop.TabStop = false;
             this.gbxWBShop.Visible = false;
@@ -1066,7 +1052,6 @@
         private System.Windows.Forms.GroupBox gbxWBShop;
         private System.Windows.Forms.GroupBox gbxShopStock;
         private System.Windows.Forms.GroupBox gbxBanklogin;
-        private System.Windows.Forms.Button btnTranfermoney;
         private System.Windows.Forms.Label lbSaldo;
         private System.Windows.Forms.Label lbBanklogininfo;
         private System.Windows.Forms.Button btnFriendGift;

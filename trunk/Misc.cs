@@ -111,6 +111,9 @@ namespace CodeGreen
                     case 11:
                         MessageBox.Show("Fout: kan item niet in database stoppen");
                         break;
+                    case 12:
+                        MessageBox.Show("Fout: Kan geld niet overmaken.");
+                        break;
                     default:
                         MessageBox.Show("onbekende fout");
                         break;                                        

@@ -43,7 +43,8 @@ namespace CodeGreen
         #region properties
         public bool sound_enabled
         {
-            get { return this.setting_sound; }            
+            get { return this.setting_sound; }
+            set { setting_sound = value; }
         }
         public bool controller_enabled
         {

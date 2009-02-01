@@ -24,7 +24,7 @@ namespace CodeGreen
 
         #region datavelden
         private int n, timesec, timemin;
-
+        private bool showshopintro = true;
         public Misc misc;
         public OptionsHandler options;
         public ResourceHandler resourcehandler;
@@ -111,9 +111,7 @@ namespace CodeGreen
         private void GameScreen_Shown(object sender, EventArgs e)
         {
             TimerTextEffect.Enabled = true;
-            TimerGametime.Enabled = true;
-            if (resourcehandler.playsound("backgroundmusic.wav", true) == false)
-            { misc.ToonBericht(5); }
+            TimerGametime.Enabled = true;           
         }
 
         private void GameScreen_FormClosed(object sender, FormClosedEventArgs e)
@@ -143,15 +141,19 @@ namespace CodeGreen
             if (ShowPB != null) { ShowPB.Image = resourcehandler.loadimage(bestandsnaam); }
         }
 
+        /// <summary>
+        /// Als sound_enable is waar, dan speel muziek en zet knop op juist status.
+        /// </summary>
         private void UpdateStateKnopSound()
         {
             if (options.sound_enabled == true)
             {
                 this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");
+                if (resourcehandler.playsound("backgroundmusic.wav", true) == false) { misc.ToonBericht(5); }                
             }
             else if (options.sound_enabled == false)
             {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");                
             }
         }
 
@@ -175,7 +177,7 @@ namespace CodeGreen
                     if (IsItemInventory("listbankaccounts") == false)
                     {
                         lblIntroTextLine1.Text = misc.TypeTextFull("friend");
-                        if (misc.HuidigeRegel >= 3)
+                        if (misc.HuidigeRegel >= 2)
                         {
                             btnFriendGift.Visible = true;
                         }
@@ -185,20 +187,23 @@ namespace CodeGreen
                         }
                     }
                     else {
-                        lblIntroTextLine1.Text = misc.TypeWordEffect("Hi, nice for dropping by.");
+                            lblIntroTextLine1.Text = misc.TypeWordEffect("Hi, nice for dropping by.");                       
                     }
                 }
                 else { misc.ToonBericht(10); }
             }
             else if (werkbalk == WerkbalkState.SHOP)
-            {                
-                lbTextShop.Text = misc.TypeWordEffect("Welkom to nixxons shop, for all your hacker tools.");
+            {
+                if (showshopintro ==true)
+                {
+                    lbTextShop.Text = misc.TypeWordEffect("Welkom to nixxons shop, for all your hacker tools.");
+                }
             }
             else if (werkbalk == WerkbalkState.BANK)
             {
                 if (gbxBanklogin.Visible == true)
                 {
-                    lbBanklogininfo.Text = misc.TypeWordEffect("To login you will need to have a bankaccount number and password.");
+                    lbBanklogininfo.Text = misc.TypeWordEffect("To break in you will need a accountnumber and password.");
                 }
                 else
                 {
@@ -598,14 +603,36 @@ namespace CodeGreen
             {
                 //login was succesvol.
                 lbBanklogininfo.Visible = true;
-                lbSaldo.Visible = true;
-                btnTranfermoney.Visible = true;
-                if (getaccount.AccountSaldo == 0) { btnTranfermoney.Enabled = false; }
-                else { btnTranfermoney.Enabled = true; }
+                lbSaldo.Visible = true;                
+                
                 lbBanklogininfo.Text = "Access granted! Account nr: " + getaccount.AccountRekeningnr + "\r\n Registert at " + getaccount.AccountNaam;
                 lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;
+
+                Button btnGeldOvermaken = new Button();
                 
+                if (getaccount.AccountSaldo == 0) { btnGeldOvermaken.Enabled = false; }
+                else { btnGeldOvermaken.Enabled = true; }
+
+                btnGeldOvermaken.Name = getaccount.AccountNaam;
+                btnGeldOvermaken.AutoEllipsis = true;
+                btnGeldOvermaken.Text = "Steal all money.";
+                btnGeldOvermaken.BackColor = Color.Black;
+                btnGeldOvermaken.ForeColor = Color.Lime;
+                btnGeldOvermaken.FlatStyle = FlatStyle.Flat;                
+                btnGeldOvermaken.Location = new Point(400, 10);
+                btnGeldOvermaken.Click += new System.EventHandler(GeldOvermaken);
+                btnGeldOvermaken.Visible = true;
+                gbxWBBank.Controls.Add(btnGeldOvermaken);
             }            
+        }
+
+        private void GeldOvermaken(object sender, EventArgs e)
+        {            
+            Button tempbutton = (Button) sender;   
+            Bankaccount BeroofdeAccount = bank.GetByNaam(tempbutton.Name);
+            if (bank.AlHetGeldOvermaken(Speler, BeroofdeAccount) == false) { misc.ToonBericht(12); }
+            tempbutton.Enabled = false;
+            lbSpelerGeld.Refresh();
         }
                 
         /// <summary>
@@ -614,6 +641,7 @@ namespace CodeGreen
         /// </summary>
         private void TekenWinkel()
         {
+            showshopintro = true;
             gbxShopStock.Controls.Clear();
             gbxShopStock.Visible = true;
             gbxShopStock.Text = "nixxon stock";
@@ -639,8 +667,7 @@ namespace CodeGreen
                 btnItembuy.Visible = true;
                 btnItembuy.ForeColor = Color.Lime;
                 btnItembuy.BackColor = Color.Black;
-                btnItembuy.FlatStyle = FlatStyle.Flat;
-               
+                btnItembuy.FlatStyle = FlatStyle.Flat;               
                 if (IsItemInventory(curitem.NaamItem) == false)
                 {
                     btnItembuy.Text = "buy";
@@ -649,8 +676,7 @@ namespace CodeGreen
                 else if (IsItemInventory(curitem.NaamItem) == true)
                 {
                     btnItembuy.Text = "sold";
-                }            
-                        
+                }                                    
                 this.gbxShopStock.Controls.Add(lbitemnaam);
                 this.gbxShopStock.Controls.Add(lbitemprijs);
                 this.gbxShopStock.Controls.Add(btnItembuy);
@@ -698,25 +724,27 @@ namespace CodeGreen
         {            
             Button buttontemp = (Button)sender;            
 
-            Item buyitem = inventory.getItemShop(buttontemp.Name);            
+            Item buyitem = inventory.getItemShop(buttontemp.Name);
 
+            showshopintro = false;
             //controlleer voor genoeg geld.
             if (Speler.AccountSaldo >= buyitem.Prijs)
             {   
                 if (inventory.addItemInventory(buttontemp.Name) == true) {
-                    Speler.geldopnemen(buyitem.Prijs);
-                    buttontemp.Click += null;
+                    Speler.geldopnemen(buyitem.Prijs);                    
+                    buttontemp.Click += null;                    
                     lbSpelerGeld.Refresh();
+                    buttontemp.Text = "sold";
+                    lbTextShop.Text = "Item sold.";
                 }
-                else {
+                else {                    
                     lbTextShop.Text = "You already have this item.";
                 }                
             }
             else
             { 
                 lbTextShop.Text = "You don't have enough money to buy that.";
-            }
-            TekenWinkel();
+            }            
             ToonInventoryItems();
         }
 
@@ -795,10 +823,9 @@ namespace CodeGreen
             lbItemCommandInfo.Visible = false;
             tbCommand.Visible = false;
             tbCommand.Text = "";
-            
-            int xpos = 10;
-            
+
             /*
+            int xpos = 10;
             foreach (Item curitem in inventory.youritems)
             {
                 PictureBox curpb = (PictureBox)curitem.item;
@@ -806,7 +833,7 @@ namespace CodeGreen
                 xpos += 100;
             }
             */
-            
+
             // /*
             if (IsItemInventory("listbankaccounts") == true)
             {
@@ -881,9 +908,14 @@ namespace CodeGreen
         /// <param name="e"></param>
         private void pbKnopSound_Click(object sender, EventArgs e)
         {            
-            if (options.sound_enabled == true) { options.UpdateSetting("sound", "False"); }
+            if (options.sound_enabled == true)
+            { options.UpdateSetting("sound", "False");
+            options.sound_enabled = false;
+            }
             else if (options.sound_enabled == false)
-            { options.UpdateSetting("sound", "True"); }
+            { options.UpdateSetting("sound", "True");
+            options.sound_enabled = true;
+            }
             this.UpdateStateKnopSound();
         }
 

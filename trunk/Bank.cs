@@ -92,6 +92,22 @@ namespace CodeGreen
             return accounts[positie];
         }
 
+        /// <summary>
+        /// Maak al het geld over van een account naar de ander account
+        /// </summary>
+        /// <param name="ontvangeraccount"></param>
+        /// <param name="geveraccount"></param>
+        public bool AlHetGeldOvermaken(Bankaccount ontvangeraccount, Bankaccount geveraccount)
+        {
+            int geld = geveraccount.AccountSaldo;
+            if (geveraccount.geldopnemen(geld)==true)
+            {
+                if (ontvangeraccount.geldstorten(geld) == true) { return true; }
+                else { return false; }
+            }
+            else { return false; }
+        }
+
 
         #endregion
     }
