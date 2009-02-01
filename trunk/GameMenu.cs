@@ -129,9 +129,7 @@ namespace CodeGreen
         private void newDropText()
         {
             Random ran = new Random();
-            int Xnewtextbox = ran.Next(10, 790);
-            String ent = "\r\n"; // opmerking: \r is enter en \n is een linefeed.
-            
+            int Xnewtextbox = ran.Next(10, 790);                        
             TextBox newtextbox = new TextBox();            
             newtextbox.AcceptsReturn = true;
             newtextbox.Multiline = true;
@@ -140,17 +138,24 @@ namespace CodeGreen
                 else if (numcolor == 1) { newtextbox.ForeColor = Color.LightGreen; }
                 else if (numcolor == 2) { newtextbox.ForeColor = Color.DarkGreen; }
                 //else if (numcolor == 3) { newtextbox.ForeColor = Color.Lime; }
-                else { newtextbox.ForeColor = Color.Green; }            
+                //else { newtextbox.ForeColor = Color.Green; }
             newtextbox.BackColor = Color.Black;
             newtextbox.BorderStyle = BorderStyle.None;
             newtextbox.ScrollBars = ScrollBars.None;
-            newtextbox.Location = new Point(Xnewtextbox, -139);
+            newtextbox.Location = new Point(Xnewtextbox, -140);
             newtextbox.Height = 140;
             newtextbox.Width = 15;
+            newtextbox.AllowDrop = false;                        
+            newtextbox.ReadOnly = true;
+            newtextbox.ScrollBars = ScrollBars.None;
             newtextbox.Cursor = Cursors.Default;
+            String ent = "\r\n"; // opmerking: \r is enter en \n is een linefeed.
             newtextbox.Text = "N" + ent + "E" + ent + "E" + ent + "R" + ent + "G" + ent + ent + "E" + ent + "D" + ent + "O" + ent + "C";            
+            
             this.Controls.Add(newtextbox);
-            droptexten.Add(newtextbox);
+            this.droptexten.Add(newtextbox);
+
+            
         }
 
         private void updateDropText()
@@ -160,7 +165,7 @@ namespace CodeGreen
                 int Xtext = droptexten[i].Location.X;
                 int Ytext = droptexten[i].Location.Y + 10;
 
-                if (Ytext > 600) {
+                if (Ytext > 599) {
                     //dit verkomt dat programma steeds meer geheugen gaat verbruiken.
                     droptexten[i].Dispose();                    
                 }
@@ -172,7 +177,7 @@ namespace CodeGreen
         {
             this.updateDropText();
             n++;
-            if (n == 2)
+            if (n == 4)
             {
                 newDropText();
                 n = 0;   

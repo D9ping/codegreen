@@ -525,16 +525,15 @@
             this.lbPlayerTime.BackColor = System.Drawing.Color.Transparent;
             this.lbPlayerTime.Font = new System.Drawing.Font("Cordia New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPlayerTime.ForeColor = System.Drawing.Color.Lime;
-            this.lbPlayerTime.Location = new System.Drawing.Point(114, 509);
+            this.lbPlayerTime.Location = new System.Drawing.Point(110, 509);
             this.lbPlayerTime.Name = "lbPlayerTime";
             this.lbPlayerTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbPlayerTime.Size = new System.Drawing.Size(21, 22);
+            this.lbPlayerTime.Size = new System.Drawing.Size(44, 22);
             this.lbPlayerTime.TabIndex = 12;
-            this.lbPlayerTime.Text = "0s";
+            this.lbPlayerTime.Text = "0m 00s";
             // 
             // TimerGametime
             // 
-            this.TimerGametime.Interval = 50;
             this.TimerGametime.Tick += new System.EventHandler(this.TimerGametime_Tick);
             // 
             // usb
@@ -846,7 +845,6 @@
             this.pbTruck1.Location = new System.Drawing.Point(-23, 305);
             this.pbTruck1.Name = "pbTruck1";
             this.pbTruck1.Size = new System.Drawing.Size(45, 23);
-            this.pbTruck1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbTruck1.TabIndex = 25;
             this.pbTruck1.TabStop = false;
             // 

@@ -158,7 +158,7 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Timer voor tekst effecten.
+        /// Timer voor tekst effecten (CPU intensief)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -171,6 +171,10 @@ namespace CodeGreen
                 if (misc.HuidigeTekst == "intro")
                 {
                     lblIntroTextLine1.Text = misc.TypeTextFull("intro");
+                    if (misc.HuidigeRegel > 4)
+                    {
+                        TimerTextEffect.Enabled = false;
+                    }
                 }
                 else if (misc.HuidigeTekst == "friend")
                 {
@@ -278,6 +282,7 @@ namespace CodeGreen
         /// <param name="e"></param>
         private void VeranderWerkbalk(object sender, EventArgs e)
         {
+            this.TimerTextEffect.Enabled = true;
             //knoppen werkbalk:
             if (sender == pbKnopInventory)
             {
@@ -299,6 +304,7 @@ namespace CodeGreen
             }
             else            
             {
+                this.TimerTextEffect.Enabled = false;
                 for (int i = 0; i < huizen.Count; i++)
                 {
                     if (sender == huizen[i].Huisobj)
@@ -317,8 +323,8 @@ namespace CodeGreen
         {
             this.btnCreateBot.Visible = false;
             this.btnGetKeyloggerLog.Visible = false;
-            this.lbTextNaam.Text = "Here lives:";
-            this.lbIPadres.Text = "IP adres:";            
+            this.lbTextNaam.Text = "Here lives:";            
+            this.lbTextIPadres.Text = "IP adres:";
         }
 
         /// <summary>
@@ -509,7 +515,7 @@ namespace CodeGreen
 
             this.truckdrive(n);
 
-            if (n == 20)
+            if (n == 1000/TimerGametime.Interval)
             {
                 n = 0;
                 timesec++;
@@ -801,7 +807,7 @@ namespace CodeGreen
 
         private void btnDeployKeylogger_Click(object sender, EventArgs e)
         {
-            lbTextNaam.Text = " Your keylogger has captures the password!";
+            lbTextNaam.Text = "  Your keylogger has captures the password!";
             lbNaam.Text = "";
             lbTextIPadres.Text = "His password appears to be: " + bank.GetByNaam("jan de vries").AccountPassword;
             lbIPadres.Text = "";
