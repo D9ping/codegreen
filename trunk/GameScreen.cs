@@ -26,6 +26,7 @@ namespace CodeGreen
         private int n, timesec, timemin;
         private String huisBewoner;
         private bool showshopintro = true;
+        private bool IsConnected = false;
         public Misc misc;
         public OptionsHandler options;
         public ResourceHandler resourcehandler;
@@ -52,18 +53,7 @@ namespace CodeGreen
 
             resetgame();
 
-            if (options.controller_enabled == true)
-            {
-                communication = new Communication();
-                if (ConnectAtmelController() == false) { misc.ToonBericht(13); }
-                else
-                {
-                    GetControllerHuis();
-                    lbControllerInfo.Text = "Connected with controller\r\n" +
-                    "             VendorID: " + options.VendorID + "\r\n" +
-                    "             ProductID: " + options.ProductID;
-                }
-            }            
+            initController();                        
 
             Size werkbalksize = new Size(620, 80);
             Point werkbalklocation = new Point(160, 480);
@@ -117,8 +107,11 @@ namespace CodeGreen
                 settooltiphuizen();
             }
             catch (Exception) { misc.ToonBericht(6); }
-        }
+        }        
 
+        /// <summary>
+        /// Heef elk huis een tooltip.
+        /// </summary>
         private void settooltiphuizen()
         {
             if (IsItemInventory("netwerkscanner")==true)
@@ -139,12 +132,53 @@ namespace CodeGreen
                 }
             }
         }
+        
+        /// <summary>
+        /// Verbinding met controller opzetten en info. tonen.
+        /// </summary>
+        private void initController()
+        {
+            btnReconnect.Visible = false;
+            if (options.controller_enabled == true)
+            {
+                communication = new Communication();
+
+                btnReconnect.Visible = true;
+                if (ConnectController1() == true)
+                {
+                    GetControllerHuis();
+                    lbControllerInfo.Text = "Connected with controller\r\n" +
+                    "             VendorID: " + options.VendorID + "\r\n" +
+                    "             ProductID: " + options.ProductID;
+                    
+                }
+                else
+                {
+                    lbControllerInfo.Text = "Could not connect\r\n with controller";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Verbind met controller
+        /// </summary>
+        /// <returns></returns>
+        public bool ConnectController1()
+        {
+            if (!IsConnected)
+            {
+                IsConnected = usb.Connect(this, Int32.Parse(options.VendorID, System.Globalization.NumberStyles.HexNumber),
+                Int32.Parse(options.ProductID, System.Globalization.NumberStyles.HexNumber));
+                return IsConnected;
+            }
+            else { return false; }
+        }
 
         /// <summary>
         /// teken rondje op de juiste plek
         /// </summary>
         private void GetControllerHuis()
-        {   
+        {            
             pbHuis1.Image= resourcehandler.loadimage("not_selected.png");
             pbHuis2.Image= resourcehandler.loadimage("not_selected.png");
             pbHuis3.Image= resourcehandler.loadimage("not_selected.png");
@@ -159,37 +193,26 @@ namespace CodeGreen
                 Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
                 PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
                 pbhuis.Image = resourcehandler.loadimage("selected.png");
+                pbhuis.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbhuis, EventArgs.Empty);
             }
             else if (communication.GeselecteerdHuis == "Bank")
             {
                 pbBank.Image = resourcehandler.loadimage("selected.png");
+                pbBank.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbBank, EventArgs.Empty);
             } 
             else if (communication.GeselecteerdHuis == "Shop")
             {
                 pbShop.Image = resourcehandler.loadimage("selected.png");
+                pbShop.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbShop, EventArgs.Empty);
             }
             else if (communication.GeselecteerdHuis == "HuisVriend")
             {
                 pbHuisVriend.Image = resourcehandler.loadimage("selected.png");
+                pbHuisVriend.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbHuisVriend, EventArgs.Empty);
-            } 
-                       
-        }
-
-        public bool ConnectAtmelController()
-        {
-            try
-            {
-                usb.Connect(this, Int32.Parse(options.VendorID, System.Globalization.NumberStyles.HexNumber),
-                Int32.Parse(options.ProductID, System.Globalization.NumberStyles.HexNumber));
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;                   
             }                       
         }
 
@@ -197,6 +220,11 @@ namespace CodeGreen
         {
             TimerTextEffect.Enabled = true;
             TimerGametime.Enabled = true;           
+        }
+
+        private void btnReconnect_Click(object sender, EventArgs e)
+        {
+            initController();
         }
 
         private void GameScreen_FormClosed(object sender, FormClosedEventArgs e)
@@ -636,6 +664,11 @@ namespace CodeGreen
                     timesec = 0;
                     lbPlayerTime.Text = timemin + "m " + timesec + "s";
                 }
+
+                if (IsConnected == true)
+                {
+                    ControllerLedEffecten();
+                }
             }
 
             //spel gewonnen
@@ -647,6 +680,40 @@ namespace CodeGreen
                 highscore.Show();
                 this.Hide();                             
             }
+        }
+
+        /// <summary>
+        /// Laat ledjes controller knipper aan de hand van hoeveel huizen de server aanvallen.
+        /// </summary>
+        private void ControllerLedEffecten()
+        {
+            switch (progbarServerload.Value)
+            {
+                case 25:
+                    if (timesec % 2 == 0) { usb.SendData(communication.Groenledje1(true)); }
+                    else { usb.SendData(communication.Groenledje1(false)); }
+                    break;
+                case 50:
+                    if (timesec % 2 == 0) { usb.SendData(communication.Roodledje1(true)); }
+                    else { usb.SendData(communication.Roodledje1(false)); }
+                    break;
+                case 75:
+                    if (timesec % 2 == 0) {
+                        usb.SendData(communication.Roodledje1(false));
+                        usb.SendData(communication.Roodledje2(true));
+                    }
+                    else {
+                        usb.SendData(communication.Roodledje1(true));
+                        usb.SendData(communication.Roodledje2(false));
+                    }                   
+                    break;
+                default:
+                    usb.SendData(communication.Groenledje1(false));
+                    usb.SendData(communication.Roodledje1(false));
+                    usb.SendData(communication.Roodledje2(false));
+                    break;
+            }
+
         }
 
         /// <summary>

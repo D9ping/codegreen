@@ -56,6 +56,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbKnopShop = new System.Windows.Forms.PictureBox();
             this.btnCreateBot = new System.Windows.Forms.Button();
+            this.btnReconnect = new System.Windows.Forms.Button();
             this.pbHuis2 = new System.Windows.Forms.PictureBox();
             this.pbHuis5 = new System.Windows.Forms.PictureBox();
             this.pbHuis3 = new System.Windows.Forms.PictureBox();
@@ -139,9 +140,10 @@
             this.lblIntroTextLine1.ForeColor = System.Drawing.Color.Lime;
             this.lblIntroTextLine1.Location = new System.Drawing.Point(6, 16);
             this.lblIntroTextLine1.Name = "lblIntroTextLine1";
-            this.lblIntroTextLine1.Size = new System.Drawing.Size(48, 18);
+            this.lblIntroTextLine1.Size = new System.Drawing.Size(45, 24);
             this.lblIntroTextLine1.TabIndex = 4;
             this.lblIntroTextLine1.Text = "(..)";
+            this.lblIntroTextLine1.UseCompatibleTextRendering = true;
             // 
             // gbxGameInstructions
             // 
@@ -170,6 +172,7 @@
             this.btnFriendGift.TabIndex = 5;
             this.btnFriendGift.Text = "accept";
             this.btnFriendGift.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnFriendGift.UseCompatibleTextRendering = true;
             this.btnFriendGift.UseVisualStyleBackColor = false;
             this.btnFriendGift.Visible = false;
             this.btnFriendGift.Click += new System.EventHandler(this.btnFriendGift_Click);
@@ -182,9 +185,10 @@
             this.lbTextShop.ForeColor = System.Drawing.Color.Lime;
             this.lbTextShop.Location = new System.Drawing.Point(6, 12);
             this.lbTextShop.Name = "lbTextShop";
-            this.lbTextShop.Size = new System.Drawing.Size(48, 18);
+            this.lbTextShop.Size = new System.Drawing.Size(45, 24);
             this.lbTextShop.TabIndex = 5;
             this.lbTextShop.Text = "(..)";
+            this.lbTextShop.UseCompatibleTextRendering = true;
             // 
             // lbSpelerGeld
             // 
@@ -194,10 +198,11 @@
             this.lbSpelerGeld.ForeColor = System.Drawing.Color.Lime;
             this.lbSpelerGeld.Location = new System.Drawing.Point(116, 540);
             this.lbSpelerGeld.Name = "lbSpelerGeld";
-            this.lbSpelerGeld.Size = new System.Drawing.Size(31, 22);
+            this.lbSpelerGeld.Size = new System.Drawing.Size(27, 28);
             this.lbSpelerGeld.TabIndex = 11;
             this.lbSpelerGeld.Text = "0,00";
             this.lbSpelerGeld.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lbSpelerGeld.UseCompatibleTextRendering = true;
             this.lbSpelerGeld.Paint += new System.Windows.Forms.PaintEventHandler(this.lbPlayerMoney_Paint);
             // 
             // lbTextMoneySign
@@ -208,9 +213,10 @@
             this.lbTextMoneySign.ForeColor = System.Drawing.Color.Lime;
             this.lbTextMoneySign.Location = new System.Drawing.Point(94, 541);
             this.lbTextMoneySign.Name = "lbTextMoneySign";
-            this.lbTextMoneySign.Size = new System.Drawing.Size(16, 17);
+            this.lbTextMoneySign.Size = new System.Drawing.Size(13, 20);
             this.lbTextMoneySign.TabIndex = 11;
             this.lbTextMoneySign.Text = "$";
+            this.lbTextMoneySign.UseCompatibleTextRendering = true;
             // 
             // progbarServerload
             // 
@@ -259,9 +265,10 @@
             this.lbItemCommandInfo.ForeColor = System.Drawing.Color.Lime;
             this.lbItemCommandInfo.Location = new System.Drawing.Point(94, 16);
             this.lbItemCommandInfo.Name = "lbItemCommandInfo";
-            this.lbItemCommandInfo.Size = new System.Drawing.Size(79, 13);
+            this.lbItemCommandInfo.Size = new System.Drawing.Size(83, 17);
             this.lbItemCommandInfo.TabIndex = 5;
             this.lbItemCommandInfo.Text = "(command info)";
+            this.lbItemCommandInfo.UseCompatibleTextRendering = true;
             this.lbItemCommandInfo.Visible = false;
             // 
             // pbItemListaccountumbersbank
@@ -460,13 +467,36 @@
             this.btnCreateBot.ForeColor = System.Drawing.Color.Lime;
             this.btnCreateBot.Location = new System.Drawing.Point(479, 15);
             this.btnCreateBot.Name = "btnCreateBot";
-            this.btnCreateBot.Size = new System.Drawing.Size(131, 25);
+            this.btnCreateBot.Size = new System.Drawing.Size(131, 26);
             this.btnCreateBot.TabIndex = 13;
             this.btnCreateBot.Text = "Make a bot";
             this.tooltip.SetToolTip(this.btnCreateBot, "Make this house part of the bot network.");
+            this.btnCreateBot.UseCompatibleTextRendering = true;
             this.btnCreateBot.UseVisualStyleBackColor = false;
             this.btnCreateBot.Visible = false;
             this.btnCreateBot.Click += new System.EventHandler(this.btnCreateBot_Click);
+            // 
+            // btnReconnect
+            // 
+            this.btnReconnect.CausesValidation = false;
+            this.btnReconnect.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnReconnect.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnReconnect.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnReconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReconnect.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReconnect.ForeColor = System.Drawing.Color.White;
+            this.btnReconnect.Location = new System.Drawing.Point(606, 2);
+            this.btnReconnect.Name = "btnReconnect";
+            this.btnReconnect.Size = new System.Drawing.Size(16, 16);
+            this.btnReconnect.TabIndex = 32;
+            this.btnReconnect.TabStop = false;
+            this.btnReconnect.Text = "R";
+            this.tooltip.SetToolTip(this.btnReconnect, "Click to reconnect with controller. (In case it crashed)");
+            this.btnReconnect.UseCompatibleTextRendering = true;
+            this.btnReconnect.UseMnemonic = false;
+            this.btnReconnect.UseVisualStyleBackColor = true;
+            this.btnReconnect.Visible = false;
+            this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
             // pbHuis2
             // 
@@ -549,9 +579,10 @@
             this.lbPlayerTime.Location = new System.Drawing.Point(110, 509);
             this.lbPlayerTime.Name = "lbPlayerTime";
             this.lbPlayerTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbPlayerTime.Size = new System.Drawing.Size(44, 22);
+            this.lbPlayerTime.Size = new System.Drawing.Size(41, 28);
             this.lbPlayerTime.TabIndex = 12;
             this.lbPlayerTime.Text = "0m 00s";
+            this.lbPlayerTime.UseCompatibleTextRendering = true;
             // 
             // TimerGametime
             // 
@@ -588,6 +619,7 @@
             this.gbxWBHuis.Size = new System.Drawing.Size(549, 78);
             this.gbxWBHuis.TabIndex = 21;
             this.gbxWBHuis.TabStop = false;
+            this.gbxWBHuis.UseCompatibleTextRendering = true;
             this.gbxWBHuis.Visible = false;
             // 
             // lbInfectie
@@ -596,9 +628,10 @@
             this.lbInfectie.ForeColor = System.Drawing.Color.Lime;
             this.lbInfectie.Location = new System.Drawing.Point(428, 40);
             this.lbInfectie.Name = "lbInfectie";
-            this.lbInfectie.Size = new System.Drawing.Size(45, 13);
+            this.lbInfectie.Size = new System.Drawing.Size(43, 17);
             this.lbInfectie.TabIndex = 17;
             this.lbInfectie.Text = "unknow";
+            this.lbInfectie.UseCompatibleTextRendering = true;
             this.lbInfectie.Visible = false;
             // 
             // lbTextInfectie
@@ -607,9 +640,10 @@
             this.lbTextInfectie.ForeColor = System.Drawing.Color.Lime;
             this.lbTextInfectie.Location = new System.Drawing.Point(360, 40);
             this.lbTextInfectie.Name = "lbTextInfectie";
-            this.lbTextInfectie.Size = new System.Drawing.Size(71, 13);
+            this.lbTextInfectie.Size = new System.Drawing.Size(72, 17);
             this.lbTextInfectie.TabIndex = 16;
             this.lbTextInfectie.Text = "Geinfecteerd:";
+            this.lbTextInfectie.UseCompatibleTextRendering = true;
             this.lbTextInfectie.Visible = false;
             // 
             // lbWindowsuptodate
@@ -618,9 +652,10 @@
             this.lbWindowsuptodate.ForeColor = System.Drawing.Color.Lime;
             this.lbWindowsuptodate.Location = new System.Drawing.Point(428, 19);
             this.lbWindowsuptodate.Name = "lbWindowsuptodate";
-            this.lbWindowsuptodate.Size = new System.Drawing.Size(45, 13);
+            this.lbWindowsuptodate.Size = new System.Drawing.Size(43, 17);
             this.lbWindowsuptodate.TabIndex = 15;
             this.lbWindowsuptodate.Text = "unknow";
+            this.lbWindowsuptodate.UseCompatibleTextRendering = true;
             this.lbWindowsuptodate.Visible = false;
             // 
             // lbTextWindowsUpdatetodate
@@ -629,9 +664,10 @@
             this.lbTextWindowsUpdatetodate.ForeColor = System.Drawing.Color.Lime;
             this.lbTextWindowsUpdatetodate.Location = new System.Drawing.Point(332, 19);
             this.lbTextWindowsUpdatetodate.Name = "lbTextWindowsUpdatetodate";
-            this.lbTextWindowsUpdatetodate.Size = new System.Drawing.Size(99, 13);
+            this.lbTextWindowsUpdatetodate.Size = new System.Drawing.Size(100, 17);
             this.lbTextWindowsUpdatetodate.TabIndex = 14;
             this.lbTextWindowsUpdatetodate.Text = "Windows uptodate:";
+            this.lbTextWindowsUpdatetodate.UseCompatibleTextRendering = true;
             this.lbTextWindowsUpdatetodate.Visible = false;
             // 
             // btnGetKeyloggerLog
@@ -644,9 +680,10 @@
             this.btnGetKeyloggerLog.ForeColor = System.Drawing.Color.Lime;
             this.btnGetKeyloggerLog.Location = new System.Drawing.Point(479, 46);
             this.btnGetKeyloggerLog.Name = "btnGetKeyloggerLog";
-            this.btnGetKeyloggerLog.Size = new System.Drawing.Size(131, 25);
+            this.btnGetKeyloggerLog.Size = new System.Drawing.Size(131, 26);
             this.btnGetKeyloggerLog.TabIndex = 12;
             this.btnGetKeyloggerLog.Text = "Get keylogger logfile";
+            this.btnGetKeyloggerLog.UseCompatibleTextRendering = true;
             this.btnGetKeyloggerLog.UseVisualStyleBackColor = false;
             this.btnGetKeyloggerLog.Visible = false;
             this.btnGetKeyloggerLog.Click += new System.EventHandler(this.btnDeployKeylogger_Click);
@@ -657,9 +694,10 @@
             this.lbWifiWPA.ForeColor = System.Drawing.Color.Lime;
             this.lbWifiWPA.Location = new System.Drawing.Point(228, 56);
             this.lbWifiWPA.Name = "lbWifiWPA";
-            this.lbWifiWPA.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiWPA.Size = new System.Drawing.Size(18, 17);
             this.lbWifiWPA.TabIndex = 11;
             this.lbWifiWPA.Text = "(..)";
+            this.lbWifiWPA.UseCompatibleTextRendering = true;
             // 
             // lbWifiWEP
             // 
@@ -667,9 +705,10 @@
             this.lbWifiWEP.ForeColor = System.Drawing.Color.Lime;
             this.lbWifiWEP.Location = new System.Drawing.Point(228, 37);
             this.lbWifiWEP.Name = "lbWifiWEP";
-            this.lbWifiWEP.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiWEP.Size = new System.Drawing.Size(18, 17);
             this.lbWifiWEP.TabIndex = 10;
             this.lbWifiWEP.Text = "(..)";
+            this.lbWifiWEP.UseCompatibleTextRendering = true;
             // 
             // lbWifiSSID
             // 
@@ -677,9 +716,10 @@
             this.lbWifiSSID.ForeColor = System.Drawing.Color.Lime;
             this.lbWifiSSID.Location = new System.Drawing.Point(228, 19);
             this.lbWifiSSID.Name = "lbWifiSSID";
-            this.lbWifiSSID.Size = new System.Drawing.Size(19, 13);
+            this.lbWifiSSID.Size = new System.Drawing.Size(18, 17);
             this.lbWifiSSID.TabIndex = 9;
             this.lbWifiSSID.Text = "(..)";
+            this.lbWifiSSID.UseCompatibleTextRendering = true;
             // 
             // lbIPadres
             // 
@@ -687,9 +727,10 @@
             this.lbIPadres.ForeColor = System.Drawing.Color.Lime;
             this.lbIPadres.Location = new System.Drawing.Point(70, 37);
             this.lbIPadres.Name = "lbIPadres";
-            this.lbIPadres.Size = new System.Drawing.Size(19, 13);
+            this.lbIPadres.Size = new System.Drawing.Size(18, 17);
             this.lbIPadres.TabIndex = 8;
             this.lbIPadres.Text = "(..)";
+            this.lbIPadres.UseCompatibleTextRendering = true;
             // 
             // lbTextIPadres
             // 
@@ -697,9 +738,10 @@
             this.lbTextIPadres.ForeColor = System.Drawing.Color.Lime;
             this.lbTextIPadres.Location = new System.Drawing.Point(19, 37);
             this.lbTextIPadres.Name = "lbTextIPadres";
-            this.lbTextIPadres.Size = new System.Drawing.Size(49, 13);
+            this.lbTextIPadres.Size = new System.Drawing.Size(49, 17);
             this.lbTextIPadres.TabIndex = 7;
             this.lbTextIPadres.Text = "IP adres:";
+            this.lbTextIPadres.UseCompatibleTextRendering = true;
             // 
             // lbTextWifiWPA
             // 
@@ -707,9 +749,10 @@
             this.lbTextWifiWPA.ForeColor = System.Drawing.Color.Lime;
             this.lbTextWifiWPA.Location = new System.Drawing.Point(159, 56);
             this.lbTextWifiWPA.Name = "lbTextWifiWPA";
-            this.lbTextWifiWPA.Size = new System.Drawing.Size(63, 13);
+            this.lbTextWifiWPA.Size = new System.Drawing.Size(63, 17);
             this.lbTextWifiWPA.TabIndex = 6;
             this.lbTextWifiWPA.Text = "using WPA:";
+            this.lbTextWifiWPA.UseCompatibleTextRendering = true;
             // 
             // lbTextWifiWEP
             // 
@@ -717,9 +760,10 @@
             this.lbTextWifiWEP.ForeColor = System.Drawing.Color.Lime;
             this.lbTextWifiWEP.Location = new System.Drawing.Point(159, 37);
             this.lbTextWifiWEP.Name = "lbTextWifiWEP";
-            this.lbTextWifiWEP.Size = new System.Drawing.Size(63, 13);
+            this.lbTextWifiWEP.Size = new System.Drawing.Size(63, 17);
             this.lbTextWifiWEP.TabIndex = 5;
             this.lbTextWifiWEP.Text = "using WEP:";
+            this.lbTextWifiWEP.UseCompatibleTextRendering = true;
             // 
             // lbTextWifiSSID
             // 
@@ -727,9 +771,10 @@
             this.lbTextWifiSSID.ForeColor = System.Drawing.Color.Lime;
             this.lbTextWifiSSID.Location = new System.Drawing.Point(187, 21);
             this.lbTextWifiSSID.Name = "lbTextWifiSSID";
-            this.lbTextWifiSSID.Size = new System.Drawing.Size(35, 13);
+            this.lbTextWifiSSID.Size = new System.Drawing.Size(34, 17);
             this.lbTextWifiSSID.TabIndex = 4;
             this.lbTextWifiSSID.Text = "SSID:";
+            this.lbTextWifiSSID.UseCompatibleTextRendering = true;
             // 
             // lbWifi
             // 
@@ -737,9 +782,10 @@
             this.lbWifi.ForeColor = System.Drawing.Color.Lime;
             this.lbWifi.Location = new System.Drawing.Point(70, 55);
             this.lbWifi.Name = "lbWifi";
-            this.lbWifi.Size = new System.Drawing.Size(19, 13);
+            this.lbWifi.Size = new System.Drawing.Size(18, 17);
             this.lbWifi.TabIndex = 3;
             this.lbWifi.Text = "(..)";
+            this.lbWifi.UseCompatibleTextRendering = true;
             // 
             // lbTextWifi
             // 
@@ -747,9 +793,10 @@
             this.lbTextWifi.ForeColor = System.Drawing.Color.Lime;
             this.lbTextWifi.Location = new System.Drawing.Point(40, 55);
             this.lbTextWifi.Name = "lbTextWifi";
-            this.lbTextWifi.Size = new System.Drawing.Size(28, 13);
+            this.lbTextWifi.Size = new System.Drawing.Size(26, 17);
             this.lbTextWifi.TabIndex = 2;
             this.lbTextWifi.Text = "Wifi:";
+            this.lbTextWifi.UseCompatibleTextRendering = true;
             // 
             // lbNaam
             // 
@@ -757,9 +804,10 @@
             this.lbNaam.ForeColor = System.Drawing.Color.Lime;
             this.lbNaam.Location = new System.Drawing.Point(70, 24);
             this.lbNaam.Name = "lbNaam";
-            this.lbNaam.Size = new System.Drawing.Size(19, 13);
+            this.lbNaam.Size = new System.Drawing.Size(18, 17);
             this.lbNaam.TabIndex = 1;
             this.lbNaam.Text = "(..)";
+            this.lbNaam.UseCompatibleTextRendering = true;
             // 
             // lbTextNaam
             // 
@@ -767,9 +815,10 @@
             this.lbTextNaam.ForeColor = System.Drawing.Color.Lime;
             this.lbTextNaam.Location = new System.Drawing.Point(11, 24);
             this.lbTextNaam.Name = "lbTextNaam";
-            this.lbTextNaam.Size = new System.Drawing.Size(57, 13);
+            this.lbTextNaam.Size = new System.Drawing.Size(58, 17);
             this.lbTextNaam.TabIndex = 0;
             this.lbTextNaam.Text = "Here lives:";
+            this.lbTextNaam.UseCompatibleTextRendering = true;
             // 
             // gbxWBBank
             // 
@@ -792,9 +841,10 @@
             this.lbBanklogininfo.ForeColor = System.Drawing.Color.Lime;
             this.lbBanklogininfo.Location = new System.Drawing.Point(14, 16);
             this.lbBanklogininfo.Name = "lbBanklogininfo";
-            this.lbBanklogininfo.Size = new System.Drawing.Size(48, 18);
+            this.lbBanklogininfo.Size = new System.Drawing.Size(45, 24);
             this.lbBanklogininfo.TabIndex = 6;
             this.lbBanklogininfo.Text = "(..)";
+            this.lbBanklogininfo.UseCompatibleTextRendering = true;
             // 
             // lbSaldo
             // 
@@ -803,9 +853,10 @@
             this.lbSaldo.ForeColor = System.Drawing.Color.Lime;
             this.lbSaldo.Location = new System.Drawing.Point(11, 46);
             this.lbSaldo.Name = "lbSaldo";
-            this.lbSaldo.Size = new System.Drawing.Size(128, 18);
+            this.lbSaldo.Size = new System.Drawing.Size(125, 24);
             this.lbSaldo.TabIndex = 1;
             this.lbSaldo.Text = "Saldo:   ???";
+            this.lbSaldo.UseCompatibleTextRendering = true;
             this.lbSaldo.Visible = false;
             // 
             // tbAccountPassword
@@ -935,10 +986,10 @@
             this.lbControllerInfo.BackColor = System.Drawing.Color.Transparent;
             this.lbControllerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbControllerInfo.ForeColor = System.Drawing.Color.Lavender;
-            this.lbControllerInfo.Location = new System.Drawing.Point(620, 2);
-            this.lbControllerInfo.MinimumSize = new System.Drawing.Size(160, 40);
+            this.lbControllerInfo.Location = new System.Drawing.Point(628, 2);
+            this.lbControllerInfo.MinimumSize = new System.Drawing.Size(155, 40);
             this.lbControllerInfo.Name = "lbControllerInfo";
-            this.lbControllerInfo.Size = new System.Drawing.Size(160, 40);
+            this.lbControllerInfo.Size = new System.Drawing.Size(155, 40);
             this.lbControllerInfo.TabIndex = 31;
             // 
             // GameScreen
@@ -949,6 +1000,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.btnReconnect);
             this.Controls.Add(this.lbControllerInfo);
             this.Controls.Add(this.pbKnopSound);
             this.Controls.Add(this.gbxWBHuis);
@@ -1088,5 +1140,6 @@
         private System.Windows.Forms.Label lbTextInfectie;
         private System.Windows.Forms.PictureBox pbKnopSound;
         private System.Windows.Forms.Label lbControllerInfo;
+        private System.Windows.Forms.Button btnReconnect;
     }
 }

@@ -76,6 +76,7 @@ namespace CodeGreen
             {
                 if ((gekozenY == 3) && (gekozenX >1)) { gekozenX = gekozenX - 1; }
                 else if (gekozenX > 3) { gekozenX = gekozenX - 1; }
+                else if ((gekozenX == 3) && (gekozenY == 2)) { gekozenY = 3; gekozenX = 2; }
             }            
 
             UpdateGelecteerdHuis();
@@ -117,6 +118,50 @@ namespace CodeGreen
             }            
         }
 
+        public byte[] Roodledje1(bool status)
+        {
+            byte[] data = new byte[9];
+            data[0] = 0; //report id
+            data[1] = 1; //rood ledje
+            if (status == true) { data[2] = 1; } //ledje status
+            else if (status==false) { data[2] = 0;}
+            //de rest 0
+            for (int i = 3; i < 9; i++)
+            {
+                data[i] = 0;
+            }
+            return data;
+        }
+
+        public byte[] Groenledje1(bool status)
+        {
+            byte[] data = new byte[9];
+            data[0] = 0; //report id
+            data[1] = 2; //groen ledje
+            if (status == true) { data[2] = 1; } //ledje status
+            else if (status == false) { data[2] = 0; }
+            //de rest 0
+            for (int i = 3; i < 9; i++)
+            {
+                data[i] = 0;
+            }
+            return data;
+        }
+
+        public byte[] Roodledje2(bool status)
+        {
+            byte[] data = new byte[9];
+            data[0] = 0; //report id
+            data[1] = 4; //rood ledje
+            if (status == true) { data[2] = 1; } //ledje status
+            else if (status == false) { data[2] = 0; }
+            //de rest 0
+            for (int i = 3; i < 9; i++)
+            {
+                data[i] = 0;
+            }
+            return data;
+        }
         
 
         
