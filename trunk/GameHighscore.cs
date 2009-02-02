@@ -10,7 +10,7 @@ using System.Data.OleDb;
 
 namespace CodeGreen
 {
-    public partial class GameHighscore : Form
+    public partial class lbHighscoreInfo : Form
     {
         #region datavelden
         private int score;
@@ -19,7 +19,7 @@ namespace CodeGreen
         #endregion
 
         #region contructor
-        public GameHighscore()
+        public lbHighscoreInfo()
         {
             InitializeComponent();
             misc = new Misc();
@@ -29,16 +29,17 @@ namespace CodeGreen
             gethighscore();
             gbxHighscoren.Visible = true;
         }
-        public GameHighscore(int timemin, int timesec, int geldover)
+        public lbHighscoreInfo(int timemin, int timesec, int geldover)
         {
             InitializeComponent();
             setGroupboxen();
-
+            misc = new Misc();
             connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
             
-            berekenscore(timemin, timesec, geldover);
-            //gethighscore();
+            berekenscore(timemin, timesec, geldover);            
             gbxNewHighscore.Visible = true;
+            misc.Curlenword = 0;
+            timerTextEffect.Enabled = true;
         }
         #endregion
 
@@ -79,18 +80,23 @@ namespace CodeGreen
                 reader = selectcommand.ExecuteReader();
                 int positie = 1;
                 int ypos = 80;
+                int fontsize = 24;
                 while (reader.Read())
                 {
-                    Label lbscore = new Label();
-                    lbscore.Font = new Font(lbscore.Font.FontFamily, 20);
-                    lbscore.Text = positie.ToString() +". "+ reader["Naam"].ToString() + "  (" + reader["Score"]+"points)";
-                    lbscore.AutoSize = true;
-                    lbscore.ForeColor = Color.Lime;
-                    lbscore.Location = new Point(300, ypos);
-                    lbscore.TextAlign = ContentAlignment.MiddleCenter;
-                    ypos = ypos + 40;
+                    if (positie < 11)
+                    {
+                        Label lbscore = new Label();
+                        lbscore.Font = new Font(lbscore.Font.FontFamily, fontsize);
+                        lbscore.Text = positie.ToString() + ". " + reader["Naam"].ToString() + "  (" + reader["Score"] + "points)";
+                        lbscore.AutoSize = true;
+                        lbscore.ForeColor = Color.Lime;
+                        lbscore.Location = new Point(300, ypos);
+                        lbscore.TextAlign = ContentAlignment.MiddleCenter;
+                        ypos = ypos + 40;
+                        fontsize = fontsize - 2;                        
+                        this.gbxHighscoren.Controls.Add(lbscore);
+                    }
                     positie++;
-                    this.gbxHighscoren.Controls.Add(lbscore);                    
                 }
 
             }
@@ -108,8 +114,10 @@ namespace CodeGreen
         {            
             if ((tbName.Text!=null) || (tbName.Text!=""))
             {                
-                //gbxHighscoren.Text = DateTime.Now.ToString();
                 addscore(tbName.Text, score);
+                
+                gethighscore();
+                gbxHighscoren.Visible = true;
             }
         }
 
@@ -119,7 +127,7 @@ namespace CodeGreen
             {
                 connection.Open();
 
-                String query = "INSERT INTO scoren (Naam, Scoren) VALUES ('" + naam + "', '" + score + "')";
+                String query = "INSERT INTO scoren (Naam, Score) VALUES ('" + naam + "', '" + score + "')";
                 OleDbCommand InsertCommand = new OleDbCommand(query, connection);
                 InsertCommand.ExecuteNonQuery();
             }
@@ -131,6 +139,20 @@ namespace CodeGreen
             finally
             {
                 connection.Close();
+            }
+        }
+
+        private void timerTextEffect_Tick(object sender, EventArgs e)
+        {
+            
+            this.lbHighscorenInfo.Text = misc.TypeWordEffect("Congratulations you have overloaded the microsoft server.");
+        }
+
+        private void tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btAddHighscore_Click(sender, e);
             }
         }
 

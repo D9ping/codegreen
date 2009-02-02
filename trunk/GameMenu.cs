@@ -198,7 +198,7 @@ namespace CodeGreen
         private void pbHighscore_Click(object sender, EventArgs e)
         {
             this.Hide();
-            GameHighscore highscore = new GameHighscore();
+            lbHighscoreInfo highscore = new lbHighscoreInfo();
             highscore.Show();
         }
 

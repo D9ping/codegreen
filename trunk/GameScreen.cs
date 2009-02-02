@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using UsbLibrary; //ondersteuning voor atmel joystick
+using UsbLibrary; //ondersteuning voor joystick
 
 namespace CodeGreen
 {
@@ -374,7 +374,7 @@ namespace CodeGreen
                     gbxBanklogin.Visible = true;
                     misc.Curlenword = 0;
                     lbSaldo.Text = "";
-                    
+                    lbBanklogininfo.Text = "";
                     break;
                 case WerkbalkState.SHOP:
                     ToonGB(gbxWBShop);
@@ -676,7 +676,7 @@ namespace CodeGreen
             {
                 TimerGametime.Enabled = false;
                 int geld = Convert.ToInt32(Speler.AccountSaldo);
-                GameHighscore highscore = new GameHighscore(timemin, timesec, geld);  
+                lbHighscoreInfo highscore = new lbHighscoreInfo(timemin, timesec, geld);  
                 highscore.Show();
                 this.Hide();                             
             }
@@ -1219,6 +1219,10 @@ namespace CodeGreen
                         lbItemCommandInfo.Text = "Code red virus has infected your whole neigherhood.";
                         tbCommand.Text = "";
                     }
+                }
+                if (tbCommand.Text == "cheat-for-developer-get-highscore-quick")
+                {
+                    progbarServerload.Value = 100;
                 }
             }
         }

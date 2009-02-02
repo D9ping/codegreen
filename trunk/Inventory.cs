@@ -22,7 +22,7 @@ namespace CodeGreen
             Item[] items = new Item[5];
             items[0] = new Item("wepcracker", 75);
             items[1] = new Item("keylogger", 100);
-            items[2] = new Item("netwerkscanner", 200);
+            items[2] = new Item("netwerkscanner", 225);
             items[3] = new Item("worm", 300);
             items[4] = new Item("coderedvirus", 1000);
             //items[5] = new Item("pizza", 25);
