@@ -56,10 +56,13 @@ namespace CodeGreen
             {
                 communication = new Communication();
                 if (ConnectAtmelController() == false) { misc.ToonBericht(13); }
-                GetControllerHuis();
-                lbControllerInfo.Text = "Connected with controller\r\n"+
-                "             VendorID: "+options.VendorID+"\r\n"+
-                "             ProductID: "+options.ProductID;
+                else
+                {
+                    GetControllerHuis();
+                    lbControllerInfo.Text = "Connected with controller\r\n" +
+                    "             VendorID: " + options.VendorID + "\r\n" +
+                    "             ProductID: " + options.ProductID;
+                }
             }            
 
             Size werkbalksize = new Size(620, 80);
@@ -156,18 +159,22 @@ namespace CodeGreen
                 Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
                 PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
                 pbhuis.Image = resourcehandler.loadimage("selected.png");
+                VeranderWerkbalk(pbhuis, EventArgs.Empty);
             }
             else if (communication.GeselecteerdHuis == "Bank")
             {
                 pbBank.Image = resourcehandler.loadimage("selected.png");
+                VeranderWerkbalk(pbBank, EventArgs.Empty);
             } 
             else if (communication.GeselecteerdHuis == "Shop")
             {
                 pbShop.Image = resourcehandler.loadimage("selected.png");
+                VeranderWerkbalk(pbShop, EventArgs.Empty);
             }
             else if (communication.GeselecteerdHuis == "HuisVriend")
             {
                 pbHuisVriend.Image = resourcehandler.loadimage("selected.png");
+                VeranderWerkbalk(pbHuisVriend, EventArgs.Empty);
             } 
                        
         }
