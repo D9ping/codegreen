@@ -114,6 +114,9 @@ namespace CodeGreen
                     case 12:
                         MessageBox.Show("Error: Kan geld niet overmaken.");
                         break;
+                    case 13:
+                        MessageBox.Show("Error: Kan niet met atmel controller verbinden.");
+                        break;
                     default:
                         MessageBox.Show("Unknow error");
                         break;                                        

@@ -126,7 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="afb\checkbox_on.png" />
-    <None Include="classen_overzicht.cd" />
     <EmbeddedResource Include="afb\checkbox_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_inventory_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_inventory_on.png" />

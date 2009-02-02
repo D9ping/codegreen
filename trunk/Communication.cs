@@ -30,7 +30,8 @@ namespace CodeGreen
         }
         #endregion
 
-        #region methoden
+        #region methoden        
+        
         /// <summary>
         /// verwerk binnen gekomen data Atmel controller.
         /// </summary>
@@ -39,39 +40,43 @@ namespace CodeGreen
         {                   
             string s = "";
             for (int i = 0; i < data.Length; i++) s += data[i].ToString();
-            
-            if (s == "010000000")
+
+            String boven = "010000000";
+            String onder = "020000000";
+            String rechts = "040000000";
+            String links = "080000000";
+
+            if (s == boven)
             {
                 if (gekozenY > 1)
                 {
                     if (gekozenX == 3) { gekozenY = gekozenY - 1; }
-                    else { gekozenY = gekozenY - 2;  }
+                    else if (gekozenX == 4) { gekozenY = gekozenY - 1; }
+                    else if ((gekozenX==1) || (gekozenX==2))
+                    { gekozenX = 3;
+                      gekozenY--; }
                 }
             }
-            else if (s == "020000000")
+            else if (s == onder)
             {
                 if (gekozenY < 3)
                 {
                     if (gekozenX == 3) { gekozenY = gekozenY + 1; }
-                    else { gekozenY = gekozenY + 2; }
+                    else if (gekozenX == 4) { gekozenY = gekozenY + 1; }
                 }
             }
-            else if (s == "040000000")
+            else if (s == rechts)
             {
-                if (gekozenX > 1)
-                {
-                    if (gekozenY == 2) { gekozenY = 1; }
-                    gekozenX = gekozenX - 1;                    
+                if ((gekozenX > 0) && gekozenX <4)
+                {                    
+                    gekozenX = gekozenX + 1;
                 }
             }
-            else if (s == "080000000")
+            else if (s == links)
             {
-                if (gekozenX < 3) { gekozenX = gekozenX + 1; }
-            }
-            else if (s == "0160000000")
-            {
-               
-            }
+                if ((gekozenY == 3) && (gekozenX >1)) { gekozenX = gekozenX - 1; }
+                else if (gekozenX > 3) { gekozenX = gekozenX - 1; }
+            }            
 
             UpdateGelecteerdHuis();
         }
@@ -82,8 +87,37 @@ namespace CodeGreen
         /// </summary>
         public void UpdateGelecteerdHuis()
         {
-            
+            switch (gekozenY)
+            {
+                case 1:
+                    if (gekozenX==3) { selectedhuis = "pbHuis2"; }
+                    else if (gekozenX==4) { selectedhuis = "pbHuis4"; }
+                    break;
+	            case 2:
+                    if (gekozenX==3) { selectedhuis = "pbHuis3"; }
+                    else if (gekozenX==4) { selectedhuis = "pbHuis1"; }
+                    break;
+                case 3:
+                    switch (gekozenX)
+	                {
+		                case 1:
+                            selectedhuis = "pbBank";
+                            break;
+                        case 2:
+                            selectedhuis = "pbShop";
+                            break;
+                        case 3:
+                            selectedhuis = "pbHuis5";
+                            break;
+                        case 4:
+                            selectedhuis = "pbHuisVriend";
+                            break;
+                	}
+                    break;
+            }            
         }
+
+        
 
         
         #endregion

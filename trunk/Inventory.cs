@@ -38,7 +38,7 @@ namespace CodeGreen
         }
         #endregion
 
-        #region methoden        
+        #region methoden
         /// <summary>
         /// Voeg een item van de winkel aan je inventory toe.
         /// </summary>

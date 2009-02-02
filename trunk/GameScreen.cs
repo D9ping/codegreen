@@ -49,20 +49,18 @@ namespace CodeGreen
             options = new OptionsHandler();
             resourcehandler = new ResourceHandler();
             huizen = new List<Huis>();
-            
-            resetgame();
-                       
-            Speler = bank.GetByNaam("speler");
 
-            //communicatie wordt alleen gemaakt als optie voor controller aan staat(standaard register setting) 
+            resetgame();
+
             if (options.controller_enabled == true)
             {
                 Communication communication = new Communication();
-            }
+                if (ConnectAtmelController() == false) { misc.ToonBericht(13); }
+                GetControllerHuis();
+            }            
 
             Size werkbalksize = new Size(620, 80);
             Point werkbalklocation = new Point(160, 480);
-
             gbxGameInstructions.Size = werkbalksize;
             gbxGameInstructions.Location = werkbalklocation;
             gbxWBInventory.Size = werkbalksize;
@@ -77,18 +75,25 @@ namespace CodeGreen
         #endregion
 
         #region properties
+        public List<Huis> Huizen
+        {
+            get { return this.huizen; }
+        }
         #endregion
 
         #region methoden
         private void resetgame()
-        {
+        {            
             inventory.youritems.Clear();
             huizen.Clear();
             inithuizen();
+
             timesec = 0;
             timemin = 0;
+            
             UpdateStateKnopSound();
-            if (options.controller_enabled==true) { GetControllerHuis(); }
+            
+            Speler = bank.GetByNaam("speler");            
         }
 
         /// <summary>
@@ -134,18 +139,46 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// 
+        /// teken handje juiste plek
         /// </summary>
         private void GetControllerHuis()
-        {            
+        {
             foreach (Huis huis in huizen)
             {
-                if (huis.Naam == communication.GeselecteerdHuis)
-                {
-                    PictureBox pbhuis = (PictureBox)huis.Huisobj;
-                    pbhuis.Image = resourcehandler.loadimage("seleced.png");
-                }
-            }    
+                PictureBox pbhuis = (PictureBox)getHuisByName(communication.GeselecteerdHuis).Huisobj;                
+                //FIXME: maak pb leeg.
+                //pbhuis.Image.Clear()
+            }
+            //pbBank.Image
+            //pbShop.Image
+
+            if (getHuisByName(communication.GeselecteerdHuis) != null)
+            {
+                PictureBox pbhuis = (PictureBox)getHuisByName(communication.GeselecteerdHuis).Huisobj;
+                pbhuis.Image = resourcehandler.loadimage("seleced.png");
+            }
+            else if (communication.GeselecteerdHuis == "pbShop")
+            {
+                pbShop.Image = resourcehandler.loadimage("seleced.png");
+            }
+            else if (communication.GeselecteerdHuis == "pbBank")
+            {
+                pbBank.Image = resourcehandler.loadimage("seleced.png");
+            }                        
+        }
+
+        public bool ConnectAtmelController()
+        {
+            try
+            {
+                usb.Connect(this, Int32.Parse("03EB", System.Globalization.NumberStyles.HexNumber),
+                Int32.Parse("2013", System.Globalization.NumberStyles.HexNumber));
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;                   
+            }                       
         }
 
         private void GameScreen_Shown(object sender, EventArgs e)
