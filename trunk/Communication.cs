@@ -90,12 +90,12 @@ namespace CodeGreen
             switch (gekozenY)
             {
                 case 1:
-                    if (gekozenX==3) { selectedhuis = "pbHuis2"; }
-                    else if (gekozenX==4) { selectedhuis = "pbHuis4"; }
+                    if (gekozenX == 3) { selectedhuis = "Jan de Vries"; }
+                    else if (gekozenX == 4) { selectedhuis = "Pieter"; }
                     break;
 	            case 2:
-                    if (gekozenX==3) { selectedhuis = "pbHuis3"; }
-                    else if (gekozenX==4) { selectedhuis = "pbHuis1"; }
+                    if (gekozenX == 3) { selectedhuis = "Marrieke"; }
+                    else if (gekozenX==4) { selectedhuis = "Your"; }
                     break;
                 case 3:
                     switch (gekozenX)
@@ -107,7 +107,7 @@ namespace CodeGreen
                             selectedhuis = "Shop";
                             break;
                         case 3:
-                            selectedhuis = "pbHuis5";
+                            selectedhuis = "Roel";
                             break;
                         case 4:
                             selectedhuis = "HuisVriend";
