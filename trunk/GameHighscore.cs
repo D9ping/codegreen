@@ -61,9 +61,9 @@ namespace CodeGreen
         private void setGroupboxen()
         {
             gbxHighscoren.Location = new Point(10, 10);            
-            gbxHighscoren.Size = new Size(780, 580);
+            gbxHighscoren.Size = new Size(760, 480);
             gbxNewHighscore.Location = new Point(10, 10);
-            gbxNewHighscore.Size = new Size(780, 580);
+            gbxNewHighscore.Size = new Size(760, 480);
         }
         private void gethighscore()
         {
@@ -71,24 +71,26 @@ namespace CodeGreen
             try
             {
                 connection.Open();
-                String query = "SELECT * FROM scoren";
+                String query = "SELECT * FROM scoren ORDER BY Score DESC";
 
                 OleDbCommand selectcommand = new OleDbCommand(query, connection);
 
                 OleDbDataReader reader;
                 reader = selectcommand.ExecuteReader();
-
+                int positie = 1;
                 int ypos = 80;
                 while (reader.Read())
                 {
                     Label lbscore = new Label();
-                    lbscore.Text = reader["Naam"].ToString() + " - " + reader["Scoren"];
+                    lbscore.Font = new Font(lbscore.Font.FontFamily, 20);
+                    lbscore.Text = positie.ToString() +". "+ reader["Naam"].ToString() + "  (" + reader["Score"]+"points)";
                     lbscore.AutoSize = true;
                     lbscore.ForeColor = Color.Lime;
-                    lbscore.Location = new Point(50, ypos);
+                    lbscore.Location = new Point(300, ypos);
                     lbscore.TextAlign = ContentAlignment.MiddleCenter;
-                    ypos = ypos + 30;
-                    this.gbxHighscoren.Controls.Add(lbscore);
+                    ypos = ypos + 40;
+                    positie++;
+                    this.gbxHighscoren.Controls.Add(lbscore);                    
                 }
 
             }

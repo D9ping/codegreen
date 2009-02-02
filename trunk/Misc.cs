@@ -67,7 +67,7 @@ namespace CodeGreen
         #region methoden
 
         /// <summary>
-        /// Deze methode handelt alle mogelijke fout af.
+        /// Deze methode handelt alle mogelijke fout meldingen af.        
         /// </summary>
         /// <param name="msgnr"></param>
         public void ToonBericht(int msgnr)
@@ -77,45 +77,45 @@ namespace CodeGreen
                 errorshowed = true;
                 switch (msgnr)
                 {
-                    //berichten 01 t/m 10 voor fouten gereseveerd
+                    //TODO: moet naar Engels vertaald worden.
                     case 1:
-                        MessageBox.Show("Fout: Afbeelding niet gevonden.");
+                        MessageBox.Show("Error: Afbeelding niet gevonden.");
                         break;
                     case 2:
-                        MessageBox.Show("Fout: onbekende menu knop.");
+                        MessageBox.Show("Error: onbekende menu knop.");
                         break;
                     case 3:
-                        MessageBox.Show("Fout: schrijven naar register mislukt.");
+                        MessageBox.Show("Error: schrijven naar register mislukt.");
                         break;
                     case 4:
-                        MessageBox.Show("Fout: resource kon niet geladen worden.");
+                        MessageBox.Show("Error: resource kon niet geladen worden.");
                         break;
                     case 5:
-                        MessageBox.Show("Fout: geluid niet gevonden.");
+                        MessageBox.Show("Error: geluid niet gevonden.");
                         break;
                     case 6:
                         MessageBox.Show("Fout: kan huizen niet aanmaken.");
                         break;
                     case 7:
-                        MessageBox.Show("Fout: kan huis niet vinden.");
+                        MessageBox.Show("Error: kan huis niet vinden.");
                         break;
                     case 8:
-                        MessageBox.Show("Fout: kan item niet vinden.");
+                        MessageBox.Show("Error: kan item niet vinden.");
                         break;
                     case 9:
-                        MessageBox.Show("Fout: item niet in inventory lijst.");
+                        MessageBox.Show("Error: item niet in inventory lijst.");
                         break;
                     case 10:                        
-                        MessageBox.Show("Fout: Onbekende huidige tekst");                        
+                        MessageBox.Show("Error: Onbekende huidige tekst");                        
                         break;
                     case 11:
-                        MessageBox.Show("Fout: kan item niet in database stoppen");
+                        MessageBox.Show("Error: kan item niet in database stoppen");
                         break;
                     case 12:
-                        MessageBox.Show("Fout: Kan geld niet overmaken.");
+                        MessageBox.Show("Error: Kan geld niet overmaken.");
                         break;
                     default:
-                        MessageBox.Show("onbekende fout");
+                        MessageBox.Show("Unknow error");
                         break;                                        
                 }
                 errorshowed = false;

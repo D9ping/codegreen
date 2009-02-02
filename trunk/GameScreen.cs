@@ -29,11 +29,13 @@ namespace CodeGreen
         public Misc misc;
         public OptionsHandler options;
         public ResourceHandler resourcehandler;
+        public Communication communication;
         private Inventory inventory;        
         private Bankaccount Speler;        
         private WerkbalkState werkbalk;
         private Bank bank;
-        private List<Huis> huizen;                        
+        private List<Huis> huizen; 
+                       
         #endregion
 
         #region constructor
@@ -86,6 +88,7 @@ namespace CodeGreen
             timesec = 0;
             timemin = 0;
             UpdateStateKnopSound();
+            if (options.controller_enabled==true) { GetControllerHuis(); }
         }
 
         /// <summary>
@@ -109,8 +112,6 @@ namespace CodeGreen
             catch (Exception) { misc.ToonBericht(6); }
         }
 
-
-
         private void settooltiphuizen()
         {
             if (IsItemInventory("netwerkscanner")==true)
@@ -130,6 +131,21 @@ namespace CodeGreen
                     tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " place");
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void GetControllerHuis()
+        {            
+            foreach (Huis huis in huizen)
+            {
+                if (huis.Naam == communication.GeselecteerdHuis)
+                {
+                    PictureBox pbhuis = (PictureBox)huis.Huisobj;
+                    pbhuis.Image = resourcehandler.loadimage("seleced.png");
+                }
+            }    
         }
 
         private void GameScreen_Shown(object sender, EventArgs e)
@@ -613,9 +629,10 @@ namespace CodeGreen
         /// <param name="data">???</param>
         private void usb_OnDataRecieved(object sender, byte[] data)
         {
-            //todo: moet terug gegeven welk huis of de bank geselecteerd is.
-
-            //communication.VerwerkData(data);            
+            if (options.controller_enabled == true)
+            {
+                communication.DataAtmelController(data);
+            }
         }      
        
         private void btnLogin_Click(object sender, EventArgs e)

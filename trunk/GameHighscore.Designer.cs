@@ -42,7 +42,7 @@
             // pbBackMenu
             // 
             this.pbBackMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbBackMenu.Image")));
-            this.pbBackMenu.Location = new System.Drawing.Point(266, 471);
+            this.pbBackMenu.Location = new System.Drawing.Point(288, 507);
             this.pbBackMenu.Name = "pbBackMenu";
             this.pbBackMenu.Size = new System.Drawing.Size(201, 45);
             this.pbBackMenu.TabIndex = 4;
@@ -58,7 +58,7 @@
             this.gbxNewHighscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxNewHighscore.Location = new System.Drawing.Point(12, 12);
             this.gbxNewHighscore.Name = "gbxNewHighscore";
-            this.gbxNewHighscore.Size = new System.Drawing.Size(574, 251);
+            this.gbxNewHighscore.Size = new System.Drawing.Size(574, 260);
             this.gbxNewHighscore.TabIndex = 5;
             this.gbxNewHighscore.TabStop = false;
             this.gbxNewHighscore.Visible = false;
@@ -69,7 +69,7 @@
             this.btAddHighscore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.btAddHighscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddHighscore.ForeColor = System.Drawing.Color.Lime;
-            this.btAddHighscore.Location = new System.Drawing.Point(477, 207);
+            this.btAddHighscore.Location = new System.Drawing.Point(466, 229);
             this.btAddHighscore.Name = "btAddHighscore";
             this.btAddHighscore.Size = new System.Drawing.Size(59, 23);
             this.btAddHighscore.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(348, 209);
+            this.tbName.Location = new System.Drawing.Point(326, 231);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(123, 20);
             this.tbName.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             this.lbTextNaam.AutoSize = true;
             this.lbTextNaam.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextNaam.Location = new System.Drawing.Point(230, 212);
+            this.lbTextNaam.Location = new System.Drawing.Point(208, 234);
             this.lbTextNaam.Name = "lbTextNaam";
             this.lbTextNaam.Size = new System.Drawing.Size(112, 13);
             this.lbTextNaam.TabIndex = 0;
@@ -98,9 +98,9 @@
             // 
             this.gbxHighscoren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxHighscoren.ForeColor = System.Drawing.Color.Lime;
-            this.gbxHighscoren.Location = new System.Drawing.Point(12, 269);
+            this.gbxHighscoren.Location = new System.Drawing.Point(12, 289);
             this.gbxHighscoren.Name = "gbxHighscoren";
-            this.gbxHighscoren.Size = new System.Drawing.Size(574, 196);
+            this.gbxHighscoren.Size = new System.Drawing.Size(574, 176);
             this.gbxHighscoren.TabIndex = 3;
             this.gbxHighscoren.TabStop = false;
             this.gbxHighscoren.Text = "Hall of fame hackers";
