@@ -158,9 +158,11 @@
             // 
             // btnFriendGift
             // 
-            this.btnFriendGift.BackColor = System.Drawing.Color.DimGray;
+            this.btnFriendGift.BackColor = System.Drawing.Color.Black;
+            this.btnFriendGift.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnFriendGift.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.btnFriendGift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFriendGift.ForeColor = System.Drawing.Color.White;
+            this.btnFriendGift.ForeColor = System.Drawing.Color.Lime;
             this.btnFriendGift.Location = new System.Drawing.Point(232, 51);
             this.btnFriendGift.Margin = new System.Windows.Forms.Padding(0);
             this.btnFriendGift.Name = "btnFriendGift";
@@ -328,7 +330,7 @@
             this.pbItemKeylogger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbItemKeylogger.TabIndex = 1;
             this.pbItemKeylogger.TabStop = false;
-            this.tooltip.SetToolTip(this.pbItemKeylogger, "Deploy keylogger, you will need to have access.");
+            this.tooltip.SetToolTip(this.pbItemKeylogger, "Deploy a keylogger, to get the password of their bankaccount.");
             this.pbItemKeylogger.Visible = false;
             this.pbItemKeylogger.Click += new System.EventHandler(this.pbItemKeylogger_Click);
             // 
@@ -452,6 +454,8 @@
             // 
             this.btnCreateBot.AutoSize = true;
             this.btnCreateBot.BackColor = System.Drawing.Color.Black;
+            this.btnCreateBot.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnCreateBot.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.btnCreateBot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateBot.ForeColor = System.Drawing.Color.Lime;
             this.btnCreateBot.Location = new System.Drawing.Point(479, 15);
@@ -634,6 +638,8 @@
             // 
             this.btnGetKeyloggerLog.AutoSize = true;
             this.btnGetKeyloggerLog.BackColor = System.Drawing.Color.Black;
+            this.btnGetKeyloggerLog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnGetKeyloggerLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.btnGetKeyloggerLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetKeyloggerLog.ForeColor = System.Drawing.Color.Lime;
             this.btnGetKeyloggerLog.Location = new System.Drawing.Point(479, 46);
@@ -926,11 +932,12 @@
             // lbControllerInfo
             // 
             this.lbControllerInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lbControllerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbControllerInfo.ForeColor = System.Drawing.Color.Lavender;
-            this.lbControllerInfo.Location = new System.Drawing.Point(248, 7);
+            this.lbControllerInfo.Location = new System.Drawing.Point(592, 0);
             this.lbControllerInfo.MinimumSize = new System.Drawing.Size(50, 15);
             this.lbControllerInfo.Name = "lbControllerInfo";
-            this.lbControllerInfo.Size = new System.Drawing.Size(167, 15);
+            this.lbControllerInfo.Size = new System.Drawing.Size(200, 15);
             this.lbControllerInfo.TabIndex = 31;
             // 
             // GameScreen

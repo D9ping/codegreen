@@ -57,7 +57,7 @@ namespace CodeGreen
                 communication = new Communication();
                 if (ConnectAtmelController() == false) { misc.ToonBericht(13); }
                 GetControllerHuis();
-                lbControllerInfo.Text = "Connected with atmel controller.";
+                lbControllerInfo.Text = "Connected with Atmel controller";
             }            
 
             Size werkbalksize = new Size(620, 80);
@@ -122,7 +122,7 @@ namespace CodeGreen
                 {
                     foreach (Huis huis in huizen)
                     {
-                        tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " place \r\n IP: " + huis.IPAdres);
+                        tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " house \r\n IP: " + huis.IPAdres);
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace CodeGreen
             {
                 foreach (Huis huis in huizen)
                 {
-                    tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " place");
+                    tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " house");
                 }
             }
         }
@@ -139,17 +139,19 @@ namespace CodeGreen
         /// teken handje juiste plek
         /// </summary>
         private void GetControllerHuis()
-        {
-            /*
+        {            
             foreach (Huis huis in huizen)
             {
-                PictureBox pbhuis = (PictureBox)getHuis(communication.GeselecteerdHuis).Huisobj;                
-                //FIXME: maak pb leeg.
-                //pbhuis.Image.Clear()
+                Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
+                PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
+                //pbhuis.Image.Dispose();
+                pbhuis.Image = resourcehandler.loadimage("not_selected.png");
+                
             }
-            //pbBank.Image
-            //pbShop.Image
-            */
+            //pbBank.Image.Dispose();
+            pbBank.Image = resourcehandler.loadimage("not_selected.png");
+            //pbShop.Image.Dispose();
+            pbShop.Image = resourcehandler.loadimage("not_selected.png");          
 
             if (getHuisDoorBewonernaam(communication.GeselecteerdHuis) != null)
             {
@@ -551,6 +553,15 @@ namespace CodeGreen
                 {
                     lbIPadres.Text = "not scanned"; 
                 }
+                if (IsItemInventory("coderedvirus") == true)
+                {
+                    if (inventory.getItemInventory("coderedvirus").Active == true)
+                    {
+                        btnCreateBot.Visible = true;
+                        this.lbInfectie.Text = "yes";
+                        this.lbInfectie.ForeColor = Color.Red;
+                    }
+                }
 
             }
             else
@@ -779,7 +790,9 @@ namespace CodeGreen
                 btnItembuy.Visible = true;
                 btnItembuy.ForeColor = Color.Lime;
                 btnItembuy.BackColor = Color.Black;
-                btnItembuy.FlatStyle = FlatStyle.Flat;               
+                btnItembuy.FlatStyle = FlatStyle.Flat;
+                btnItembuy.FlatAppearance.MouseOverBackColor = Color.DimGray;
+                btnItembuy.FlatAppearance.MouseDownBackColor= Color.Silver;
                 if (IsItemInventory(curitem.NaamItem) == false)
                 {
                     btnItembuy.Text = "buy";
@@ -1068,9 +1081,7 @@ namespace CodeGreen
                         {
                             if (huis.Wepcracked == true)
                             {
-                                lbItemCommandInfo.Text = "Keylogger succesfully installed on " + huis.WifiSSID + " wifi, " + huis.Naam+ " house.";
-                                tbCommand.Text = "";
-                                huis.KeyloggerInstalled = true;
+                                installkeylogger(huis);
                             }
                             else { CommandNoAccess(1); }
                         }
@@ -1080,16 +1091,23 @@ namespace CodeGreen
                             {
                                 if (inventory.getItemInventory("worm").Active == true)
                                 {
-                                    lbItemCommandInfo.Text = "Keylogger succesfully installed on " + huis.IPAdres + ", " + huis.Naam + " house.";
-                                    tbCommand.Text = "";
-                                    huis.KeyloggerInstalled = true;
+                                    installkeylogger(huis);
                                 }
                                 else
                                 {
                                     CommandNoAccess(2);
                                 }
                             }
-                            else { CommandNoAccess(2); }
+
+                            if ((huis.Naam != "Your") && (IsItemInventory("coderedvirus") == true))
+                            {
+                                if (inventory.getItemInventory("coderedvirus").Active == true)
+                                {
+                                    installkeylogger(huis);
+                                }
+                                else { CommandNoAccess(2); }
+                            }
+                            
                         }
                     }
                 }
@@ -1118,10 +1136,7 @@ namespace CodeGreen
                         else if (tbCommand.Text.StartsWith("infect")==true)
                         {
                             lbItemCommandInfo.Text = "Unknow IP adres.";
-                        }
-                        else {
-                            //lbItemCommandInfo.Text = "unknow command.";
-                        }
+                        }                    
                     }
                 }
                 if (IsItemInventory("coderedvirus") ==true)
@@ -1134,6 +1149,13 @@ namespace CodeGreen
                     }
                 }
             }
+        }
+
+        private void installkeylogger(Huis huis)
+        {
+            lbItemCommandInfo.Text = "Keylogger succesfully installed on " + huis.IPAdres + ", " + huis.Naam + " house.";
+            tbCommand.Text = "";
+            huis.KeyloggerInstalled = true;
         }
 
         private void CommandNoAccess(int hint)
@@ -1167,7 +1189,7 @@ namespace CodeGreen
             if (lbItemCommandInfo.Visible == false)
             {
                 ToonSlechtItem(this.pbItemListaccountumbersbank);
-                lbItemCommandInfo.Text = "This is the list of bankaccount nummers in your neighbourhood with names.";                
+                lbItemCommandInfo.Text = "This is the list of bankaccountnummers in your neighbourhood.";                
                 TekenListaccounts();                
             }
             else if (lbItemCommandInfo.Visible == true)
@@ -1193,8 +1215,16 @@ namespace CodeGreen
         {
             if (lbItemCommandInfo.Visible == false)
             {
-                ToonSlechtItem(this.pbItemNetworkScanner);
-                lbItemCommandInfo.Text = "Enter \"scan\" to reveal all ip adresses in your neigberhood.";            
+                if (inventory.getItemInventory("netwerkscanner").Active == false)
+                {
+                    ToonSlechtItem(this.pbItemNetworkScanner);
+                    lbItemCommandInfo.Text = "Enter \"scan\" to reveal all ip adresses in your neigberhood.";
+                }
+                else if (inventory.getItemInventory("netwerkscanner").Active == false)
+                {
+                    ToonSlechtItem(this.pbItemNetworkScanner);
+                    lbItemCommandInfo.Text = "You already scanned your neighberhood, and revealed their IP adresses";
+                }
             }
             else if (lbItemCommandInfo.Visible == true)
             {

@@ -108,25 +108,25 @@ namespace CodeGreen
         {            
             if ((tbName.Text!=null) || (tbName.Text!=""))
             {                
-                gbxHighscoren.Text = DateTime.Now.ToString();
-                //todo add score, datetime
+                //gbxHighscoren.Text = DateTime.Now.ToString();
+                addscore(tbName.Text, score);
             }
         }
 
-        public void addscore(int score)
+        public void addscore(String naam, int score)
         {
             try
             {
                 connection.Open();
 
-                String query = "INSERT INTO SPELERS ()";
+                String query = "INSERT INTO scoren (Naam, Scoren) VALUES ('" + naam + "', '" + score + "')";
                 OleDbCommand InsertCommand = new OleDbCommand(query, connection);
                 InsertCommand.ExecuteNonQuery();
             }
 
-            catch (Exception)
+            catch (Exception exc)
             {
-                misc.ToonBericht(11);
+                MessageBox.Show(exc.Message);
             }
             finally
             {
