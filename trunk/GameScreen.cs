@@ -57,7 +57,9 @@ namespace CodeGreen
                 communication = new Communication();
                 if (ConnectAtmelController() == false) { misc.ToonBericht(13); }
                 GetControllerHuis();
-                lbControllerInfo.Text = "Connected with Atmel controller";
+                lbControllerInfo.Text = "Connected with controller\r\n"+
+                "             VendorID: "+options.VendorID+"\r\n"+
+                "             ProductID: "+options.ProductID;
             }            
 
             Size werkbalksize = new Size(620, 80);
@@ -136,22 +138,18 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// teken handje juiste plek
+        /// teken rondje op de juiste plek
         /// </summary>
         private void GetControllerHuis()
-        {            
-            foreach (Huis huis in huizen)
-            {
-                Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
-                PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
-                //pbhuis.Image.Dispose();
-                pbhuis.Image = resourcehandler.loadimage("not_selected.png");
-                
-            }
-            //pbBank.Image.Dispose();
+        {   
+            pbHuis1.Image= resourcehandler.loadimage("not_selected.png");
+            pbHuis2.Image= resourcehandler.loadimage("not_selected.png");
+            pbHuis3.Image= resourcehandler.loadimage("not_selected.png");
+            pbHuis4.Image= resourcehandler.loadimage("not_selected.png");
+            pbHuis5.Image= resourcehandler.loadimage("not_selected.png");            
             pbBank.Image = resourcehandler.loadimage("not_selected.png");
-            //pbShop.Image.Dispose();
-            pbShop.Image = resourcehandler.loadimage("not_selected.png");          
+            pbShop.Image = resourcehandler.loadimage("not_selected.png");
+            pbHuisVriend.Image = resourcehandler.loadimage("not_selected.png");
 
             if (getHuisDoorBewonernaam(communication.GeselecteerdHuis) != null)
             {
@@ -178,8 +176,8 @@ namespace CodeGreen
         {
             try
             {
-                usb.Connect(this, Int32.Parse("03EB", System.Globalization.NumberStyles.HexNumber),
-                Int32.Parse("2013", System.Globalization.NumberStyles.HexNumber));
+                usb.Connect(this, Int32.Parse(options.VendorID, System.Globalization.NumberStyles.HexNumber),
+                Int32.Parse(options.ProductID, System.Globalization.NumberStyles.HexNumber));
                 return true;
             }
             catch (Exception)
@@ -228,12 +226,12 @@ namespace CodeGreen
         {
             if (options.sound_enabled == true)
             {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");
                 if (resourcehandler.playsound("backgroundmusic.wav", true) == false) { misc.ToonBericht(5); }                
             }
             else if (options.sound_enabled == false)
             {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");                
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");                
             }
         }
 
@@ -1046,7 +1044,7 @@ namespace CodeGreen
             }
             else if (options.sound_enabled == false)
             { options.UpdateSetting("sound", true);
-            //options.sound_enabled = true;
+            
             }
             this.UpdateStateKnopSound();
         }

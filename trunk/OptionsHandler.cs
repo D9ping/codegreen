@@ -17,6 +17,8 @@ namespace CodeGreen
         private Misc misc;
         private bool setting_sound;
         private bool setting_controller;
+        private String vendorID = "03EB";
+        private String productID = "2013";
         #endregion
 
         #region constructor
@@ -50,6 +52,16 @@ namespace CodeGreen
         {
             get { return this.setting_controller; }
             //set { setting_controller = value; }
+        }
+        public String VendorID
+        {
+            get { return this.vendorID; }
+            set { vendorID = value; }
+        }
+        public String ProductID
+        {
+            get { return this.productID; }
+            set { productID = value; }
         }
         #endregion
 

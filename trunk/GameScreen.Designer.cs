@@ -247,7 +247,7 @@
             this.gbxWBInventory.ForeColor = System.Drawing.Color.White;
             this.gbxWBInventory.Location = new System.Drawing.Point(12, 45);
             this.gbxWBInventory.Name = "gbxWBInventory";
-            this.gbxWBInventory.Size = new System.Drawing.Size(566, 66);
+            this.gbxWBInventory.Size = new System.Drawing.Size(594, 66);
             this.gbxWBInventory.TabIndex = 6;
             this.gbxWBInventory.TabStop = false;
             this.gbxWBInventory.Text = "Inventory";
@@ -931,13 +931,14 @@
             // 
             // lbControllerInfo
             // 
+            this.lbControllerInfo.AutoSize = true;
             this.lbControllerInfo.BackColor = System.Drawing.Color.Transparent;
             this.lbControllerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbControllerInfo.ForeColor = System.Drawing.Color.Lavender;
-            this.lbControllerInfo.Location = new System.Drawing.Point(592, 0);
-            this.lbControllerInfo.MinimumSize = new System.Drawing.Size(50, 15);
+            this.lbControllerInfo.Location = new System.Drawing.Point(620, 2);
+            this.lbControllerInfo.MinimumSize = new System.Drawing.Size(160, 40);
             this.lbControllerInfo.Name = "lbControllerInfo";
-            this.lbControllerInfo.Size = new System.Drawing.Size(200, 15);
+            this.lbControllerInfo.Size = new System.Drawing.Size(160, 40);
             this.lbControllerInfo.TabIndex = 31;
             // 
             // GameScreen

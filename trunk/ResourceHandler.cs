@@ -67,7 +67,7 @@ namespace CodeGreen
                     SoundPlayer soundplayer = new SoundPlayer();
                     //FIXME: asynch. afspelen met achtergrondgeluid en effect geluid werkt niet.
                     soundplayer.LoadAsync(); 
-                    soundplayer.SoundLocation = "..\\..\\sounds\\" + bestandsnaam;
+                    soundplayer.SoundLocation = "sounds\\" + bestandsnaam;
                     if (herhalen == true) { soundplayer.PlayLooping(); }
                     soundplayer.Play();                    
                     return true;

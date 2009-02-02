@@ -37,6 +37,10 @@
             this.pbStateController = new System.Windows.Forms.PictureBox();
             this.pbBackMenu = new System.Windows.Forms.PictureBox();
             this.pbStateSound = new System.Windows.Forms.PictureBox();
+            this.tbVendorID = new System.Windows.Forms.TextBox();
+            this.tbProductID = new System.Windows.Forms.TextBox();
+            this.lbtextVendorID = new System.Windows.Forms.Label();
+            this.lbTextProductID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).BeginInit();
@@ -117,12 +121,54 @@
             this.pbStateSound.TabIndex = 0;
             this.pbStateSound.TabStop = false;
             // 
+            // tbVendorID
+            // 
+            this.tbVendorID.Location = new System.Drawing.Point(677, 244);
+            this.tbVendorID.Name = "tbVendorID";
+            this.tbVendorID.Size = new System.Drawing.Size(73, 20);
+            this.tbVendorID.TabIndex = 6;
+            this.tbVendorID.Text = "????";
+            this.tbVendorID.TextChanged += new System.EventHandler(this.tbVendorID_TextChanged);
+            // 
+            // tbProductID
+            // 
+            this.tbProductID.Location = new System.Drawing.Point(677, 267);
+            this.tbProductID.Name = "tbProductID";
+            this.tbProductID.Size = new System.Drawing.Size(73, 20);
+            this.tbProductID.TabIndex = 7;
+            this.tbProductID.Text = "????";
+            this.tbProductID.TextChanged += new System.EventHandler(this.tbProductID_TextChanged);
+            // 
+            // lbtextVendorID
+            // 
+            this.lbtextVendorID.AutoSize = true;
+            this.lbtextVendorID.ForeColor = System.Drawing.Color.Lime;
+            this.lbtextVendorID.Location = new System.Drawing.Point(617, 247);
+            this.lbtextVendorID.Name = "lbtextVendorID";
+            this.lbtextVendorID.Size = new System.Drawing.Size(55, 13);
+            this.lbtextVendorID.TabIndex = 8;
+            this.lbtextVendorID.Text = "Vendor ID";
+            // 
+            // lbTextProductID
+            // 
+            this.lbTextProductID.AutoSize = true;
+            this.lbTextProductID.ForeColor = System.Drawing.Color.Lime;
+            this.lbTextProductID.Location = new System.Drawing.Point(613, 274);
+            this.lbTextProductID.Name = "lbTextProductID";
+            this.lbTextProductID.Size = new System.Drawing.Size(58, 13);
+            this.lbTextProductID.TabIndex = 9;
+            this.lbTextProductID.Text = "Product ID";
+            // 
             // GameOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.lbTextProductID);
+            this.Controls.Add(this.lbtextVendorID);
+            this.Controls.Add(this.tbProductID);
+            this.Controls.Add(this.tbVendorID);
             this.Controls.Add(this.pbStateController);
             this.Controls.Add(this.lbOptionController);
             this.Controls.Add(this.pbBackMenu);
@@ -150,6 +196,10 @@
         public System.Windows.Forms.Timer TimerTextEffect;
         private System.Windows.Forms.Label lbOptionController;
         private System.Windows.Forms.PictureBox pbStateController;
+        private System.Windows.Forms.TextBox tbVendorID;
+        private System.Windows.Forms.TextBox tbProductID;
+        private System.Windows.Forms.Label lbtextVendorID;
+        private System.Windows.Forms.Label lbTextProductID;
 
     }
 }

@@ -25,6 +25,9 @@ namespace CodeGreen
             options = new OptionsHandler();
             resourceshandler = new ResourceHandler();
 
+            tbVendorID.Text = options.VendorID;
+            tbProductID.Text = options.ProductID;
+
             if (options.GetSettingBool("sound") == true) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png"); }
             else { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png"); }
             if (options.GetSettingBool("controller") == true) { this.pbStateController.Image = resourceshandler.loadimage("checkbox_on.png"); }
@@ -89,6 +92,16 @@ namespace CodeGreen
             {
                 misc.ToonBericht(2);
             }
+        }
+
+        private void tbVendorID_TextChanged(object sender, EventArgs e)
+        {
+            options.VendorID = tbVendorID.Text;
+        }
+
+        private void tbProductID_TextChanged(object sender, EventArgs e)
+        {
+            options.ProductID = tbProductID.Text;
         }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
