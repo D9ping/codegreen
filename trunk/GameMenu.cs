@@ -202,6 +202,11 @@ namespace CodeGreen
             highscore.Show();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("IExplore", "http://code.google.com/p/codegreen/issues/list");
+        }
+
     }
         #endregion methoden
 }

@@ -977,7 +977,7 @@
             this.Controls.Add(this.pbBank);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameScreen";
-            this.Text = "CodeGreen - alpha";
+            this.Text = "CodeGreen";
             this.Shown += new System.EventHandler(this.GameScreen_Shown);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameScreen_FormClosed);
             this.gbxGameInstructions.ResumeLayout(false);

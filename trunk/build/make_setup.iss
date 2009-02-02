@@ -2,8 +2,8 @@
 [Setup]
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
-AppVerName=CodeGreen - DEVELOPMENT VERSION
-AppVersion=0.8 Alpha
+AppVerName=CodeGreen beta1
+AppVersion=0.9 Beta1
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -26,9 +26,9 @@ PrivilegesRequired=admin
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
-Name: "french"; MessagesFile: "compiler:Languages\French.isl"
-Name: "german"; MessagesFile: "compiler:Languages\German.isl"
-Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
+;Name: "french"; MessagesFile: "compiler:Languages\French.isl"
+;Name: "german"; MessagesFile: "compiler:Languages\German.isl"
+;Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";

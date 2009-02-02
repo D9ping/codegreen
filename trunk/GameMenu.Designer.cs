@@ -36,6 +36,7 @@
             this.pbStartGame = new System.Windows.Forms.PictureBox();
             this.pbTitel = new System.Windows.Forms.PictureBox();
             this.timerDropText = new System.Windows.Forms.Timer(this.components);
+            this.llbFeedback = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).BeginInit();
@@ -114,12 +115,24 @@
             this.timerDropText.Interval = 30;
             this.timerDropText.Tick += new System.EventHandler(this.timerDropText_Tick);
             // 
+            // llbFeedback
+            // 
+            this.llbFeedback.AutoSize = true;
+            this.llbFeedback.Location = new System.Drawing.Point(12, 9);
+            this.llbFeedback.Name = "llbFeedback";
+            this.llbFeedback.Size = new System.Drawing.Size(66, 13);
+            this.llbFeedback.TabIndex = 4;
+            this.llbFeedback.TabStop = true;
+            this.llbFeedback.Text = "Rapport bug";
+            this.llbFeedback.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // GameMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.llbFeedback);
             this.Controls.Add(this.pbExit);
             this.Controls.Add(this.pbHighscore);
             this.Controls.Add(this.pbOptions);
@@ -134,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStartGame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitel)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -145,6 +159,7 @@
         private System.Windows.Forms.PictureBox pbOptions;
         private System.Windows.Forms.PictureBox pbStartGame;
         private System.Windows.Forms.Timer timerDropText;
+        private System.Windows.Forms.LinkLabel llbFeedback;
     }
 }
 
