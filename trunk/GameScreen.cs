@@ -24,7 +24,7 @@ namespace CodeGreen
 
         #region datavelden
         private int n, timesec, timemin;
-        private String curhuis;
+        private String huisBewoner;
         private bool showshopintro = true;
         public Misc misc;
         public OptionsHandler options;
@@ -54,9 +54,10 @@ namespace CodeGreen
 
             if (options.controller_enabled == true)
             {
-                Communication communication = new Communication();
+                communication = new Communication();
                 if (ConnectAtmelController() == false) { misc.ToonBericht(13); }
                 GetControllerHuis();
+                lbControllerInfo.Text = "Connected with atmel controller.";
             }            
 
             Size werkbalksize = new Size(620, 80);
@@ -75,10 +76,6 @@ namespace CodeGreen
         #endregion
 
         #region properties
-        public List<Huis> Huizen
-        {
-            get { return this.huizen; }
-        }
         #endregion
 
         #region methoden
@@ -143,28 +140,36 @@ namespace CodeGreen
         /// </summary>
         private void GetControllerHuis()
         {
+            /*
             foreach (Huis huis in huizen)
             {
-                PictureBox pbhuis = (PictureBox)getHuisByName(communication.GeselecteerdHuis).Huisobj;                
+                PictureBox pbhuis = (PictureBox)getHuis(communication.GeselecteerdHuis).Huisobj;                
                 //FIXME: maak pb leeg.
                 //pbhuis.Image.Clear()
             }
             //pbBank.Image
             //pbShop.Image
+            */
 
-            if (getHuisByName(communication.GeselecteerdHuis) != null)
+            if (getHuisDoorBewonernaam(communication.GeselecteerdHuis) != null)
             {
-                PictureBox pbhuis = (PictureBox)getHuisByName(communication.GeselecteerdHuis).Huisobj;
-                pbhuis.Image = resourcehandler.loadimage("seleced.png");
+                Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
+                PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
+                pbhuis.Image = resourcehandler.loadimage("selected.png");
             }
-            else if (communication.GeselecteerdHuis == "pbShop")
+            else if (communication.GeselecteerdHuis == "Bank")
             {
-                pbShop.Image = resourcehandler.loadimage("seleced.png");
+                pbBank.Image = resourcehandler.loadimage("selected.png");
+            } 
+            else if (communication.GeselecteerdHuis == "Shop")
+            {
+                pbShop.Image = resourcehandler.loadimage("selected.png");
             }
-            else if (communication.GeselecteerdHuis == "pbBank")
+            else if (communication.GeselecteerdHuis == "HuisVriend")
             {
-                pbBank.Image = resourcehandler.loadimage("seleced.png");
-            }                        
+                pbHuisVriend.Image = resourcehandler.loadimage("selected.png");
+            } 
+                       
         }
 
         public bool ConnectAtmelController()
@@ -396,6 +401,30 @@ namespace CodeGreen
             ToonWerkbalk();
         }
 
+        private Huis getHuis(object huisnm)
+        {
+            foreach (Huis curhuis in huizen)
+            {
+                if (curhuis.Huisobj == huisnm)
+                {
+                    return curhuis;
+                }
+            }
+            return null;
+        }
+
+        private Huis getHuisDoorBewonernaam(String bewonernaam)
+        {
+            foreach (Huis curhuis in huizen)
+            {
+                if (curhuis.Naam == bewonernaam)
+                {
+                    return curhuis;
+                }
+            }
+            return null;
+        }
+
         private void resetHuisInfo()
         {
             this.btnCreateBot.Visible = false;
@@ -417,8 +446,8 @@ namespace CodeGreen
         {
             resetHuisInfo();
 
-            curhuis = huis.Naam;
-            lbNaam.Text = huis.Naam;            
+            huisBewoner = huis.Naam;
+            lbNaam.Text = huisBewoner;            
 
             if (huis.IsBot == false) { btnCreateBot.Enabled = true; }
             else if (huis.IsBot == true) { btnCreateBot.Enabled = false;  }
@@ -565,30 +594,6 @@ namespace CodeGreen
             //lbWifiWPA.ForeColor = Color.Lime;
         }
 
-        private Huis getHuis(object huisnm)
-        {
-            foreach (Huis curhuis in huizen)
-            {
-                if (curhuis.Huisobj == huisnm)
-                {
-                    return curhuis;
-                }
-            }             
-            return null;            
-        }
-
-        private Huis getHuisByName(String bewonernaam)
-        {
-            foreach (Huis curhuis in huizen)
-            {
-                if (curhuis.Naam == bewonernaam)
-                {
-                    return curhuis;
-                }
-            }
-            return null;
-        }
-
         /// <summary>
         /// update gametimer
         /// </summary>
@@ -665,6 +670,7 @@ namespace CodeGreen
             if (options.controller_enabled == true)
             {
                 communication.DataAtmelController(data);
+                GetControllerHuis();
             }
         }      
        
@@ -897,7 +903,7 @@ namespace CodeGreen
         {
             btnCreateBot.Enabled = false;
 
-            Huis getHuis = getHuisByName(curhuis);
+            Huis getHuis = getHuisDoorBewonernaam(huisBewoner);
             if (getHuis.IsBot == false)
             {
                 getHuis.IsBot = true;
@@ -909,7 +915,7 @@ namespace CodeGreen
 
         private void btnDeployKeylogger_Click(object sender, EventArgs e)
         {
-            String regel2 = "His password appears to be: " + bank.GetByNaam(curhuis).AccountPassword;
+            String regel2 = "His password appears to be: " + bank.GetByNaam(huisBewoner).AccountPassword;
             ToonBerichtHuis("  Your keylogger has captures the password!", regel2);
         }
 
@@ -1022,12 +1028,12 @@ namespace CodeGreen
         private void pbKnopSound_Click(object sender, EventArgs e)
         {            
             if (options.sound_enabled == true)
-            { options.UpdateSetting("sound", "False");
-            options.sound_enabled = false;
+            { options.UpdateSetting("sound", false);
+            //options.sound_enabled = false;
             }
             else if (options.sound_enabled == false)
-            { options.UpdateSetting("sound", "True");
-            options.sound_enabled = true;
+            { options.UpdateSetting("sound", true);
+            //options.sound_enabled = true;
             }
             this.UpdateStateKnopSound();
         }

@@ -154,6 +154,7 @@
     <EmbeddedResource Include="afb\knop_quitgame.png" />
     <EmbeddedResource Include="afb\knop_sound_off.png" />
     <EmbeddedResource Include="afb\knop_sound_on.png" />
+    <EmbeddedResource Include="afb\selected.png" />
     <Content Include="icon_codegreen.ico" />
     <Content Include="sounds\buy.wav" />
     <Content Include="sounds\README.txt" />

@@ -40,6 +40,7 @@ namespace CodeGreen
         {
             Form frmGame = new GameScreen();
             frmGame.Show();
+            this.timerDropText.Enabled = false;
             this.Hide();
         }
 
@@ -47,6 +48,7 @@ namespace CodeGreen
         {
             GameOptions frmOptions = new GameOptions();
             frmOptions.Show();
+            this.timerDropText.Enabled = false;
             this.Hide();
         }
 
@@ -126,6 +128,10 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Maak een nieuwe vallende tekst, met willekeuige kleur 
+        /// op willekeurige positie bovenaan.
+        /// </summary>
         private void newDropText()
         {
             Random ran = new Random();

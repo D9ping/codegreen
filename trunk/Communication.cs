@@ -13,7 +13,7 @@ namespace CodeGreen
         #region datavelden
         private int gekozenX = 4;
         private int gekozenY = 2;
-        private String selectedhuis;
+        private String selectedhuis = "Your";
         #endregion
 
         #region constructor
@@ -101,16 +101,16 @@ namespace CodeGreen
                     switch (gekozenX)
 	                {
 		                case 1:
-                            selectedhuis = "pbBank";
+                            selectedhuis = "Bank";
                             break;
                         case 2:
-                            selectedhuis = "pbShop";
+                            selectedhuis = "Shop";
                             break;
                         case 3:
                             selectedhuis = "pbHuis5";
                             break;
                         case 4:
-                            selectedhuis = "pbHuisVriend";
+                            selectedhuis = "HuisVriend";
                             break;
                 	}
                     break;

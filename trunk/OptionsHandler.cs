@@ -44,11 +44,12 @@ namespace CodeGreen
         public bool sound_enabled
         {
             get { return this.setting_sound; }
-            set { setting_sound = value; }
+            //set { setting_sound = value; }
         }
         public bool controller_enabled
         {
             get { return this.setting_controller; }
+            //set { setting_controller = value; }
         }
         #endregion
 
@@ -71,12 +72,24 @@ namespace CodeGreen
         /// </summary>
         /// <param name="status">de waarde true of false.</param>
         /// <returns>geeft true terug als het gelukt is.</returns>
-        public bool UpdateSetting(String keysetting, String status)
+        public bool UpdateSetting(String keysetting, bool status)
         {
             try
             {
                 RegistryKey regsleutel = Registry.CurrentUser.OpenSubKey("Software\\CodeGreen", true);
                 regsleutel.SetValue(keysetting, status);
+                switch (keysetting)
+                {
+                    case "Sound":
+                        this.setting_sound = status;
+                        break;
+                    case "Controller":
+                        this.setting_controller = status;
+                        break;
+                    
+                    default:
+                        break;
+                }
                 return true;
             }
             catch

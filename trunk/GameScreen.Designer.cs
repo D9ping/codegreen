@@ -55,6 +55,7 @@
             this.pbHuisVriend = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbKnopShop = new System.Windows.Forms.PictureBox();
+            this.btnCreateBot = new System.Windows.Forms.Button();
             this.pbHuis2 = new System.Windows.Forms.PictureBox();
             this.pbHuis5 = new System.Windows.Forms.PictureBox();
             this.pbHuis3 = new System.Windows.Forms.PictureBox();
@@ -68,7 +69,6 @@
             this.lbTextInfectie = new System.Windows.Forms.Label();
             this.lbWindowsuptodate = new System.Windows.Forms.Label();
             this.lbTextWindowsUpdatetodate = new System.Windows.Forms.Label();
-            this.btnCreateBot = new System.Windows.Forms.Button();
             this.btnGetKeyloggerLog = new System.Windows.Forms.Button();
             this.lbWifiWPA = new System.Windows.Forms.Label();
             this.lbWifiWEP = new System.Windows.Forms.Label();
@@ -96,6 +96,7 @@
             this.gbxBanklogin = new System.Windows.Forms.GroupBox();
             this.cbAccountnummer = new System.Windows.Forms.ComboBox();
             this.pbKnopSound = new System.Windows.Forms.PictureBox();
+            this.lbControllerInfo = new System.Windows.Forms.Label();
             this.gbxGameInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).BeginInit();
             this.gbxWBInventory.SuspendLayout();
@@ -447,6 +448,22 @@
             this.tooltip.SetToolTip(this.pbKnopShop, "Go to software shop");
             this.pbKnopShop.Click += new System.EventHandler(this.VeranderWerkbalk);
             // 
+            // btnCreateBot
+            // 
+            this.btnCreateBot.AutoSize = true;
+            this.btnCreateBot.BackColor = System.Drawing.Color.Black;
+            this.btnCreateBot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateBot.ForeColor = System.Drawing.Color.Lime;
+            this.btnCreateBot.Location = new System.Drawing.Point(479, 15);
+            this.btnCreateBot.Name = "btnCreateBot";
+            this.btnCreateBot.Size = new System.Drawing.Size(131, 25);
+            this.btnCreateBot.TabIndex = 13;
+            this.btnCreateBot.Text = "Make a bot";
+            this.tooltip.SetToolTip(this.btnCreateBot, "Make this house part of the bot network.");
+            this.btnCreateBot.UseVisualStyleBackColor = false;
+            this.btnCreateBot.Visible = false;
+            this.btnCreateBot.Click += new System.EventHandler(this.btnCreateBot_Click);
+            // 
             // pbHuis2
             // 
             this.pbHuis2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -612,22 +629,6 @@
             this.lbTextWindowsUpdatetodate.TabIndex = 14;
             this.lbTextWindowsUpdatetodate.Text = "Windows uptodate:";
             this.lbTextWindowsUpdatetodate.Visible = false;
-            // 
-            // btnCreateBot
-            // 
-            this.btnCreateBot.AutoSize = true;
-            this.btnCreateBot.BackColor = System.Drawing.Color.Black;
-            this.btnCreateBot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateBot.ForeColor = System.Drawing.Color.Lime;
-            this.btnCreateBot.Location = new System.Drawing.Point(479, 15);
-            this.btnCreateBot.Name = "btnCreateBot";
-            this.btnCreateBot.Size = new System.Drawing.Size(131, 25);
-            this.btnCreateBot.TabIndex = 13;
-            this.btnCreateBot.Text = "Make a bot";
-            this.tooltip.SetToolTip(this.btnCreateBot, "Make this house part of the bot network.");
-            this.btnCreateBot.UseVisualStyleBackColor = false;
-            this.btnCreateBot.Visible = false;
-            this.btnCreateBot.Click += new System.EventHandler(this.btnCreateBot_Click);
             // 
             // btnGetKeyloggerLog
             // 
@@ -922,6 +923,16 @@
             this.pbKnopSound.TabStop = false;
             this.pbKnopSound.Click += new System.EventHandler(this.pbKnopSound_Click);
             // 
+            // lbControllerInfo
+            // 
+            this.lbControllerInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lbControllerInfo.ForeColor = System.Drawing.Color.Lavender;
+            this.lbControllerInfo.Location = new System.Drawing.Point(248, 7);
+            this.lbControllerInfo.MinimumSize = new System.Drawing.Size(50, 15);
+            this.lbControllerInfo.Name = "lbControllerInfo";
+            this.lbControllerInfo.Size = new System.Drawing.Size(167, 15);
+            this.lbControllerInfo.TabIndex = 31;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -930,6 +941,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.lbControllerInfo);
             this.Controls.Add(this.pbKnopSound);
             this.Controls.Add(this.gbxWBHuis);
             this.Controls.Add(this.gbxBanklogin);
@@ -1067,5 +1079,6 @@
         private System.Windows.Forms.Label lbInfectie;
         private System.Windows.Forms.Label lbTextInfectie;
         private System.Windows.Forms.PictureBox pbKnopSound;
+        private System.Windows.Forms.Label lbControllerInfo;
     }
 }
