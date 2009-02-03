@@ -41,6 +41,7 @@
             this.tbProductID = new System.Windows.Forms.TextBox();
             this.lbtextVendorID = new System.Windows.Forms.Label();
             this.lbTextProductID = new System.Windows.Forms.Label();
+            this.cbxSwitchXaxis = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).BeginInit();
@@ -163,12 +164,26 @@
             this.lbTextProductID.TabIndex = 9;
             this.lbTextProductID.Text = "Product ID";
             // 
+            // cbxSwitchXaxis
+            // 
+            this.cbxSwitchXaxis.AutoSize = true;
+            this.cbxSwitchXaxis.ForeColor = System.Drawing.Color.Lime;
+            this.cbxSwitchXaxis.Location = new System.Drawing.Point(664, 293);
+            this.cbxSwitchXaxis.Name = "cbxSwitchXaxis";
+            this.cbxSwitchXaxis.Size = new System.Drawing.Size(88, 18);
+            this.cbxSwitchXaxis.TabIndex = 10;
+            this.cbxSwitchXaxis.Text = "switch x axis";
+            this.cbxSwitchXaxis.UseCompatibleTextRendering = true;
+            this.cbxSwitchXaxis.UseVisualStyleBackColor = true;
+            this.cbxSwitchXaxis.CheckedChanged += new System.EventHandler(this.cbxSwitchXaxis_CheckedChanged);
+            // 
             // GameOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 564);
+            this.Controls.Add(this.cbxSwitchXaxis);
             this.Controls.Add(this.lbTextProductID);
             this.Controls.Add(this.lbtextVendorID);
             this.Controls.Add(this.tbProductID);
@@ -204,6 +219,7 @@
         private System.Windows.Forms.TextBox tbProductID;
         private System.Windows.Forms.Label lbtextVendorID;
         private System.Windows.Forms.Label lbTextProductID;
+        private System.Windows.Forms.CheckBox cbxSwitchXaxis;
 
     }
 }

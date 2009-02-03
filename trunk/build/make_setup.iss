@@ -2,8 +2,8 @@
 [Setup]
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
-AppVerName=CodeGreen Release candidates1
-AppVersion=1.0 rc1
+AppVerName=CodeGreen Release candidates2
+AppVersion=1.0 rc2
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -17,7 +17,7 @@ WizardSmallImageBackColor=clWhite
 LicenseFile=license.txt
 AppReadmeFile=changelog.txt
 OutputDir=..\build
-OutputBaseFilename=CodeGreen_setup_v1.0_rc1
+OutputBaseFilename=CodeGreen_setup_v1.0_rc2
 Compression=lzma
 SolidCompression=yes
 ; zorgt voor voldoen rechten onder vista.

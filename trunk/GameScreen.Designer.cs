@@ -220,10 +220,11 @@
             // 
             // progbarServerload
             // 
-            this.progbarServerload.Location = new System.Drawing.Point(22, 8);
+            this.progbarServerload.Location = new System.Drawing.Point(16, 8);
             this.progbarServerload.Name = "progbarServerload";
-            this.progbarServerload.Size = new System.Drawing.Size(88, 23);
+            this.progbarServerload.Size = new System.Drawing.Size(96, 23);
             this.progbarServerload.TabIndex = 6;
+            this.tooltip.SetToolTip(this.progbarServerload, "Server load");
             // 
             // pbKnopInventory
             // 
@@ -973,6 +974,7 @@
             // pbKnopSound
             // 
             this.pbKnopSound.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopSound.Image = ((System.Drawing.Image)(resources.GetObject("pbKnopSound.Image")));
             this.pbKnopSound.Location = new System.Drawing.Point(72, 518);
             this.pbKnopSound.Name = "pbKnopSound";
             this.pbKnopSound.Size = new System.Drawing.Size(18, 18);

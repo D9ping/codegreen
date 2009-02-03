@@ -255,22 +255,6 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Als sound_enable is waar, dan speel muziek en zet knop op juist status.
-        /// </summary>
-        private void UpdateStateKnopSound()
-        {
-            if (options.sound_enabled == true)
-            {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");
-                if (resourcehandler.playsound("backgroundmusic.wav", true) == false) { misc.ToonBericht(5); }                
-            }
-            else if (options.sound_enabled == false)
-            {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");                
-            }
-        }
-
-        /// <summary>
         /// Timer voor tekst effecten (CPU intensief)
         /// </summary>
         /// <param name="sender"></param>
@@ -304,7 +288,7 @@ namespace CodeGreen
                         }
                     }
                     else {
-                            lblIntroTextLine1.Text = misc.TypeWordEffect("Hi, nice for dropping by.");                       
+                            lblIntroTextLine1.Text = misc.TypeWordEffect("How is your work coming along ;P?");                       
                     }
                 }
                 else { misc.ToonBericht(10); }
@@ -320,7 +304,7 @@ namespace CodeGreen
             {
                 if ((gbxBanklogin.Visible == true) && (lbSaldo.Visible ==false))
                 {
-                    lbBanklogininfo.Text = misc.TypeWordEffect("To break in you will need a accountnumber and password.");
+                    lbBanklogininfo.Text = misc.TypeWordEffect("To break in you will need an accountnumber and password.");
                 }
                 else if (lbSaldo.Visible ==false)
                 {
@@ -1113,14 +1097,31 @@ namespace CodeGreen
         private void pbKnopSound_Click(object sender, EventArgs e)
         {            
             if (options.sound_enabled == true)
-            { options.UpdateSetting("sound", false);
-            //options.sound_enabled = false;
+            { options.UpdateSetting("Sound", false);
             }
             else if (options.sound_enabled == false)
-            { options.UpdateSetting("sound", true);
-            
+            { options.UpdateSetting("Sound", true);          
             }
             this.UpdateStateKnopSound();
+        }
+
+        /// <summary>
+        /// Als sound_enable is waar, dan speel muziek en zet knop op juist status.
+        /// </summary>
+        private void UpdateStateKnopSound()
+        {
+            if (options.sound_enabled == true)
+            {
+                //pbKnopSound.Image.Dispose();
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");
+                if (resourcehandler.PlaySound("backgroundmusic.wav", true) == false) { misc.ToonBericht(5); }
+            }
+            else if (options.sound_enabled == false)
+            {
+                //pbKnopSound.Image.Dispose();
+                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");
+                resourcehandler.StopSound();
+            }
         }
 
         /// <summary>
@@ -1220,7 +1221,7 @@ namespace CodeGreen
                         tbCommand.Text = "";
                     }
                 }
-                if (tbCommand.Text == "cheat-for-developer-get-highscore-quick")
+                if (tbCommand.Text == "cheatwin")
                 {
                     progbarServerload.Value = 100;
                 }
@@ -1238,7 +1239,7 @@ namespace CodeGreen
         {
             String hinttext = "";
             if (hint == 1) { hinttext = ", try cracking wifi first"; }
-            else if (hint == 2) { hinttext = ", try using a worm on the unpatch windows machines."; }
+            else if (hint == 2) { hinttext = ", try using a worm on the unpatched windows machines."; }
             lbItemCommandInfo.Text = "No access"+hinttext;
             tbCommand.Text = "";
         }
@@ -1253,7 +1254,7 @@ namespace CodeGreen
             if (lbItemCommandInfo.Visible == false)
             {
                 ToonSlechtItem(this.pbItemWifiWEPCracker);                
-                lbItemCommandInfo.Text = "Enter \"crack\" followed by the SSID of the house that uses the weak WEP encryption for their wifi.";                
+                lbItemCommandInfo.Text = "Enter \"crack\" followed by the SSID of the house that uses a weak WEP encryption for their wifi.";                
             }
             else if (lbItemCommandInfo.Visible == true)
             {
@@ -1294,12 +1295,12 @@ namespace CodeGreen
                 if (inventory.getItemInventory("netwerkscanner").Active == false)
                 {
                     ToonSlechtItem(this.pbItemNetworkScanner);
-                    lbItemCommandInfo.Text = "Enter \"scan\" to reveal all ip adresses in your neigberhood.";
+                    lbItemCommandInfo.Text = "Enter \"scan\" to reveal all IP adresses in your neigbourhood.";
                 }
                 else if (inventory.getItemInventory("netwerkscanner").Active == false)
                 {
                     ToonSlechtItem(this.pbItemNetworkScanner);
-                    lbItemCommandInfo.Text = "You already scanned your neighberhood, and revealed their IP adresses";
+                    lbItemCommandInfo.Text = "You already scanned your neighbourhood, and revealed their IP adresses";
                 }
             }
             else if (lbItemCommandInfo.Visible == true)
@@ -1324,7 +1325,7 @@ namespace CodeGreen
             if (lbItemCommandInfo.Visible == false)
             {
                 ToonSlechtItem(this.pbItemCoderedvirus);
-                lbItemCommandInfo.Text = "Infect everyone with this, undiscoverd virus. Type \"release\" to active.";
+                lbItemCommandInfo.Text = "Infect everyone with this undiscoverd virus. Type \"release\" to activate.";
             }
             else if (lbItemCommandInfo.Visible == true)
             {

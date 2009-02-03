@@ -54,7 +54,7 @@ namespace CodeGreen
             intro_regel[1] = "Your objective is to take the microsoft server down.";
             intro_regel[2] = "To do this, you will need to setup a bot network";
             intro_regel[3] = "by hacking as many house in your neighhood as possible.";
-            intro_regel[4] = "It's time to take control of that micr$oft bastards.";
+            intro_regel[4] = "It's time to take control of those micr$oft bastards.";
 
             friend_regel = new String[4];
             friend_regel[0] = "Your friend lives here, he works for Pabobank.";

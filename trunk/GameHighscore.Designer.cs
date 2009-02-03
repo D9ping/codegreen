@@ -37,13 +37,11 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.lbTextNaam = new System.Windows.Forms.Label();
             this.gbxHighscoren = new System.Windows.Forms.GroupBox();
-            this.timerTextEffect = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.timerTextEffect = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
             this.gbxNewHighscore.SuspendLayout();
             this.gbxHighscoren.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,11 +58,12 @@
             // gbxNewHighscore
             // 
             this.gbxNewHighscore.BackColor = System.Drawing.Color.Transparent;
+            this.gbxNewHighscore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbxNewHighscore.BackgroundImage")));
+            this.gbxNewHighscore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.gbxNewHighscore.Controls.Add(this.lbHighscorenInfo);
             this.gbxNewHighscore.Controls.Add(this.btAddHighscore);
             this.gbxNewHighscore.Controls.Add(this.tbName);
             this.gbxNewHighscore.Controls.Add(this.lbTextNaam);
-            this.gbxNewHighscore.Controls.Add(this.pictureBox1);
             this.gbxNewHighscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxNewHighscore.Location = new System.Drawing.Point(12, 12);
             this.gbxNewHighscore.Name = "gbxNewHighscore";
@@ -138,20 +137,6 @@
             this.gbxHighscoren.UseCompatibleTextRendering = true;
             this.gbxHighscoren.Visible = false;
             // 
-            // timerTextEffect
-            // 
-            this.timerTextEffect.Tick += new System.EventHandler(this.timerTextEffect_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(66, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(605, 341);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -161,6 +146,10 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // timerTextEffect
+            // 
+            this.timerTextEffect.Tick += new System.EventHandler(this.timerTextEffect_Tick);
             // 
             // lbHighscoreInfo
             // 
@@ -180,7 +169,6 @@
             this.gbxNewHighscore.ResumeLayout(false);
             this.gbxNewHighscore.PerformLayout();
             this.gbxHighscoren.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -196,7 +184,6 @@
         private System.Windows.Forms.GroupBox gbxHighscoren;
         private System.Windows.Forms.Label lbHighscorenInfo;
         private System.Windows.Forms.Timer timerTextEffect;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
 
     }

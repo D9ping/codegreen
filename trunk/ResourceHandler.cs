@@ -17,6 +17,7 @@ namespace CodeGreen
         #region datavelden        
         Misc misc;
         OptionsHandler options;
+        SoundPlayer soundplayer;
         #endregion
 
         #region constructor
@@ -24,6 +25,7 @@ namespace CodeGreen
         {
             misc = new Misc();
             options = new OptionsHandler();       
+            soundplayer = new SoundPlayer();
         }
         #endregion
 
@@ -58,13 +60,12 @@ namespace CodeGreen
         /// <param name="bestandsnaam">de bestandsnaam in de sound map</param>
         /// <param name="herhalen">laat het geluidje herhalen</param>
         /// <returns>true als afspelen lukt</returns>
-        public bool playsound(String bestandsnaam, bool herhalen)
+        public bool PlaySound(String bestandsnaam, bool herhalen)
         {
             if (options.sound_enabled == true)
             {
                 try
-                {                    
-                    SoundPlayer soundplayer = new SoundPlayer();
+                {                                        
                     //FIXME: asynch. afspelen met achtergrondgeluid en effect geluid werkt niet.
                     soundplayer.LoadAsync(); 
                     soundplayer.SoundLocation = "sounds\\" + bestandsnaam;
@@ -79,7 +80,11 @@ namespace CodeGreen
             }            
             return true;
         }
-        
+
+        public void StopSound()
+        {
+            soundplayer.Stop();
+        }
         #endregion
 
     }

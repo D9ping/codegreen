@@ -14,12 +14,13 @@ namespace CodeGreen
         private int gekozenX = 4;
         private int gekozenY = 2;
         private String selectedhuis = "Your";
+        private OptionsHandler options;
         #endregion
 
         #region constructor
         public Communication()
         {
-
+            options = new OptionsHandler();            
         }
         #endregion
 
@@ -43,8 +44,14 @@ namespace CodeGreen
 
             String boven = "010000000";
             String onder = "020000000";
-            String rechts = "040000000";
-            String links = "080000000";
+            String rechts = "080000000";
+            String links = "040000000";
+
+            if (options.SwitchXaxis == true)
+            {
+                rechts = "040000000";
+                links = "080000000";
+            }                            
 
             if (s == boven)
             {

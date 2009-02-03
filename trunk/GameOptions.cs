@@ -27,7 +27,10 @@ namespace CodeGreen
 
             tbVendorID.Text = options.VendorID;
             tbProductID.Text = options.ProductID;
-
+            if (options.SwitchXaxis == true)
+            {
+                cbxSwitchXaxis.CheckState = CheckState.Checked;
+            }
             if (options.GetSettingBool("sound") == true) { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png"); }
             else { this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png"); }
             if (options.GetSettingBool("controller") == true) { this.pbStateController.Image = resourceshandler.loadimage("checkbox_on.png"); }
@@ -146,6 +149,18 @@ namespace CodeGreen
             {
                 pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
                 if (options.UpdateSetting("Controller", true) == false) { misc.ToonBericht(3); }
+            }
+        }
+
+        private void cbxSwitchXaxis_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSwitchXaxis.Checked == true)
+            {
+                options.SwitchXaxis = true;
+            }
+            else
+            {
+                options.SwitchXaxis = false;
             }
         }
         #endregion

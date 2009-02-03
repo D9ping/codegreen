@@ -19,6 +19,7 @@ namespace CodeGreen
         private bool setting_controller;
         private String vendorID = "03EB";
         private String productID = "2013";
+        private bool switchXaxis = false;
         #endregion
 
         #region constructor
@@ -62,6 +63,11 @@ namespace CodeGreen
         {
             get { return this.productID; }
             set { productID = value; }
+        }
+        public bool SwitchXaxis
+        {
+            get { return this.switchXaxis; }
+            set { this.switchXaxis = value; }
         }
         #endregion
 
