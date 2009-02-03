@@ -3,9 +3,9 @@ M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGre
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.GameScreen.resources
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.GameMenu.resources
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.Properties.Resources.resources
-M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.GameHighscore.resources
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.csproj.GenerateResource.Cache
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\bin\Debug\CodeGreen.exe
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\bin\Debug\CodeGreen.pdb
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.exe
 M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.pdb
+M:\users\public\sourcecode\Projects_Csharp\codegreen_SVN\trunk\obj\Debug\CodeGreen.lbHighscoreInfo.resources

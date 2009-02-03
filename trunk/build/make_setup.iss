@@ -2,8 +2,8 @@
 [Setup]
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
-AppVerName=CodeGreen beta1
-AppVersion=0.9 Beta1
+AppVerName=CodeGreen Release candidates1
+AppVersion=1.0 rc1
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -17,7 +17,7 @@ WizardSmallImageBackColor=clWhite
 LicenseFile=license.txt
 AppReadmeFile=changelog.txt
 OutputDir=..\build
-OutputBaseFilename=CodeGreen_setup
+OutputBaseFilename=CodeGreen_setup_v1.0_rc1
 Compression=lzma
 SolidCompression=yes
 ; zorgt voor voldoen rechten onder vista.
@@ -45,7 +45,7 @@ Source: "..\bin\Debug\hiscoren.mdb"; DestDir: "{app}"; Flags: touch
 ;Source: "..\afb\*"; DestDir: "{app}\afb"; Flags: ignoreversion touch
 
 ; externe geluid bestanden, deze betstanden zijn NIET in executable compiled.
-Source: "..\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
+Source: "..\bin\Debug\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
 
 [Icons]
 ; Visual Studio debug conf.
@@ -54,7 +54,7 @@ Name: "{group}\{cm:UninstallProgram,CodeGreen}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\CodeGreen"; WorkingDir: "{app}"; Filename: "{app}\CodeGreen.exe"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Flags: nowait postinstall skipifsilent runascurrentuser
 
 [Registry]
 Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Controller"; ValueType: string; ValueData: "False"; Flags: uninsdeletekeyifempty

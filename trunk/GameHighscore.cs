@@ -79,7 +79,7 @@ namespace CodeGreen
                 OleDbDataReader reader;
                 reader = selectcommand.ExecuteReader();
                 int positie = 1;
-                int ypos = 80;
+                int ypos = 50;
                 int fontsize = 24;
                 while (reader.Read())
                 {
@@ -113,16 +113,18 @@ namespace CodeGreen
         private void btAddHighscore_Click(object sender, EventArgs e)
         {            
             if ((tbName.Text!=null) || (tbName.Text!=""))
-            {                
-                addscore(tbName.Text, score);
-                
-                gethighscore();
-                gbxHighscoren.Visible = true;
+            {
+                if (addscore(tbName.Text, score) == true)
+                {
+                    gethighscore();
+                    gbxHighscoren.Visible = true;
+                }
             }
         }
 
-        public void addscore(String naam, int score)
+        public bool addscore(String naam, int score)
         {
+            bool sqladdsucces = false;
             try
             {
                 connection.Open();
@@ -130,16 +132,19 @@ namespace CodeGreen
                 String query = "INSERT INTO scoren (Naam, Score) VALUES ('" + naam + "', '" + score + "')";
                 OleDbCommand InsertCommand = new OleDbCommand(query, connection);
                 InsertCommand.ExecuteNonQuery();
+                sqladdsucces = true;
             }
 
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+                sqladdsucces = false;
             }
             finally
             {
                 connection.Close();
             }
+            return sqladdsucces;
         }
 
         private void timerTextEffect_Tick(object sender, EventArgs e)

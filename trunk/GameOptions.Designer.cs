@@ -123,6 +123,8 @@
             // 
             // tbVendorID
             // 
+            this.tbVendorID.BackColor = System.Drawing.Color.Gray;
+            this.tbVendorID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbVendorID.Location = new System.Drawing.Point(677, 244);
             this.tbVendorID.Name = "tbVendorID";
             this.tbVendorID.Size = new System.Drawing.Size(73, 20);
@@ -132,6 +134,8 @@
             // 
             // tbProductID
             // 
+            this.tbProductID.BackColor = System.Drawing.Color.Gray;
+            this.tbProductID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbProductID.Location = new System.Drawing.Point(677, 267);
             this.tbProductID.Name = "tbProductID";
             this.tbProductID.Size = new System.Drawing.Size(73, 20);

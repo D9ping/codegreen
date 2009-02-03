@@ -38,8 +38,13 @@
             this.lbTextNaam = new System.Windows.Forms.Label();
             this.gbxHighscoren = new System.Windows.Forms.GroupBox();
             this.timerTextEffect = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
             this.gbxNewHighscore.SuspendLayout();
+            this.gbxHighscoren.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pbBackMenu
@@ -59,6 +64,7 @@
             this.gbxNewHighscore.Controls.Add(this.btAddHighscore);
             this.gbxNewHighscore.Controls.Add(this.tbName);
             this.gbxNewHighscore.Controls.Add(this.lbTextNaam);
+            this.gbxNewHighscore.Controls.Add(this.pictureBox1);
             this.gbxNewHighscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxNewHighscore.Location = new System.Drawing.Point(12, 12);
             this.gbxNewHighscore.Name = "gbxNewHighscore";
@@ -85,9 +91,9 @@
             this.btAddHighscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddHighscore.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAddHighscore.ForeColor = System.Drawing.Color.Lime;
-            this.btAddHighscore.Location = new System.Drawing.Point(478, 226);
+            this.btAddHighscore.Location = new System.Drawing.Point(472, 226);
             this.btAddHighscore.Name = "btAddHighscore";
-            this.btAddHighscore.Size = new System.Drawing.Size(73, 28);
+            this.btAddHighscore.Size = new System.Drawing.Size(73, 26);
             this.btAddHighscore.TabIndex = 1;
             this.btAddHighscore.Text = "ok";
             this.btAddHighscore.UseCompatibleTextRendering = true;
@@ -111,7 +117,7 @@
             this.lbTextNaam.AutoSize = true;
             this.lbTextNaam.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTextNaam.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextNaam.Location = new System.Drawing.Point(97, 230);
+            this.lbTextNaam.Location = new System.Drawing.Point(107, 226);
             this.lbTextNaam.Name = "lbTextNaam";
             this.lbTextNaam.Size = new System.Drawing.Size(223, 24);
             this.lbTextNaam.TabIndex = 0;
@@ -120,6 +126,7 @@
             // 
             // gbxHighscoren
             // 
+            this.gbxHighscoren.Controls.Add(this.pictureBox2);
             this.gbxHighscoren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxHighscoren.ForeColor = System.Drawing.Color.Lime;
             this.gbxHighscoren.Location = new System.Drawing.Point(12, 289);
@@ -134,6 +141,26 @@
             // timerTextEffect
             // 
             this.timerTextEffect.Tick += new System.EventHandler(this.timerTextEffect_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(66, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(605, 341);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(15, 44);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(264, 277);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // lbHighscoreInfo
             // 
@@ -152,6 +179,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).EndInit();
             this.gbxNewHighscore.ResumeLayout(false);
             this.gbxNewHighscore.PerformLayout();
+            this.gbxHighscoren.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,6 +196,8 @@
         private System.Windows.Forms.GroupBox gbxHighscoren;
         private System.Windows.Forms.Label lbHighscorenInfo;
         private System.Windows.Forms.Timer timerTextEffect;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
 
     }
 }
