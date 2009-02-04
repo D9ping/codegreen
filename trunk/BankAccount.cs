@@ -57,17 +57,12 @@ namespace CodeGreen
 
             for (int i = 0; i < paswlength; i++)
             {
-                password += Convert.ToString(generator.Next(0, 10)); // 0 Tot 9 (niet 10, wel 0)
+                int rangetal = generator.Next(0, 10);
+                password += Convert.ToString(rangetal); // 0 Tot 9 (niet 10, wel 0)                
             }
             return password;
         }
 
-        private int MakeSaldo(int minsaldo, int maxsaldo)
-        {
-            Random generator = new Random();
-            int saldo = generator.Next(minsaldo, maxsaldo);
-            return saldo;
-        }
         /// <summary>
         /// Neem geld op van deze account.
         /// </summary>
@@ -86,6 +81,11 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Geld op een account toevoegen en controlleren of bedrag positief is.
+        /// </summary>
+        /// <param name="bedrag"></param>
+        /// <returns></returns>
         public bool geldstorten(int bedrag)
         {
             if (bedrag>0)

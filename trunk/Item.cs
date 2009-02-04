@@ -8,7 +8,7 @@ namespace CodeGreen
     class Item
     {
         #region datavelden
-        int pos;
+        //int pos;
         //object pbitem;
         String naamitem;
         int prijs;

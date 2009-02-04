@@ -49,28 +49,20 @@
             // 
             // lblOptionSound
             // 
-            this.lblOptionSound.AutoSize = true;
-            this.lblOptionSound.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lblOptionSound, "lblOptionSound");
             this.lblOptionSound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblOptionSound.Location = new System.Drawing.Point(123, 151);
             this.lblOptionSound.Name = "lblOptionSound";
-            this.lblOptionSound.Size = new System.Drawing.Size(92, 31);
-            this.lblOptionSound.TabIndex = 1;
-            this.lblOptionSound.Text = "Sound";
+            this.lblOptionSound.UseCompatibleTextRendering = true;
             this.lblOptionSound.MouseLeave += new System.EventHandler(this.knop_normal);
             this.lblOptionSound.Click += new System.EventHandler(this.lblOptionSound_Click);
             this.lblOptionSound.MouseHover += new System.EventHandler(this.knop_hover);
             // 
             // lblTextOptions
             // 
-            this.lblTextOptions.AutoSize = true;
-            this.lblTextOptions.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lblTextOptions, "lblTextOptions");
             this.lblTextOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblTextOptions.Location = new System.Drawing.Point(286, 33);
             this.lblTextOptions.Name = "lblTextOptions";
-            this.lblTextOptions.Size = new System.Drawing.Size(34, 36);
-            this.lblTextOptions.TabIndex = 2;
-            this.lblTextOptions.Text = "_";
+            this.lblTextOptions.UseCompatibleTextRendering = true;
             // 
             // TimerTextEffect
             // 
@@ -79,110 +71,78 @@
             // 
             // lbOptionController
             // 
-            this.lbOptionController.AutoSize = true;
-            this.lbOptionController.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lbOptionController, "lbOptionController");
             this.lbOptionController.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lbOptionController.Location = new System.Drawing.Point(123, 255);
             this.lbOptionController.Name = "lbOptionController";
-            this.lbOptionController.Size = new System.Drawing.Size(228, 31);
-            this.lbOptionController.TabIndex = 4;
-            this.lbOptionController.Text = "Remote controller";
+            this.lbOptionController.UseCompatibleTextRendering = true;
             this.lbOptionController.MouseLeave += new System.EventHandler(this.knop_normal);
             this.lbOptionController.Click += new System.EventHandler(this.lbOptionController_Click);
             this.lbOptionController.MouseHover += new System.EventHandler(this.knop_hover);
             // 
             // pbStateController
             // 
-            this.pbStateController.Image = ((System.Drawing.Image)(resources.GetObject("pbStateController.Image")));
-            this.pbStateController.Location = new System.Drawing.Point(33, 226);
+            resources.ApplyResources(this.pbStateController, "pbStateController");
             this.pbStateController.Name = "pbStateController";
-            this.pbStateController.Size = new System.Drawing.Size(84, 82);
-            this.pbStateController.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbStateController.TabIndex = 5;
             this.pbStateController.TabStop = false;
             // 
             // pbBackMenu
             // 
-            this.pbBackMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbBackMenu.Image")));
-            this.pbBackMenu.Location = new System.Drawing.Point(277, 487);
+            resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
             this.pbBackMenu.Name = "pbBackMenu";
-            this.pbBackMenu.Size = new System.Drawing.Size(201, 45);
-            this.pbBackMenu.TabIndex = 3;
             this.pbBackMenu.TabStop = false;
             this.pbBackMenu.Click += new System.EventHandler(this.pbBackMenu_Click);
             this.pbBackMenu.MouseHover += new System.EventHandler(this.knop_hover);
             // 
             // pbStateSound
             // 
-            this.pbStateSound.Image = ((System.Drawing.Image)(resources.GetObject("pbStateSound.Image")));
-            this.pbStateSound.Location = new System.Drawing.Point(33, 123);
+            resources.ApplyResources(this.pbStateSound, "pbStateSound");
             this.pbStateSound.Name = "pbStateSound";
-            this.pbStateSound.Size = new System.Drawing.Size(84, 82);
-            this.pbStateSound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbStateSound.TabIndex = 0;
             this.pbStateSound.TabStop = false;
             // 
             // tbVendorID
             // 
             this.tbVendorID.BackColor = System.Drawing.Color.Gray;
             this.tbVendorID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbVendorID.Location = new System.Drawing.Point(677, 244);
+            resources.ApplyResources(this.tbVendorID, "tbVendorID");
             this.tbVendorID.Name = "tbVendorID";
-            this.tbVendorID.Size = new System.Drawing.Size(73, 20);
-            this.tbVendorID.TabIndex = 6;
-            this.tbVendorID.Text = "????";
             this.tbVendorID.TextChanged += new System.EventHandler(this.tbVendorID_TextChanged);
             // 
             // tbProductID
             // 
             this.tbProductID.BackColor = System.Drawing.Color.Gray;
             this.tbProductID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbProductID.Location = new System.Drawing.Point(677, 267);
+            resources.ApplyResources(this.tbProductID, "tbProductID");
             this.tbProductID.Name = "tbProductID";
-            this.tbProductID.Size = new System.Drawing.Size(73, 20);
-            this.tbProductID.TabIndex = 7;
-            this.tbProductID.Text = "????";
             this.tbProductID.TextChanged += new System.EventHandler(this.tbProductID_TextChanged);
             // 
             // lbtextVendorID
             // 
-            this.lbtextVendorID.AutoSize = true;
+            resources.ApplyResources(this.lbtextVendorID, "lbtextVendorID");
             this.lbtextVendorID.ForeColor = System.Drawing.Color.Lime;
-            this.lbtextVendorID.Location = new System.Drawing.Point(617, 247);
             this.lbtextVendorID.Name = "lbtextVendorID";
-            this.lbtextVendorID.Size = new System.Drawing.Size(55, 13);
-            this.lbtextVendorID.TabIndex = 8;
-            this.lbtextVendorID.Text = "Vendor ID";
+            this.lbtextVendorID.UseCompatibleTextRendering = true;
             // 
             // lbTextProductID
             // 
-            this.lbTextProductID.AutoSize = true;
+            resources.ApplyResources(this.lbTextProductID, "lbTextProductID");
             this.lbTextProductID.ForeColor = System.Drawing.Color.Lime;
-            this.lbTextProductID.Location = new System.Drawing.Point(613, 274);
             this.lbTextProductID.Name = "lbTextProductID";
-            this.lbTextProductID.Size = new System.Drawing.Size(58, 13);
-            this.lbTextProductID.TabIndex = 9;
-            this.lbTextProductID.Text = "Product ID";
+            this.lbTextProductID.UseCompatibleTextRendering = true;
             // 
             // cbxSwitchXaxis
             // 
-            this.cbxSwitchXaxis.AutoSize = true;
+            resources.ApplyResources(this.cbxSwitchXaxis, "cbxSwitchXaxis");
             this.cbxSwitchXaxis.ForeColor = System.Drawing.Color.Lime;
-            this.cbxSwitchXaxis.Location = new System.Drawing.Point(664, 293);
             this.cbxSwitchXaxis.Name = "cbxSwitchXaxis";
-            this.cbxSwitchXaxis.Size = new System.Drawing.Size(88, 18);
-            this.cbxSwitchXaxis.TabIndex = 10;
-            this.cbxSwitchXaxis.Text = "switch x axis";
             this.cbxSwitchXaxis.UseCompatibleTextRendering = true;
             this.cbxSwitchXaxis.UseVisualStyleBackColor = true;
             this.cbxSwitchXaxis.CheckedChanged += new System.EventHandler(this.cbxSwitchXaxis_CheckedChanged);
             // 
             // GameOptions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(784, 564);
             this.Controls.Add(this.cbxSwitchXaxis);
             this.Controls.Add(this.lbTextProductID);
             this.Controls.Add(this.lbtextVendorID);
@@ -194,9 +154,8 @@
             this.Controls.Add(this.lblTextOptions);
             this.Controls.Add(this.lblOptionSound);
             this.Controls.Add(this.pbStateSound);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "GameOptions";
-            this.Text = "Codegreen Options";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameOptions_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).EndInit();

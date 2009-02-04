@@ -8,20 +8,20 @@ namespace CodeGreen
     class Bank
     {
         #region datavelden
-        private List<Bankaccount> accounts;           
+        private List<Bankaccount> accounts;
+        private int i;
         #endregion
 
         #region constructor
         public Bank()
-        {
-            //nextRekeningNr = 1;
+        {            
             accounts = new List<Bankaccount>();
 
             RegistreerAccount("speler", "999.999.999.999", 0, 200);
-            RegistreerAccount("Jan de Vries", "34.89.57.74", 3, 500);
-            RegistreerAccount("Marrieke", "23.45.56.81", 4, 360);
-            RegistreerAccount("Pieter", "56.35.67.101", 4, 740);
-            RegistreerAccount("Roel", "78.127.57.23", 5, 680);
+            RegistreerAccount("Jan de Vries", ranbankaccnum()+".89.57.74", 3, 500);
+            RegistreerAccount("Marrieke", ranbankaccnum() + ".45.56.81", 4, 360);
+            RegistreerAccount("Pieter", ranbankaccnum()+".35.67.101", 5, 740);
+            RegistreerAccount("Roel", ranbankaccnum()+".127.57.23", 6, 680);
         }
         #endregion
 
@@ -106,6 +106,16 @@ namespace CodeGreen
                 else { return false; }
             }
             else { return false; }
+        }
+
+        public String ranbankaccnum()
+        {
+            i++;
+            Random ran = new Random();
+            
+            int getal = ran.Next(1,256);
+            return getal.ToString();
+            
         }
 
 

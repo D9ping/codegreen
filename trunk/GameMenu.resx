@@ -276,6 +276,28 @@
         zuwhAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="pbExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 480</value>
+  </data>
+  <data name="pbExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 41</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbExit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pbExit.Name" xml:space="preserve">
+    <value>pbExit</value>
+  </data>
+  <data name="&gt;&gt;pbExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbExit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbExit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="pbHighscore.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAoCAYAAAC7HLUcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -518,6 +540,27 @@
         22XpT1WtdYxiQf4fdW/+P71vjvwAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="pbHighscore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 434</value>
+  </data>
+  <data name="pbHighscore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 40</value>
+  </data>
+  <data name="pbHighscore.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pbHighscore.Name" xml:space="preserve">
+    <value>pbHighscore</value>
+  </data>
+  <data name="&gt;&gt;pbHighscore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbHighscore.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbHighscore.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pbOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAoCAYAAAC7HLUcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -724,6 +767,27 @@
         t++z9k+IB07AIyfiLT17CvhBGei6HJ7hRK7qPYH1UPk0G6dPcdT/O2xyfp3M7Mdws07w9/8A2VJX4aYK
         R8sAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="pbOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 388</value>
+  </data>
+  <data name="pbOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 40</value>
+  </data>
+  <data name="pbOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pbOptions.Name" xml:space="preserve">
+    <value>pbOptions</value>
+  </data>
+  <data name="&gt;&gt;pbOptions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbOptions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbOptions.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="pbStartGame.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -960,6 +1024,27 @@
         bOq3llr3LfG5jz9WQYbK3z7Oso/Os+w3+izzlfG615mMx7TK+Ji2G3xf8IOTcJIGfyYZ+KH6bYaRsvhj
         LUQjo9+V9+D6I22F+YG2HD2mg2tfVWb2cjepf8W//wdTCDyYJV70ngAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="pbStartGame.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 342</value>
+  </data>
+  <data name="pbStartGame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 40</value>
+  </data>
+  <data name="pbStartGame.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pbStartGame.Name" xml:space="preserve">
+    <value>pbStartGame</value>
+  </data>
+  <data name="&gt;&gt;pbStartGame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbStartGame.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbStartGame.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="pbTitel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5638,10 +5723,65 @@
         SUVORK5CYII=
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbTitel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="pbTitel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, -7</value>
+  </data>
+  <data name="pbTitel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>783, 263</value>
+  </data>
+  <data name="pbTitel.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="pbTitel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pbTitel.Name" xml:space="preserve">
+    <value>pbTitel</value>
+  </data>
+  <data name="&gt;&gt;pbTitel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbTitel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbTitel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <metadata name="timerDropText.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>54</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 564</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>CodeGreen</value>
+  </data>
+  <data name="&gt;&gt;timerDropText.Name" xml:space="preserve">
+    <value>timerDropText</value>
+  </data>
+  <data name="&gt;&gt;timerDropText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>GameMenu</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

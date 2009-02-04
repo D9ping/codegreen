@@ -15,8 +15,8 @@ namespace CodeGreen
         #region datavelden
         private RegistryKey regsleutel;
         private Misc misc;
-        private bool setting_sound;
-        private bool setting_controller;
+        private bool settingSound;
+        private bool settingController;
         private String vendorID = "03EB";
         private String productID = "2013";
         private bool switchXaxis = false;
@@ -26,19 +26,12 @@ namespace CodeGreen
         public OptionsHandler()
         {
             misc = new Misc();
+            
+            if (GetSettingBool("Sound") == true) { settingSound = true; }
+            else if (GetSettingBool("Sound") == false) { settingSound = false; }
 
-            try
-            {
-                if (GetSettingBool("Sound") == true) { setting_sound = true; }
-                else if (GetSettingBool("Sound") == false) { setting_sound = false; }
-
-                if (GetSettingBool("Controller") == true) { setting_controller = true; }
-                else if (GetSettingBool("Controller") == false) { setting_controller = false; }
-            }
-            catch (Exception)
-            {
-                misc.ToonBericht(3);                
-            }
+            if (GetSettingBool("Controller") == true) { settingController = true; }
+            else if (GetSettingBool("Controller") == false) { settingController = false; }
 
         }
         #endregion
@@ -46,12 +39,12 @@ namespace CodeGreen
         #region properties
         public bool sound_enabled
         {
-            get { return this.setting_sound; }
+            get { return this.settingSound; }
             //set { setting_sound = value; }
         }
         public bool controller_enabled
         {
-            get { return this.setting_controller; }
+            get { return this.settingController; }
             //set { setting_controller = value; }
         }
         public String VendorID
@@ -99,10 +92,10 @@ namespace CodeGreen
                 switch (keysetting)
                 {
                     case "Sound":
-                        this.setting_sound = status;
+                        this.settingSound = status;
                         break;
                     case "Controller":
-                        this.setting_controller = status;
+                        this.settingController = status;
                         break;
                     
                     default:
@@ -110,8 +103,9 @@ namespace CodeGreen
                 }
                 return true;
             }
-            catch
+            catch (Exception exc)
             {
+                misc.ToonError(exc);
                 return false;
             }
         }        

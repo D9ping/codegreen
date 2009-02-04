@@ -36,7 +36,6 @@
             this.pbStartGame = new System.Windows.Forms.PictureBox();
             this.pbTitel = new System.Windows.Forms.PictureBox();
             this.timerDropText = new System.Windows.Forms.Timer(this.components);
-            this.llbFeedback = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOptions)).BeginInit();
@@ -48,11 +47,8 @@
             // 
             this.pbExit.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.pbExit.BackColor = System.Drawing.Color.Transparent;
-            this.pbExit.Image = ((System.Drawing.Image)(resources.GetObject("pbExit.Image")));
-            this.pbExit.Location = new System.Drawing.Point(555, 480);
+            resources.ApplyResources(this.pbExit, "pbExit");
             this.pbExit.Name = "pbExit";
-            this.pbExit.Size = new System.Drawing.Size(200, 41);
-            this.pbExit.TabIndex = 3;
             this.pbExit.TabStop = false;
             this.pbExit.MouseLeave += new System.EventHandler(this.knop_normal);
             this.pbExit.Click += new System.EventHandler(this.GameShutdown);
@@ -61,11 +57,8 @@
             // pbHighscore
             // 
             this.pbHighscore.BackColor = System.Drawing.Color.Transparent;
-            this.pbHighscore.Image = ((System.Drawing.Image)(resources.GetObject("pbHighscore.Image")));
-            this.pbHighscore.Location = new System.Drawing.Point(555, 434);
+            resources.ApplyResources(this.pbHighscore, "pbHighscore");
             this.pbHighscore.Name = "pbHighscore";
-            this.pbHighscore.Size = new System.Drawing.Size(200, 40);
-            this.pbHighscore.TabIndex = 2;
             this.pbHighscore.TabStop = false;
             this.pbHighscore.MouseLeave += new System.EventHandler(this.knop_normal);
             this.pbHighscore.Click += new System.EventHandler(this.pbHighscore_Click);
@@ -74,11 +67,8 @@
             // pbOptions
             // 
             this.pbOptions.BackColor = System.Drawing.Color.Transparent;
-            this.pbOptions.Image = ((System.Drawing.Image)(resources.GetObject("pbOptions.Image")));
-            this.pbOptions.Location = new System.Drawing.Point(555, 388);
+            resources.ApplyResources(this.pbOptions, "pbOptions");
             this.pbOptions.Name = "pbOptions";
-            this.pbOptions.Size = new System.Drawing.Size(200, 40);
-            this.pbOptions.TabIndex = 1;
             this.pbOptions.TabStop = false;
             this.pbOptions.MouseLeave += new System.EventHandler(this.knop_normal);
             this.pbOptions.Click += new System.EventHandler(this.pbOptions_Click);
@@ -87,12 +77,9 @@
             // pbStartGame
             // 
             this.pbStartGame.BackColor = System.Drawing.Color.Transparent;
-            this.pbStartGame.Image = ((System.Drawing.Image)(resources.GetObject("pbStartGame.Image")));
+            resources.ApplyResources(this.pbStartGame, "pbStartGame");
             this.pbStartGame.InitialImage = null;
-            this.pbStartGame.Location = new System.Drawing.Point(555, 342);
             this.pbStartGame.Name = "pbStartGame";
-            this.pbStartGame.Size = new System.Drawing.Size(200, 40);
-            this.pbStartGame.TabIndex = 0;
             this.pbStartGame.TabStop = false;
             this.pbStartGame.MouseLeave += new System.EventHandler(this.knop_normal);
             this.pbStartGame.Click += new System.EventHandler(this.pbStartGame_Click);
@@ -101,13 +88,8 @@
             // pbTitel
             // 
             this.pbTitel.BackColor = System.Drawing.Color.Transparent;
-            this.pbTitel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbTitel.BackgroundImage")));
-            this.pbTitel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbTitel.Location = new System.Drawing.Point(-1, -7);
+            resources.ApplyResources(this.pbTitel, "pbTitel");
             this.pbTitel.Name = "pbTitel";
-            this.pbTitel.Size = new System.Drawing.Size(783, 263);
-            this.pbTitel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbTitel.TabIndex = 0;
             this.pbTitel.TabStop = false;
             // 
             // timerDropText
@@ -115,31 +97,18 @@
             this.timerDropText.Interval = 30;
             this.timerDropText.Tick += new System.EventHandler(this.timerDropText_Tick);
             // 
-            // llbFeedback
-            // 
-            this.llbFeedback.AutoSize = true;
-            this.llbFeedback.Location = new System.Drawing.Point(12, 9);
-            this.llbFeedback.Name = "llbFeedback";
-            this.llbFeedback.Size = new System.Drawing.Size(66, 13);
-            this.llbFeedback.TabIndex = 4;
-            this.llbFeedback.TabStop = true;
-            this.llbFeedback.Text = "Rapport bug";
-            this.llbFeedback.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // GameMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(784, 564);
-            this.Controls.Add(this.llbFeedback);
             this.Controls.Add(this.pbExit);
             this.Controls.Add(this.pbHighscore);
             this.Controls.Add(this.pbOptions);
             this.Controls.Add(this.pbStartGame);
             this.Controls.Add(this.pbTitel);
+            this.MaximizeBox = false;
             this.Name = "GameMenu";
-            this.Text = "CodeGreen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameShutdown);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).EndInit();
@@ -147,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbStartGame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitel)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -159,7 +127,6 @@
         private System.Windows.Forms.PictureBox pbOptions;
         private System.Windows.Forms.PictureBox pbStartGame;
         private System.Windows.Forms.Timer timerDropText;
-        private System.Windows.Forms.LinkLabel llbFeedback;
     }
 }
 

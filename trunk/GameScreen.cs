@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using UsbLibrary; //ondersteuning voor joystick
+//using UsbLibrary; //ondersteuning voor joystick
 
 namespace CodeGreen
 {
@@ -75,10 +75,10 @@ namespace CodeGreen
 
         #region methoden
         private void resetgame()
-        {            
+        {
             inventory.youritems.Clear();
             huizen.Clear();
-            inithuizen();
+            initHuizen();
 
             timesec = 0;
             timemin = 0;
@@ -91,14 +91,12 @@ namespace CodeGreen
         /// <summary>
         /// Maak alle huizen aan.
         /// </summary>
-        private void inithuizen()
+        private void initHuizen()
         {
             try
-            {
-                //TODO: verzin betere namen.
+            {                
                 Huis[] huis = new Huis[5];
-                huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, false);
-                //(object huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa, bool windowsoutdated)
+                huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, false);                
                 huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "devries", true, false, false);
                 huis[2] = new Huis(pbHuis3, "Marrieke", "100.11.22.33", true, "netgears", false, true, true);
                 huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, true);
@@ -146,11 +144,11 @@ namespace CodeGreen
                 btnReconnect.Visible = true;
                 if (ConnectController1() == true)
                 {
+                    //if (werkbalk != WerkbalkState.INSTRUCTIE) { GetControllerHuis(); }
                     GetControllerHuis();
                     lbControllerInfo.Text = "Connected with controller\r\n" +
                     "             VendorID: " + options.VendorID + "\r\n" +
-                    "             ProductID: " + options.ProductID;
-                    
+                    "             ProductID: " + options.ProductID;                                        
                 }
                 else
                 {
@@ -194,7 +192,7 @@ namespace CodeGreen
                 PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
                 pbhuis.Image = resourcehandler.loadimage("selected.png");
                 pbhuis.SizeMode = PictureBoxSizeMode.StretchImage;
-                VeranderWerkbalk(pbhuis, EventArgs.Empty);
+                if (werkbalk != WerkbalkState.INSTRUCTIE) { VeranderWerkbalk(pbhuis, EventArgs.Empty); }
             }
             else if (communication.GeselecteerdHuis == "Bank")
             {
@@ -414,8 +412,7 @@ namespace CodeGreen
                         if (getHuis(sender) == null) { misc.ToonBericht(7); return; }
                         ToonHuisInfo(getHuis(sender));
                     }
-                }
-                
+                }                
             }
             ToonWerkbalk();
         }

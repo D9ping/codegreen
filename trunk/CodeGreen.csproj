@@ -15,6 +15,18 @@
     <ApplicationIcon>icon_codegreen.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <StartupObject>CodeGreen.Program</StartupObject>
+    <ManifestCertificateThumbprint>2D2D4F0DBB45051362BF81B58B87C0B0C887364C</ManifestCertificateThumbprint>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <TargetZone>LocalIntranet</TargetZone>
+    <TargetFrameworkSubset>Full</TargetFrameworkSubset>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,9 +40,12 @@
     <SupportUrl>http://code.google.com/p/codegreen/</SupportUrl>
     <TargetCulture>en</TargetCulture>
     <ProductName>CodeGreen</ProductName>
+    <PublisherName>CodeGreen</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>0.9.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,21 +53,31 @@
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Xml.Linq">
@@ -122,6 +147,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ResourceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +172,7 @@
     <EmbeddedResource Include="afb\knop_options_selected.png" />
     <EmbeddedResource Include="afb\knop_start.png" />
     <EmbeddedResource Include="afb\knop_start_selected.png" />
-    <EmbeddedResource Include="afb\logo_CodeGreen.jpg" />
+    <None Include="afb\logo_CodeGreen.jpg" />
     <EmbeddedResource Include="afb\werkbalkknop_bank_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_bank_on.png" />
     <EmbeddedResource Include="GameHighscore.resx">
@@ -150,15 +180,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="afb\werkbalkknop_shop_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_shop_on.png" />
-    <Content Include="afb\game_truck_driveright.png" />
+    <None Include="afb\game_truck_driveright.png" />
     <EmbeddedResource Include="afb\knop_quitgame.png" />
     <EmbeddedResource Include="afb\knop_sound_off.png" />
     <EmbeddedResource Include="afb\knop_sound_on.png" />
     <EmbeddedResource Include="afb\selected.png" />
     <EmbeddedResource Include="afb\not_selected.png" />
     <Content Include="icon_codegreen.ico" />
-    <Content Include="sounds\buy.wav" />
-    <Content Include="sounds\README.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -195,6 +223,13 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -203,4 +238,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

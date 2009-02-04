@@ -87,7 +87,9 @@ namespace CodeGreen
                     {
                         Label lbscore = new Label();
                         lbscore.Font = new Font(lbscore.Font.FontFamily, fontsize);
-                        lbscore.Text = positie.ToString() + ". " + reader["Naam"].ToString() + "  (" + reader["Score"] + "points)";
+                        String naam = Convert.ToString(reader["Naam"]);
+                        String getdbscore = Convert.ToString(reader["Score"]);
+                        lbscore.Text = positie.ToString() + ". " + naam + " (" + getdbscore + "points)";
                         lbscore.AutoSize = true;
                         lbscore.ForeColor = Color.Lime;
                         lbscore.Location = new Point(300, ypos);
@@ -100,9 +102,9 @@ namespace CodeGreen
                 }
 
             }
-            catch (Exception exc)
+            catch (OleDbException exc)
             {
-                MessageBox.Show("fout db ophalen.: " + exc.Message);
+                misc.ToonError(exc);                                
             }
             finally
             {
@@ -134,10 +136,9 @@ namespace CodeGreen
                 InsertCommand.ExecuteNonQuery();
                 sqladdsucces = true;
             }
-
-            catch (Exception exc)
+            catch (OleDbException exc)
             {
-                MessageBox.Show(exc.Message);
+                misc.ToonError(exc);                
                 sqladdsucces = false;
             }
             finally

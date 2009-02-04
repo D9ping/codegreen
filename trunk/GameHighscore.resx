@@ -154,6 +154,28 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pbBackMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>288, 507</value>
+  </data>
+  <data name="pbBackMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 45</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbBackMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.Name" xml:space="preserve">
+    <value>pbBackMenu</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="gbxNewHighscore.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAf4AAAGECAMAAADgCLKwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -580,11 +602,153 @@
         jdGPY7jH8Uw1Jg5MHJg4MHHgR+HA/x9J9lYgENyxtgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbxNewHighscore.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="lbHighscorenInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbHighscorenInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 14.25pt</value>
+  </data>
+  <data name="lbHighscorenInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 199</value>
+  </data>
+  <data name="lbHighscorenInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 27</value>
+  </data>
+  <data name="lbHighscorenInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbHighscorenInfo.Text" xml:space="preserve">
+    <value>(..)</value>
+  </data>
+  <data name="&gt;&gt;lbHighscorenInfo.Name" xml:space="preserve">
+    <value>lbHighscorenInfo</value>
+  </data>
+  <data name="&gt;&gt;lbHighscorenInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbHighscorenInfo.Parent" xml:space="preserve">
+    <value>gbxNewHighscore</value>
+  </data>
+  <data name="&gt;&gt;lbHighscorenInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btAddHighscore.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btAddHighscore.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 9.75pt</value>
+  </data>
+  <data name="btAddHighscore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>472, 226</value>
+  </data>
+  <data name="btAddHighscore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 26</value>
+  </data>
+  <data name="btAddHighscore.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btAddHighscore.Text" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="&gt;&gt;btAddHighscore.Name" xml:space="preserve">
+    <value>btAddHighscore</value>
+  </data>
+  <data name="&gt;&gt;btAddHighscore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btAddHighscore.Parent" xml:space="preserve">
+    <value>gbxNewHighscore</value>
+  </data>
+  <data name="&gt;&gt;btAddHighscore.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="tbName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>326, 226</value>
+  </data>
+  <data name="tbName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 26</value>
+  </data>
+  <data name="tbName.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tbName.Name" xml:space="preserve">
+    <value>tbName</value>
+  </data>
+  <data name="&gt;&gt;tbName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbName.Parent" xml:space="preserve">
+    <value>gbxNewHighscore</value>
+  </data>
+  <data name="&gt;&gt;tbName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbTextNaam.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbTextNaam.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 12pt</value>
+  </data>
+  <data name="lbTextNaam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 226</value>
+  </data>
+  <data name="lbTextNaam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 24</value>
+  </data>
+  <data name="lbTextNaam.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbTextNaam.Text" xml:space="preserve">
+    <value>enter your (nick)name:</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.Name" xml:space="preserve">
+    <value>lbTextNaam</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.Parent" xml:space="preserve">
+    <value>gbxNewHighscore</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gbxNewHighscore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="gbxNewHighscore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>574, 260</value>
+  </data>
+  <data name="gbxNewHighscore.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="gbxNewHighscore.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;gbxNewHighscore.Name" xml:space="preserve">
+    <value>gbxNewHighscore</value>
+  </data>
+  <data name="&gt;&gt;gbxNewHighscore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxNewHighscore.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxNewHighscore.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEQAA
-        CxEBf2RfkQAA/3lJREFUeF7M/Q/Etuma3om+08syS5my7LJYilKUohSlKItl7BGW0IYIsUwLrbeo2RHG
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALDwAA
+        Cw8BkvkDpQAA/3lJREFUeF7M/Q/Etuma3om+08syS5my7LJYilKUohSlKItl7BGW0IYIsUwLrbeo2RHG
         sISlGaE1LbTQmggRYui9t2haiN5ab623ltEyookQi5ZtZFs7xCaGWKN3j55uK7WP3/Ecx/mdz/3dz/s+
         7/d9tXqKu57vff7c9/XnPI/zOP9c1/WfPHzl4YsH/vuph4evfPXh4cf/2+X1P/3w4eE/+oOHhz/7Yd7/
         z/T6Z7yhSx9+Rb/58VceHr76f8gX+YHe47O3/8LDw3/4vz88vPNfPTz8L/9Pvafv8buf0r3/7D/o31/T
@@ -1905,9 +2069,69 @@
         RU5ErkJggg==
 </value>
   </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 44</value>
+  </data>
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 277</value>
+  </data>
+  <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
+    <value>pictureBox2</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
+    <value>gbxHighscoren</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbxHighscoren.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 289</value>
+  </data>
+  <data name="gbxHighscoren.Size" type="System.Drawing.Size, System.Drawing">
+    <value>574, 176</value>
+  </data>
+  <data name="gbxHighscoren.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="gbxHighscoren.Text" xml:space="preserve">
+    <value>Hall of fame hackers</value>
+  </data>
+  <data name="gbxHighscoren.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;gbxHighscoren.Name" xml:space="preserve">
+    <value>gbxHighscoren</value>
+  </data>
+  <data name="&gt;&gt;gbxHighscoren.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxHighscoren.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxHighscoren.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="timerTextEffect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 564</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1983,5 +2207,23 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Highscore</value>
+  </data>
+  <data name="&gt;&gt;timerTextEffect.Name" xml:space="preserve">
+    <value>timerTextEffect</value>
+  </data>
+  <data name="&gt;&gt;timerTextEffect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>lbHighscoreInfo</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

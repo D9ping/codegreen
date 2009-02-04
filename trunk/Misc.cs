@@ -125,6 +125,11 @@ namespace CodeGreen
             }
         }
 
+        public void ToonError(Exception exc)
+        {
+            MessageBox.Show("Error: "+exc.Message+"\r\nLocation: "+exc.StackTrace);
+        }
+
         /// <summary>
         /// Gebruik op label text eigenschap om het een ouderwets type effect te geven.
         /// </summary>

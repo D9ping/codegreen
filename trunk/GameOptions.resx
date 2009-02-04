@@ -117,10 +117,101 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblOptionSound.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblOptionSound.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 20.25pt</value>
+  </data>
+  <data name="lblOptionSound.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 151</value>
+  </data>
+  <data name="lblOptionSound.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 37</value>
+  </data>
+  <data name="lblOptionSound.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblOptionSound.Text" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="&gt;&gt;lblOptionSound.Name" xml:space="preserve">
+    <value>lblOptionSound</value>
+  </data>
+  <data name="&gt;&gt;lblOptionSound.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblOptionSound.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblOptionSound.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblTextOptions.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTextOptions.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 24pt, style=Bold</value>
+  </data>
+  <data name="lblTextOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 33</value>
+  </data>
+  <data name="lblTextOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 44</value>
+  </data>
+  <data name="lblTextOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblTextOptions.Text" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="&gt;&gt;lblTextOptions.Name" xml:space="preserve">
+    <value>lblTextOptions</value>
+  </data>
+  <data name="&gt;&gt;lblTextOptions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTextOptions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblTextOptions.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <metadata name="TimerTextEffect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbOptionController.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbOptionController.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 20.25pt</value>
+  </data>
+  <data name="lbOptionController.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 255</value>
+  </data>
+  <data name="lbOptionController.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 37</value>
+  </data>
+  <data name="lbOptionController.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbOptionController.Text" xml:space="preserve">
+    <value>Remote controller</value>
+  </data>
+  <data name="&gt;&gt;lbOptionController.Name" xml:space="preserve">
+    <value>lbOptionController</value>
+  </data>
+  <data name="&gt;&gt;lbOptionController.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbOptionController.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbOptionController.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="pbStateController.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -132,6 +223,31 @@
         CAWGc83hNSEQVNOtCQkQCgznmsNrQiCoplsT8hTAM+gu30P/dfNdgK4614nAd7oK2+Xn8LHXzXcBuupc
         J9I7JZBAAgkkkEACCSSQQAL/EPgC/tK8TUyOjoQAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="pbStateController.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 226</value>
+  </data>
+  <data name="pbStateController.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 82</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbStateController.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbStateController.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pbStateController.Name" xml:space="preserve">
+    <value>pbStateController</value>
+  </data>
+  <data name="&gt;&gt;pbStateController.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbStateController.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbStateController.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="pbBackMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -169,6 +285,27 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pbBackMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 487</value>
+  </data>
+  <data name="pbBackMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 45</value>
+  </data>
+  <data name="pbBackMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.Name" xml:space="preserve">
+    <value>pbBackMenu</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbBackMenu.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="pbStateSound.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -181,9 +318,171 @@
         J9I7JZBAAgkkkEACCSSQQAL/EPgC/tK8TUyOjoQAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="pbStateSound.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 123</value>
+  </data>
+  <data name="pbStateSound.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 82</value>
+  </data>
+  <data name="pbStateSound.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbStateSound.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pbStateSound.Name" xml:space="preserve">
+    <value>pbStateSound</value>
+  </data>
+  <data name="&gt;&gt;pbStateSound.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbStateSound.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbStateSound.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tbVendorID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>677, 244</value>
+  </data>
+  <data name="tbVendorID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="tbVendorID.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tbVendorID.Text" xml:space="preserve">
+    <value>????</value>
+  </data>
+  <data name="&gt;&gt;tbVendorID.Name" xml:space="preserve">
+    <value>tbVendorID</value>
+  </data>
+  <data name="&gt;&gt;tbVendorID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbVendorID.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbVendorID.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tbProductID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>677, 267</value>
+  </data>
+  <data name="tbProductID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="tbProductID.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="tbProductID.Text" xml:space="preserve">
+    <value>????</value>
+  </data>
+  <data name="&gt;&gt;tbProductID.Name" xml:space="preserve">
+    <value>tbProductID</value>
+  </data>
+  <data name="&gt;&gt;tbProductID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbProductID.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbProductID.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbtextVendorID.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbtextVendorID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>617, 247</value>
+  </data>
+  <data name="lbtextVendorID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 17</value>
+  </data>
+  <data name="lbtextVendorID.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lbtextVendorID.Text" xml:space="preserve">
+    <value>Vendor ID</value>
+  </data>
+  <data name="&gt;&gt;lbtextVendorID.Name" xml:space="preserve">
+    <value>lbtextVendorID</value>
+  </data>
+  <data name="&gt;&gt;lbtextVendorID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbtextVendorID.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbtextVendorID.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbTextProductID.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbTextProductID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>613, 274</value>
+  </data>
+  <data name="lbTextProductID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 17</value>
+  </data>
+  <data name="lbTextProductID.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lbTextProductID.Text" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="&gt;&gt;lbTextProductID.Name" xml:space="preserve">
+    <value>lbTextProductID</value>
+  </data>
+  <data name="&gt;&gt;lbTextProductID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextProductID.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbTextProductID.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cbxSwitchXaxis.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbxSwitchXaxis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>664, 293</value>
+  </data>
+  <data name="cbxSwitchXaxis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 18</value>
+  </data>
+  <data name="cbxSwitchXaxis.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="cbxSwitchXaxis.Text" xml:space="preserve">
+    <value>switch x axis</value>
+  </data>
+  <data name="&gt;&gt;cbxSwitchXaxis.Name" xml:space="preserve">
+    <value>cbxSwitchXaxis</value>
+  </data>
+  <data name="&gt;&gt;cbxSwitchXaxis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbxSwitchXaxis.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbxSwitchXaxis.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>42</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 564</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -259,5 +558,23 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Codegreen Options</value>
+  </data>
+  <data name="&gt;&gt;TimerTextEffect.Name" xml:space="preserve">
+    <value>TimerTextEffect</value>
+  </data>
+  <data name="&gt;&gt;TimerTextEffect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>GameOptions</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

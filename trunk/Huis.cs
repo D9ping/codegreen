@@ -18,9 +18,7 @@ namespace CodeGreen
         bool windowsoutdated;
         bool wepcracked;
         bool keylogger;
-        bool bot;
-
-        GameScreen gs;
+        bool bot;        
         #endregion
 
         #region constructor
