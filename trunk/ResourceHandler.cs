@@ -70,7 +70,8 @@ namespace CodeGreen
                     soundplayer.LoadAsync(); 
                     soundplayer.SoundLocation = "sounds\\" + bestandsnaam;
                     if (herhalen == true) { soundplayer.PlayLooping(); }
-                    soundplayer.Play();                    
+                    else if (herhalen == false) { soundplayer.Play(); }
+                                       
                     return true;
                     
                 }

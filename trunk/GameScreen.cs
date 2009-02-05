@@ -266,7 +266,7 @@ namespace CodeGreen
                 if (misc.HuidigeTekst == "intro")
                 {
                     lblIntroTextLine1.Text = misc.TypeTextFull("intro");
-                    if (misc.HuidigeRegel > 4)
+                    if (misc.HuidigeRegel > misc.intro_regel.Count())
                     {
                         TimerTextEffect.Enabled = false;
                     }
@@ -903,6 +903,7 @@ namespace CodeGreen
             Button buttontemp = (Button)sender;            
 
             Item buyitem = inventory.getItemShop(buttontemp.Name);
+            resourcehandler.PlaySound("buy.wav", false);
 
             showshopintro = false;
             //controlleer voor genoeg geld.

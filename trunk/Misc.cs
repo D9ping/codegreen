@@ -19,7 +19,7 @@ namespace CodeGreen
         private int curregel = 0;
         private String blinktext;
         private String curtext = "intro";
-        private String[] intro_regel;
+        public String[] intro_regel;
         private String[] friend_regel;
         #endregion
 
@@ -49,12 +49,14 @@ namespace CodeGreen
         #region constructor
         public Misc()
         {
-            intro_regel = new String[5];
-            intro_regel[0] = "This is your neighourhood.";
-            intro_regel[1] = "Your objective is to take the microsoft server down.";
-            intro_regel[2] = "To do this, you will need to setup a bot network";
-            intro_regel[3] = "by hacking as many house in your neighhood as possible.";
-            intro_regel[4] = "It's time to take control of those micr$oft bastards.";
+            intro_regel = new String[7];
+            intro_regel[0] = "You work for microsol as a security expert.";
+            intro_regel[1] = "One day you fell a sleep at the office.";
+            intro_regel[2] = "Your boss does not take it, and fires you.";
+            intro_regel[3] = "It's time take back your job,\r\n by showing off what you are capable to.";
+            intro_regel[4] = "Try to hack as many houses\r\n in your neighbourhood as possible.";
+            intro_regel[5] = "Then let them attack your company main server so your bots\r\nwill generate enough traffic to let the server crash.";            
+            intro_regel[6] = "Now let get hacking.";
 
             friend_regel = new String[4];
             friend_regel[0] = "Your friend lives here, he works for Pabobank.";
