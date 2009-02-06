@@ -61,8 +61,8 @@ Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Controller"; ValueType: stri
 Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Sound"; ValueType: string; ValueData: "True"; Flags: uninsdeletekeyifempty
 
 [CustomMessages]
-english.dotnetmissing=This setup requires the .NET Framework v3.5. Please download and install the .NET Framework v3.5 and run this setup again. Do you want to download the framework now?
-dutch.dotnetmissing=Dit programma vereist .NET framework 3.5 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.5 nu downloaden?
+english.dotnetmissing=This setup requires the .NET Framework v3.0 SP1. Please download and install the .NET Framework v3.0 SP1 and run this setup again. Do you want to download the framework now?
+dutch.dotnetmissing=Dit programma vereist .NET framework 3.0 SP1 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.0 SP1 nu downloaden?
 [code]
 function InitializeSetup(): Boolean;
 var
@@ -71,7 +71,7 @@ var
     Result1 : Boolean;
 begin
 
-	NetFrameWorkInstalled := RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\policy\v3.5');
+	NetFrameWorkInstalled := RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\v3.0');
 	if NetFrameWorkInstalled =true then
 	begin
 		Result := true;
@@ -79,7 +79,7 @@ begin
 
 	if NetFrameWorkInstalled = false then
 	begin
-		NetFrameWorkInstalled := RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\policy\v3.5');
+		NetFrameWorkInstalled := RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\v3.0');
 		if NetFrameWorkInstalled =true then
 		begin
 			Result := true;
@@ -98,7 +98,7 @@ begin
 				begin
 					Result:=false;
 					ShellExec('open',
-					'http://www.microsoft.com/downloads/details.aspx?FamilyID=333325FD-AE52-4E35-B531-508D977D32A6&displaylang=en',
+					'http://www.microsoft.com/downloads/details.aspx?familyid=EC2CA85D-B255-4425-9E65-1E88A0BDB72A&displaylang=en',
 					'','',SW_SHOWNORMAL,ewNoWait,ErrorCode);
                 end;
             end;
