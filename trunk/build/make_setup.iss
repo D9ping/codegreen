@@ -60,3 +60,47 @@ Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Fl
 Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Controller"; ValueType: string; ValueData: "False"; Flags: uninsdeletekeyifempty
 Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Sound"; ValueType: string; ValueData: "True"; Flags: uninsdeletekeyifempty
 
+[CustomMessages]
+english.dotnetmissing=This setup requires the .NET Framework v3.5. Please download and install the .NET Framework v3.5 and run this setup again. Do you want to download the framework now?
+dutch.dotnetmissing=Dit programma vereist .NET framework 3.5 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.5 nu downloaden?
+[code]
+function InitializeSetup(): Boolean;
+var
+    ErrorCode: Integer;
+    NetFrameWorkInstalled : Boolean;
+    Result1 : Boolean;
+begin
+
+	NetFrameWorkInstalled := RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\policy\v3.5');
+	if NetFrameWorkInstalled =true then
+	begin
+		Result := true;
+	end;
+
+	if NetFrameWorkInstalled = false then
+	begin
+		NetFrameWorkInstalled := RegKeyExists(HKLM,'SOFTWARE\Microsoft\.NETFramework\policy\v3.5');
+		if NetFrameWorkInstalled =true then
+		begin
+			Result := true;
+		end;
+
+		if NetFrameWorkInstalled =false then
+			begin
+				//Result1 := (ExpandConstant('{cm:dotnetmissing}'), mbConfirmation, MB_YESNO) = idYes;
+				Result1 := MsgBox(ExpandConstant('{cm:dotnetmissing}'),
+						mbConfirmation, MB_YESNO) = idYes;
+				if Result1 =false then
+				begin
+					Result:=false;
+				end
+				else
+				begin
+					Result:=false;
+					ShellExec('open',
+					'http://www.microsoft.com/downloads/details.aspx?FamilyID=333325FD-AE52-4E35-B531-508D977D32A6&displaylang=en',
+					'','',SW_SHOWNORMAL,ewNoWait,ErrorCode);
+                end;
+            end;
+	end;
+end;
