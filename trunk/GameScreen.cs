@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-//using UsbLibrary; //ondersteuning voor joystick
+using UsbLibrary; //ondersteuning voor joystick
 
 namespace CodeGreen
 {
@@ -266,7 +266,7 @@ namespace CodeGreen
                 if (misc.HuidigeTekst == "intro")
                 {
                     lblIntroTextLine1.Text = misc.TypeTextFull("intro");
-                    if (misc.HuidigeRegel > misc.intro_regel.Count())
+                    if (misc.HuidigeRegel > 6)
                     {
                         TimerTextEffect.Enabled = false;
                     }

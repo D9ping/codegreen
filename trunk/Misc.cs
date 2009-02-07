@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -44,6 +44,12 @@ namespace CodeGreen
             set { this.blinktext = value; }
             get { return blinktext; }
         }
+        /*
+        public int NumOfIntroRegels
+        {
+            get { return intro_regel.Length; }
+        }
+         */
         #endregion
 
         #region constructor
