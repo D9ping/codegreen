@@ -1,4 +1,4 @@
-#labels Phase-Implementation
+#labels Phase-Implementation,Deprecated
 = How to get the latest sourcecode with SVN =
 
 Here are some basic instructions on how to get the latest sourcecode.
