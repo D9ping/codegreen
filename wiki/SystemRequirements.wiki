@@ -1,5 +1,5 @@
 #labels Phase-Deploy,Phase-Support
 This game requires at least 
-Intel Pentium4 with 1.5 GHz, AMD Athlon or or better.
+Intel Pentium4 with 1.5 GHz, AMD Athlon or better.
 
 It also requires [http://www.microsoft.com/downloads/details.aspx?familyid=10cc340b-f857-4a14-83f5-25634c3bf043&displaylang=en Microsoft .NET framework 3.0] to run.
