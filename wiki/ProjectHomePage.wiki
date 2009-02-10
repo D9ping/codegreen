@@ -21,5 +21,6 @@ Do this as quick as possible with most money left to get a higher score.
 
 <br /><br />
 
-*screenshots:*
-<img scr="http://sites.google.com/site/codegreengame/Home/codegreen_setup01.png" width="300" height="240">
+*screenshot:*
+
+<img src="http://sites.google.com/site/codegreengame/Home/codegreen_game01.png?height=144&width=192">
