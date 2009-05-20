@@ -189,6 +189,7 @@
             // 
             // progbarServerload
             // 
+            this.progbarServerload.BackColor = System.Drawing.Color.Silver;
             resources.ApplyResources(this.progbarServerload, "progbarServerload");
             this.progbarServerload.Name = "progbarServerload";
             this.tooltip.SetToolTip(this.progbarServerload, resources.GetString("progbarServerload.ToolTip"));
@@ -741,6 +742,7 @@
             this.Controls.Add(this.gbxGameInstructions);
             this.Controls.Add(this.pbTruck1);
             this.Controls.Add(this.pbBank);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "GameScreen";
             this.Shown += new System.EventHandler(this.GameScreen_Shown);

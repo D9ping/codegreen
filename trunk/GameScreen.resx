@@ -1632,7 +1632,7 @@
     <value>12, 45</value>
   </data>
   <data name="gbxWBInventory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>594, 66</value>
+    <value>598, 66</value>
   </data>
   <data name="gbxWBInventory.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>

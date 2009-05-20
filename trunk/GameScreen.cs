@@ -912,9 +912,16 @@ namespace CodeGreen
                 if (inventory.addItemInventory(buttontemp.Name) == true) {
                     Speler.geldopnemen(buyitem.Prijs);                    
                     buttontemp.Click += null;                    
-                    lbSpelerGeld.Refresh();
-                    buttontemp.Text = "sold";
-                    lbTextShop.Text = "You bought a "+buttontemp.Name+", go to your inventory to use it.";
+                    lbSpelerGeld.Refresh();                    
+                    buttontemp.Text = "sold";                    
+                    if (buttontemp.Name == "pizza")
+                    {
+                        lbTextShop.Text = "That taste good.";
+                    }
+                    else
+                    {
+                        lbTextShop.Text = "You bought a " + buttontemp.Name + ", go to your inventory to use it.";
+                    }
                 }
                 else {                    
                     lbTextShop.Text = "You already have this item.";
@@ -976,7 +983,7 @@ namespace CodeGreen
                 getHuis.IsBot = true;
                 progbarServerload.Value = progbarServerload.Value + 25;
             }
-            String regel1 = getHuis.Naam + " house is now attacking the miscrosoft server.";
+            String regel1 = getHuis.Naam + " house is now attacking the miscrosol server.";
             ToonBerichtHuis(regel1, "");
         }
 
@@ -1212,18 +1219,41 @@ namespace CodeGreen
                 }
                 if (IsItemInventory("coderedvirus") ==true)
                 {
-                    if (tbCommand.Text == "release")
+                    if (tbCommand.Text == "release -a")
                     {
-                        ActivedItem("coderedvirus");
-                        lbItemCommandInfo.Text = "Code red virus has infected your whole neigherhood.";
-                        tbCommand.Text = "";
+                        if (IsItemInventory("pizza") == true)
+                        {
+                            ActivedItem("coderedvirus");
+                            lbItemCommandInfo.Text = "Code red virus has infected your whole neigherhood.";
+                            tbCommand.Text = "";
+                        }
+                        else hungry();
                     }
+                    else if (tbCommand.Text == "release -?")
+                    {
+                        lbItemCommandInfo.Text = "Enter -a parameter after the release command to release the codered virus on your whole neigherhood.";
+                    }
+                    else if (tbCommand.Text == "release")
+                    {
+                        if (IsItemInventory("pizza") == true)
+                        {
+                            lbItemCommandInfo.Text = "Error, you need to added some parameters. Add the -? parameter after the release command to get help.";
+                        }
+                        else hungry();                        
+                    }
+                        
                 }
+
                 if (tbCommand.Text == "cheatwin")
                 {
                     progbarServerload.Value = 100;
                 }
             }
+        }
+
+        private void hungry()
+        {
+            lbItemCommandInfo.Text = "You are hungry, maby you should order some food first.";
         }
 
         private void installkeylogger(Huis huis)
@@ -1323,7 +1353,7 @@ namespace CodeGreen
             if (lbItemCommandInfo.Visible == false)
             {
                 ToonSlechtItem(this.pbItemCoderedvirus);
-                lbItemCommandInfo.Text = "Infect everyone with this undiscoverd virus. Type \"release\" to activate.";
+                lbItemCommandInfo.Text = "Infect everyone with this yet undiscoverd virus. Type \"release\" to activate.";
             }
             else if (lbItemCommandInfo.Visible == true)
             {

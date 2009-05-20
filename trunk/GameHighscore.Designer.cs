@@ -128,6 +128,7 @@
             this.Controls.Add(this.gbxHighscoren);
             this.Controls.Add(this.gbxNewHighscore);
             this.Controls.Add(this.pbBackMenu);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Lime;
             this.MaximizeBox = false;
             this.Name = "lbHighscoreInfo";

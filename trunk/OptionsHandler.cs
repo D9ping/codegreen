@@ -72,9 +72,10 @@ namespace CodeGreen
         /// <returns>Geeft true terug als ophalen gelukt is.</returns>
         public bool GetSettingBool(String keysetting)
         {                
-		     regsleutel = Registry.CurrentUser.OpenSubKey("Software\\CodeGreen", true);
-             bool settingbool = Convert.ToBoolean(regsleutel.GetValue(keysetting));
-             return settingbool;	                
+		     //regsleutel = Registry.CurrentUser.OpenSubKey("Software\\CodeGreen", true);
+             //bool settingbool = Convert.ToBoolean(regsleutel.GetValue(keysetting));
+            bool settingbool = false; 
+            return settingbool;	                
         }
 
         /// <summary>

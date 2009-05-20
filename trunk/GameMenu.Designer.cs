@@ -107,6 +107,7 @@
             this.Controls.Add(this.pbOptions);
             this.Controls.Add(this.pbStartGame);
             this.Controls.Add(this.pbTitel);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "GameMenu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameShutdown);

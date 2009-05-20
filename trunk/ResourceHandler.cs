@@ -14,7 +14,7 @@ namespace CodeGreen
     /// </summary>
     public class ResourceHandler
     {
-        #region datavelden        
+        #region datavelden
         Misc misc;
         OptionsHandler options;
         SoundPlayer soundplayer;

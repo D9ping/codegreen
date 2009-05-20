@@ -3,7 +3,7 @@
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
 AppVerName=CodeGreen
-AppVersion=1.0.0
+AppVersion=1.0.1
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -17,7 +17,7 @@ WizardSmallImageBackColor=clWhite
 LicenseFile=license.txt
 ;AppReadmeFile=changelog.txt
 OutputDir=..\build
-OutputBaseFilename=CodeGreen_setup_v1.0
+OutputBaseFilename=CodeGreen_setup_v1.0.1
 Compression=lzma
 SolidCompression=yes
 ; zorgt voor voldoen rechten onder vista.
@@ -45,7 +45,7 @@ Source: "..\bin\Debug\hiscoren.mdb"; DestDir: "{app}"; Flags: touch
 ;Source: "..\afb\*"; DestDir: "{app}\afb"; Flags: ignoreversion touch
 
 ; externe geluid bestanden, deze betstanden zijn NIET in executable compiled.
-Source: "..\bin\Debug\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
+Source: "..\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
 
 [Icons]
 ; Visual Studio debug conf.
