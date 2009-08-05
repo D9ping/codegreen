@@ -1,0 +1,25 @@
+#labels FAQ
+#questions and answers
+
+=Frequently Asked Question=
+
+----
+*What is this controller in the game options for?*
+
+It is possible to use the joystick from a `AVR AT90USB` system board to switch between house selection etc. 
+
+It probably works with other devices too.
+
+But you need to find out what the `device id` and `vendor id` of that device is.
+
+And maybe some coding in Communication.cs is also needed.
+
+----
+
+*This game blinks a lot, what's wrong?*
+
+Sorry this game doesn't work very well on windows XP.
+
+You also need a fast CPU, 1Ghz or more is highly recommended.
+
+See also SystemRequirements 
