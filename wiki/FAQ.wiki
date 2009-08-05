@@ -1,6 +1,4 @@
 #labels FAQ
-#questions and answers
-
 =Frequently Asked Question=
 
 ----
@@ -20,6 +18,6 @@ And maybe some coding in Communication.cs is also needed.
 
 Sorry this game doesn't work very well on windows XP.
 
-You also need a fast CPU, 1Ghz or more is highly recommended.
+You also need a fast CPU, 1.5Ghz or more is highly recommended.
 
 See also SystemRequirements 
