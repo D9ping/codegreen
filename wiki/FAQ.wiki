@@ -27,6 +27,12 @@ Highscores are stored in a Microsoft Access database file.
 
 ----
 
+*How is the background music licensed?*
+
+As Creative Common.
+
+----
+
 *This game blinks a lot, what's wrong?*
 
 This game is developed on windows vista and runs best on windows vista.
