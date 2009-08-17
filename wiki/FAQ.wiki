@@ -19,7 +19,7 @@ How faster you succeed to reach the end of the game and with more money left the
 
 points you get. 
 
----
+----
 
 *How are highscore stored?*
 
