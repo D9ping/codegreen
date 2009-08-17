@@ -16,8 +16,16 @@ And maybe some coding in Communication.cs is also needed.
 
 *This game blinks a lot, what's wrong?*
 
-Sorry this game doesn't work very well on windows XP.
+This game is developed on windows vista and runs best on windows vista.
 
 You also need a fast CPU, 1.5Ghz or more is highly recommended.
 
 See also SystemRequirements 
+
+----
+
+*How does the highscore work?*
+
+How faster you succeed to reach the end of the game and with more money left the more 
+
+points you get. Highscores are stored in a Microsoft Access database file.
