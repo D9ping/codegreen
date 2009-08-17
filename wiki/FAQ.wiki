@@ -11,6 +11,19 @@ It probably works with other devices too.
 But you need to find out what the `device id` and `vendor id` of that device is.
 
 And maybe some coding in Communication.cs is also needed.
+----
+
+*How does the highscore work?*
+
+How faster you succeed to reach the end of the game and with more money left the more 
+
+points you get. 
+
+---
+
+*How are highscore stored?*
+
+Highscores are stored in a Microsoft Access database file.
 
 ----
 
@@ -21,11 +34,3 @@ This game is developed on windows vista and runs best on windows vista.
 You also need a fast CPU, 1.5Ghz or more is highly recommended.
 
 See also SystemRequirements 
-
-----
-
-*How does the highscore work?*
-
-How faster you succeed to reach the end of the game and with more money left the more 
-
-points you get. Highscores are stored in a Microsoft Access database file.
