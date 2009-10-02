@@ -3,18 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGreen", "CodeGreen.csproj", "{DA60492A-9269-416D-8A07-D7AF11F37583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A1CDDC54-0465-4ECF-809E-B4B1F078211D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC22A558-9CE4-4C7E-96AE-9BB08EE56861}"
-	ProjectSection(SolutionItems) = preProject
-		CodeGreen.vsmdi = CodeGreen.vsmdi
-		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
-	EndProjectSection
-EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = CodeGreen.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -24,10 +13,6 @@ Global
 		{DA60492A-9269-416D-8A07-D7AF11F37583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA60492A-9269-416D-8A07-D7AF11F37583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA60492A-9269-416D-8A07-D7AF11F37583}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1CDDC54-0465-4ECF-809E-B4B1F078211D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1CDDC54-0465-4ECF-809E-B4B1F078211D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1CDDC54-0465-4ECF-809E-B4B1F078211D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1CDDC54-0465-4ECF-809E-B4B1F078211D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

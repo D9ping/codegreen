@@ -129,13 +129,13 @@
     <value>123, 151</value>
   </data>
   <data name="lblOptionSound.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 37</value>
+    <value>104, 37</value>
   </data>
   <data name="lblOptionSound.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="lblOptionSound.Text" xml:space="preserve">
-    <value>Sound</value>
+    <value>Sounds</value>
   </data>
   <data name="&gt;&gt;lblOptionSound.Name" xml:space="preserve">
     <value>lblOptionSound</value>
@@ -451,7 +451,7 @@
     <value>664, 293</value>
   </data>
   <data name="cbxSwitchXaxis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 18</value>
+    <value>87, 18</value>
   </data>
   <data name="cbxSwitchXaxis.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>

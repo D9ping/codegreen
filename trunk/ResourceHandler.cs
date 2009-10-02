@@ -65,10 +65,10 @@ namespace CodeGreen
             if (options.sound_enabled == true)
             {
                 try
-                {                                        
-                    //FIXME: asynch. afspelen met achtergrondgeluid en effect geluid werkt niet.
-                    soundplayer.LoadAsync(); 
-                    soundplayer.SoundLocation = "sounds\\" + bestandsnaam;
+                {                                                            
+                    soundplayer.LoadAsync();
+                    String bestandlocatie = System.Windows.Forms.Application.StartupPath;
+                    soundplayer.SoundLocation = Path.Combine(bestandlocatie, Path.Combine("sounds", bestandsnaam));
                     if (herhalen == true) { soundplayer.PlayLooping(); }
                     else if (herhalen == false) { soundplayer.Play(); }
                                        

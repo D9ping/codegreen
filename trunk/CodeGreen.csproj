@@ -175,7 +175,6 @@
     <EmbeddedResource Include="afb\knop_sound_on.png" />
     <EmbeddedResource Include="afb\selected.png" />
     <EmbeddedResource Include="afb\not_selected.png" />
-    <EmbeddedResource Include="afb\broodjesgezond.png" />
     <Content Include="icon_codegreen.ico" />
   </ItemGroup>
   <ItemGroup>

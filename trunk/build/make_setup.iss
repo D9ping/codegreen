@@ -63,6 +63,7 @@ Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Sound"; ValueType: string; V
 [CustomMessages]
 english.dotnetmissing=This setup requires the .NET Framework v3.0 SP1. Please download and install the .NET Framework v3.0 SP1 and run this setup again. Do you want to download the framework now?
 dutch.dotnetmissing=Dit programma vereist .NET framework 3.0 SP1 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.0 SP1 nu downloaden?
+
 [code]
 function InitializeSetup(): Boolean;
 var
