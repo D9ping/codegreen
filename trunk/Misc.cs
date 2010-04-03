@@ -19,37 +19,8 @@ namespace CodeGreen
         private int curregel = 0;
         private String blinktext;
         private String curtext = "intro";
-        public String[] intro_regel;
+        private String[] intro_regel;
         private String[] friend_regel;
-        #endregion
-
-        #region properties
-        public int Curlenword
-        {
-            get { return curlenword; }
-            set { curlenword = value; }
-        }
-        public int HuidigeRegel
-        {
-            get { return this.curregel; }
-            set { this.curregel = value; }
-            
-        }
-        public String HuidigeTekst
-        {
-            get { return curtext; }
-        }
-        public String BlinkTekst
-        {
-            set { this.blinktext = value; }
-            get { return blinktext; }
-        }
-        /*
-        public int NumOfIntroRegels
-        {
-            get { return intro_regel.Length; }
-        }
-         */
         #endregion
 
         #region constructor
@@ -65,17 +36,59 @@ namespace CodeGreen
             intro_regel[6] = "Now let get hacking.";
 
             friend_regel = new String[4];
-            friend_regel[0] = "Your friend lives here, he works for Pabobank.";
+            friend_regel[0] = "Your friend lives here, he works for The Bank.";
             friend_regel[1] = "He is willing to give you a list";
             friend_regel[2] = "of all bankaccounts in your neighbourhood.";
             friend_regel[3] = "Click on accept, to get the list.";
         }
         #endregion
 
+        #region properties
+        public int Curlenword
+        {
+            get { return curlenword; }
+            set { curlenword = value; }
+        }
+        public int HuidigeRegel
+        {
+            get { return this.curregel; }
+            set { this.curregel = value; }
+        }
+        public String HuidigeTekst
+        {
+            get { return curtext; }
+        }
+        public String BlinkTekst
+        {
+            set { this.blinktext = value; }
+            get { return blinktext; }
+        }
+        public int CurTekstLen
+        {
+            get
+            {
+                if (this.curtext == "intro")
+                {
+                    return this.intro_regel[curregel].Length;
+                }
+                else
+                {
+                    return this.friend_regel[curregel].Length;
+                }
+            }
+        }
+        /*
+        public int NumOfIntroRegels
+        {
+            get { return intro_regel.Length; }
+        }
+         */
+        #endregion
+
         #region methoden
 
         /// <summary>
-        /// Deze methode handelt alle mogelijke fout meldingen af.        
+        /// Deze methode handelt alle mogelijke fout meldingen af. 
         /// </summary>
         /// <param name="msgnr"></param>
         public void ToonBericht(int msgnr)
@@ -102,7 +115,7 @@ namespace CodeGreen
                         MessageBox.Show("Error: geluid niet gevonden.");
                         break;
                     case 6:
-                        MessageBox.Show("Fout: kan huizen niet aanmaken.");
+                        MessageBox.Show("Error: kan huizen niet aanmaken.");
                         break;
                     case 7:
                         MessageBox.Show("Error: kan huis niet vinden.");
@@ -113,8 +126,8 @@ namespace CodeGreen
                     case 9:
                         MessageBox.Show("Error: item niet in inventory lijst.");
                         break;
-                    case 10:                        
-                        MessageBox.Show("Error: Onbekende huidige tekst");                        
+                    case 10: 
+                        MessageBox.Show("Error: Onbekende huidige tekst"); 
                         break;
                     case 11:
                         MessageBox.Show("Error: kan item niet in database stoppen");
@@ -127,7 +140,7 @@ namespace CodeGreen
                         break;
                     default:
                         MessageBox.Show("Unknow error");
-                        break;                                        
+                        break;
                 }
                 errorshowed = false;
             }
@@ -153,7 +166,7 @@ namespace CodeGreen
                 {
                     if (curlenword <= word.Length)
                     {
-                        return word.Substring(0, curlenword) + "_";                        
+                        return word.Substring(0, curlenword) + "_"; 
                     }
                 }
             }
@@ -174,8 +187,8 @@ namespace CodeGreen
             }
             else
             {
-                wait++;                
-                if (wait == 20)
+                wait++;
+                if (wait == 50)
                 {
                     curlenword = 0;
                     wait = 0;

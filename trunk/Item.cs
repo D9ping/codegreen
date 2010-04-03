@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
 using System.Text;
 
 namespace CodeGreen
 {
+    /// <summary>
+    /// Item class.
+    /// </summary>
     class Item
     {
         #region datavelden
@@ -16,11 +18,11 @@ namespace CodeGreen
         #endregion
 
         #region constructor
-        public Item(String naamitem, int prijs)            
-        {            
+        public Item(String naamitem, int prijs)
+        {
             this.naamitem = naamitem;
             this.prijs = prijs;
-            this.active = false;            
+            this.active = false;
         }
         #endregion
 

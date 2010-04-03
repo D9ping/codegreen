@@ -747,6 +747,7 @@
             this.Name = "GameScreen";
             this.Shown += new System.EventHandler(this.GameScreen_Shown);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameScreen_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyDown);
             this.gbxGameInstructions.ResumeLayout(false);
             this.gbxGameInstructions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKnopInventory)).EndInit();

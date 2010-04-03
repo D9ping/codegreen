@@ -9,9 +9,9 @@ using System.Resources;
 [assembly: AssemblyTitle("CodeGreen")]
 [assembly: AssemblyDescription("A hackers game")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("codegreen inc.")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CodeGreen")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,8 +33,8 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
 
 [assembly: System.Runtime.CompilerServices.InternalsVisibleTo("UnitTests")]

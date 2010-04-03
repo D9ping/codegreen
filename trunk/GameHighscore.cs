@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-//using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using Finisar.SQLite;
 
 namespace CodeGreen
 {
@@ -14,8 +9,9 @@ namespace CodeGreen
     {
         #region datavelden
         private int score;
-        private OleDbConnection connection;
-        private Misc misc;        
+        //private OleDbConnection connection;
+        private SQLiteConnection connection;
+        private Misc misc;
         #endregion
 
         #region contructor
@@ -23,7 +19,8 @@ namespace CodeGreen
         {
             InitializeComponent();
             misc = new Misc();
-            connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+            //connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+            connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
 
             setGroupboxen();
             gethighscore();
@@ -34,9 +31,10 @@ namespace CodeGreen
             InitializeComponent();
             setGroupboxen();
             misc = new Misc();
-            connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+            connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
+                //OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
             
-            berekenscore(timemin, timesec, geldover);            
+            berekenscore(timemin, timesec, geldover);
             gbxNewHighscore.Visible = true;
             misc.Curlenword = 0;
             timerTextEffect.Enabled = true;
@@ -61,7 +59,7 @@ namespace CodeGreen
 
         private void setGroupboxen()
         {
-            gbxHighscoren.Location = new Point(10, 10);            
+            gbxHighscoren.Location = new Point(10, 10);
             gbxHighscoren.Size = new Size(760, 480);
             gbxNewHighscore.Location = new Point(10, 10);
             gbxNewHighscore.Size = new Size(760, 480);
@@ -74,9 +72,10 @@ namespace CodeGreen
                 connection.Open();
                 String query = "SELECT * FROM scoren ORDER BY Score DESC";
 
-                OleDbCommand selectcommand = new OleDbCommand(query, connection);
-
-                OleDbDataReader reader;
+                //OleDbCommand selectcommand = new OleDbCommand(query, connection);
+                SQLiteCommand selectcommand = new SQLiteCommand(query, connection);
+                
+                SQLiteDataReader reader;
                 reader = selectcommand.ExecuteReader();
                 int positie = 1;
                 int ypos = 50;
@@ -92,19 +91,19 @@ namespace CodeGreen
                         lbscore.Text = positie.ToString() + ". " + naam + " (" + getdbscore + "points)";
                         lbscore.AutoSize = true;
                         lbscore.ForeColor = Color.Lime;
-                        lbscore.Location = new Point(300, ypos);
+                        lbscore.Location = new Point(280, ypos);
                         lbscore.TextAlign = ContentAlignment.MiddleCenter;
                         ypos = ypos + 40;
-                        fontsize = fontsize - 2;                        
+                        fontsize = fontsize - 2;
                         this.gbxHighscoren.Controls.Add(lbscore);
                     }
                     positie++;
                 }
 
             }
-            catch (OleDbException exc)
+            catch (SQLiteException exc)
             {
-                misc.ToonError(exc);                                
+                misc.ToonError(exc);
             }
             finally
             {
@@ -130,15 +129,15 @@ namespace CodeGreen
             try
             {
                 connection.Open();
-
                 String query = "INSERT INTO scoren (Naam, Score) VALUES ('" + naam + "', '" + score + "')";
-                OleDbCommand InsertCommand = new OleDbCommand(query, connection);
+                //OleDbCommand InsertCommand = new OleDbCommand(query, connection);
+                SQLiteCommand InsertCommand = new SQLiteCommand(query, connection);
                 InsertCommand.ExecuteNonQuery();
                 sqladdsucces = true;
             }
-            catch (OleDbException exc)
+            catch (SQLiteException exc)
             {
-                misc.ToonError(exc);                
+                misc.ToonError(exc);
                 sqladdsucces = false;
             }
             finally

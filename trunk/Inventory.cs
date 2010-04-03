@@ -16,8 +16,8 @@ namespace CodeGreen
         #region constructor
         public Inventory()
         {             
-            shopitems = new List<Item>();            
-            youritems = new List<Item>();            
+            shopitems = new List<Item>();
+            youritems = new List<Item>();
 
             Item[] items = new Item[6];
             items[0] = new Item("wepcracker", 75);

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-//using System.Linq;
-using System.Text;
-
-namespace CodeGreen
+﻿namespace CodeGreen
 {
-    class Bank
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    /// <summary>
+    /// Bank class
+    /// </summary>
+    public class Bank
     {
         #region datavelden
         private List<Bankaccount> accounts;
@@ -13,111 +15,139 @@ namespace CodeGreen
         #endregion
 
         #region constructor
+        /// <summary>
+        /// Initializes a new instance of the Bank class.
+        /// </summary>
         public Bank()
-        {            
-            accounts = new List<Bankaccount>();
+        {
+            this.accounts = new List<Bankaccount>();
 
-            RegistreerAccount("speler", "999.999.999.999", 0, 200);
-            RegistreerAccount("Jan de Vries", ranbankaccnum()+".89.57.74", 3, 500);
-            RegistreerAccount("Marrieke", ranbankaccnum() + ".45.56.81", 4, 360);
-            RegistreerAccount("Pieter", ranbankaccnum()+".35.67.101", 5, 740);
-            RegistreerAccount("Roel", ranbankaccnum()+".127.57.23", 6, 680);
+            this.RegistreerAccount("speler", "999.999.999.999", 0, 200);
+            this.RegistreerAccount("Jan de Vries", this.RanBankAccnum() + ".89.57.74", 3, 500);
+            this.RegistreerAccount("Marrieke", this.RanBankAccnum() + ".45.56.81", 4, 360);
+            this.RegistreerAccount("Pieter", this.RanBankAccnum() + ".35.67.101", 5, 740);
+            this.RegistreerAccount("Roel", this.RanBankAccnum() + ".127.57.23", 6, 680);
         }
         #endregion
 
         #region properties
-        public Int32 numaccount
+        /// <summary>
+        /// Gets the number of bankaccounts.
+        /// </summary>
+        public int Numaccount
         {
-            get { return accounts.Count; }
+            get { return this.accounts.Count; }
         }
 
         #endregion
 
         #region methoden
         /// <summary>
-        /// Registreer een account bij de bank, controlleer of die al in lijst voor komt
+        /// Register a account by the bank.
         /// </summary>
-        /// <returns>true als gelukt is.</returns>
-        public bool RegistreerAccount(String nm, String reknr, int lenpassw, int money)
+        /// <param name="nm">The name of the account.</param>
+        /// <param name="reknr">Rekening number</param>
+        /// <param name="lenpassw">Lengte password</param>
+        /// <param name="money">How many geld</param>
+        /// <returns>True als gelukt is.</returns>
+        public bool RegistreerAccount(string nm, string reknr, int lenpassw, int money)
         {
             try
             {
                 Bankaccount bankaccount;
                 bankaccount = new Bankaccount(nm, reknr, lenpassw, money);
-                accounts.Add(bankaccount);
+                this.accounts.Add(bankaccount);
                 return true;
             }
             catch (Exception)
             {
                 return false;
             }
-            
         }
 
         /// <summary>
-        /// Verkrijg de bankaccount aan de hand van een rekening nummer van de gevraagde bankaccount.
+        /// Gets the Bankaccount by bankaccount number.
         /// </summary>
         /// <param name="reknr">rekeningnummer</param>
         /// <returns>de bank account</returns>
-        public Bankaccount GetByRekening(String reknr)
+        public Bankaccount GetByRekening(string reknr)
         {
-            foreach (Bankaccount bankaccount in accounts)
+            foreach (Bankaccount bankaccount in this.accounts)
             {
-                if (bankaccount.AccountRekeningnr == reknr) return bankaccount;
+                if (bankaccount.AccountRekeningnr == reknr)
+                {
+                    return bankaccount;
+                }
             }
+
             return null;
         }
 
         /// <summary>
-        /// Verkrijg bankaccount van een bepaalde naam
+        /// Get bankaccount by a name.
         /// </summary>
-        /// <param name="nm">naam bankaccount</param>
-        /// <returns>de bank account</returns>
-        public Bankaccount GetByNaam(String nm)
+        /// <param name="nm">name bank account</param>
+        /// <returns>The bank account object.</returns>
+        public Bankaccount GetByName(string nm)
         {
-            foreach (Bankaccount bankaccount in accounts)
+            foreach (Bankaccount bankaccount in this.accounts)
             {
-                if (bankaccount.AccountNaam == nm) return bankaccount;
+                if (bankaccount.AccountNaam == nm)
+                {
+                    return bankaccount;
+                }
             }
+
             return null;
         }
 
         /// <summary>
-        /// Verkrijg account op positie in lijst.
+        /// Get a bankaccount from the position in the list.
         /// </summary>
-        /// <param name="positie"></param>
-        /// <returns></returns>
+        /// <param name="positie">Get account from position number.</param>
+        /// <returns>The Bankaccount object.</returns>
         public Bankaccount GetByPos(int positie)
         {
-            return accounts[positie];
+            return this.accounts[positie];
         }
 
         /// <summary>
-        /// Maak al het geld over van een account naar de ander account
+        /// Transfer all the money from one account to an other account.
         /// </summary>
-        /// <param name="ontvangeraccount"></param>
-        /// <param name="geveraccount"></param>
-        public bool AlHetGeldOvermaken(Bankaccount ontvangeraccount, Bankaccount geveraccount)
+        /// <param name="accountto">The account that get the money</param>
+        /// <param name="accountfrom">The account where the money get away from.</param>
+        /// <return>True if succeed.</return>
+        public bool AlHetGeldOvermaken(Bankaccount accountto, Bankaccount accountfrom)
         {
-            int geld = geveraccount.AccountSaldo;
-            if (geveraccount.geldopnemen(geld)==true)
+            int geld = accountfrom.AccountSaldo;
+            if (accountfrom.GeldOpnemen(geld) == true)
             {
-                if (ontvangeraccount.geldstorten(geld) == true) { return true; }
-                else { return false; }
+                if (accountto.GeldStorten(geld) == true) 
+                {
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
             }
-            else { return false; }
+            else
+            {
+                return false; 
+            }
         }
 
-        public String ranbankaccnum()
+        /// <summary>
+        /// Random bank account number.
+        /// </summary>
+        /// <returns>The new bank account number.</returns>
+        public string RanBankAccnum()
         {
-            i++;
+            this.i = this.i++;
             Random ran = new Random();
-            
-            int getal = ran.Next(1,256);
+            int getal = ran.Next(1, 256);
             return getal.ToString();
-            
         }
-
 
         #endregion
     }

@@ -108,8 +108,10 @@
             this.Controls.Add(this.pbStartGame);
             this.Controls.Add(this.pbTitel);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Black;
             this.MaximizeBox = false;
             this.Name = "GameMenu";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameMenu_Paint);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameShutdown);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHighscore)).EndInit();

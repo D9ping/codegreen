@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
 using System.Text;
-using Microsoft.Win32; //Win32 bibliotheek nodig voor register handelingen.
+using Microsoft.Win32; //Win32 bibliotheek nodig voor register.
 
 namespace CodeGreen
 {
@@ -13,16 +12,15 @@ namespace CodeGreen
     public class OptionsHandler
     {
         #region datavelden
-        private RegistryKey regsleutel;
         private Misc misc;
-        private bool settingSound;
-        private bool settingController;
-        private String vendorID = "03EB";
-        private String productID = "2013";
-        private bool switchXaxis = false;
+        private bool settingSound = false, settingController = false, switchXaxis = false;
+        private String vendorID = "03EB", productID = "2013";
         #endregion
 
         #region constructor
+        /// <summary>
+        /// Init new instance of ...
+        /// </summary>
         public OptionsHandler()
         {
             misc = new Misc();

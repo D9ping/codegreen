@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-//using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
@@ -12,14 +11,14 @@ using System.Diagnostics;
 namespace CodeGreen
 {
     public partial class GameMenu : Form
-
-
     {
         #region datavelden
-        private List<TextBox> droptexten;
+        //private List<TextBox> droptexten;
+        private List<DropText> droptexten;
         private int n = 0;
         private Misc misc;
         private ResourceHandler resourcehandler;
+        private int speed = 7;
         #endregion
 
         #region constructoren
@@ -28,9 +27,8 @@ namespace CodeGreen
             InitializeComponent();
             misc = new Misc();
             resourcehandler = new ResourceHandler();
-            droptexten = new List<TextBox>();
+            droptexten = new List<DropText>();
             timerDropText.Enabled = true;
-
         }
         #endregion
 
@@ -39,22 +37,22 @@ namespace CodeGreen
         private void pbStartGame_Click(object sender, EventArgs e)
         {
             Form frmGame = new GameScreen();
-            frmGame.Show();
             this.timerDropText.Enabled = false;
+            frmGame.Show();
             this.Hide();
         }
 
         private void pbOptions_Click(object sender, EventArgs e)
         {
             GameOptions frmOptions = new GameOptions();
-            frmOptions.Show();
             this.timerDropText.Enabled = false;
+            frmOptions.Show();
             this.Hide();
         }
 
         public void GameShutdown(object sender, EventArgs e)
         {
-            timerDropText.Enabled = false;            
+            timerDropText.Enabled = false;
             Application.Exit();
         }
 
@@ -69,19 +67,23 @@ namespace CodeGreen
             {
                 if (sender == pbStartGame)
                 {
-                    pbStartGame.Image = resourcehandler.loadimage("knop_start_selected.png");                    
+                    this.speed = 12;
+                    pbStartGame.Image = resourcehandler.loadimage("knop_start_selected.png");
                 }
                 else if (sender == pbOptions)
                 {
-                    pbOptions.Image = resourcehandler.loadimage("knop_options_selected.png");                    
+                    this.speed = 10;
+                    pbOptions.Image = resourcehandler.loadimage("knop_options_selected.png");
                 }
                 else if (sender == pbHighscore)
                 {
-                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore_selected.png");                    
+                    this.speed = 8;
+                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore_selected.png");
                 }
                 else if (sender == pbExit)
                 {
-                    pbExit.Image = resourcehandler.loadimage("knop_exit_selected.png");                    
+                    this.speed = 3;
+                    pbExit.Image = resourcehandler.loadimage("knop_exit_selected.png");
                 }
                 else
                 {
@@ -101,23 +103,25 @@ namespace CodeGreen
         /// <param name="e"></param>
         public void knop_normal(object sender, EventArgs e)
         {
+            this.speed = 7;
+
             try
             {
                 if (sender == pbStartGame)
                 {
-                    pbStartGame.Image = resourcehandler.loadimage("knop_start.png");                        
+                    pbStartGame.Image = resourcehandler.loadimage("knop_start.png");
                 }
                 else if (sender == pbOptions)
                 {
-                    pbOptions.Image = resourcehandler.loadimage("knop_options.png");                        
+                    pbOptions.Image = resourcehandler.loadimage("knop_options.png");
                 }
                 else if (sender == pbHighscore)
                 {
-                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore.png");                        
+                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore.png");
                 }
                 else if (sender == pbExit)
                 {
-                    pbExit.Image = resourcehandler.loadimage("knop_exit.png");                        
+                    pbExit.Image = resourcehandler.loadimage("knop_exit.png");
                 }
                     //sender not found...
                 else { misc.ToonBericht(2); }
@@ -134,47 +138,43 @@ namespace CodeGreen
         /// </summary>
         private void newDropText()
         {
-            Random ran = new Random();
-            int Xnewtextbox = ran.Next(10, 790);                        
-            TextBox newtextbox = new TextBox();            
-            newtextbox.AcceptsReturn = true;
-            newtextbox.Multiline = true;
-            int numcolor = ran.Next(0, 3);
-                if(numcolor==0) { newtextbox.ForeColor = Color.Green; }
-                else if (numcolor == 1) { newtextbox.ForeColor = Color.LightGreen; }
-                else if (numcolor == 2) { newtextbox.ForeColor = Color.DarkGreen; }
-            newtextbox.BackColor = Color.Black;
-            newtextbox.BorderStyle = BorderStyle.None;
-            newtextbox.ScrollBars = ScrollBars.None;
-            newtextbox.Location = new Point(Xnewtextbox, -140);
-            newtextbox.Height = 140;
-            newtextbox.Width = 15;
-            newtextbox.AllowDrop = false;                        
-            newtextbox.ReadOnly = true;
-            newtextbox.ScrollBars = ScrollBars.None;
-            newtextbox.Cursor = Cursors.Default;
-            String ent = "\r\n"; // opmerking: \r is enter en \n is een linefeed.
-            newtextbox.Text = "N" + ent + "E" + ent + "E" + ent + "R" + ent + "G" + ent + ent + "E" + ent + "D" + ent + "O" + ent + "C";            
-            
-            this.Controls.Add(newtextbox);
-            this.droptexten.Add(newtextbox);
-
-            
+            if (this.droptexten.Count < 100)
+            {
+                DropText newdroptext;
+                Random ran = new Random();
+                int locX = ran.Next(10, this.ClientRectangle.Width - 10);
+                int ncolor = ran.Next(0, 3);
+                string strcodegreen = "N\r\nE\r\nE\r\nR\r\nG\r\n\r\nE\r\nD\r\nO\r\nC";
+                switch (ncolor)
+                {
+                    case 0:
+                        newdroptext = new DropText(strcodegreen, Brushes.Green, locX);
+                        break;
+                    case 1:
+                        newdroptext = new DropText(strcodegreen, Brushes.LightGreen, locX);
+                        break;
+                    case 2:
+                        newdroptext = new DropText(strcodegreen, Brushes.DarkGreen, locX);
+                        break;
+                    default:
+                        newdroptext = new DropText(strcodegreen, Brushes.Green, locX);
+                        break;
+                }
+                this.droptexten.Add(newdroptext);
+            }
         }
 
         private void updateDropText()
         {
-            for (int i = 0; i < droptexten.Count; i++)
+            for (int i = 0; i < this.droptexten.Count; i++)
             {
-                int Xtext = droptexten[i].Location.X;
-                int Ytext = droptexten[i].Location.Y + 10;
-
-                if (Ytext > 599) {
-                    droptexten[i].Visible = false;
-                    droptexten[i].Dispose();                    
+                this.droptexten[i].Location = new Point(this.droptexten[i].Location.X, this.droptexten[i].Location.Y + this.speed);
+                if (this.droptexten[i].Location.Y + 20 > this.ClientRectangle.Height)
+                {
+                    this.droptexten.Remove(this.droptexten[i]);
                 }
-                else { droptexten[i].Location = new Point(Xtext, Ytext); }
             }
+            this.Refresh();
         }
 
         private void timerDropText_Tick(object sender, EventArgs e)
@@ -184,7 +184,7 @@ namespace CodeGreen
             if (n == 4)
             {
                 newDropText();
-                n = 0;   
+                n = 0;
             }
         }
 
@@ -200,9 +200,17 @@ namespace CodeGreen
             highscore.Show();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GameMenu_Paint(object sender, PaintEventArgs e)
         {
-            System.Diagnostics.Process.Start("IExplore", "http://code.google.com/p/codegreen/issues/list");
+            Graphics g = e.Graphics;
+            Font font = new Font("Arail", 10);
+            for (int i = 0; i < this.droptexten.Count; i++)
+            {
+                if (i < 100)
+                {
+                    g.DrawString(this.droptexten[i].Text, font, this.droptexten[i].Color, this.droptexten[i].Location);
+                } 
+            }
         }
 
     }

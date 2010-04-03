@@ -34,14 +34,14 @@
             this.lblTextOptions = new System.Windows.Forms.Label();
             this.TimerTextEffect = new System.Windows.Forms.Timer(this.components);
             this.lbOptionController = new System.Windows.Forms.Label();
-            this.pbStateController = new System.Windows.Forms.PictureBox();
-            this.pbBackMenu = new System.Windows.Forms.PictureBox();
-            this.pbStateSound = new System.Windows.Forms.PictureBox();
             this.tbVendorID = new System.Windows.Forms.TextBox();
             this.tbProductID = new System.Windows.Forms.TextBox();
             this.lbtextVendorID = new System.Windows.Forms.Label();
             this.lbTextProductID = new System.Windows.Forms.Label();
             this.cbxSwitchXaxis = new System.Windows.Forms.CheckBox();
+            this.pbStateController = new System.Windows.Forms.PictureBox();
+            this.pbBackMenu = new System.Windows.Forms.PictureBox();
+            this.pbStateSound = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).BeginInit();
@@ -67,6 +67,7 @@
             // TimerTextEffect
             // 
             this.TimerTextEffect.Enabled = true;
+            this.TimerTextEffect.Interval = 50;
             this.TimerTextEffect.Tick += new System.EventHandler(this.TimerTextEffect_Tick);
             // 
             // lbOptionController
@@ -78,26 +79,6 @@
             this.lbOptionController.MouseLeave += new System.EventHandler(this.knop_normal);
             this.lbOptionController.Click += new System.EventHandler(this.lbOptionController_Click);
             this.lbOptionController.MouseHover += new System.EventHandler(this.knop_hover);
-            // 
-            // pbStateController
-            // 
-            resources.ApplyResources(this.pbStateController, "pbStateController");
-            this.pbStateController.Name = "pbStateController";
-            this.pbStateController.TabStop = false;
-            // 
-            // pbBackMenu
-            // 
-            resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
-            this.pbBackMenu.Name = "pbBackMenu";
-            this.pbBackMenu.TabStop = false;
-            this.pbBackMenu.Click += new System.EventHandler(this.pbBackMenu_Click);
-            this.pbBackMenu.MouseHover += new System.EventHandler(this.knop_hover);
-            // 
-            // pbStateSound
-            // 
-            resources.ApplyResources(this.pbStateSound, "pbStateSound");
-            this.pbStateSound.Name = "pbStateSound";
-            this.pbStateSound.TabStop = false;
             // 
             // tbVendorID
             // 
@@ -138,6 +119,26 @@
             this.cbxSwitchXaxis.UseVisualStyleBackColor = true;
             this.cbxSwitchXaxis.CheckedChanged += new System.EventHandler(this.cbxSwitchXaxis_CheckedChanged);
             // 
+            // pbStateController
+            // 
+            resources.ApplyResources(this.pbStateController, "pbStateController");
+            this.pbStateController.Name = "pbStateController";
+            this.pbStateController.TabStop = false;
+            // 
+            // pbBackMenu
+            // 
+            resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
+            this.pbBackMenu.Name = "pbBackMenu";
+            this.pbBackMenu.TabStop = false;
+            this.pbBackMenu.Click += new System.EventHandler(this.pbBackMenu_Click);
+            this.pbBackMenu.MouseHover += new System.EventHandler(this.knop_hover);
+            // 
+            // pbStateSound
+            // 
+            resources.ApplyResources(this.pbStateSound, "pbStateSound");
+            this.pbStateSound.Name = "pbStateSound";
+            this.pbStateSound.TabStop = false;
+            // 
             // GameOptions
             // 
             resources.ApplyResources(this, "$this");
@@ -154,8 +155,10 @@
             this.Controls.Add(this.lblTextOptions);
             this.Controls.Add(this.lblOptionSound);
             this.Controls.Add(this.pbStateSound);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "GameOptions";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameOptions_Paint);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameOptions_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).EndInit();
@@ -171,7 +174,6 @@
         private System.Windows.Forms.Label lblOptionSound;
         private System.Windows.Forms.Label lblTextOptions;
         private System.Windows.Forms.PictureBox pbBackMenu;
-        public System.Windows.Forms.Timer TimerTextEffect;
         private System.Windows.Forms.Label lbOptionController;
         private System.Windows.Forms.PictureBox pbStateController;
         private System.Windows.Forms.TextBox tbVendorID;
@@ -179,6 +181,7 @@
         private System.Windows.Forms.Label lbtextVendorID;
         private System.Windows.Forms.Label lbTextProductID;
         private System.Windows.Forms.CheckBox cbxSwitchXaxis;
+        private System.Windows.Forms.Timer TimerTextEffect;
 
     }
 }

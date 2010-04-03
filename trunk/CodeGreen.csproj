@@ -73,6 +73,10 @@
     <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Libs\SQLite.NET.0.21_x68_dll\SQLite.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -86,6 +90,7 @@
     <Compile Include="Bank.cs" />
     <Compile Include="Bankaccount.cs" />
     <Compile Include="Communication.cs" />
+    <Compile Include="DropText.cs" />
     <Compile Include="GameHighscore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,8 +149,6 @@
     <Compile Include="ResourceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="afb\checkbox_on.png" />
-    <EmbeddedResource Include="afb\checkbox_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_inventory_off.png" />
     <EmbeddedResource Include="afb\werkbalkknop_inventory_on.png" />
     <EmbeddedResource Include="afb\item_aircrack_cracker.png" />
@@ -219,6 +222,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

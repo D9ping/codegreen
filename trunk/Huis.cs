@@ -36,7 +36,7 @@ namespace CodeGreen
         /// <param name="virusscanner"></param>
         /// <param name="bot"></param>
         public Huis(object huisnaam, String naam, String ipadres, bool wifi, String wifissid, bool wifiwep, bool wifiwpa,   
-            bool windowsoutdated)        
+            bool windowsoutdated)
         {
             this.huisnaam = huisnaam;
             this.naam = naam;
@@ -51,9 +51,8 @@ namespace CodeGreen
                 this.wifiwpa = wifiwpa;
             }
             this.wepcracked = false;
-            this.keylogger = false;                                   
+            this.keylogger = false;
             this.bot = false;
-
             this.windowsoutdated = windowsoutdated;
         }
         #endregion
@@ -110,7 +109,7 @@ namespace CodeGreen
         }
         #endregion
 
-        #region methoden        
+        #region methoden
         #endregion
     }
 }
