@@ -36,10 +36,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 ; Visual Studio debug conf.
 Source: "..\bin\Debug\CodeGreen.exe"; DestDir: "{app}";
-;Source: "..\bin\Debug\CodeGreen.vshost.exe"; DestDir: "{app}\bin\Debug";
-;Source: "..\bin\Debug\CodeGreen.vshost.exe.manifest"; DestDir: "{app}\bin\Debug";
 Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
-Source: "..\bin\Debug\hiscoren.mdb"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\SQLite.NET.dll"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\highscoren"; DestDir: "{app}"; Flags: touch
 
 ; externe afbeeldingen, niet gebruiken want alle afbeeldingen zijn nu in exe compiled.
 ;Source: "..\afb\*"; DestDir: "{app}\afb"; Flags: ignoreversion touch
@@ -105,5 +104,6 @@ begin
             end;
 	end;
 end;
+
 
 
