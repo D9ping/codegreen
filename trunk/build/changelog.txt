@@ -1,2 +1,6 @@
 CHANGELOG
 
+v1.0.1 -> v1.5.0
+- Replaced Access database with SQLLite database.
+- Add falling text to options screen.
+- Fixed spell errors.

@@ -89,6 +89,12 @@
   <ItemGroup>
     <Compile Include="Bank.cs" />
     <Compile Include="Bankaccount.cs" />
+    <Compile Include="BigCheckbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BigCheckbox.Designer.cs">
+      <DependentUpon>BigCheckbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Communication.cs" />
     <Compile Include="DropText.cs" />
     <Compile Include="GameHighscore.cs">
@@ -149,36 +155,49 @@
     <Compile Include="ResourceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="afb\werkbalkknop_inventory_off.png" />
-    <EmbeddedResource Include="afb\werkbalkknop_inventory_on.png" />
-    <EmbeddedResource Include="afb\item_aircrack_cracker.png" />
-    <EmbeddedResource Include="afb\item_nessus_networkscanner.png" />
-    <EmbeddedResource Include="afb\item_wireshark_sniffer.png" />
-    <EmbeddedResource Include="afb\knop_backmainmenu.png" />
-    <EmbeddedResource Include="afb\knop_backmainmenu_selected.png" />
-    <EmbeddedResource Include="afb\knop_exit.png" />
-    <EmbeddedResource Include="afb\knop_exit_selected.png" />
-    <EmbeddedResource Include="afb\knop_highscore.png" />
-    <EmbeddedResource Include="afb\knop_highscore_selected.png" />
-    <EmbeddedResource Include="afb\knop_options.png" />
-    <EmbeddedResource Include="afb\knop_options_selected.png" />
-    <EmbeddedResource Include="afb\knop_start.png" />
-    <EmbeddedResource Include="afb\knop_start_selected.png" />
-    <None Include="afb\logo_CodeGreen.jpg" />
-    <EmbeddedResource Include="afb\werkbalkknop_bank_off.png" />
-    <EmbeddedResource Include="afb\werkbalkknop_bank_on.png" />
+    <EmbeddedResource Include="BigCheckbox.resx">
+      <DependentUpon>BigCheckbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameHighscore.resx">
       <DependentUpon>GameHighscore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="afb\werkbalkknop_shop_off.png" />
-    <EmbeddedResource Include="afb\werkbalkknop_shop_on.png" />
-    <None Include="afb\game_truck_driveright.png" />
-    <EmbeddedResource Include="afb\knop_quitgame.png" />
-    <EmbeddedResource Include="afb\knop_sound_off.png" />
-    <EmbeddedResource Include="afb\knop_sound_on.png" />
-    <EmbeddedResource Include="afb\selected.png" />
-    <EmbeddedResource Include="afb\not_selected.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_shop_on.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_shop_off.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_inventory_on.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_inventory_off.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_bank_on.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_bank_off.png" />
+    <EmbeddedResource Include="Resources\knop_start_selected.png" />
+    <EmbeddedResource Include="Resources\knop_start.png" />
+    <EmbeddedResource Include="Resources\knop_sound_on.png" />
+    <EmbeddedResource Include="Resources\knop_sound_off.png" />
+    <EmbeddedResource Include="Resources\knop_quitgame.png" />
+    <EmbeddedResource Include="Resources\knop_options_selected.png" />
+    <EmbeddedResource Include="Resources\knop_options.png" />
+    <EmbeddedResource Include="Resources\knop_highscore_selected.png" />
+    <EmbeddedResource Include="Resources\knop_highscore.png" />
+    <EmbeddedResource Include="Resources\knop_exit_selected.png" />
+    <EmbeddedResource Include="Resources\knop_exit.png" />
+    <EmbeddedResource Include="Resources\knop_backmainmenu_selected.png" />
+    <EmbeddedResource Include="Resources\knop_backmainmenu.png" />
+    <EmbeddedResource Include="Resources\item_wireshark_sniffer.png" />
+    <EmbeddedResource Include="Resources\item_nessus_networkscanner.png" />
+    <EmbeddedResource Include="Resources\item_aircrack_cracker.png" />
+    <EmbeddedResource Include="Resources\game_truck_driveright.png" />
     <Content Include="icon_codegreen.ico" />
+    <EmbeddedResource Include="Resources\logo_CodeGreen.png" />
+    <EmbeddedResource Include="Resources\item_worm.png" />
+    <EmbeddedResource Include="Resources\item_listaccountnumbersbank.png" />
+    <EmbeddedResource Include="Resources\item_keylogger.png" />
+    <EmbeddedResource Include="Resources\item_codered_virus.png" />
+    <EmbeddedResource Include="Resources\hacker_tux.png" />
+    <EmbeddedResource Include="Resources\game_background.jpg" />
+    <EmbeddedResource Include="Resources\crash_server.png" />
+    <EmbeddedResource Include="Resources\controller_selected.png" />
+    <EmbeddedResource Include="Resources\controller_not_selected.png" />
+    <EmbeddedResource Include="Resources\cogegreen_icon_logo.png" />
+    <EmbeddedResource Include="Resources\checkbox_on.png" />
+    <EmbeddedResource Include="Resources\checkbox_off.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -219,12 +238,10 @@
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
+    <EmbeddedResource Include="Resources\logo_CodeGreen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

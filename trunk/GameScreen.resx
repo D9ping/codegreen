@@ -152,6 +152,39 @@
   <data name="&gt;&gt;lblIntroTextLine1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;btnFriendGift.Name" xml:space="preserve">
+    <value>btnFriendGift</value>
+  </data>
+  <data name="&gt;&gt;btnFriendGift.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnFriendGift.Parent" xml:space="preserve">
+    <value>gbxGameInstructions</value>
+  </data>
+  <data name="&gt;&gt;btnFriendGift.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbxGameInstructions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 480</value>
+  </data>
+  <data name="gbxGameInstructions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>620, 80</value>
+  </data>
+  <data name="gbxGameInstructions.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;gbxGameInstructions.Name" xml:space="preserve">
+    <value>gbxGameInstructions</value>
+  </data>
+  <data name="&gt;&gt;gbxGameInstructions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxGameInstructions.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxGameInstructions.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnFriendGift.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -188,27 +221,6 @@
   </data>
   <data name="&gt;&gt;btnFriendGift.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="gbxGameInstructions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 480</value>
-  </data>
-  <data name="gbxGameInstructions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>620, 80</value>
-  </data>
-  <data name="gbxGameInstructions.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;gbxGameInstructions.Name" xml:space="preserve">
-    <value>gbxGameInstructions</value>
-  </data>
-  <data name="&gt;&gt;gbxGameInstructions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbxGameInstructions.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbxGameInstructions.ZOrder" xml:space="preserve">
-    <value>25</value>
   </data>
   <data name="lbTextShop.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -303,6 +315,9 @@
   <data name="&gt;&gt;lbTextMoneySign.ZOrder" xml:space="preserve">
     <value>22</value>
   </data>
+  <metadata name="tooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>340, 10</value>
+  </metadata>
   <data name="progbarServerload.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 8</value>
   </data>
@@ -312,9 +327,6 @@
   <data name="progbarServerload.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <metadata name="tooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>340, 10</value>
-  </metadata>
   <data name="progbarServerload.ToolTip" xml:space="preserve">
     <value>Server load</value>
   </data>
@@ -330,41 +342,9 @@
   <data name="&gt;&gt;progbarServerload.ZOrder" xml:space="preserve">
     <value>24</value>
   </data>
-  <data name="pbKnopInventory.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
+  <metadata name="tooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>340, 10</value>
+  </metadata>
   <data name="pbKnopInventory.Location" type="System.Drawing.Point, System.Drawing">
     <value>71, 485</value>
   </data>
@@ -391,6 +371,129 @@
   </data>
   <data name="&gt;&gt;pbKnopInventory.ZOrder" xml:space="preserve">
     <value>23</value>
+  </data>
+  <data name="&gt;&gt;lbItemCommandInfo.Name" xml:space="preserve">
+    <value>lbItemCommandInfo</value>
+  </data>
+  <data name="&gt;&gt;lbItemCommandInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbItemCommandInfo.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;lbItemCommandInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pbItemListaccountumbersbank.Name" xml:space="preserve">
+    <value>pbItemListaccountumbersbank</value>
+  </data>
+  <data name="&gt;&gt;pbItemListaccountumbersbank.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbItemListaccountumbersbank.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;pbItemListaccountumbersbank.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pbItemCoderedvirus.Name" xml:space="preserve">
+    <value>pbItemCoderedvirus</value>
+  </data>
+  <data name="&gt;&gt;pbItemCoderedvirus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbItemCoderedvirus.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;pbItemCoderedvirus.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pbItemWorm.Name" xml:space="preserve">
+    <value>pbItemWorm</value>
+  </data>
+  <data name="&gt;&gt;pbItemWorm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbItemWorm.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;pbItemWorm.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pbItemNetworkScanner.Name" xml:space="preserve">
+    <value>pbItemNetworkScanner</value>
+  </data>
+  <data name="&gt;&gt;pbItemNetworkScanner.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbItemNetworkScanner.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;pbItemNetworkScanner.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pbItemKeylogger.Name" xml:space="preserve">
+    <value>pbItemKeylogger</value>
+  </data>
+  <data name="&gt;&gt;pbItemKeylogger.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbItemKeylogger.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;pbItemKeylogger.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pbItemWifiWEPCracker.Name" xml:space="preserve">
+    <value>pbItemWifiWEPCracker</value>
+  </data>
+  <data name="&gt;&gt;pbItemWifiWEPCracker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbItemWifiWEPCracker.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;pbItemWifiWEPCracker.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbCommand.Name" xml:space="preserve">
+    <value>tbCommand</value>
+  </data>
+  <data name="&gt;&gt;tbCommand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbCommand.Parent" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;tbCommand.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="gbxWBInventory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 45</value>
+  </data>
+  <data name="gbxWBInventory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>598, 66</value>
+  </data>
+  <data name="gbxWBInventory.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gbxWBInventory.Text" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="gbxWBInventory.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;gbxWBInventory.Name" xml:space="preserve">
+    <value>gbxWBInventory</value>
+  </data>
+  <data name="&gt;&gt;gbxWBInventory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxWBInventory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxWBInventory.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="lbItemCommandInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -425,8 +528,8 @@
   <data name="pbItemListaccountumbersbank.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAAA/CAYAAAB3s08iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9wAA
-        CvcBEOiS5wAABb9JREFUeF7tm41R4zAQRq8XmqAIWqAFSqACKqABKqAACqABCqAAGsjdy8yb+25HdmxH
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9gAA
+        CvYBwq9wAwAABb9JREFUeF7tm41R4zAQRq8XmqAIWqAFSqACKqABKqAACqABCqAAGsjdy8yb+25HdmxH
         mTNBzHjiOPpZPa+k/RG/fo2/QWAQGAQGgUFgEBgErorA4c9oxvWXweqXO+D9q0DbAH59fR1+8hWzcADc
         ogjdAD48PGzWxMfHx8Pb29um+u/v74fn5+dNdbcAq3W6AXQQr6+vB4C8vLwcB8Vz7nlWO6fs09PTAfgC
         5DtXlgUSF8+8t9zn5+eBduyLfj4+Po7flcXfewC7GMC7u7uj4IK6v78/fr+9vT1CZBA8UwBAZBkA0gbl
@@ -706,8 +809,8 @@
   <data name="pbItemWorm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHMAAABmCAYAAAD4WK7OAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9wAA
-        CvcBEOiS5wAAOGJJREFUeF7tfQd4VWW29iYhIb2QQiqphPTezknvlSQkJISEUEILTaSLgEDokEoSCKEX
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9gAA
+        CvYBwq9wAwAAOGJJREFUeF7tfQd4VWW29iYhIb2QQiqphPTezknvlSQkJISEUEILTaSLgEDokEoSCKEX
         QR0L9pnfcRx1bPdOuc5Y7+g44zhjuzPq6Px6r47vXWvts09OUDSJ4uDc7OfZTwJJztnnW99q73rX+hRl
         7BpbgbEVGFuBa3oFXvjti+AHvP2BOzHe2xYNa5oRl5eCJ599Rv5/7LqGV+DuJx+E4m8LxUtBbH0GspaU
         y/fKZEtsOr0beddVo7nzeiTPz4NdrDuaty4bE+q1KM/CxZXIvnE64jsq4bkvDZ4H0uG9Nw0Bu7NQdGwe
@@ -984,8 +1087,8 @@
   <data name="pbItemNetworkScanner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABNCAIAAAC+O3S/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9wAA
-        CvcBEOiS5wAAKQZJREFUeF61fAdcU+f3vpAdAlmEMMIeAu4trXtr3bZWraPuXWtbVwUX27px4144ERnJ
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9gAA
+        CvYBwq9wAwAAKQZJREFUeF61fAdcU+f3vpAdAlmEMMIeAu4trXtr3bZWraPuXWtbVwUX27px4144ERnJ
         TcJQELdWq3XWxcxmKLJM8j/vvUkIAVvb7+8f308+Cd7ce5/3nPeM55z3tjDavj4ajQb4ZzTojUa90QCf
         9QZD/eeNjwZ0cLPDAC/4j4/46czHwAf8Cv/wIo6BQZzZ8kJf9QY9nNMy9EbL3aKr4aPRq4UZL0D8aDDW
         I5BGwFyPACPM9QZjncH4wWh4b0DjnUFfYTsMleb/rUIHG2ots2M01FkN4u/ETcA5TZ/16CsxodZgrO/S
@@ -1414,8 +1517,8 @@
   <data name="pbItemWifiWEPCracker.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAAA/CAYAAAB3s08iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9wAA
-        CvcBEOiS5wAAITdJREFUeF7tm/d3ldW67/kDzrl333vPcJ+jYtmggrSNhRKl95JAIJBAEtIghJBCQpfm
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9gAA
+        CvYBwq9wAwAAITdJREFUeF7tm/d3ldW67/kDzrl333vPcJ+jYtmggrSNhRKl95JAIJBAEtIghJBCQpfm
         FkU3tu1G0A1uUNCj2EAQpIh0EOkdUaQjRUp6COV7n8981wwr6jky9nY4zg9kjDWystb7vnPO7/N9vk+Z
         M9X0Cz/Xr1/X1avXVXr5mi4UXdXxHyr0zanL2neiXPuOl+vrk+U69P1l9/nZS1d0qeSqyiuu67K9Ssqv
         67zdc+KHK+6e7d+VafmOYn38ZYGWbCtyf397+rJOX7xi117T5SvXVWD386x9x8q1ak+xPtpQoDV7S7Tf
@@ -1623,62 +1726,9 @@
   <data name="&gt;&gt;tbCommand.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="gbxWBInventory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 45</value>
-  </data>
-  <data name="gbxWBInventory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>598, 66</value>
-  </data>
-  <data name="gbxWBInventory.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="gbxWBInventory.Text" xml:space="preserve">
-    <value>Inventory</value>
-  </data>
-  <data name="gbxWBInventory.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;gbxWBInventory.Name" xml:space="preserve">
-    <value>gbxWBInventory</value>
-  </data>
-  <data name="&gt;&gt;gbxWBInventory.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbxWBInventory.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbxWBInventory.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="pbKnopBank.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        YII=
-</value>
-  </data>
+  <metadata name="tooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>340, 10</value>
+  </metadata>
   <data name="pbKnopBank.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 448</value>
   </data>
@@ -1816,28 +1866,6 @@ Highly secured building.</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>12</value>
-  </data>
-  <data name="pbKnopShop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK6QAA
-        CukB/XXO0wAAA4VJREFUWEfNVl1Ik2EU1kaSc3P/X0t2kYvSC53/89+hduHcIpwwyBzVNvFy3YSXlhRB
-        GoNMELWgi6C7uoigIIgi+vGiFEujoqCL6CIKLLqKeo54Pt4+v619NrXB4X133nPO+5zf783J+R9+NTU1
-        vyorK78nEgnjluAhAERVVVWPtgrASwYRj8d3bDqIUCiUzwAqKipubToAurC6unqBQQDQsaampn0Wi0Uq
-        LCyUrFarhPRIQ0ND+g0D19XVlccAaAUgzUR6iOASwC6QQ6v0BOs9JUH2+BpnoPhOBLGRe9z1eg2AxsZG
-        D18KxKdBJ4nq6+svUkRWI3Oqtrb2TENDw2hdXd2YIP8ZrXwNvDnI/mR+eXn5RzGaQsfNrgEQDAblYuzs
-        7NzLAgAWYUWbzaZj/vT09HYxSsyfmZnZxXzxkuHh4QKAXKYzOHBQtZ5YEYJ3ysrKxuHBOPJ6U/BognhE
-        Ho9ngiND58RjHUF+hUcEO1eZH4vF1IfeRuZdCP9iMpnMTRWBZ8JMINTn8P8y8+D1GPGIUEjnhRr4xnxE
-        JSnwk8RHREexfiI+9lNp21lQvk2CAwMDNua53e4CVp6cnNSp5ZrOlfxoNGpiHgr1wN8AvBEN9PX1yQDg
-        xR6hCOXZoTQoOHFWmdaWlhZHWgBoO9mzbNcEzZqMpmmWL17mbvF6vVc0AYDiUiQSkVMAD6JCDajOAWUN
-        dHd3y3MBjsUyAoCL54VevsQeoIKfoqcvEKHv5QlJssynlXVpj865IUR0d0YARC+ylQ44kVn+GSFfjLH5
-        oa2tbd7n8/1BxAM9R9E+5HOM7cfQu9va2kpn8zh7gKp/BRtv6buSsfdiBGDgvibFbAmj59+nGjTZuiOt
-        HbPZfDRb+Yed65pBOxyOI/j2r7wD/pUQza+aAWBmu0wmk99oNPbY7fY41sGioqLDBoMhQHy8F/14H/h5
-        T/+dTmcIb8m4Xq8fxP4QVj/ke3Q6nVszAFKQJMlVWlr6QowAhtEcqjxPNIj5kIu5MKWMFGRn29vb5UeM
-        JhAYm9tw+aJa+Jubm/crAEip0oQHr1fTxSw8MjKyM5XRkpKSEx0dHfKjAj3uSyWL6CTWBaC/v19+IyqN
-        u1yuMHgyALwT8Fe9WIuLi4PrAhAOh3PVjCKvP5Bvs2g0EAgYUskiWvnrArA6DedEwwj1l97eXqeaQbSs
-        /AEjHZLFl9SS7vLfAHPrXlgz0K8AAAAASUVORK5CYII=
-</value>
   </data>
   <data name="pbKnopShop.Location" type="System.Drawing.Point, System.Drawing">
     <value>53, 456</value>
@@ -2100,6 +2128,234 @@ Highly secured building.</value>
   <metadata name="usb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>430, 10</value>
   </metadata>
+  <data name="&gt;&gt;lbInfectie.Name" xml:space="preserve">
+    <value>lbInfectie</value>
+  </data>
+  <data name="&gt;&gt;lbInfectie.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInfectie.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbInfectie.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbTextInfectie.Name" xml:space="preserve">
+    <value>lbTextInfectie</value>
+  </data>
+  <data name="&gt;&gt;lbTextInfectie.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextInfectie.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextInfectie.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lbWindowsuptodate.Name" xml:space="preserve">
+    <value>lbWindowsuptodate</value>
+  </data>
+  <data name="&gt;&gt;lbWindowsuptodate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWindowsuptodate.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbWindowsuptodate.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbTextWindowsUpdatetodate.Name" xml:space="preserve">
+    <value>lbTextWindowsUpdatetodate</value>
+  </data>
+  <data name="&gt;&gt;lbTextWindowsUpdatetodate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextWindowsUpdatetodate.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextWindowsUpdatetodate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnGetKeyloggerLog.Name" xml:space="preserve">
+    <value>btnGetKeyloggerLog</value>
+  </data>
+  <data name="&gt;&gt;btnGetKeyloggerLog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGetKeyloggerLog.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;btnGetKeyloggerLog.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWPA.Name" xml:space="preserve">
+    <value>lbWifiWPA</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWPA.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWPA.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWPA.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWEP.Name" xml:space="preserve">
+    <value>lbWifiWEP</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWEP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWEP.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbWifiWEP.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lbWifiSSID.Name" xml:space="preserve">
+    <value>lbWifiSSID</value>
+  </data>
+  <data name="&gt;&gt;lbWifiSSID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWifiSSID.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbWifiSSID.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lbIPadres.Name" xml:space="preserve">
+    <value>lbIPadres</value>
+  </data>
+  <data name="&gt;&gt;lbIPadres.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbIPadres.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbIPadres.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lbTextIPadres.Name" xml:space="preserve">
+    <value>lbTextIPadres</value>
+  </data>
+  <data name="&gt;&gt;lbTextIPadres.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextIPadres.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextIPadres.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWPA.Name" xml:space="preserve">
+    <value>lbTextWifiWPA</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWPA.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWPA.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWPA.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWEP.Name" xml:space="preserve">
+    <value>lbTextWifiWEP</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWEP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWEP.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiWEP.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiSSID.Name" xml:space="preserve">
+    <value>lbTextWifiSSID</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiSSID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiSSID.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifiSSID.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;lbWifi.Name" xml:space="preserve">
+    <value>lbWifi</value>
+  </data>
+  <data name="&gt;&gt;lbWifi.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbWifi.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbWifi.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifi.Name" xml:space="preserve">
+    <value>lbTextWifi</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifi.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifi.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextWifi.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;lbNaam.Name" xml:space="preserve">
+    <value>lbNaam</value>
+  </data>
+  <data name="&gt;&gt;lbNaam.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbNaam.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbNaam.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.Name" xml:space="preserve">
+    <value>lbTextNaam</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.Parent" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;lbTextNaam.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="gbxWBHuis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 405</value>
+  </data>
+  <data name="gbxWBHuis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>549, 78</value>
+  </data>
+  <data name="gbxWBHuis.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="gbxWBHuis.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;gbxWBHuis.Name" xml:space="preserve">
+    <value>gbxWBHuis</value>
+  </data>
+  <data name="&gt;&gt;gbxWBHuis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbxWBHuis.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbxWBHuis.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="lbInfectie.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2577,29 +2833,53 @@ Highly secured building.</value>
   <data name="&gt;&gt;lbTextNaam.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
-  <data name="gbxWBHuis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 405</value>
+  <data name="&gt;&gt;lbBanklogininfo.Name" xml:space="preserve">
+    <value>lbBanklogininfo</value>
   </data>
-  <data name="gbxWBHuis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 78</value>
+  <data name="&gt;&gt;lbBanklogininfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="gbxWBHuis.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="&gt;&gt;lbBanklogininfo.Parent" xml:space="preserve">
+    <value>gbxWBBank</value>
   </data>
-  <data name="gbxWBHuis.Visible" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;lbBanklogininfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbSaldo.Name" xml:space="preserve">
+    <value>lbSaldo</value>
+  </data>
+  <data name="&gt;&gt;lbSaldo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSaldo.Parent" xml:space="preserve">
+    <value>gbxWBBank</value>
+  </data>
+  <data name="&gt;&gt;lbSaldo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbxWBBank.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 117</value>
+  </data>
+  <data name="gbxWBBank.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 77</value>
+  </data>
+  <data name="gbxWBBank.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="gbxWBBank.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;gbxWBHuis.Name" xml:space="preserve">
-    <value>gbxWBHuis</value>
+  <data name="&gt;&gt;gbxWBBank.Name" xml:space="preserve">
+    <value>gbxWBBank</value>
   </data>
-  <data name="&gt;&gt;gbxWBHuis.Type" xml:space="preserve">
+  <data name="&gt;&gt;gbxWBBank.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gbxWBHuis.Parent" xml:space="preserve">
+  <data name="&gt;&gt;gbxWBBank.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;gbxWBHuis.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;gbxWBBank.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="lbBanklogininfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2663,30 +2943,6 @@ Highly secured building.</value>
   </data>
   <data name="&gt;&gt;lbSaldo.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="gbxWBBank.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 117</value>
-  </data>
-  <data name="gbxWBBank.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 77</value>
-  </data>
-  <data name="gbxWBBank.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="gbxWBBank.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;gbxWBBank.Name" xml:space="preserve">
-    <value>gbxWBBank</value>
-  </data>
-  <data name="&gt;&gt;gbxWBBank.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbxWBBank.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbxWBBank.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="tbAccountPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 49</value>
@@ -2925,18 +3181,6 @@ Highly secured building.</value>
   <data name="&gt;&gt;gbxShopStock.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="cbAccountnummer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 21</value>
-  </data>
-  <data name="cbAccountnummer.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="cbAccountnummer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 21</value>
-  </data>
-  <data name="cbAccountnummer.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;cbAccountnummer.Name" xml:space="preserve">
     <value>cbAccountnummer</value>
   </data>
@@ -2976,18 +3220,29 @@ Highly secured building.</value>
   <data name="&gt;&gt;gbxBanklogin.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="pbKnopSound.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAX9JREFUOE+lk09L
-        AlEUxQW3rfoAfYbWroQWrpxJGBGJUhufOqREJii4iJBhxPH/ToeEkAQXYQRFiKvcRNSmQoLaBGVQUDu3
-        pzuCUEpO4eLA48H53XvP5ZoAmGbRTGa98J8BmUzaLcupl/FuDQGqmjGTOaUo8iCV2sUHx4VJCyPQBCCf
-        z1ny+exQ2axqIfPD3p6GVusQp0GmA25I878CcjkV5XIJpVIBxWIB9fo+ms0mLhIJPDscOqDxfYyJDlQ1
-        jW73HJ1OB+12G7VaDWeShL4g4M7p1AFzUwE0KxqNAyiKAlmWcRIIDCvfu93YDofI+3PtEx3oQWlaBYwx
-        NFwuPHEcrux2bIYCkKSAMSCZTKBareBYFIeVr3kONqsVHs8qgkHRGBCLbeHI5yHzMm5p7uhGCA56++iP
-        MZ8xoCcI2jvPf77yfG9nfW2JMe9jJCIhHo/C7/dOB1DCi6Q30uUobapq9otemTQwBOgJk9E2vir9n0Ar
-        pL7hFv57mYa3YAT8AnBHwZpvFnYnAAAAAElFTkSuQmCC
-</value>
+  <data name="cbAccountnummer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 21</value>
+  </data>
+  <data name="cbAccountnummer.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="cbAccountnummer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 21</value>
+  </data>
+  <data name="cbAccountnummer.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cbAccountnummer.Name" xml:space="preserve">
+    <value>cbAccountnummer</value>
+  </data>
+  <data name="&gt;&gt;cbAccountnummer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbAccountnummer.Parent" xml:space="preserve">
+    <value>gbxBanklogin</value>
+  </data>
+  <data name="&gt;&gt;cbAccountnummer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="pbKnopSound.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 518</value>
@@ -3040,11 +3295,11 @@ Highly secured building.</value>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>43</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

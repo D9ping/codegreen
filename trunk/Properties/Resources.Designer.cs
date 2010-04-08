@@ -60,9 +60,170 @@ namespace CodeGreen.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap logo_CodeGreen {
+        internal static System.Drawing.Bitmap checkbox_off {
             get {
-                object obj = ResourceManager.GetObject("logo_CodeGreen", resourceCulture);
+                object obj = ResourceManager.GetObject("checkbox_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap checkbox_on {
+            get {
+                object obj = ResourceManager.GetObject("checkbox_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap cogegreen_icon_logo {
+            get {
+                object obj = ResourceManager.GetObject("cogegreen_icon_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap controller_not_selected {
+            get {
+                object obj = ResourceManager.GetObject("controller_not_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap controller_selected {
+            get {
+                object obj = ResourceManager.GetObject("controller_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_backmainmenu {
+            get {
+                object obj = ResourceManager.GetObject("knop_backmainmenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_backmainmenu_selected {
+            get {
+                object obj = ResourceManager.GetObject("knop_backmainmenu_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_exit {
+            get {
+                object obj = ResourceManager.GetObject("knop_exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_exit_selected {
+            get {
+                object obj = ResourceManager.GetObject("knop_exit_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_highscore {
+            get {
+                object obj = ResourceManager.GetObject("knop_highscore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_highscore_selected {
+            get {
+                object obj = ResourceManager.GetObject("knop_highscore_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_options {
+            get {
+                object obj = ResourceManager.GetObject("knop_options", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_options_selected {
+            get {
+                object obj = ResourceManager.GetObject("knop_options_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_quitgame {
+            get {
+                object obj = ResourceManager.GetObject("knop_quitgame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_sound_off {
+            get {
+                object obj = ResourceManager.GetObject("knop_sound_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_sound_on {
+            get {
+                object obj = ResourceManager.GetObject("knop_sound_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_start {
+            get {
+                object obj = ResourceManager.GetObject("knop_start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap knop_start_selected {
+            get {
+                object obj = ResourceManager.GetObject("knop_start_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap werkbalkknop_bank_off {
+            get {
+                object obj = ResourceManager.GetObject("werkbalkknop_bank_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap werkbalkknop_bank_on {
+            get {
+                object obj = ResourceManager.GetObject("werkbalkknop_bank_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap werkbalkknop_inventory_off {
+            get {
+                object obj = ResourceManager.GetObject("werkbalkknop_inventory_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap werkbalkknop_inventory_on {
+            get {
+                object obj = ResourceManager.GetObject("werkbalkknop_inventory_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap werkbalkknop_shop_off {
+            get {
+                object obj = ResourceManager.GetObject("werkbalkknop_shop_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap werkbalkknop_shop_on {
+            get {
+                object obj = ResourceManager.GetObject("werkbalkknop_shop_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

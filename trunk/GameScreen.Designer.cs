@@ -197,6 +197,7 @@
             // pbKnopInventory
             // 
             this.pbKnopInventory.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopInventory.Image = global::CodeGreen.Properties.Resources.werkbalkknop_inventory_off;
             resources.ApplyResources(this.pbKnopInventory, "pbKnopInventory");
             this.pbKnopInventory.Name = "pbKnopInventory";
             this.pbKnopInventory.TabStop = false;
@@ -295,6 +296,7 @@
             // pbKnopBank
             // 
             this.pbKnopBank.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopBank.Image = global::CodeGreen.Properties.Resources.werkbalkknop_bank_off;
             resources.ApplyResources(this.pbKnopBank, "pbKnopBank");
             this.pbKnopBank.Name = "pbKnopBank";
             this.pbKnopBank.TabStop = false;
@@ -343,6 +345,7 @@
             // pbKnopShop
             // 
             this.pbKnopShop.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopShop.Image = global::CodeGreen.Properties.Resources.werkbalkknop_shop_off;
             resources.ApplyResources(this.pbKnopShop, "pbKnopShop");
             this.pbKnopShop.Name = "pbKnopShop";
             this.pbKnopShop.TabStop = false;
@@ -696,6 +699,7 @@
             // pbKnopSound
             // 
             this.pbKnopSound.BackColor = System.Drawing.Color.Transparent;
+            this.pbKnopSound.Image = global::CodeGreen.Properties.Resources.knop_sound_off;
             resources.ApplyResources(this.pbKnopSound, "pbKnopSound");
             this.pbKnopSound.Name = "pbKnopSound";
             this.pbKnopSound.TabStop = false;

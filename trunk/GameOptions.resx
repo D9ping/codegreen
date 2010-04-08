@@ -118,47 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblOptionSound.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblOptionSound.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 20.25pt</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblOptionSound.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblOptionSound.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 151</value>
-  </data>
-  <data name="lblOptionSound.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 37</value>
-  </data>
-  <data name="lblOptionSound.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblOptionSound.Text" xml:space="preserve">
-    <value>Sounds</value>
-  </data>
-  <data name="&gt;&gt;lblOptionSound.Name" xml:space="preserve">
-    <value>lblOptionSound</value>
-  </data>
-  <data name="&gt;&gt;lblOptionSound.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOptionSound.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblOptionSound.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="lblTextOptions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblTextOptions.Font" type="System.Drawing.Font, System.Drawing">
     <value>Courier New, 24pt, style=Bold</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTextOptions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -184,44 +151,11 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTextOptions.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <metadata name="TimerTextEffect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="lbOptionController.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbOptionController.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 20.25pt</value>
-  </data>
-  <data name="lbOptionController.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbOptionController.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 255</value>
-  </data>
-  <data name="lbOptionController.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 37</value>
-  </data>
-  <data name="lbOptionController.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="lbOptionController.Text" xml:space="preserve">
-    <value>Remote controller</value>
-  </data>
-  <data name="&gt;&gt;lbOptionController.Name" xml:space="preserve">
-    <value>lbOptionController</value>
-  </data>
-  <data name="&gt;&gt;lbOptionController.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbOptionController.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbOptionController.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="tbVendorID.Location" type="System.Drawing.Point, System.Drawing">
     <value>677, 244</value>
   </data>
@@ -244,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbVendorID.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="tbProductID.Location" type="System.Drawing.Point, System.Drawing">
     <value>677, 267</value>
@@ -268,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbProductID.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="lbtextVendorID.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -298,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbtextVendorID.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="lbTextProductID.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -328,7 +262,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbTextProductID.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="cbxSwitchXaxis.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -358,79 +292,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbxSwitchXaxis.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pbStateController.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAUtJREFUeF7t1EFu
-        wkAQBVFfgvsfgSOC2HpjlXqQa6yKxCLKDym/FjmOvhJIIIEEEkgggQQSSCCBBBJIIIEEEkgggQQSSCCB
-        BBJIIIEEEkgggS0EXu/j84TXbdhPwPs9Q4DDT0KATwG87ZLwD5//9cBfXzfXhMBH0nRrQgKEAsO55vCa
-        EAiq6daEBAgFhnPN4TUhEFTTrQkJEAoM55rDa0IgqKZbExIgFBjONYfXhEBQTbcmJEAoMJxrDq8JgaCa
-        bk1IgFBgONccXhMCQTXdmpAAocBwrjm8JgSCaro1IQFCgeFcc3hNCATVdGtCAoQCw7nm8JoQCKrp1oQE
-        CAWGc83hNSEQVNOtCQkQCgznmsNrQiCoplsT8hTAM+gu30P/dfNdgK4614nAd7oK2+Xn8LHXzXcBuupc
-        J9I7JZBAAgkkkEACCSSQQAL/EPgC/tK8TUyOjoQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pbStateController.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pbStateController.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 226</value>
-  </data>
-  <data name="pbStateController.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 82</value>
-  </data>
-  <data name="pbStateController.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pbStateController.Name" xml:space="preserve">
-    <value>pbStateController</value>
-  </data>
-  <data name="&gt;&gt;pbStateController.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbStateController.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pbStateController.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pbBackMenu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAoCAMAAACMwkUuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAwBQTFRFAAAAAggA
-        AwwABRAABxgACiAACyYADCgADjAADzMAETgAE0AAFUgAF04AGFAAGlgAG1wAHWAAH2gAH2sAIXAAJHgA
-        JHoAJoAAKIcAKYsAK48ALZcALpwAMJ8AMqcAM64AOb8AOsMAO8cAPs8AQNcAQNoAQ98ARecAR+8ASvcA
-        TP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/WsvpgAAA8BJREFUaEPtmWlz
-        2jAQhg11nBg3DS2JC8RBKEFg9v//wL57+Aow8XTITNSpvhhdq320h4SdJFpuf2+3FF153a4LAzCM1+gY
-        WoUPPZSnI9UvP4rJAC6GSlGs90TLRnH41Mu3GPQ+p+NkSbRT7Z+o/h4rBus929FGwvxIUXMIwQNAXukl
-        Znuw7o9Up8mMDtHGR2uALT0mS3qO3SBJ8kDbZBt7hLAZJnRI9nQTv0WSmhKiD87BspyOIJ2W5YhRnzbk
-        yCAfSA+Uj1g/p3AyqqhGTLzOEFB8HkhO/jpajpDyH+Rkk8641he0SBlCqFJVfuFR8U1kl6j5OZoNJPe+
-        iajKU/COp8x5yqqfMpyTRsjMHATcq2gZp5IrnxXcI7VMxbTPM642zrVYo0BBNOTfqJCIztDKNQS1guSB
-        mEqKw6jAjTZF52sBg8j0BZTFOCHhJl4nkzkrGcCim01qn38NQgtZhkN3RZ53dk6ky1WoifYC0ufg9SXY
-        HXmMnULNHgixTAwPrGgl2wLNGVXXATz3LGSdxm3PZUaTOc4imkU9b3YI+n9MKoXpVkIRXmTIYSAZBXVK
-        L/uhRYwoNuCHKJgGM5mIBkg36Wog6hOsbls8wXsrWmmD7to7DgNppy162TiQ7If1iaJttzTCtQwE61wL
-        xFyiMEXyBSKcGERorOQICPP1romdxDWD+o5hh2ypfdJTcoRwQeR0omWJK4Ooy1dQV8JQQLr4BQg5Cv3U
-        pBNa2g9AECJNEYvoHn0GiFgEuq4KqC8L9L0eIHMO/s77zLXGW8T8tAO4NogkKM4qVYLIVSMMY8RVan6k
-        YzsS1GPYIhdiRMT0XauNkanmwzMWaZJLb7Oan+Oylspskyx+p+Jac0stc2isjgP/6JxLQS5krRMQiNSE
-        6NisAxCIkJ5BBh/SjAORQ07ye0ayWuol2M2VunOkadFFwMaJF+cIP96dIycgPIAbFzJrAGLZGofK6Q3b
-        eEaBBKjSnLiIEU4svtIj9/3JjqOl51zovXSya5rou1Z3aeBtG4IwAl8gRNzZMgbEuanctdRn+CduQHb9
-        mUK23rWa+9DK7kU89h53J3Z4vpC1dzWR4viw53ubnJHNXLnGOXGwSnuaJ0vCjQxXtMsgh3/ir+6B8Frr
-        7hJmRO1UJxt6ikjhC6oW9IZXQm/xg6xpmUxq+hU7yYw4Pn7S8TZuksme1kywoTf7Gxsnz2RDO3k3lx6o
-        5tfykRZ8Hjla4k3xBXET6TeSO/5gNWttgI+IRPgaF1vZscLr/jvfm7W0xVf2z/ZR9w9W/gTdMP4C3AAA
-        AABJRU5ErkJggg==
-</value>
+    <value>3</value>
   </data>
   <data name="pbBackMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -454,43 +316,70 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbBackMenu.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
-  <data name="pbStateSound.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAUtJREFUeF7t1EFu
-        wkAQBVFfgvsfgSOC2HpjlXqQa6yKxCLKDym/FjmOvhJIIIEEEkgggQQSSCCBBBJIIIEEEkgggQQSSCCB
-        BBJIIIEEEkgggS0EXu/j84TXbdhPwPs9Q4DDT0KATwG87ZLwD5//9cBfXzfXhMBH0nRrQgKEAsO55vCa
-        EAiq6daEBAgFhnPN4TUhEFTTrQkJEAoM55rDa0IgqKZbExIgFBjONYfXhEBQTbcmJEAoMJxrDq8JgaCa
-        bk1IgFBgONccXhMCQTXdmpAAocBwrjm8JgSCaro1IQFCgeFcc3hNCATVdGtCAoQCw7nm8JoQCKrp1oQE
-        CAWGc83hNSEQVNOtCQkQCgznmsNrQiCoplsT8hTAM+gu30P/dfNdgK4614nAd7oK2+Xn8LHXzXcBuupc
-        J9I7JZBAAgkkkEACCSSQQAL/EPgC/tK8TUyOjoQAAAAASUVORK5CYII=
-</value>
+  <data name="bigCheckbox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 101</value>
   </data>
-  <data name="pbStateSound.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="bigCheckbox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 92</value>
   </data>
-  <data name="pbStateSound.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 123</value>
+  <data name="bigCheckbox3.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="pbStateSound.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 82</value>
+  <data name="&gt;&gt;bigCheckbox3.Name" xml:space="preserve">
+    <value>bigCheckbox3</value>
   </data>
-  <data name="pbStateSound.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;bigCheckbox3.Type" xml:space="preserve">
+    <value>CodeGreen.BigCheckbox, CodeGreen, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;pbStateSound.Name" xml:space="preserve">
-    <value>pbStateSound</value>
-  </data>
-  <data name="&gt;&gt;pbStateSound.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbStateSound.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bigCheckbox3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pbStateSound.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;bigCheckbox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="bigCheckbox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 305</value>
+  </data>
+  <data name="bigCheckbox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>421, 92</value>
+  </data>
+  <data name="bigCheckbox2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox2.Name" xml:space="preserve">
+    <value>bigCheckbox2</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox2.Type" xml:space="preserve">
+    <value>CodeGreen.BigCheckbox, CodeGreen, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="bigCheckbox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 195</value>
+  </data>
+  <data name="bigCheckbox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 92</value>
+  </data>
+  <data name="bigCheckbox1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox1.Name" xml:space="preserve">
+    <value>bigCheckbox1</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox1.Type" xml:space="preserve">
+    <value>CodeGreen.BigCheckbox, CodeGreen, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bigCheckbox1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -579,9 +468,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

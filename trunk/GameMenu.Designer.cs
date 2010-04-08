@@ -47,6 +47,7 @@
             // 
             this.pbExit.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.pbExit.BackColor = System.Drawing.Color.Transparent;
+            this.pbExit.Image = global::CodeGreen.Properties.Resources.knop_exit;
             resources.ApplyResources(this.pbExit, "pbExit");
             this.pbExit.Name = "pbExit";
             this.pbExit.TabStop = false;
@@ -57,6 +58,7 @@
             // pbHighscore
             // 
             this.pbHighscore.BackColor = System.Drawing.Color.Transparent;
+            this.pbHighscore.Image = global::CodeGreen.Properties.Resources.knop_highscore;
             resources.ApplyResources(this.pbHighscore, "pbHighscore");
             this.pbHighscore.Name = "pbHighscore";
             this.pbHighscore.TabStop = false;
@@ -67,6 +69,7 @@
             // pbOptions
             // 
             this.pbOptions.BackColor = System.Drawing.Color.Transparent;
+            this.pbOptions.Image = global::CodeGreen.Properties.Resources.knop_options;
             resources.ApplyResources(this.pbOptions, "pbOptions");
             this.pbOptions.Name = "pbOptions";
             this.pbOptions.TabStop = false;
@@ -77,8 +80,9 @@
             // pbStartGame
             // 
             this.pbStartGame.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pbStartGame, "pbStartGame");
+            this.pbStartGame.Image = global::CodeGreen.Properties.Resources.knop_start;
             this.pbStartGame.InitialImage = null;
+            resources.ApplyResources(this.pbStartGame, "pbStartGame");
             this.pbStartGame.Name = "pbStartGame";
             this.pbStartGame.TabStop = false;
             this.pbStartGame.MouseLeave += new System.EventHandler(this.knop_normal);

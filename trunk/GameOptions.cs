@@ -1,10 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameOptions.cs" company="GNU">
+// 
+// This program is free software; you can redistribute it and/or modify it
+// Free Software Foundation; either version 2, 
+// or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace CodeGreen
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public partial class GameOptions : Form
     {
         #region datavelden
@@ -37,19 +50,19 @@ namespace CodeGreen
             }
             if (options.GetSettingBool("sound") == true) 
             {
-                this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");
+                //this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");
             }
             else 
             {
-                this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");
+                //this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");
             }
             if (options.GetSettingBool("controller") == true) 
             {
-                this.pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
+                //this.pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
             }
             else 
             { 
-                this.pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");
+                //this.pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");
             }
         }
         #endregion
@@ -58,61 +71,7 @@ namespace CodeGreen
         #endregion
 
         #region methoden
-
-        private void knop_hover(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sender == pbBackMenu)
-                {
-                    pbBackMenu.Image = resourceshandler.loadimage("knop_backmainmenu_selected.png");
-                }
-                else if (sender == lblOptionSound)
-                {
-                    lblOptionSound.ForeColor = Color.Yellow;
-                }
-                else if (sender == lbOptionController)
-                {
-                    lbOptionController.ForeColor = Color.Yellow;
-                }
-                else
-                {
-                    misc.ToonBericht(2);
-                }
-            }
-            catch
-            {
-                misc.ToonBericht(1);
-            }
-        }
-
-        public void knop_normal(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sender == pbBackMenu)
-                {
-                    pbBackMenu.Image = resourceshandler.loadimage("knop_backmainmenu.png");
-                }
-                else if (sender == lblOptionSound)
-                {
-                    lblOptionSound.ForeColor = Color.Lime;
-                }
-                else if (sender == lbOptionController)
-                {
-                    lbOptionController.ForeColor = Color.Lime;
-                }
-                else
-                {
-                    misc.ToonBericht(1);
-                }
-            }
-            catch (Exception)
-            {
-                misc.ToonBericht(2);
-            }
-        }
-
+       
         private void tbVendorID_TextChanged(object sender, EventArgs e)
         {
             options.VendorID = tbVendorID.Text;
@@ -193,12 +152,10 @@ namespace CodeGreen
         {
             if (options.sound_enabled == true)
             {
-                pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");
                 if (options.UpdateSetting("Sound", false) == false) { misc.ToonBericht(3); }
             }
             else if (options.sound_enabled == false)
             {
-                pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");
                 if (options.UpdateSetting("Sound", true) == false)
                 {
                     misc.ToonBericht(3); 
@@ -210,7 +167,6 @@ namespace CodeGreen
         {
             if (options.controller_enabled == true)
             {
-                pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");
                 if (options.UpdateSetting("Controller", false) == false) 
                 {
                     misc.ToonBericht(3); 
@@ -218,7 +174,6 @@ namespace CodeGreen
             }
             else if (options.controller_enabled == false)
             {
-                pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
                 if (options.UpdateSetting("Controller", true) == false) 
                 {
                     misc.ToonBericht(3); 
@@ -237,7 +192,6 @@ namespace CodeGreen
                 options.SwitchXaxis = false;
             }
         }
-        #endregion
 
         private void GameOptions_Paint(object sender, PaintEventArgs e)
         {
@@ -252,6 +206,7 @@ namespace CodeGreen
             }
         }
 
+        #endregion
 
     }
 }

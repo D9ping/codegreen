@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Drawing.Imaging;
-using System.Diagnostics;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameMenu.cs" company="GNU">
+// 
+// This program is free software; you can redistribute it and/or modify it
+// Free Software Foundation; either version 2, 
+// or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace CodeGreen
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public partial class GameMenu : Form
     {
         #region datavelden
@@ -68,22 +76,22 @@ namespace CodeGreen
                 if (sender == pbStartGame)
                 {
                     this.speed = 12;
-                    pbStartGame.Image = resourcehandler.loadimage("knop_start_selected.png");
+                    pbStartGame.Image = CodeGreen.Properties.Resources.knop_start_selected;
                 }
                 else if (sender == pbOptions)
                 {
                     this.speed = 10;
-                    pbOptions.Image = resourcehandler.loadimage("knop_options_selected.png");
+                    pbOptions.Image = CodeGreen.Properties.Resources.knop_options_selected; //resourcehandler.loadimage("knop_options_selected.png");
                 }
                 else if (sender == pbHighscore)
                 {
                     this.speed = 8;
-                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore_selected.png");
+                    pbHighscore.Image = CodeGreen.Properties.Resources.knop_highscore_selected; //resourcehandler.loadimage("knop_highscore_selected.png");
                 }
                 else if (sender == pbExit)
                 {
                     this.speed = 3;
-                    pbExit.Image = resourcehandler.loadimage("knop_exit_selected.png");
+                    pbExit.Image = CodeGreen.Properties.Resources.knop_exit_selected; //resourcehandler.loadimage("knop_exit_selected.png");
                 }
                 else
                 {
@@ -109,22 +117,24 @@ namespace CodeGreen
             {
                 if (sender == pbStartGame)
                 {
-                    pbStartGame.Image = resourcehandler.loadimage("knop_start.png");
+                    pbStartGame.Image = CodeGreen.Properties.Resources.knop_start; //resourcehandler.loadimage("knop_start.png");
                 }
                 else if (sender == pbOptions)
                 {
-                    pbOptions.Image = resourcehandler.loadimage("knop_options.png");
+                    pbOptions.Image = CodeGreen.Properties.Resources.knop_options; //resourcehandler.loadimage("knop_options.png");
                 }
                 else if (sender == pbHighscore)
                 {
-                    pbHighscore.Image = resourcehandler.loadimage("knop_highscore.png");
+                    pbHighscore.Image = CodeGreen.Properties.Resources.knop_highscore; //resourcehandler.loadimage("knop_highscore.png");
                 }
                 else if (sender == pbExit)
                 {
-                    pbExit.Image = resourcehandler.loadimage("knop_exit.png");
+                    pbExit.Image = CodeGreen.Properties.Resources.knop_exit; //resourcehandler.loadimage("knop_exit.png");
                 }
-                    //sender not found...
-                else { misc.ToonBericht(2); }
+                else 
+                {
+                    misc.ToonBericht(2); 
+                }
             }
             catch
             {

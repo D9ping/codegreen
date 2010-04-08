@@ -30,32 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameOptions));
-            this.lblOptionSound = new System.Windows.Forms.Label();
             this.lblTextOptions = new System.Windows.Forms.Label();
             this.TimerTextEffect = new System.Windows.Forms.Timer(this.components);
-            this.lbOptionController = new System.Windows.Forms.Label();
             this.tbVendorID = new System.Windows.Forms.TextBox();
             this.tbProductID = new System.Windows.Forms.TextBox();
             this.lbtextVendorID = new System.Windows.Forms.Label();
             this.lbTextProductID = new System.Windows.Forms.Label();
             this.cbxSwitchXaxis = new System.Windows.Forms.CheckBox();
-            this.pbStateController = new System.Windows.Forms.PictureBox();
             this.pbBackMenu = new System.Windows.Forms.PictureBox();
-            this.pbStateSound = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).BeginInit();
+            this.bigCheckbox3 = new CodeGreen.BigCheckbox();
+            this.bigCheckbox2 = new CodeGreen.BigCheckbox();
+            this.bigCheckbox1 = new CodeGreen.BigCheckbox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblOptionSound
-            // 
-            resources.ApplyResources(this.lblOptionSound, "lblOptionSound");
-            this.lblOptionSound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblOptionSound.Name = "lblOptionSound";
-            this.lblOptionSound.UseCompatibleTextRendering = true;
-            this.lblOptionSound.MouseLeave += new System.EventHandler(this.knop_normal);
-            this.lblOptionSound.Click += new System.EventHandler(this.lblOptionSound_Click);
-            this.lblOptionSound.MouseHover += new System.EventHandler(this.knop_hover);
             // 
             // lblTextOptions
             // 
@@ -69,16 +56,6 @@
             this.TimerTextEffect.Enabled = true;
             this.TimerTextEffect.Interval = 50;
             this.TimerTextEffect.Tick += new System.EventHandler(this.TimerTextEffect_Tick);
-            // 
-            // lbOptionController
-            // 
-            resources.ApplyResources(this.lbOptionController, "lbOptionController");
-            this.lbOptionController.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lbOptionController.Name = "lbOptionController";
-            this.lbOptionController.UseCompatibleTextRendering = true;
-            this.lbOptionController.MouseLeave += new System.EventHandler(this.knop_normal);
-            this.lbOptionController.Click += new System.EventHandler(this.lbOptionController_Click);
-            this.lbOptionController.MouseHover += new System.EventHandler(this.knop_hover);
             // 
             // tbVendorID
             // 
@@ -119,50 +96,59 @@
             this.cbxSwitchXaxis.UseVisualStyleBackColor = true;
             this.cbxSwitchXaxis.CheckedChanged += new System.EventHandler(this.cbxSwitchXaxis_CheckedChanged);
             // 
-            // pbStateController
-            // 
-            resources.ApplyResources(this.pbStateController, "pbStateController");
-            this.pbStateController.Name = "pbStateController";
-            this.pbStateController.TabStop = false;
-            // 
             // pbBackMenu
             // 
+            this.pbBackMenu.Image = global::CodeGreen.Properties.Resources.knop_backmainmenu;
             resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
             this.pbBackMenu.Name = "pbBackMenu";
             this.pbBackMenu.TabStop = false;
             this.pbBackMenu.Click += new System.EventHandler(this.pbBackMenu_Click);
-            this.pbBackMenu.MouseHover += new System.EventHandler(this.knop_hover);
             // 
-            // pbStateSound
+            // bigCheckbox3
             // 
-            resources.ApplyResources(this.pbStateSound, "pbStateSound");
-            this.pbStateSound.Name = "pbStateSound";
-            this.pbStateSound.TabStop = false;
+            this.bigCheckbox3.BackColor = System.Drawing.Color.Transparent;
+            this.bigCheckbox3.Caption = "Music";
+            this.bigCheckbox3.IsChecked = false;
+            resources.ApplyResources(this.bigCheckbox3, "bigCheckbox3");
+            this.bigCheckbox3.Name = "bigCheckbox3";
+            // 
+            // bigCheckbox2
+            // 
+            this.bigCheckbox2.BackColor = System.Drawing.Color.Transparent;
+            this.bigCheckbox2.Caption = "Remote controller";
+            this.bigCheckbox2.IsChecked = false;
+            resources.ApplyResources(this.bigCheckbox2, "bigCheckbox2");
+            this.bigCheckbox2.Name = "bigCheckbox2";
+            // 
+            // bigCheckbox1
+            // 
+            this.bigCheckbox1.BackColor = System.Drawing.Color.Transparent;
+            this.bigCheckbox1.Caption = "Sounds";
+            this.bigCheckbox1.IsChecked = false;
+            resources.ApplyResources(this.bigCheckbox1, "bigCheckbox1");
+            this.bigCheckbox1.Name = "bigCheckbox1";
             // 
             // GameOptions
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.bigCheckbox3);
+            this.Controls.Add(this.bigCheckbox2);
+            this.Controls.Add(this.bigCheckbox1);
             this.Controls.Add(this.cbxSwitchXaxis);
             this.Controls.Add(this.lbTextProductID);
             this.Controls.Add(this.lbtextVendorID);
             this.Controls.Add(this.tbProductID);
             this.Controls.Add(this.tbVendorID);
-            this.Controls.Add(this.pbStateController);
-            this.Controls.Add(this.lbOptionController);
             this.Controls.Add(this.pbBackMenu);
             this.Controls.Add(this.lblTextOptions);
-            this.Controls.Add(this.lblOptionSound);
-            this.Controls.Add(this.pbStateSound);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "GameOptions";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameOptions_Paint);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameOptions_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.pbStateController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStateSound)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,18 +156,17 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbStateSound;
-        private System.Windows.Forms.Label lblOptionSound;
         private System.Windows.Forms.Label lblTextOptions;
         private System.Windows.Forms.PictureBox pbBackMenu;
-        private System.Windows.Forms.Label lbOptionController;
-        private System.Windows.Forms.PictureBox pbStateController;
         private System.Windows.Forms.TextBox tbVendorID;
         private System.Windows.Forms.TextBox tbProductID;
         private System.Windows.Forms.Label lbtextVendorID;
         private System.Windows.Forms.Label lbTextProductID;
         private System.Windows.Forms.CheckBox cbxSwitchXaxis;
         private System.Windows.Forms.Timer TimerTextEffect;
+        private BigCheckbox bigCheckbox1;
+        private BigCheckbox bigCheckbox2;
+        private BigCheckbox bigCheckbox3;
 
     }
 }

@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Win32; //Win32 bibliotheek nodig voor register.
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="OptionsHandler.cs" company="GNU">
+// 
+// This program is free software; you can redistribute it and/or modify it
+// Free Software Foundation; either version 2, 
+// or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// </copyright>
+//-----------------------------------------------------------------------
 namespace CodeGreen
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using Microsoft.Win32; //Win32 bibliotheek nodig voor register.
+
     /// <summary>
     /// Saves and load settings.
+    /// 
+    /// Class will be decrepit.
     /// </summary>
     /// <remarks>gevaarlijke dingen</remarks>
     public class OptionsHandler

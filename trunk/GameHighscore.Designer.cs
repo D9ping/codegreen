@@ -47,6 +47,7 @@
             // 
             // pbBackMenu
             // 
+            this.pbBackMenu.Image = global::CodeGreen.Properties.Resources.knop_backmainmenu;
             resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
             this.pbBackMenu.Name = "pbBackMenu";
             this.pbBackMenu.TabStop = false;

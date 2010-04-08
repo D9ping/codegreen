@@ -151,14 +151,14 @@ namespace CodeGreen
                     break;
                 case WerkbalkState.INVENTORY:
                     ToonGB(gbxWBInventory);
-                    ToonWerkbalkknop(pbKnopInventory, "werkbalkknop_inventory_on.png");
+                    ToonWerkbalkknop(pbKnopInventory, CodeGreen.Properties.Resources.werkbalkknop_inventory_on);
                     VerbergWinkel();
                     gbxBanklogin.Visible = false;
                     if (tbCommand.Text == "") { ToonInventoryItems(); }
                     break;
                 case WerkbalkState.BANK:
                     ToonGB(gbxWBBank);
-                    ToonWerkbalkknop(pbKnopBank, "werkbalkknop_bank_on.png");
+                    ToonWerkbalkknop(pbKnopBank, CodeGreen.Properties.Resources.werkbalkknop_bank_on);
                     VerbergWinkel();
                     gbxBanklogin.Visible = true;
                     misc.Curlenword = 0;
@@ -167,7 +167,7 @@ namespace CodeGreen
                     break;
                 case WerkbalkState.SHOP:
                     ToonGB(gbxWBShop);
-                    ToonWerkbalkknop(pbKnopShop, "werkbalkknop_shop_on.png");
+                    ToonWerkbalkknop(pbKnopShop, CodeGreen.Properties.Resources.werkbalkknop_shop_on);
                     DrawShop();
                     gbxBanklogin.Visible = false;
                     misc.Curlenword = 0;
@@ -364,38 +364,38 @@ namespace CodeGreen
         /// </summary>
         private void GetControllerHuis()
         {
-            pbHuis1.Image= resourcehandler.loadimage("not_selected.png");
-            pbHuis2.Image= resourcehandler.loadimage("not_selected.png");
-            pbHuis3.Image= resourcehandler.loadimage("not_selected.png");
-            pbHuis4.Image= resourcehandler.loadimage("not_selected.png");
-            pbHuis5.Image= resourcehandler.loadimage("not_selected.png");
-            pbBank.Image = resourcehandler.loadimage("not_selected.png");
-            pbShop.Image = resourcehandler.loadimage("not_selected.png");
-            pbHuisVriend.Image = resourcehandler.loadimage("not_selected.png");
+            pbHuis1.Image = CodeGreen.Properties.Resources.controller_not_selected; //resourcehandler.loadimage("not_selected.png");
+            pbHuis2.Image = CodeGreen.Properties.Resources.controller_not_selected; // resourcehandler.loadimage("not_selected.png");
+            pbHuis3.Image = CodeGreen.Properties.Resources.controller_not_selected; //resourcehandler.loadimage("not_selected.png");
+            pbHuis4.Image = CodeGreen.Properties.Resources.controller_not_selected; //resourcehandler.loadimage("not_selected.png");
+            pbHuis5.Image = CodeGreen.Properties.Resources.controller_not_selected; //resourcehandler.loadimage("not_selected.png");
+            pbBank.Image = CodeGreen.Properties.Resources.controller_not_selected;  //resourcehandler.loadimage("not_selected.png");
+            pbShop.Image = CodeGreen.Properties.Resources.controller_not_selected;  //resourcehandler.loadimage("not_selected.png");
+            pbHuisVriend.Image = CodeGreen.Properties.Resources.controller_not_selected;  //resourcehandler.loadimage("not_selected.png");
 
             if (getHuisDoorBewonernaam(communication.GeselecteerdHuis) != null)
             {
                 Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
                 PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
-                pbhuis.Image = resourcehandler.loadimage("selected.png");
+                pbhuis.Image = CodeGreen.Properties.Resources.controller_selected; //resourcehandler.loadimage("selected.png");
                 pbhuis.SizeMode = PictureBoxSizeMode.StretchImage;
                 if (werkbalk != WerkbalkState.INSTRUCTIE) { VeranderWerkbalk(pbhuis, EventArgs.Empty); }
             }
             else if (communication.GeselecteerdHuis == "Bank")
             {
-                pbBank.Image = resourcehandler.loadimage("selected.png");
+                pbBank.Image = CodeGreen.Properties.Resources.controller_selected; //resourcehandler.loadimage("selected.png");
                 pbBank.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbBank, EventArgs.Empty);
             } 
             else if (communication.GeselecteerdHuis == "Shop")
             {
-                pbShop.Image = resourcehandler.loadimage("selected.png");
+                pbShop.Image = CodeGreen.Properties.Resources.controller_selected; //resourcehandler.loadimage("selected.png");
                 pbShop.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbShop, EventArgs.Empty);
             }
             else if (communication.GeselecteerdHuis == "HuisVriend")
             {
-                pbHuisVriend.Image = resourcehandler.loadimage("selected.png");
+                pbHuisVriend.Image = CodeGreen.Properties.Resources.controller_selected; //resourcehandler.loadimage("selected.png");
                 pbHuisVriend.SizeMode = PictureBoxSizeMode.StretchImage;
                 VeranderWerkbalk(pbHuisVriend, EventArgs.Empty);
             }
@@ -1250,12 +1250,15 @@ namespace CodeGreen
         /// <summary>
         /// Veranderd de werkbalk knoppen status (behalve geluid en quit knop)
         /// </summary>
-        private void ToonWerkbalkknop(PictureBox ShowPB, String bestandsnaam)
+        private void ToonWerkbalkknop(PictureBox ShowPB, Image newimg)
         {
-            this.pbKnopBank.Image = resourcehandler.loadimage("werkbalkknop_bank_off.png");
-            this.pbKnopInventory.Image = resourcehandler.loadimage("werkbalkknop_inventory_off.png");
-            this.pbKnopShop.Image = resourcehandler.loadimage("werkbalkknop_shop_off.png");
-            if (ShowPB != null) { ShowPB.Image = resourcehandler.loadimage(bestandsnaam); }
+            this.pbKnopBank.Image = CodeGreen.Properties.Resources.werkbalkknop_bank_off; //resourcehandler.loadimage("werkbalkknop_bank_off.png");
+            this.pbKnopInventory.Image = CodeGreen.Properties.Resources.werkbalkknop_inventory_off; //resourcehandler.loadimage("werkbalkknop_inventory_off.png");
+            this.pbKnopShop.Image = CodeGreen.Properties.Resources.werkbalkknop_shop_off; //resourcehandler.loadimage("werkbalkknop_shop_off.png");
+            if (ShowPB != null) 
+            {
+                ShowPB.Image = newimg;//resourcehandler.loadimage(bestandsnaam); 
+            }
         }
 
         /// <summary>
@@ -1295,7 +1298,7 @@ namespace CodeGreen
         {
             if (options.sound_enabled == true)
             {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_off.png");
+                this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_off; //resourcehandler.loadimage("knop_sound_off.png");
                 if (resourcehandler.PlaySound("backgroundmusic.wav", true) == false) 
                 {
                     misc.ToonBericht(5);
@@ -1303,7 +1306,7 @@ namespace CodeGreen
             }
             else if (options.sound_enabled == false)
             {
-                this.pbKnopSound.Image = resourcehandler.loadimage("knop_sound_on.png");
+                this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_on; //resourcehandler.loadimage("knop_sound_on.png");
             }
         }
 
@@ -1331,19 +1334,35 @@ namespace CodeGreen
             //knoppen werkbalk:
             if (sender == pbKnopInventory)
             {
-                werkbalk = WerkbalkState.INVENTORY;
+                if (werkbalk != WerkbalkState.INVENTORY)
+                {
+                    werkbalk = WerkbalkState.INVENTORY;
+                    this.gbxShopStock.Focus();
+                }
             }
             else if ((sender == pbKnopBank) || (sender == pbBank))
             {
-                if (werkbalk != WerkbalkState.BANK) { werkbalk = WerkbalkState.BANK; }
+                if (werkbalk != WerkbalkState.BANK) 
+                {
+                    werkbalk = WerkbalkState.BANK;
+                    this.gbxBanklogin.Focus();
+                }
             }
             else if ((sender == pbShop) || (sender == pbKnopShop))
             {
-                if (werkbalk != WerkbalkState.SHOP) { werkbalk = WerkbalkState.SHOP; }
+                if (werkbalk != WerkbalkState.SHOP) 
+                {
+                    werkbalk = WerkbalkState.SHOP;
+                    this.gbxShopStock.Focus();
+                }
             }
             else if (sender == pbHuisVriend)
             {
-                if (werkbalk != WerkbalkState.INSTRUCTIE) { werkbalk = WerkbalkState.INSTRUCTIE; }
+                if (werkbalk != WerkbalkState.INSTRUCTIE) 
+                {
+                    werkbalk = WerkbalkState.INSTRUCTIE;
+                    this.gbxGameInstructions.Focus();
+                }
                 misc.HuidigeRegel = 0;
                 lblIntroTextLine1.Text = misc.TypeTextFull("friend");
             }
