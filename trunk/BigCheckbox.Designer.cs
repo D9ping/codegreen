@@ -41,6 +41,7 @@
             this.pbCheckbox.Size = new System.Drawing.Size(97, 91);
             this.pbCheckbox.TabIndex = 0;
             this.pbCheckbox.TabStop = false;
+            this.pbCheckbox.Click += new System.EventHandler(this.SwitchCheck);
             // 
             // lbTitle
             // 
@@ -53,6 +54,7 @@
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "Option";
             this.lbTitle.MouseLeave += new System.EventHandler(this.lbTitle_MouseLeave);
+            this.lbTitle.Click += new System.EventHandler(this.SwitchCheck);
             this.lbTitle.MouseEnter += new System.EventHandler(this.lbTitle_MouseEnter);
             // 
             // BigCheckbox

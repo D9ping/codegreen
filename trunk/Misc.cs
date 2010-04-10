@@ -124,7 +124,7 @@ namespace CodeGreen
                         MessageBox.Show("Error: resource kon niet geladen worden.");
                         break;
                     case 5:
-                        MessageBox.Show("Error: geluid niet gevonden.");
+                        MessageBox.Show("Error: sound file not found.");
                         break;
                     case 6:
                         MessageBox.Show("Error: kan huizen niet aanmaken.");

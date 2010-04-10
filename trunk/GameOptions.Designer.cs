@@ -38,9 +38,9 @@
             this.lbTextProductID = new System.Windows.Forms.Label();
             this.cbxSwitchXaxis = new System.Windows.Forms.CheckBox();
             this.pbBackMenu = new System.Windows.Forms.PictureBox();
-            this.bigCheckbox3 = new CodeGreen.BigCheckbox();
-            this.bigCheckbox2 = new CodeGreen.BigCheckbox();
-            this.bigCheckbox1 = new CodeGreen.BigCheckbox();
+            this.bcbxMusic = new CodeGreen.BigCheckbox();
+            this.bcbxController = new CodeGreen.BigCheckbox();
+            this.bcbxSound = new CodeGreen.BigCheckbox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,6 @@
             this.tbVendorID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.tbVendorID, "tbVendorID");
             this.tbVendorID.Name = "tbVendorID";
-            this.tbVendorID.TextChanged += new System.EventHandler(this.tbVendorID_TextChanged);
             // 
             // tbProductID
             // 
@@ -71,7 +70,6 @@
             this.tbProductID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.tbProductID, "tbProductID");
             this.tbProductID.Name = "tbProductID";
-            this.tbProductID.TextChanged += new System.EventHandler(this.tbProductID_TextChanged);
             // 
             // lbtextVendorID
             // 
@@ -102,40 +100,45 @@
             resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
             this.pbBackMenu.Name = "pbBackMenu";
             this.pbBackMenu.TabStop = false;
+            this.pbBackMenu.MouseLeave += new System.EventHandler(this.pbBackMenu_MouseLeave);
             this.pbBackMenu.Click += new System.EventHandler(this.pbBackMenu_Click);
+            this.pbBackMenu.MouseEnter += new System.EventHandler(this.pbBackMenu_MouseEnter);
             // 
-            // bigCheckbox3
+            // bcbxMusic
             // 
-            this.bigCheckbox3.BackColor = System.Drawing.Color.Transparent;
-            this.bigCheckbox3.Caption = "Music";
-            this.bigCheckbox3.IsChecked = false;
-            resources.ApplyResources(this.bigCheckbox3, "bigCheckbox3");
-            this.bigCheckbox3.Name = "bigCheckbox3";
+            this.bcbxMusic.BackColor = System.Drawing.Color.Transparent;
+            this.bcbxMusic.Caption = "Music";
+            this.bcbxMusic.IsChecked = false;
+            resources.ApplyResources(this.bcbxMusic, "bcbxMusic");
+            this.bcbxMusic.Name = "bcbxMusic";
+            this.bcbxMusic.Click += new System.EventHandler(this.bcbxMusic_Click);
             // 
-            // bigCheckbox2
+            // bcbxController
             // 
-            this.bigCheckbox2.BackColor = System.Drawing.Color.Transparent;
-            this.bigCheckbox2.Caption = "Remote controller";
-            this.bigCheckbox2.IsChecked = false;
-            resources.ApplyResources(this.bigCheckbox2, "bigCheckbox2");
-            this.bigCheckbox2.Name = "bigCheckbox2";
+            this.bcbxController.BackColor = System.Drawing.Color.Transparent;
+            this.bcbxController.Caption = "Remote controller";
+            this.bcbxController.IsChecked = false;
+            resources.ApplyResources(this.bcbxController, "bcbxController");
+            this.bcbxController.Name = "bcbxController";
+            this.bcbxController.Click += new System.EventHandler(this.bcbxController_Click);
             // 
-            // bigCheckbox1
+            // bcbxSound
             // 
-            this.bigCheckbox1.BackColor = System.Drawing.Color.Transparent;
-            this.bigCheckbox1.Caption = "Sounds";
-            this.bigCheckbox1.IsChecked = false;
-            resources.ApplyResources(this.bigCheckbox1, "bigCheckbox1");
-            this.bigCheckbox1.Name = "bigCheckbox1";
+            this.bcbxSound.BackColor = System.Drawing.Color.Transparent;
+            this.bcbxSound.Caption = "Sounds";
+            this.bcbxSound.IsChecked = false;
+            resources.ApplyResources(this.bcbxSound, "bcbxSound");
+            this.bcbxSound.Name = "bcbxSound";
+            this.bcbxSound.Click += new System.EventHandler(this.bcbxSound_Click);
             // 
             // GameOptions
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.bigCheckbox3);
-            this.Controls.Add(this.bigCheckbox2);
-            this.Controls.Add(this.bigCheckbox1);
+            this.Controls.Add(this.bcbxMusic);
+            this.Controls.Add(this.bcbxController);
+            this.Controls.Add(this.bcbxSound);
             this.Controls.Add(this.cbxSwitchXaxis);
             this.Controls.Add(this.lbTextProductID);
             this.Controls.Add(this.lbtextVendorID);
@@ -164,9 +167,9 @@
         private System.Windows.Forms.Label lbTextProductID;
         private System.Windows.Forms.CheckBox cbxSwitchXaxis;
         private System.Windows.Forms.Timer TimerTextEffect;
-        private BigCheckbox bigCheckbox1;
-        private BigCheckbox bigCheckbox2;
-        private BigCheckbox bigCheckbox3;
+        private BigCheckbox bcbxSound;
+        private BigCheckbox bcbxController;
+        private BigCheckbox bcbxMusic;
 
     }
 }

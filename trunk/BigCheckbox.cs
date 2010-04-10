@@ -72,5 +72,21 @@ namespace CodeGreen
         {
             this.lbTitle.ForeColor = Color.Green;
         }
+
+        private void SwitchCheck(object sender, EventArgs e)
+        {
+            ischecked = !ischecked;
+
+            if (ischecked)
+            {
+                pbCheckbox.Image = CodeGreen.Properties.Resources.checkbox_on;
+            }
+            else
+            {
+                pbCheckbox.Image = CodeGreen.Properties.Resources.checkbox_off;
+            }
+
+            base.OnClick(e);
+        }
     }
 }

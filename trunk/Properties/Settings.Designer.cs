@@ -23,30 +23,75 @@ namespace CodeGreen.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool sound {
             get {
                 return ((bool)(this["sound"]));
             }
+            set {
+                this["sound"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool music {
             get {
                 return ((bool)(this["music"]));
             }
+            set {
+                this["music"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool controller {
             get {
                 return ((bool)(this["controller"]));
+            }
+            set {
+                this["controller"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("03EB")]
+        public string controllerDefaultVendorID {
+            get {
+                return ((string)(this["controllerDefaultVendorID"]));
+            }
+            set {
+                this["controllerDefaultVendorID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2013")]
+        public string controllerDefaultProductID {
+            get {
+                return ((string)(this["controllerDefaultProductID"]));
+            }
+            set {
+                this["controllerDefaultProductID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool controllerSwitchXasix {
+            get {
+                return ((bool)(this["controllerSwitchXasix"]));
+            }
+            set {
+                this["controllerSwitchXasix"] = value;
             }
         }
     }

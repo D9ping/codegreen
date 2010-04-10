@@ -15,6 +15,8 @@ namespace CodeGreen
 {
     using System;
     using System.Windows.Forms;
+    using System.IO;
+    using System.Runtime.InteropServices;
 
     static class Program
     {
@@ -27,6 +29,35 @@ namespace CodeGreen
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GameMenu());
+        }
+
+        [DllImport("winmm.dll")]
+        public static extern int sndPlaySound(string sFile, int sMode);
+
+        public static bool PlaySoundFile(string naam)
+        {
+            try
+            {
+                string sounddir = Application.StartupPath + "\\sounds\\";
+                if (Directory.Exists(sounddir))
+                {
+                    string soundfile = Path.Combine(sounddir, naam);
+                    if (File.Exists(soundfile))
+                    {
+                        sndPlaySound(soundfile, 1); //1 = Async
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

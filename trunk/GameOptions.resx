@@ -318,67 +318,67 @@
   <data name="&gt;&gt;pbBackMenu.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="bigCheckbox3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bcbxMusic.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 101</value>
   </data>
-  <data name="bigCheckbox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bcbxMusic.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 92</value>
   </data>
-  <data name="bigCheckbox3.TabIndex" type="System.Int32, mscorlib">
+  <data name="bcbxMusic.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox3.Name" xml:space="preserve">
-    <value>bigCheckbox3</value>
+  <data name="&gt;&gt;bcbxMusic.Name" xml:space="preserve">
+    <value>bcbxMusic</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;bcbxMusic.Type" xml:space="preserve">
     <value>CodeGreen.BigCheckbox, CodeGreen, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bcbxMusic.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bcbxMusic.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="bigCheckbox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bcbxController.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 305</value>
   </data>
-  <data name="bigCheckbox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bcbxController.Size" type="System.Drawing.Size, System.Drawing">
     <value>421, 92</value>
   </data>
-  <data name="bigCheckbox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="bcbxController.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox2.Name" xml:space="preserve">
-    <value>bigCheckbox2</value>
+  <data name="&gt;&gt;bcbxController.Name" xml:space="preserve">
+    <value>bcbxController</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;bcbxController.Type" xml:space="preserve">
     <value>CodeGreen.BigCheckbox, CodeGreen, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bcbxController.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bcbxController.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="bigCheckbox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bcbxSound.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 195</value>
   </data>
-  <data name="bigCheckbox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bcbxSound.Size" type="System.Drawing.Size, System.Drawing">
     <value>266, 92</value>
   </data>
-  <data name="bigCheckbox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="bcbxSound.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox1.Name" xml:space="preserve">
-    <value>bigCheckbox1</value>
+  <data name="&gt;&gt;bcbxSound.Name" xml:space="preserve">
+    <value>bcbxSound</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;bcbxSound.Type" xml:space="preserve">
     <value>CodeGreen.BigCheckbox, CodeGreen, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bcbxSound.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bigCheckbox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bcbxSound.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -468,6 +468,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

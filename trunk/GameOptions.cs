@@ -24,8 +24,6 @@ namespace CodeGreen
         private int n = 0;
         private List<DropText> droptexten;
         private Misc misc;
-        private OptionsHandler options;
-        private ResourceHandler resourceshandler;
 
         private const int SPEED = 10;
         #endregion
@@ -37,32 +35,33 @@ namespace CodeGreen
         public GameOptions()
         {
             InitializeComponent();
+            SetSettings();
+
+            CheckControllerEnabled();
             droptexten = new List<DropText>();
             misc = new Misc();
-            options = new OptionsHandler();
-            resourceshandler = new ResourceHandler();
 
-            tbVendorID.Text = options.VendorID;
-            tbProductID.Text = options.ProductID;
-            if (options.SwitchXaxis == true)
+            tbVendorID.Text = CodeGreen.Properties.Settings.Default.controllerDefaultVendorID;
+            tbProductID.Text = CodeGreen.Properties.Settings.Default.controllerDefaultProductID;
+            cbxSwitchXaxis.Enabled = CodeGreen.Properties.Settings.Default.controllerSwitchXasix;
+        }
+
+        /// <summary>
+        /// Set bigcheckbox to display the currrent settings.
+        /// </summary>
+        private void SetSettings()
+        {
+            if (CodeGreen.Properties.Settings.Default.music)
             {
-                cbxSwitchXaxis.CheckState = CheckState.Checked;
+                bcbxMusic.IsChecked = true;
             }
-            if (options.GetSettingBool("sound") == true) 
+            if (CodeGreen.Properties.Settings.Default.sound)
             {
-                //this.pbStateSound.Image = resourceshandler.loadimage("checkbox_on.png");
+                bcbxSound.IsChecked = true;
             }
-            else 
+            if (CodeGreen.Properties.Settings.Default.controller)
             {
-                //this.pbStateSound.Image = resourceshandler.loadimage("checkbox_off.png");
-            }
-            if (options.GetSettingBool("controller") == true) 
-            {
-                //this.pbStateController.Image = resourceshandler.loadimage("checkbox_on.png");
-            }
-            else 
-            { 
-                //this.pbStateController.Image = resourceshandler.loadimage("checkbox_off.png");
+                bcbxController.IsChecked = true;
             }
         }
         #endregion
@@ -71,16 +70,6 @@ namespace CodeGreen
         #endregion
 
         #region methoden
-       
-        private void tbVendorID_TextChanged(object sender, EventArgs e)
-        {
-            options.VendorID = tbVendorID.Text;
-        }
-
-        private void tbProductID_TextChanged(object sender, EventArgs e)
-        {
-            options.ProductID = tbProductID.Text;
-        }
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
         {
@@ -141,56 +130,18 @@ namespace CodeGreen
             Application.Exit();
         }
 
+        /// <summary>
+        /// Save settings and return to main menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbBackMenu_Click(object sender, EventArgs e)
         {
+            CodeGreen.Properties.Settings.Default.Save();
+
             this.Hide();
             GameMenu gm = new GameMenu();
             gm.Show();
-        }
-
-        private void lblOptionSound_Click(object sender, EventArgs e)
-        {
-            if (options.sound_enabled == true)
-            {
-                if (options.UpdateSetting("Sound", false) == false) { misc.ToonBericht(3); }
-            }
-            else if (options.sound_enabled == false)
-            {
-                if (options.UpdateSetting("Sound", true) == false)
-                {
-                    misc.ToonBericht(3); 
-                }
-            }
-        }
-
-        private void lbOptionController_Click(object sender, EventArgs e)
-        {
-            if (options.controller_enabled == true)
-            {
-                if (options.UpdateSetting("Controller", false) == false) 
-                {
-                    misc.ToonBericht(3); 
-                }
-            }
-            else if (options.controller_enabled == false)
-            {
-                if (options.UpdateSetting("Controller", true) == false) 
-                {
-                    misc.ToonBericht(3); 
-                }
-            }
-        }
-
-        private void cbxSwitchXaxis_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbxSwitchXaxis.Checked == true)
-            {
-                options.SwitchXaxis = true;
-            }
-            else
-            {
-                options.SwitchXaxis = false;
-            }
         }
 
         private void GameOptions_Paint(object sender, PaintEventArgs e)
@@ -206,7 +157,59 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Check if the remote controller is enabled.
+        /// If so then enable the textbox to change vendor and product id
+        /// and the checkbox to switch x axis.
+        /// </summary>
+        private void CheckControllerEnabled()
+        {
+            if (CodeGreen.Properties.Settings.Default.controller)
+            {
+                tbVendorID.Enabled = true;
+                tbProductID.Enabled = true;
+                cbxSwitchXaxis.Enabled = true;
+            }
+            else
+            {
+                tbVendorID.Enabled = false;
+                tbProductID.Enabled = false;
+                cbxSwitchXaxis.Enabled = false;
+            }
+        }
+
+        private void bcbxMusic_Click(object sender, EventArgs e)
+        {
+            CodeGreen.Properties.Settings.Default.music = bcbxMusic.IsChecked;
+        }
+
+        private void bcbxSound_Click(object sender, EventArgs e)
+        {
+            CodeGreen.Properties.Settings.Default.sound = bcbxSound.IsChecked;
+        }
+
+        private void bcbxController_Click(object sender, EventArgs e)
+        {
+            CodeGreen.Properties.Settings.Default.controller = bcbxController.IsChecked;
+            CheckControllerEnabled();
+        }
+
+        private void cbxSwitchXaxis_CheckedChanged(object sender, EventArgs e)
+        {
+            CodeGreen.Properties.Settings.Default.controllerSwitchXasix = cbxSwitchXaxis.Checked;
+        }
+
+        private void pbBackMenu_MouseEnter(object sender, EventArgs e)
+        {
+            this.pbBackMenu.Image = CodeGreen.Properties.Resources.knop_backmainmenu_selected;
+        }
+
+        private void pbBackMenu_MouseLeave(object sender, EventArgs e)
+        {
+            this.pbBackMenu.Image = CodeGreen.Properties.Resources.knop_backmainmenu;
+        }
         #endregion
 
+        
     }
 }

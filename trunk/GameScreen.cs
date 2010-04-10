@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace CodeGreen
 {
@@ -21,9 +22,6 @@ namespace CodeGreen
         private Bank bank;
         private Inventory inventory;
         private Misc misc;
-        private OptionsHandler options;
-        private ResourceHandler resourcehandler;
-
 
 		#endregion Fields 
 
@@ -49,8 +47,6 @@ namespace CodeGreen
             bank = new Bank();
             misc = new Misc();
             inventory = new Inventory();
-            options = new OptionsHandler();
-            resourcehandler = new ResourceHandler();
             huizen = new List<Huis>();
 
             ResetGame();
@@ -88,7 +84,13 @@ namespace CodeGreen
             Button buttontemp = (Button)sender;
 
             Item buyitem = inventory.getItemShop(buttontemp.Name);
-            resourcehandler.PlaySound("buy.wav", false);
+            if (CodeGreen.Properties.Settings.Default.sound)
+            {
+                if (!Program.PlaySoundFile("buy.wav"))
+                {
+                    misc.ToonBericht(5);
+                }
+            }
 
             showshopintro = false;
             //controlleer voor genoeg geld.
@@ -128,11 +130,15 @@ namespace CodeGreen
         {
             if (!IsConnected)
             {
-                IsConnected = usb.Connect(this, Int32.Parse(options.VendorID, System.Globalization.NumberStyles.HexNumber),
-                Int32.Parse(options.ProductID, System.Globalization.NumberStyles.HexNumber));
+                int vendorid = Int32.Parse(CodeGreen.Properties.Settings.Default.controllerDefaultVendorID, System.Globalization.NumberStyles.HexNumber);
+                int productid = Int32.Parse(CodeGreen.Properties.Settings.Default.controllerDefaultProductID, System.Globalization.NumberStyles.HexNumber);
+                IsConnected = usb.Connect(this, vendorid, productid );
                 return IsConnected;
             }
-            else { return false; }
+            else 
+            {
+                return false; 
+            }
         }
 
         /// <summary>
@@ -436,7 +442,7 @@ namespace CodeGreen
         private void initController()
         {
             btnReconnect.Visible = false;
-            if (options.controller_enabled == true)
+            if (CodeGreen.Properties.Settings.Default.controller)
             {
                 communication = new Communication();
                 btnReconnect.Visible = true;
@@ -445,8 +451,8 @@ namespace CodeGreen
                     //if (werkbalk != WerkbalkState.INSTRUCTIE) { GetControllerHuis(); }
                     GetControllerHuis();
                     lbControllerInfo.Text = "Connected with controller\r\n" +
-                    "             VendorID: " + options.VendorID + "\r\n" +
-                    "             ProductID: " + options.ProductID;
+                    "             VendorID: " + CodeGreen.Properties.Settings.Default.controllerDefaultVendorID + "\r\n" +
+                    "             ProductID: " + CodeGreen.Properties.Settings.Default.controllerDefaultProductID;
                 }
                 else
                 {
@@ -605,15 +611,10 @@ namespace CodeGreen
         /// <param name="e"></param>
         private void pbKnopSound_Click(object sender, EventArgs e)
         {
-            if (options.sound_enabled == true)
-            { 
-                options.UpdateSetting("Sound", false);
-            }
-            else if (options.sound_enabled == false)
-            { 
-                options.UpdateSetting("Sound", true);
-            }
-            this.UpdateStateKnopSound();
+            CodeGreen.Properties.Settings.Default.music = !CodeGreen.Properties.Settings.Default.music;
+            CodeGreen.Properties.Settings.Default.Upgrade();
+
+            this.CheckMusicAndPlay();
         }
 
         private void pbQuitgame_Click(object sender, EventArgs e)
@@ -632,12 +633,22 @@ namespace CodeGreen
 
             timesec = 0;
             timemin = 0;
-            
-            UpdateStateKnopSound();
+
+            if (CodeGreen.Properties.Settings.Default.music)
+            {
+                pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_on;
+            }
+            else
+            {
+                pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_off;
+            }
             
             Speler = bank.GetByName("speler");
         }
 
+        /// <summary>
+        /// Reset the info on the toolbar of a house.
+        /// </summary>
         private void ResetHuisInfo()
         {
             this.btnCreateBot.Visible = false;
@@ -652,7 +663,7 @@ namespace CodeGreen
             this.lbTextInfectie.Text = "Infected:";
         }
 
-                /// <summary>
+        /// <summary>
         /// Heef elk huis een tooltip.
         /// </summary>
         private void SetTooltipHouses()
@@ -825,7 +836,6 @@ namespace CodeGreen
 
         /// <summary>
         /// Toon een winkel met alle items die gemaakt zijn in de inventory class.
-        /// Ja, als je "cookie" item in de constructor uitcommenteer komt die in de shop.
         /// </summary>
         private void DrawShop()
         {
@@ -1292,21 +1302,22 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Als sound_enable is waar, dan speel muziek en zet knop op juist status.
+        /// Check if music is enabled.
+        /// if enabled play backgroundmusic and set correct button image to disable/enable music.
         /// </summary>
-        private void UpdateStateKnopSound()
+        private void CheckMusicAndPlay()
         {
-            if (options.sound_enabled == true)
+            if (CodeGreen.Properties.Settings.Default.music)
             {
-                this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_off; //resourcehandler.loadimage("knop_sound_off.png");
-                if (resourcehandler.PlaySound("backgroundmusic.wav", true) == false) 
+                this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_off;
+                if (!Program.PlaySoundFile("gamemusic.wav"))
                 {
                     misc.ToonBericht(5);
                 }
             }
-            else if (options.sound_enabled == false)
+            else
             {
-                this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_on; //resourcehandler.loadimage("knop_sound_on.png");
+                this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_on;
             }
         }
 
@@ -1316,7 +1327,7 @@ namespace CodeGreen
         /// <param name="data">???</param>
         private void usb_OnDataRecieved(object sender, byte[] data)
         {
-            if (options.controller_enabled == true)
+            if (CodeGreen.Properties.Settings.Default.controller)
             {
                 communication.DataAtmelController(data);
                 GetControllerHuis();

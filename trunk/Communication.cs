@@ -33,7 +33,6 @@ namespace CodeGreen
         /// </summary>
         private string selectedhuis = "Your";
 
-        private OptionsHandler options;
         #endregion
 
         #region constructor
@@ -42,7 +41,6 @@ namespace CodeGreen
         /// </summary>
         public Communication()
         {
-            this.options = new OptionsHandler();
         }
         #endregion
 
@@ -74,7 +72,7 @@ namespace CodeGreen
             string rechts = "080000000";
             string links = "040000000";
 
-            if (options.SwitchXaxis == true)
+            if (CodeGreen.Properties.Settings.Default.controllerSwitchXasix)
             {
                 rechts = "040000000";
                 links = "080000000";

@@ -125,7 +125,6 @@
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Misc.cs" />
-    <Compile Include="OptionsHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GameOptions.resx">
@@ -152,7 +151,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ResourceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BigCheckbox.resx">
@@ -180,11 +178,11 @@
     <EmbeddedResource Include="Resources\knop_exit.png" />
     <EmbeddedResource Include="Resources\knop_backmainmenu_selected.png" />
     <EmbeddedResource Include="Resources\knop_backmainmenu.png" />
-    <EmbeddedResource Include="Resources\item_wireshark_sniffer.png" />
-    <EmbeddedResource Include="Resources\item_nessus_networkscanner.png" />
     <EmbeddedResource Include="Resources\item_aircrack_cracker.png" />
     <EmbeddedResource Include="Resources\game_truck_driveright.png" />
     <Content Include="icon_codegreen.ico" />
+    <Content Include="sounds\buy.wav" />
+    <Content Include="sounds\gamemusic.wav" />
     <EmbeddedResource Include="Resources\logo_CodeGreen.png" />
     <EmbeddedResource Include="Resources\item_worm.png" />
     <EmbeddedResource Include="Resources\item_listaccountnumbersbank.png" />

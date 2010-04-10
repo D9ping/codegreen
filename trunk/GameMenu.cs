@@ -25,7 +25,6 @@ namespace CodeGreen
         private List<DropText> droptexten;
         private int n = 0;
         private Misc misc;
-        private ResourceHandler resourcehandler;
         private int speed = 7;
         #endregion
 
@@ -34,7 +33,6 @@ namespace CodeGreen
         {
             InitializeComponent();
             misc = new Misc();
-            resourcehandler = new ResourceHandler();
             droptexten = new List<DropText>();
             timerDropText.Enabled = true;
         }
