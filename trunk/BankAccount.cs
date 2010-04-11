@@ -34,7 +34,7 @@ namespace CodeGreen
         /// <param name="nm">the name of the account.</param>
         /// <param name="rekeningnummer">rekening number</param>
         /// <param name="paswlength">new password length</param>
-        /// <param name="saldo">the saldo</param>
+        /// <param name="saldo">the saldo of the account</param>
         public Bankaccount(string nm, string rekeningnummer, int paswlength, int saldo)
         {
             this.naam = nm;

@@ -31,6 +31,11 @@ namespace CodeGreen
         #endregion
 
         #region constructor
+        /// <summary>
+        /// Initializes a new instance of Item class.
+        /// </summary>
+        /// <param name="naamitem"></param>
+        /// <param name="prijs"></param>
         public Item(String naamitem, int prijs)
         {
             this.naamitem = naamitem;

@@ -26,6 +26,9 @@ namespace CodeGreen
         #endregion
 
         #region constructor
+        /// <summary>
+        /// Initializes a new instance of Inventory class.
+        /// </summary>
         public Inventory()
         {             
             shopitems = new List<Item>();

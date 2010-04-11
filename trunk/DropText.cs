@@ -25,7 +25,7 @@ namespace CodeGreen
         private Point location;
 
         /// <summary>
-        /// Init. new instance of ...
+        /// Initializes a new instance of DropText class.
         /// </summary>
         /// <param name="text"></param>
         /// <param name="color"></param>

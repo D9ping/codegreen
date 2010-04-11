@@ -18,7 +18,7 @@ namespace CodeGreen
     using System.Text;
 
     /// <summary>
-    /// Communication class.
+    /// Initializes a new instance of Communication class.
     /// </summary>
     public class Communication
     {

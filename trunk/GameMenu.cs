@@ -79,17 +79,17 @@ namespace CodeGreen
                 else if (sender == pbOptions)
                 {
                     this.speed = 10;
-                    pbOptions.Image = CodeGreen.Properties.Resources.knop_options_selected; //resourcehandler.loadimage("knop_options_selected.png");
+                    pbOptions.Image = CodeGreen.Properties.Resources.knop_options_selected;
                 }
                 else if (sender == pbHighscore)
                 {
                     this.speed = 8;
-                    pbHighscore.Image = CodeGreen.Properties.Resources.knop_highscore_selected; //resourcehandler.loadimage("knop_highscore_selected.png");
+                    pbHighscore.Image = CodeGreen.Properties.Resources.knop_highscore_selected;
                 }
                 else if (sender == pbExit)
                 {
                     this.speed = 3;
-                    pbExit.Image = CodeGreen.Properties.Resources.knop_exit_selected; //resourcehandler.loadimage("knop_exit_selected.png");
+                    pbExit.Image = CodeGreen.Properties.Resources.knop_exit_selected;
                 }
                 else
                 {

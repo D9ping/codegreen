@@ -35,7 +35,7 @@ namespace CodeGreen
 
         #region constructor
         /// <summary>
-        /// Huis met zijn eigenschappen/zwakheden.
+        /// Initializes a new instance of a Huis class.
         /// </summary>
         /// <param name="huisnaam">ook de naam van het object in gamescreen</param>
         /// <param name="naam">de naam van de bewoner en rekening</param>

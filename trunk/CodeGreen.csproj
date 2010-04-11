@@ -18,7 +18,7 @@
     <ManifestCertificateThumbprint>2D2D4F0DBB45051362BF81B58B87C0B0C887364C</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
     <SignManifests>false</SignManifests>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>
@@ -73,6 +73,8 @@
     <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Libs\SQLite.NET.0.21_x68_dll\SQLite.NET.dll</HintPath>
@@ -151,6 +153,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SoundEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BigCheckbox.resx">
@@ -181,8 +184,6 @@
     <EmbeddedResource Include="Resources\item_aircrack_cracker.png" />
     <EmbeddedResource Include="Resources\game_truck_driveright.png" />
     <Content Include="icon_codegreen.ico" />
-    <Content Include="sounds\buy.wav" />
-    <Content Include="sounds\gamemusic.wav" />
     <EmbeddedResource Include="Resources\logo_CodeGreen.png" />
     <EmbeddedResource Include="Resources\item_worm.png" />
     <EmbeddedResource Include="Resources\item_listaccountnumbersbank.png" />
@@ -239,7 +240,6 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EmbeddedResource Include="Resources\logo_CodeGreen.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

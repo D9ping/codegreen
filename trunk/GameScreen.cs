@@ -22,6 +22,7 @@ namespace CodeGreen
         private Bank bank;
         private Inventory inventory;
         private Misc misc;
+        private SoundEngine snd;
 
 		#endregion Fields 
 
@@ -48,6 +49,7 @@ namespace CodeGreen
             misc = new Misc();
             inventory = new Inventory();
             huizen = new List<Huis>();
+            snd = new SoundEngine();
 
             ResetGame();
 
@@ -82,14 +84,11 @@ namespace CodeGreen
         public void BuyItem(object sender, EventArgs e)
         {
             Button buttontemp = (Button)sender;
-
             Item buyitem = inventory.getItemShop(buttontemp.Name);
+            
             if (CodeGreen.Properties.Settings.Default.sound)
             {
-                if (!Program.PlaySoundFile("buy.wav"))
-                {
-                    misc.ToonBericht(5);
-                }
+                snd.PlaySoundEffect("buy.wav");
             }
 
             showshopintro = false;
@@ -612,9 +611,17 @@ namespace CodeGreen
         private void pbKnopSound_Click(object sender, EventArgs e)
         {
             CodeGreen.Properties.Settings.Default.music = !CodeGreen.Properties.Settings.Default.music;
-            CodeGreen.Properties.Settings.Default.Upgrade();
+            CodeGreen.Properties.Settings.Default.Save();
 
-            this.CheckMusicAndPlay();
+            if (this.CheckMusic())
+            {
+                PlayBackgroundMusic();
+            }
+            else
+            {
+                snd.StopMusic();
+            }
+
         }
 
         private void pbQuitgame_Click(object sender, EventArgs e)
@@ -634,13 +641,9 @@ namespace CodeGreen
             timesec = 0;
             timemin = 0;
 
-            if (CodeGreen.Properties.Settings.Default.music)
+            if (this.CheckMusic())
             {
-                pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_on;
-            }
-            else
-            {
-                pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_off;
+                PlayBackgroundMusic();
             }
             
             Speler = bank.GetByName("speler");
@@ -1204,35 +1207,49 @@ namespace CodeGreen
                 pbItemWifiWEPCracker.Location = new Point(110, 14);
                 pbItemWifiWEPCracker.Visible = true;
             }
-            else { pbItemWifiWEPCracker.Visible = false; }
+            else
+            {
+                pbItemWifiWEPCracker.Visible = false;
+            }
 
             if (IsItemInventory("keylogger") == true)
             {
                 pbItemKeylogger.Location = new Point(210, 14);
                 pbItemKeylogger.Visible = true;
             }
-            else { pbItemKeylogger.Visible = false; }
+            else
+            {
+                pbItemKeylogger.Visible = false; 
+            }
 
             if (IsItemInventory("netwerkscanner") == true)
             {
                 pbItemNetworkScanner.Location = new Point(310, 14);
                 pbItemNetworkScanner.Visible = true;
             }
-            else { pbItemNetworkScanner.Visible = false; }
+            else
+            {
+                pbItemNetworkScanner.Visible = false;
+            }
 
             if (IsItemInventory("worm") == true)
             {
                 pbItemWorm.Location = new Point(410, 14);
                 pbItemWorm.Visible = true;
             }
-            else { pbItemWorm.Visible = false; }
+            else 
+            { 
+                pbItemWorm.Visible = false; 
+            }
             if (IsItemInventory("coderedvirus") == true)
             {
                 pbItemCoderedvirus.Location = new Point(510, 14);
                 pbItemCoderedvirus.Visible = true;
             }
-            else { pbItemCoderedvirus.Visible = false; }
-            // */
+            else 
+            {
+                pbItemCoderedvirus.Visible = false; 
+            }
             
         }
 
@@ -1303,21 +1320,26 @@ namespace CodeGreen
 
         /// <summary>
         /// Check if music is enabled.
-        /// if enabled play backgroundmusic and set correct button image to disable/enable music.
         /// </summary>
-        private void CheckMusicAndPlay()
+        private bool CheckMusic()
         {
             if (CodeGreen.Properties.Settings.Default.music)
             {
                 this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_off;
-                if (!Program.PlaySoundFile("gamemusic.wav"))
-                {
-                    misc.ToonBericht(5);
-                }
+                return true;
             }
             else
             {
                 this.pbKnopSound.Image = CodeGreen.Properties.Resources.knop_sound_on;
+                return false;
+            }
+        }
+
+        private void PlayBackgroundMusic()
+        {
+            if (!snd.PlayMusic("gamemusic.wav", true))
+            {
+                misc.ToonBericht(5);
             }
         }
 

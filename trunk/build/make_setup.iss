@@ -37,9 +37,8 @@ Source: "..\bin\Debug\CodeGreen.exe"; DestDir: "{app}";
 Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\SQLite.NET.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\highscoren"; DestDir: "{app}"; Flags: touch
-
-; externe geluid bestanden, deze betstanden zijn NIET in executable compiled.
-Source: "..\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
+; external soundfiles not compiled in exe.
+Source: "..\bin\Debug\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
 
 [Icons]
 Name: "{group}\CodeGreen"; WorkingDir: "{app}"; Filename: "{app}\CodeGreen.exe";
@@ -48,10 +47,6 @@ Name: "{commondesktop}\CodeGreen"; WorkingDir: "{app}"; Filename: "{app}\CodeGre
 
 [Run]
 Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Flags: nowait postinstall skipifsilent runascurrentuser
-
-[Registry]
-Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Controller"; ValueType: string; ValueData: "False"; Flags: uninsdeletekeyifempty
-Root: HKCU; Subkey: Software\CodeGreen; ValueName: "Sound"; ValueType: string; ValueData: "True"; Flags: uninsdeletekeyifempty
 
 [CustomMessages]
 english.dotnetmissing=This setup requires the .NET Framework v3.0 SP1. Please download and install the .NET Framework v3.0 SP1 and run this setup again. Do you want to download the framework now?
@@ -98,6 +93,7 @@ begin
             end;
 	end;
 end;
+
 
 
 

@@ -36,6 +36,9 @@ namespace CodeGreen
         #endregion
 
         #region constructor
+        /// <summary>
+        /// Initializes a new instance of Misc class.
+        /// </summary>
         public Misc()
         {
             intro_regel = new String[7];

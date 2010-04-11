@@ -949,7 +949,7 @@
   <data name="pbItemNetworkScanner.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABNCAYAAAAxWePoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAAHdElNRQfWBgsBEDgz8OfLAAAAGXRFWHRTb2Z0d2FyZQBQ
+        YQUAAAAJcEhZcwAACw8AAAsPAZL5A6UAAAAHdElNRQfWBgsBEDgz8OfLAAAAGXRFWHRTb2Z0d2FyZQBQ
         YWludC5ORVQgdjMuNS40Po3MdgAAKs5JREFUeF69XAdgFFXXldASSO9l00MvAtIFQg+EJDTlw4YiCgr2
         ggVUVERB6SIovfeWQDpFei+iCCg9pBdCSyjh/Oe+2clukg0g+Cvf+ya7MzvlzK3n3vceg8X/7vDbu+p/
         uFvE/+O4K5+LuLn9EOMOfyO/vde4y/13UcTBo9XWdLz8bbwF9f2DDP142erXNf+d9l0Rh1zPfPBbs2eU
@@ -2946,14 +2946,14 @@ Highly secured building.</value>
   <data name="&gt;&gt;lbControllerInfo.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>43</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>43</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

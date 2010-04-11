@@ -1,10 +1,10 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Finisar.SQLite;
-
-namespace CodeGreen
+﻿namespace CodeGreen
 {
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using Finisar.SQLite;
+
     public partial class lbHighscoreInfo : Form
     {
         #region datavelden
@@ -46,7 +46,7 @@ namespace CodeGreen
 
         #region methoden
         private void berekenscore(int timemin, int timesec, int geldover)
-        {            
+        {
             if (timemin < 20)
             {
                 score = 1200 - (timemin * 60) - timesec + geldover;
@@ -57,6 +57,9 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Position groupboxs
+        /// </summary>
         private void setGroupboxen()
         {
             gbxHighscoren.Location = new Point(10, 10);
@@ -64,9 +67,12 @@ namespace CodeGreen
             gbxNewHighscore.Location = new Point(10, 10);
             gbxNewHighscore.Size = new Size(760, 480);
         }
+
+        /// <summary>
+        /// Gets and draws the highscores.
+        /// </summary>
         private void gethighscore()
         {
-
             try
             {
                 connection.Open();
@@ -99,7 +105,6 @@ namespace CodeGreen
                     }
                     positie++;
                 }
-
             }
             catch (SQLiteException exc)
             {
@@ -111,8 +116,14 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// User want to submit score, check if name is filled in
+        /// then addscore and then show new highscores.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btAddHighscore_Click(object sender, EventArgs e)
-        {            
+        {
             if ((tbName.Text!=null) || (tbName.Text!=""))
             {
                 if (addscore(tbName.Text, score) == true)
@@ -123,6 +134,12 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Add a new highscore.
+        /// </summary>
+        /// <param name="naam"></param>
+        /// <param name="score"></param>
+        /// <returns></returns>
         public bool addscore(String naam, int score)
         {
             bool sqladdsucces = false;
@@ -153,6 +170,11 @@ namespace CodeGreen
             this.lbHighscorenInfo.Text = misc.TypeWordEffect("Congratulations you have overloaded the microsoft server.");
         }
 
+        /// <summary>
+        /// Enter key presses then fire tAddHighscore_Click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -161,11 +183,21 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Shutdown application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GameHighscore_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Back to mainmenu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbBackMenu_Click(object sender, EventArgs e)
         {
             this.Hide();

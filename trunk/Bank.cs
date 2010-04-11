@@ -81,7 +81,7 @@ namespace CodeGreen
         /// <summary>
         /// Gets the Bankaccount by bankaccount number.
         /// </summary>
-        /// <param name="reknr">rekeningnummer</param>
+        /// <param name="reknr">the accountnumber</param>
         /// <returns>de bank account</returns>
         public Bankaccount GetByRekening(string reknr)
         {
