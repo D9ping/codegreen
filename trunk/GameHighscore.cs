@@ -205,7 +205,18 @@
             menu.Show();
         }
 
+        private void pbBackMenu_MouseEnter(object sender, EventArgs e)
+        {
+            this.pbBackMenu.Image = CodeGreen.Properties.Resources.knop_backmainmenu_selected;
+        }
 
         #endregion
+
+        private void pbBackMenu_MouseLeave(object sender, EventArgs e)
+        {
+            this.pbBackMenu.Image = CodeGreen.Properties.Resources.knop_backmainmenu;
+        }
+
+
     }
 }

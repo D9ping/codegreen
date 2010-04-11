@@ -51,7 +51,9 @@
             resources.ApplyResources(this.pbBackMenu, "pbBackMenu");
             this.pbBackMenu.Name = "pbBackMenu";
             this.pbBackMenu.TabStop = false;
+            this.pbBackMenu.MouseLeave += new System.EventHandler(this.pbBackMenu_MouseLeave);
             this.pbBackMenu.Click += new System.EventHandler(this.pbBackMenu_Click);
+            this.pbBackMenu.MouseEnter += new System.EventHandler(this.pbBackMenu_MouseEnter);
             // 
             // gbxNewHighscore
             // 
