@@ -73,6 +73,7 @@
         /// Play a (small) sound  file, by calling a process.
         /// This sound file will not abort the music.
         /// </summary>
+        /// <returns>true is succeed.</returns>
         public bool PlaySoundEffect(string soundfile)
         {
             string appdir = Application.StartupPath;
@@ -91,7 +92,11 @@
                     return false;
                 }
             }
-            return false;
+            else
+            {
+                misc.ToonBericht(3);
+                return false;
+            }
         }
     }
 }

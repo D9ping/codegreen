@@ -3,6 +3,7 @@ AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
 AppVerName=CodeGreen
 AppVersion=1.5.0
+VersionInfoVersion=1.5.0.0
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -94,6 +95,7 @@ begin
             end;
 	end;
 end;
+
 
 
 

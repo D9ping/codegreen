@@ -173,6 +173,10 @@ namespace CodeGreen
                         MessageBox.Show("Error: unknow menu button.");
                         break;
 
+                    case 3:
+                        MessageBox.Show("Error: couldnot play sound effect.");
+                        break;
+
                     case 4:
                         MessageBox.Show("Error: resource cannot be loaded.");
                         break;

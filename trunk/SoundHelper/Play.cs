@@ -25,7 +25,7 @@ namespace SoundHelper
             
             if (String.IsNullOrEmpty(args[0]))
             {
-                MessageBox.Show("No argument passed. Dont lauch this file directly. Press enter to exit.");
+                MessageBox.Show("No argument passed to soundhelper.exe.\r\nDon't launch this file directly.");
                 return;
             }
 
@@ -36,7 +36,7 @@ namespace SoundHelper
             }
             else
             {
-                MessageBox.Show("soundfile not found." + args[0]);
+                MessageBox.Show("soundfile not found.\r\n" + args[0]);
             }
         }
     }
