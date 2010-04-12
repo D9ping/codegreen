@@ -34,6 +34,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "..\bin\Debug\CodeGreen.exe"; DestDir: "{app}";
+Source: "..\bin\Debug\soundhelper.exe"; DestDir: "{app}";
 Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\SQLite.NET.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\highscoren"; DestDir: "{app}"; Flags: touch
@@ -50,7 +51,7 @@ Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Fl
 
 [CustomMessages]
 english.dotnetmissing=This setup requires the .NET Framework v3.0 SP1. Please download and install the .NET Framework v3.0 SP1 and run this setup again. Do you want to download the framework now?
-dutch.dotnetmissing=Dit programma vereist .NET framework 3.0 SP1 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.0 SP1 nu downloaden?
+;dutch.dotnetmissing=Dit programma vereist .NET framework 3.0 SP1 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.0 SP1 nu downloaden?
 
 [code]
 function InitializeSetup(): Boolean;
@@ -93,6 +94,8 @@ begin
             end;
 	end;
 end;
+
+
 
 
 
