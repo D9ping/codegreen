@@ -13,23 +13,34 @@
 //-----------------------------------------------------------------------
 namespace CodeGreen
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Drawing;
 
+    /// <summary>
+    /// DropText class.
+    /// </summary>
     public class DropText
     {
+        /// <summary>
+        /// The text of the falling text
+        /// </summary>
         private string text;
+
+        /// <summary>
+        /// The color of the falling text.
+        /// </summary>
         private Brush color;
+
+        /// <summary>
+        /// The topleft losition of the text
+        /// </summary>
         private Point location;
 
         /// <summary>
-        /// Initializes a new instance of DropText class.
+        /// Initializes a new instance of the DropText class.
         /// </summary>
-        /// <param name="text"></param>
-        /// <param name="color"></param>
-        /// <param name="locX"></param>
+        /// <param name="text">The text of the droptext</param>
+        /// <param name="color">The color of the droptext</param>
+        /// <param name="locX">the x location where the droptext should start</param>
         public DropText(string text, Brush color, int locX)
         {
             this.color = color;
@@ -38,7 +49,7 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Get 
+        /// Gets the text valeau
         /// </summary>
         public string Text
         {
@@ -49,7 +60,7 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Get 
+        /// Gets the color of the falling text
         /// </summary>
         public Brush Color
         {
@@ -60,7 +71,7 @@ namespace CodeGreen
         }
 
         /// <summary>
-        /// Gets or sets
+        /// Gets or sets the top left location of the falling text.
         /// </summary>
         public Point Location
         {
@@ -68,6 +79,7 @@ namespace CodeGreen
             {
                 return this.location;
             }
+
             set
             {
                 this.location = value;

@@ -28,7 +28,7 @@ namespace SoundHelper
                 System.Console.Read();
                 return;
             }
-            //System.Console.WriteLine(args[0]);//for testing.
+            ////System.Console.WriteLine(args[0]);
 
             if (File.Exists(args[0]))
             {
@@ -37,12 +37,12 @@ namespace SoundHelper
             }
             else
             {
-                System.Console.WriteLine("soundfile not found."+args[0]);
+                System.Console.WriteLine("soundfile not found." + args[0]);
                 System.Console.WriteLine("Press enter to exit.");
                 System.Console.Read();
             }
 
-            //System.Console.Read();//for testing.
+            ////System.Console.Read();
         }
     }
 }

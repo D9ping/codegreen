@@ -37,7 +37,7 @@ namespace CodeGreen
             InitializeComponent();
             SetSettings();
 
-            CheckControllerEnabled();
+            this.CheckControllerEnabled();
             droptexten = new List<DropText>();
             misc = new Misc();
 
@@ -46,6 +46,12 @@ namespace CodeGreen
             cbxSwitchXaxis.Enabled = CodeGreen.Properties.Settings.Default.controllerSwitchXasix;
         }
 
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region methoden
         /// <summary>
         /// Set bigcheckbox to display the currrent settings.
         /// </summary>
@@ -53,23 +59,17 @@ namespace CodeGreen
         {
             if (CodeGreen.Properties.Settings.Default.music)
             {
-                bcbxMusic.IsChecked = true;
+                this.bcbxMusic.IsChecked = true;
             }
             if (CodeGreen.Properties.Settings.Default.sound)
             {
-                bcbxSound.IsChecked = true;
+                this.bcbxSound.IsChecked = true;
             }
             if (CodeGreen.Properties.Settings.Default.controller)
             {
-                bcbxController.IsChecked = true;
+                this.bcbxController.IsChecked = true;
             }
         }
-        #endregion
-
-        #region properties
-        #endregion
-
-        #region methoden
 
         private void TimerTextEffect_Tick(object sender, EventArgs e)
         {
@@ -166,37 +166,37 @@ namespace CodeGreen
         {
             if (CodeGreen.Properties.Settings.Default.controller)
             {
-                tbVendorID.Enabled = true;
-                tbProductID.Enabled = true;
-                cbxSwitchXaxis.Enabled = true;
+                this.tbVendorID.Enabled = true;
+                this.tbProductID.Enabled = true;
+                this.cbxSwitchXaxis.Enabled = true;
             }
             else
             {
-                tbVendorID.Enabled = false;
-                tbProductID.Enabled = false;
-                cbxSwitchXaxis.Enabled = false;
+                this.tbVendorID.Enabled = false;
+                this.tbProductID.Enabled = false;
+                this.cbxSwitchXaxis.Enabled = false;
             }
         }
 
         private void bcbxMusic_Click(object sender, EventArgs e)
         {
-            CodeGreen.Properties.Settings.Default.music = bcbxMusic.IsChecked;
+            CodeGreen.Properties.Settings.Default.music = this.bcbxMusic.IsChecked;
         }
 
         private void bcbxSound_Click(object sender, EventArgs e)
         {
-            CodeGreen.Properties.Settings.Default.sound = bcbxSound.IsChecked;
+            CodeGreen.Properties.Settings.Default.sound = this.bcbxSound.IsChecked;
         }
 
         private void bcbxController_Click(object sender, EventArgs e)
         {
-            CodeGreen.Properties.Settings.Default.controller = bcbxController.IsChecked;
-            CheckControllerEnabled();
+            CodeGreen.Properties.Settings.Default.controller = this.bcbxController.IsChecked;
+            this.CheckControllerEnabled();
         }
 
         private void cbxSwitchXaxis_CheckedChanged(object sender, EventArgs e)
         {
-            CodeGreen.Properties.Settings.Default.controllerSwitchXasix = cbxSwitchXaxis.Checked;
+            CodeGreen.Properties.Settings.Default.controllerSwitchXasix = this.cbxSwitchXaxis.Checked;
         }
 
         private void pbBackMenu_MouseEnter(object sender, EventArgs e)

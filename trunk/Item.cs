@@ -14,29 +14,36 @@
 namespace CodeGreen
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// Item class.
     /// </summary>
-    class Item
+    public class Item
     {
         #region datavelden
-        //int pos;
-        //object pbitem;
-        String naamitem;
-        int prijs;
-        bool active;
+        /// <summary>
+        /// name of the item.
+        /// </summary>
+        private string naamitem;
+
+        /// <summary>
+        /// The price of the item.
+        /// </summary>
+        private int prijs;
+
+        /// <summary>
+        /// Is the valeau active
+        /// </summary>
+        private bool active;
         #endregion
 
         #region constructor
         /// <summary>
-        /// Initializes a new instance of Item class.
+        /// Initializes a new instance of the Item class.
         /// </summary>
-        /// <param name="naamitem"></param>
-        /// <param name="prijs"></param>
-        public Item(String naamitem, int prijs)
+        /// <param name="naamitem">The name of the item.</param>
+        /// <param name="prijs">The price of the item.</param>
+        public Item(string naamitem, int prijs)
         {
             this.naamitem = naamitem;
             this.prijs = prijs;
@@ -46,18 +53,42 @@ namespace CodeGreen
 
         #region properties
         
-        public String NaamItem
+        /// <summary>
+        /// Gets the name of the item.
+        /// </summary>
+        public string NaamItem
         {
-            get { return this.naamitem; }
+            get
+            {
+                return this.naamitem; 
+            }
         }
+
+        /// <summary>
+        /// Gets the price of the item.
+        /// </summary>
         public int Prijs
         {
-            get { return this.prijs; }
+            get
+            {
+                return this.prijs;
+            }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the item is actived.
+        /// </summary>
         public bool Active
         {
-            get { return this.active; }
-            set { this.active = value; }
+            get 
+            {
+                return this.active; 
+            }
+
+            set
+            { 
+                this.active = value;
+            }
         }
 
         #endregion

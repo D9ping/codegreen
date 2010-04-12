@@ -15,19 +15,18 @@ namespace CodeGreen
 {
     using System;
     using System.Windows.Forms;
-    using System.IO;
-    using System.Runtime.InteropServices;
-    using System.Media;
 
-    static class Program
+    /// <summary>
+    /// Program class.
+    /// </summary>
+    public static class Program
     {
-        //private static SoundPlayer player1;
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

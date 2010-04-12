@@ -78,7 +78,7 @@
             string appdir = Application.StartupPath;
             if (Directory.Exists(appdir))
             {
-                string soundfilepath = Path.Combine(appdir, "sounds")+ "\\"+soundfile;
+                string soundfilepath = Path.Combine(appdir, "sounds") + "\\" + soundfile;
                 string helperapppath = appdir + "\\soundhelper.exe";
                 try
                 {

@@ -5,7 +5,7 @@
     using System.Windows.Forms;
     using Finisar.SQLite;
 
-    public partial class lbHighscoreInfo : Form
+    public partial class GameHighscore : Form
     {
         #region datavelden
         private int score;
@@ -15,31 +15,33 @@
         #endregion
 
         #region contructor
-        public lbHighscoreInfo()
+        public GameHighscore()
         {
             InitializeComponent();
             misc = new Misc();
-            //connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
-            connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
+            ////connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+            this.connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
 
             setGroupboxen();
             gethighscore();
             gbxHighscoren.Visible = true;
         }
-        public lbHighscoreInfo(int timemin, int timesec, int geldover)
+
+        public GameHighscore(int timemin, int timesec, int geldover)
         {
             InitializeComponent();
             setGroupboxen();
             misc = new Misc();
-            connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
-                //OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
-            
-            berekenscore(timemin, timesec, geldover);
+            this.connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
+            ////OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
+
+            this.berekenscore(timemin, timesec, geldover);
             gbxNewHighscore.Visible = true;
             misc.Curlenword = 0;
             timerTextEffect.Enabled = true;
         }
         #endregion
+
 
         #region properties
         #endregion
@@ -78,7 +80,7 @@
                 connection.Open();
                 String query = "SELECT * FROM scoren ORDER BY Score DESC";
 
-                //OleDbCommand selectcommand = new OleDbCommand(query, connection);
+                ////OleDbCommand selectcommand = new OleDbCommand(query, connection);
                 SQLiteCommand selectcommand = new SQLiteCommand(query, connection);
                 
                 SQLiteDataReader reader;
@@ -124,7 +126,7 @@
         /// <param name="e"></param>
         private void btAddHighscore_Click(object sender, EventArgs e)
         {
-            if ((tbName.Text!=null) || (tbName.Text!=""))
+            if ((tbName.Text != null) || (!String.IsNullOrEmpty(tbName.Text)))
             {
                 if (addscore(tbName.Text, score) == true)
                 {
@@ -147,7 +149,7 @@
             {
                 connection.Open();
                 String query = "INSERT INTO scoren (Naam, Score) VALUES ('" + naam + "', '" + score + "')";
-                //OleDbCommand InsertCommand = new OleDbCommand(query, connection);
+                ////OleDbCommand InsertCommand = new OleDbCommand(query, connection);
                 SQLiteCommand InsertCommand = new SQLiteCommand(query, connection);
                 InsertCommand.ExecuteNonQuery();
                 sqladdsucces = true;
@@ -179,7 +181,7 @@
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btAddHighscore_Click(sender, e);
+                this.btAddHighscore_Click(sender, e);
             }
         }
 

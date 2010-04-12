@@ -18,7 +18,7 @@ namespace CodeGreen
         private Communication communication;
         private Bankaccount Speler;
         private WerkbalkState werkbalk;
-        private List<Huis> huizen;
+        private List<House> huizen;
         private Bank bank;
         private Inventory inventory;
         private Misc misc;
@@ -48,7 +48,7 @@ namespace CodeGreen
             bank = new Bank();
             misc = new Misc();
             inventory = new Inventory();
-            huizen = new List<Huis>();
+            huizen = new List<House>();
             snd = new SoundEngine();
 
             ResetGame();
@@ -84,7 +84,7 @@ namespace CodeGreen
         public void BuyItem(object sender, EventArgs e)
         {
             Button buttontemp = (Button)sender;
-            Item buyitem = inventory.getItemShop(buttontemp.Name);
+            Item buyitem = inventory.GetItemShop(buttontemp.Name);
             
             if (CodeGreen.Properties.Settings.Default.sound)
             {
@@ -95,7 +95,7 @@ namespace CodeGreen
             //controlleer voor genoeg geld.
             if (Speler.AccountSaldo >= buyitem.Prijs)
             {   
-                if (inventory.addItemInventory(buttontemp.Name) == true) {
+                if (inventory.AddItemInventory(buttontemp.Name) == true) {
                     Speler.GeldOpnemen(buyitem.Prijs);
                     buttontemp.Click += null;
                     lbSpelerGeld.Refresh();
@@ -198,7 +198,7 @@ namespace CodeGreen
 
         private void ActivedItem(string item)
         {
-            Item getitem = inventory.getItemInventory(item);
+            Item getitem = inventory.GetItemInventory(item);
             if (getitem != null)
             {
                 getitem.Active = true;
@@ -208,9 +208,9 @@ namespace CodeGreen
 
         private void btnCreateBot_Click(object sender, EventArgs e)
         {
-            btnCreateBot.Enabled = false;
+            this.btnCreateBot.Enabled = false;
 
-            Huis getHuis = getHuisDoorBewonernaam(huisBewoner);
+            House getHuis = getHuisDoorBewonernaam(huisBewoner);
             if (getHuis.IsBot == false)
             {
                 getHuis.IsBot = true;
@@ -228,53 +228,53 @@ namespace CodeGreen
 
         private void btnFriendGift_Click(object sender, EventArgs e)
         {
-            inventory.addBankaccountnrlist();
+            inventory.AddBankaccountnrlist();
             pbItemListaccountumbersbank.Visible = true;
             //voeg ook even alle accountnummers aan combobox toe.
             //begin bij 1 en niet 0 omdat we niet de account van de speler willen.
-            for (int pos = 1; pos < bank.Numaccount; pos++)
+            for (int pos = 1; pos < this.bank.Numaccount; pos++)
             {
-                cbAccountnummer.Items.Add(bank.GetByPos(pos).AccountRekeningnr);
+                this.cbAccountnummer.Items.Add(bank.GetByPos(pos).AccountRekeningnr);
             }
-            btnFriendGift.Visible = false;
-            btnFriendGift.Enabled = false;
+            this.btnFriendGift.Visible = false;
+            this.btnFriendGift.Enabled = false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             gbxBanklogin.Visible = false;
-            Bankaccount getaccount = bank.GetByRekening(cbAccountnummer.Text);
-            if (cbAccountnummer.Text == "")
+            Bankaccount getaccount = this.bank.GetByRekening(cbAccountnummer.Text);
+            if (this.cbAccountnummer.Text == string.Empty)
             {
                 misc.BlinkTekst = "NO ACCESS, enter a account number.";
-                lbBanklogininfo.Text = misc.BlinkWordEffect();
-            }            
-            else if (getaccount==null) {
-                misc.BlinkTekst = "NO ACCESS, accountnummer doesn't exist.";
-                lbBanklogininfo.Text = misc.BlinkWordEffect();
-                cbAccountnummer.Text = "";
+                this.lbBanklogininfo.Text = misc.BlinkWordEffect();
             }
-            else if (tbAccountPassword.Text == "")
+            else if (getaccount==null) {
+                this.misc.BlinkTekst = "NO ACCESS, accountnummer doesn't exist.";
+                this.lbBanklogininfo.Text = misc.BlinkWordEffect();
+                this.cbAccountnummer.Text = "";
+            }
+            else if (tbAccountPassword.Text == string.Empty)
             {
                 misc.BlinkTekst = "NO ACCESS, enter a password.";
-                lbBanklogininfo.Text = misc.BlinkWordEffect();
+                this.lbBanklogininfo.Text = misc.BlinkWordEffect();
             }
             else if (getaccount.AccountPassword != tbAccountPassword.Text)
             {
                 misc.BlinkTekst = "NO ACCESS, wrong password.";
-                lbBanklogininfo.Text = misc.BlinkWordEffect();
-                tbAccountPassword.Text = "";
+                this.lbBanklogininfo.Text = misc.BlinkWordEffect();
+                this.tbAccountPassword.Text = string.Empty;
             }
             else
             {
                 //login was succesvol.
-                lbBanklogininfo.Visible = true;
-                lbSaldo.Visible = true;
-                cbAccountnummer.Text = "";
-                tbAccountPassword.Text = "";
+                this.lbBanklogininfo.Visible = true;
+                this.lbSaldo.Visible = true;
+                this.cbAccountnummer.Text = "";
+                this.tbAccountPassword.Text = "";
 
-                lbBanklogininfo.Text = "Access granted! Account nr: " + getaccount.AccountRekeningnr;
-                lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;
+                this.lbBanklogininfo.Text = "Access granted! Account nr: " + getaccount.AccountRekeningnr;
+                this.lbSaldo.Text = "Saldo:  " + getaccount.AccountSaldo;
 
                 Button btnGeldOvermaken = new Button();
                 
@@ -297,7 +297,7 @@ namespace CodeGreen
 
         private void btnReconnect_Click(object sender, EventArgs e)
         {
-            initController();
+            this.initController();
         }
 
         private void CommandNoAccess(int hint)
@@ -357,7 +357,7 @@ namespace CodeGreen
         private void GeldOvermaken(object sender, EventArgs e)
         {            
             Button tempbutton = (Button) sender;
-            Bankaccount BeroofdeAccount = bank.GetByName(tempbutton.Name);
+            Bankaccount BeroofdeAccount = this.bank.GetByName(tempbutton.Name);
             if (bank.AlHetGeldOvermaken(Speler, BeroofdeAccount) == false) { misc.ToonBericht(12); return; }
             tempbutton.Visible = false;
             lbSaldo.Text = "Saldo:  "+Convert.ToString(BeroofdeAccount.AccountSaldo);
@@ -380,7 +380,7 @@ namespace CodeGreen
 
             if (getHuisDoorBewonernaam(communication.GeselecteerdHuis) != null)
             {
-                Huis selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
+                House selectedhuis = getHuisDoorBewonernaam(communication.GeselecteerdHuis);
                 PictureBox pbhuis = (PictureBox)selectedhuis.Huisobj;
                 pbhuis.Image = CodeGreen.Properties.Resources.controller_selected; //resourcehandler.loadimage("selected.png");
                 pbhuis.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -406,9 +406,9 @@ namespace CodeGreen
             }
         }
 
-        private Huis getHuis(object huisnm)
+        private House getHuis(object huisnm)
         {
-            foreach (Huis curhuis in huizen)
+            foreach (House curhuis in huizen)
             {
                 if (curhuis.Huisobj == huisnm)
                 {
@@ -418,9 +418,9 @@ namespace CodeGreen
             return null;
         }
 
-        private Huis getHuisDoorBewonernaam(String bewonernaam)
+        private House getHuisDoorBewonernaam(String bewonernaam)
         {
-            foreach (Huis curhuis in huizen)
+            foreach (House curhuis in huizen)
             {
                 if (curhuis.Naam == bewonernaam)
                 {
@@ -440,12 +440,12 @@ namespace CodeGreen
         /// </summary>
         private void initController()
         {
-            btnReconnect.Visible = false;
+            this.btnReconnect.Visible = false;
             if (CodeGreen.Properties.Settings.Default.controller)
             {
-                communication = new Communication();
-                btnReconnect.Visible = true;
-                if (ConnectController1() == true)
+                this.communication = new Communication();
+                this.btnReconnect.Visible = true;
+                if (this.ConnectController1() == true)
                 {
                     //if (werkbalk != WerkbalkState.INSTRUCTIE) { GetControllerHuis(); }
                     GetControllerHuis();
@@ -467,19 +467,19 @@ namespace CodeGreen
         {
             try
             {
-                Huis[] huis = new Huis[5];
-                huis[0] = new Huis(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, false);
-                huis[1] = new Huis(pbHuis2, "Jan de Vries", "66.23.34.45", true, "devries", true, false, false);
-                huis[2] = new Huis(pbHuis3, "Marrieke", "100.11.22.33", true, "natgears", false, true, true);
-                huis[3] = new Huis(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, true);
-                huis[4] = new Huis(pbHuis5, "Roel", "68.23.34.45", true, "wireless108", false, true, false);
+                House[] huis = new House[5];
+                huis[0] = new House(pbHuis1, "Your", "33.23.34.45", true, "linksystems", false, true, false);
+                huis[1] = new House(pbHuis2, "Jan de Vries", "66.23.34.45", true, "devries", true, false, false);
+                huis[2] = new House(pbHuis3, "Marrieke", "100.11.22.33", true, "natgears", false, true, true);
+                huis[3] = new House(pbHuis4, "Pieter", "14.23.34.45", false, "", true, true, true);
+                huis[4] = new House(pbHuis5, "Roel", "68.23.34.45", true, "wireless108", false, true, false);
                 huizen.AddRange(huis);
                 SetTooltipHouses();
             }
             catch (Exception) { misc.ToonBericht(6); }
         }
 
-        private void installkeylogger(Huis huis)
+        private void installkeylogger(House huis)
         {
             lbItemCommandInfo.Text = "Keylogger succesfully installed on " + huis.IPAdres + ", " + huis.Naam + " house.";
             tbCommand.Text = "";
@@ -493,7 +493,7 @@ namespace CodeGreen
         /// <returns>heeft true terug als wel het geval is.</returns>
         private bool IsItemInventory(String item)
         {
-            if (inventory.getItemInventory(item) != null)
+            if (inventory.GetItemInventory(item) != null)
             {
                 return true;
             }
@@ -555,12 +555,12 @@ namespace CodeGreen
         {
             if (lbItemCommandInfo.Visible == false)
             {
-                if (inventory.getItemInventory("netwerkscanner").Active == false)
+                if (inventory.GetItemInventory("netwerkscanner").Active == false)
                 {
                     ToonSlechtItem(this.pbItemNetworkScanner);
                     lbItemCommandInfo.Text = "Enter \"scan\" to reveal all IP adresses in your neigbourhood.";
                 }
-                else if (inventory.getItemInventory("netwerkscanner").Active == false)
+                else if (inventory.GetItemInventory("netwerkscanner").Active == false)
                 {
                     ToonSlechtItem(this.pbItemNetworkScanner);
                     lbItemCommandInfo.Text = "You already scanned your neighbourhood, and revealed their IP adresses";
@@ -634,7 +634,7 @@ namespace CodeGreen
 
         private void ResetGame()
         {
-            inventory.youritems.Clear();
+            inventory.ResetInventory();
             huizen.Clear();
             initHuizen();
 
@@ -673,9 +673,9 @@ namespace CodeGreen
         {
             if (IsItemInventory("netwerkscanner")==true)
             {
-                if (inventory.getItemInventory("netwerkscanner").Active == true)
+                if (inventory.GetItemInventory("netwerkscanner").Active == true)
                 {
-                    foreach (Huis huis in huizen)
+                    foreach (House huis in huizen)
                     {
                         tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " house \r\n IP: " + huis.IPAdres);
                     }
@@ -683,7 +683,7 @@ namespace CodeGreen
             }
             else
             {
-                foreach (Huis huis in huizen)
+                foreach (House huis in huizen)
                 {
                     tooltip.SetToolTip((Control)huis.Huisobj, huis.Naam + " house");
                 }
@@ -722,7 +722,7 @@ namespace CodeGreen
                 }
                 if (IsItemInventory("keylogger") ==true)
                 {
-                    foreach (Huis huis in huizen)
+                    foreach (House huis in huizen)
                     {
                         if (tbCommand.Text == "deploy " + huis.WifiSSID)
                         {
@@ -730,29 +730,35 @@ namespace CodeGreen
                             {
                                 installkeylogger(huis);
                             }
-                            else { CommandNoAccess(1); }
+                            else
+                            {
+                                this.CommandNoAccess(1);
+                            }
                         }
                         else if (tbCommand.Text == "deploy " + huis.IPAdres)
                         {
                             if ((huis.WindowsOutdated == true) && (IsItemInventory("worm")==true))
                             {
-                                if (inventory.getItemInventory("worm").Active == true)
+                                if (inventory.GetItemInventory("worm").Active == true)
                                 {
-                                    installkeylogger(huis);
+                                    this.installkeylogger(huis);
                                 }
                                 else
                                 {
-                                    CommandNoAccess(2);
+                                    this.CommandNoAccess(2);
                                 }
                             }
 
                             if ((huis.Naam != "Your") && (IsItemInventory("coderedvirus") == true))
                             {
-                                if (inventory.getItemInventory("coderedvirus").Active == true)
+                                if (inventory.GetItemInventory("coderedvirus").Active == true)
                                 {
-                                    installkeylogger(huis);
+                                    this.installkeylogger(huis);
                                 }
-                                else { CommandNoAccess(2); }
+                                else
+                                {
+                                    this.CommandNoAccess(2);
+                                }
                             }
                         }
                     }
@@ -767,21 +773,21 @@ namespace CodeGreen
                 }
                 if (IsItemInventory("worm") == true)
                 {
-                    foreach (Huis huis in huizen)
+                    foreach (House huis in huizen)
                     {
                         if ((tbCommand.Text == "infect " + huis.IPAdres) && (huis.WindowsOutdated == true))
                         {
-                            ActivedItem("worm");
-                            lbItemCommandInfo.Text = "You infected " + huis.IPAdres + " with a worm, now other houses can get infected soon.";
-                            tbCommand.Text = "";
+                            this.ActivedItem("worm");
+                            this.lbItemCommandInfo.Text = "You infected " + huis.IPAdres + " with a worm, now other houses can get infected soon.";
+                            this.tbCommand.Text = string.Empty;
                         }
                         else if ((tbCommand.Text == "infect " + huis.IPAdres) && (huis.WindowsOutdated == false))
                         {
                             lbItemCommandInfo.Text = "House is not vurnable.";
                         }
-                        else if (tbCommand.Text.StartsWith("infect")==true)
+                        else if (this.tbCommand.Text.StartsWith("infect") == true)
                         {
-                            lbItemCommandInfo.Text = "Unknow IP adres.";
+                            this.lbItemCommandInfo.Text = "Unknow IP adres.";
                         }
                     }
                 }
@@ -791,41 +797,44 @@ namespace CodeGreen
                     {
                         if (IsItemInventory("pizza") == true)
                         {
-                            ActivedItem("coderedvirus");
-                            lbItemCommandInfo.Text = "Code red virus has infected your whole neigherhood.";
-                            tbCommand.Text = "";
+                            this.ActivedItem("coderedvirus");
+                            this.lbItemCommandInfo.Text = "Code red virus has infected your whole neigherhood.";
+                            this.tbCommand.Text = "";
                         }
                         else hungry();
                     }
-                    else if (tbCommand.Text == "release -?")
+                    else if (this.tbCommand.Text == "release -?")
                     {
-                        lbItemCommandInfo.Text = "Enter -a parameter after the release command to release the codered virus on your whole neigherhood.";
+                        this.lbItemCommandInfo.Text = "Enter -a parameter after the release command to release the codered virus on your whole neigherhood.";
                     }
-                    else if (tbCommand.Text == "release")
+                    else if (this.tbCommand.Text == "release")
                     {
-                        if (IsItemInventory("pizza") == true)
+                        if (this.IsItemInventory("pizza") == true)
                         {
-                            lbItemCommandInfo.Text = "Error, you need to added some parameters. Add the -? parameter after the release command to get help.";
+                            this.lbItemCommandInfo.Text = "Error, you need to added some parameters. Add the -? parameter after the release command to get help.";
                         }
-                        else hungry();
+                        else
+                        {
+                            this.hungry();
+                        }
                     }
                 }
 
-                if (tbCommand.Text == "cheatwin")
+                if (this.tbCommand.Text == "cheatwin")
                 {
-                    progbarServerload.Value = 100;
+                    this.progbarServerload.Value = 100;
                 }
             }
         }
 
         private void TekenListaccounts()
         {
-            gbxShopStock.Visible = true;
-            gbxShopStock.Text = "Account of pabobank";
+            this.gbxShopStock.Visible = true;
+            this.gbxShopStock.Text = "Account of pabobank";
             int ypos = 20;
-            for (int i = 1; i < bank.Numaccount; i++)
+            for (int i = 1; i < this.bank.Numaccount; i++)
             {
-                Bankaccount account = bank.GetByPos(i);
+                Bankaccount account = this.bank.GetByPos(i);
                 Label lbaccount = new Label();
                 String regellistaccount = account.AccountNaam + "   account nr: " + account.AccountRekeningnr;
                 lbaccount.Text = regellistaccount;
@@ -843,13 +852,13 @@ namespace CodeGreen
         private void DrawShop()
         {
             showshopintro = true;
-            gbxShopStock.Controls.Clear();
-            gbxShopStock.Visible = true;
-            gbxShopStock.Text = "nixxon stock";
+            this.gbxShopStock.Controls.Clear();
+            this.gbxShopStock.Visible = true;
+            this.gbxShopStock.Text = "nixxon stock";
             int ypos = 20;
-            for (int i = 0; i < inventory.numitems; i++)
+            for (int i = 0; i < inventory.Numitems; i++)
             {
-                Item curitem = inventory.getItemPos(i);
+                Item curitem = inventory.GetItemPos(i);
                 Label lbitemnaam = new Label();
                 lbitemnaam.Text = curitem.NaamItem;
                 lbitemnaam.Location = new Point(20, ypos);
@@ -874,7 +883,7 @@ namespace CodeGreen
                 if (IsItemInventory(curitem.NaamItem) == false)
                 {
                     btnItembuy.Text = "buy";
-                    btnItembuy.Click += new System.EventHandler(BuyItem);
+                    btnItembuy.Click += new System.EventHandler(this.BuyItem);
                 }
                 else if (IsItemInventory(curitem.NaamItem) == true)
                 {
@@ -902,14 +911,20 @@ namespace CodeGreen
                 timesec++;
                 if (timesec < 60)
                 {
-                    if (timemin == 0) { lbPlayerTime.Text = timesec + "s"; }
-                    else { lbPlayerTime.Text = timemin + "m " + timesec + "s"; }
+                    if (timemin == 0)
+                    {
+                        this.lbPlayerTime.Text = timesec + "s";
+                    }
+                    else
+                    {
+                        this.lbPlayerTime.Text = timemin + "m " + timesec + "s";
+                    }
                 }
                 else
                 {
                     timemin++;
                     timesec = 0;
-                    lbPlayerTime.Text = timemin + "m " + timesec + "s";
+                    this.lbPlayerTime.Text = timemin + "m " + timesec + "s";
                 }
 
                 if (IsConnected == true)
@@ -923,7 +938,7 @@ namespace CodeGreen
             {
                 TimerGametime.Enabled = false;
                 int geld = Convert.ToInt32(Speler.AccountSaldo);
-                lbHighscoreInfo highscore = new lbHighscoreInfo(timemin, timesec, geld);  
+                GameHighscore highscore = new GameHighscore(timemin, timesec, geld);
                 highscore.Show();
                 this.Hide();
             }
@@ -938,7 +953,7 @@ namespace CodeGreen
         {
             if (werkbalk == WerkbalkState.INSTRUCTIE)
             {
-                btnFriendGift.Visible = false;
+                this.btnFriendGift.Visible = false;
 
                 if (misc.HuidigeTekst == "intro")
                 {
@@ -952,19 +967,19 @@ namespace CodeGreen
                 {
                     if (IsItemInventory("listbankaccounts") == false)
                     {
-                        lblIntroTextLine1.Text = misc.TypeTextFull("friend");
+                        this.lblIntroTextLine1.Text = misc.TypeTextFull("friend");
                         if (misc.HuidigeRegel >= 2)
                         {
-                            btnFriendGift.Visible = true;
+                            this.btnFriendGift.Visible = true;
                         }
                         else
                         {
-                            btnFriendGift.Visible = false;
+                            this.btnFriendGift.Visible = false;
                         }
                     }
                     else
                     {
-                        lblIntroTextLine1.Text = misc.TypeWordEffect("How is your work coming along ;P?");
+                        this.lblIntroTextLine1.Text = misc.TypeWordEffect("How is your work coming along ;P?");
                     }
                 }
                 else { misc.ToonBericht(10); }
@@ -973,112 +988,126 @@ namespace CodeGreen
             {
                 if (showshopintro ==true)
                 {
-                    lbTextShop.Text = misc.TypeWordEffect("Nixxons shop for all your hacker tools.");
+                    this.lbTextShop.Text = misc.TypeWordEffect("Nixxons shop for all your hacker tools.");
                 }
             }
             else if (werkbalk == WerkbalkState.BANK)
             {
                 if ((gbxBanklogin.Visible == true) && (lbSaldo.Visible ==false))
                 {
-                    lbBanklogininfo.Text = misc.TypeWordEffect("To break in you will need an accountnumber and password.");
+                    this.lbBanklogininfo.Text = misc.TypeWordEffect("To break in you will need an accountnumber and password.");
                 }
-                else if (lbSaldo.Visible ==false)
+                else if (this.lbSaldo.Visible == false)
                 {
-                    lbBanklogininfo.Text = misc.BlinkWordEffect();
+                    this.lbBanklogininfo.Text = misc.BlinkWordEffect();
                 }
             }
             else if (werkbalk == WerkbalkState.INVENTORY)
             {
-                if (lbItemCommandInfo.Text.StartsWith("scanning")==true)
+                if (this.lbItemCommandInfo.Text.StartsWith("scanning") == true)
                 {
-                    if (lbItemCommandInfo.Text.StartsWith("scanning....................................")==true)
+                    if (this.lbItemCommandInfo.Text.StartsWith("scanning....................................") == true)
                     {
-                        if (lbItemCommandInfo.Text.EndsWith("done")==false)
+                        if (this.lbItemCommandInfo.Text.EndsWith("done") == false)
                         {
-                            lbItemCommandInfo.Text = lbItemCommandInfo.Text + "done";
-                            ActivedItem("netwerkscanner");
-                            SetTooltipHouses();
+                            this.lbItemCommandInfo.Text = this.lbItemCommandInfo.Text + "done";
+                            this.ActivedItem("netwerkscanner");
+                            this.SetTooltipHouses();
                         }
                     }
                     else
-                    { lbItemCommandInfo.Text = lbItemCommandInfo.Text + "."; }
+                    {
+                        this.lbItemCommandInfo.Text = this.lbItemCommandInfo.Text + ".";
+                    }
                 }
             }
         }
 
         private void ShowMsgAboutHouse(String regel1, String regel2)
         {
-            lbTextNaam.Text = regel1;
-            lbNaam.Text = String.Empty;
-            lbTextIPadres.Text = regel2;
-            lbIPadres.Text = String.Empty;
-            lbTextWifi.Text = String.Empty;
-            lbWifi.Text = String.Empty;
-            lbTextWifiSSID.Text = String.Empty;
-            lbWifiSSID.Text = String.Empty;
-            lbTextWifiWEP.Text = String.Empty;
-            lbWifiWEP.Text = String.Empty;
-            lbTextWifiWPA.Text = String.Empty;
-            lbWifiWPA.Text = String.Empty;
+            this.lbTextNaam.Text = regel1;
+            this.lbNaam.Text = String.Empty;
+            this.lbTextIPadres.Text = regel2;
+            this.lbIPadres.Text = String.Empty;
+            this.lbTextWifi.Text = String.Empty;
+            this.lbWifi.Text = String.Empty;
+            this.lbTextWifiSSID.Text = String.Empty;
+            this.lbWifiSSID.Text = String.Empty;
+            this.lbTextWifiWEP.Text = String.Empty;
+            this.lbWifiWEP.Text = String.Empty;
+            this.lbTextWifiWPA.Text = String.Empty;
+            this.lbWifiWPA.Text = String.Empty;
         }
 
+        /// <summary>
+        /// First makes all groupboxs not visible then make the given groupbox visible.
+        /// </summary>
+        /// <param name="showGB">The groupbox to be visible.</param>
         private void ToonGB(GroupBox showGB)
         {
-            gbxGameInstructions.Visible = false;
-            gbxWBInventory.Visible = false;
-            gbxWBShop.Visible = false;
-            gbxWBBank.Visible = false;
-            gbxWBHuis.Visible = false;
+            this.gbxGameInstructions.Visible = false;
+            this.gbxWBInventory.Visible = false;
+            this.gbxWBShop.Visible = false;
+            this.gbxWBBank.Visible = false;
+            this.gbxWBHuis.Visible = false;
+            
             showGB.Visible = true;
         }
 
         /// <summary>
         /// Haal huis informatie op.
         /// </summary>
-        private void ToonHuisInfo(Huis huis)
+        private void ToonHuisInfo(House huis)
         {
-            ResetHuisInfo();
+            this.ResetHuisInfo();
 
             huisBewoner = huis.Naam;
-            lbNaam.Text = huisBewoner;
+            this.lbNaam.Text = huisBewoner;
 
             if (huis.IsBot == false) 
             {
-                btnCreateBot.Enabled = true; 
+                this.btnCreateBot.Enabled = true; 
             }
             else if (huis.IsBot == true) 
             {
-                btnCreateBot.Enabled = false;
+                this.btnCreateBot.Enabled = false;
             }
 
             if (huis.Wifi == true)
             {
-                lbWifi.Text = "Yes";
-                ToonHuisWifi(true);
+                this.lbWifi.Text = "Yes";
+                this.ToonHuisWifi(true);
 
-                lbWifiSSID.Text = huis.WifiSSID;
+                this.lbWifiSSID.Text = huis.WifiSSID;
                 if (huis.WifiWEP == true)
                 {
-                    if (IsItemInventory("wepcracker")==true)
+                    if (this.IsItemInventory("wepcracker") == true)
                     {
                         if (huis.Wepcracked==true)
                         {
-                            lbWifiWEP.Text = "CRACKED";
-                            lbWifiWEP.ForeColor = Color.Red;
+                            this.lbWifiWEP.Text = "CRACKED";
+                            this.lbWifiWEP.ForeColor = Color.Red;
                             this.btnCreateBot.Visible = true;
                         }
                         else
                         {
-                            lbWifiWEP.Text = "Yes";
+                            this.lbWifiWEP.Text = "Yes";
                             this.btnCreateBot.Visible = false;
                         }
                     }
-                    else { lbWifiWEP.Text = "Yes"; }
+                    else
+                    {
+                        this.lbWifiWEP.Text = "Yes";
+                    }
                 }
-                else { lbWifiWEP.Text = "No"; }
+                else 
+                {
+                    this.lbWifiWEP.Text = "No";
+                }
+
                 if (huis.WifiWPA == true) 
                 {
-                    lbWifiWPA.Text = "Yes"; 
+                    this.lbWifiWPA.Text = "Yes"; 
                 }
                 else
                 {
@@ -1091,27 +1120,30 @@ namespace CodeGreen
                 ToonHuisWifi(false);
             }
 
-            if (IsItemInventory("keylogger") == true)
+            if (this.IsItemInventory("keylogger") == true)
             {
                 if (huis.KeyloggerInstalled == true)
                 {
-                    btnGetKeyloggerLog.Visible = true;
-                    btnGetKeyloggerLog.Enabled = true;
+                    this.btnGetKeyloggerLog.Visible = true;
+                    this.btnGetKeyloggerLog.Enabled = true;
                 }
-                else { btnGetKeyloggerLog.Enabled = false; }
+                else 
+                {
+                    this.btnGetKeyloggerLog.Enabled = false; 
+                }
             }
             else
             {
-                btnGetKeyloggerLog.Visible = false;
-                btnGetKeyloggerLog.Enabled = false;
+                this.btnGetKeyloggerLog.Visible = false;
+                this.btnGetKeyloggerLog.Enabled = false;
             }
 
-            if (IsItemInventory("netwerkscanner") ==true)
+            if (this.IsItemInventory("netwerkscanner") == true)
             {
                 lbWindowsuptodate.Visible = true;
                 lbTextWindowsUpdatetodate.Visible = true;
 
-                if (inventory.getItemInventory("netwerkscanner").Active == true)
+                if (inventory.GetItemInventory("netwerkscanner").Active == true)
                 {
                     lbIPadres.Text = huis.IPAdres;
                     if (huis.WindowsOutdated == true)
@@ -1122,13 +1154,19 @@ namespace CodeGreen
                         {
                             lbInfectie.Visible = true;
                             lbTextInfectie.Visible = true;
-                            if (inventory.getItemInventory("worm").Active == true)
+                            if (inventory.GetItemInventory("worm").Active == true)
                             {
                                 this.lbInfectie.Text = "yes";
                                 this.lbInfectie.ForeColor = Color.Red;
-                                btnCreateBot.Visible = true;
-                                if (huis.KeyloggerInstalled == true) { btnGetKeyloggerLog.Enabled = true; }
-                                else if (huis.KeyloggerInstalled == false) { btnGetKeyloggerLog.Enabled = false; }
+                                this.btnCreateBot.Visible = true;
+                                if (huis.KeyloggerInstalled == true) 
+                                {
+                                    this.btnGetKeyloggerLog.Enabled = true;
+                                }
+                                else if (huis.KeyloggerInstalled == false)
+                                {
+                                    this.btnGetKeyloggerLog.Enabled = false;
+                                }
                             }
                         }
                     }
@@ -1140,7 +1178,7 @@ namespace CodeGreen
                         {
                             lbInfectie.Visible = true;
                             lbTextInfectie.Visible = true;
-                            if (inventory.getItemInventory("worm").Active == true)
+                            if (inventory.GetItemInventory("worm").Active == true)
                             {
                                 this.lbInfectie.Text = "no";
                                 this.lbInfectie.ForeColor = Color.Lime;
@@ -1148,15 +1186,15 @@ namespace CodeGreen
                         }
                     }
                 }
-                else if (inventory.getItemInventory("netwerkscanner").Active == false) 
+                else if (inventory.GetItemInventory("netwerkscanner").Active == false) 
                 {
                     lbIPadres.Text = "not scanned"; 
                 }
                 if (IsItemInventory("coderedvirus") == true)
                 {
-                    if (inventory.getItemInventory("coderedvirus").Active == true)
+                    if (inventory.GetItemInventory("coderedvirus").Active == true)
                     {
-                        btnCreateBot.Visible = true;
+                        this.btnCreateBot.Visible = true;
                         this.lbInfectie.Text = "yes";
                         this.lbInfectie.ForeColor = Color.Red;
                     }
@@ -1177,13 +1215,13 @@ namespace CodeGreen
         /// <param name="toon"></param>
         private void ToonHuisWifi(bool toon)
         {
-            lbTextWifiSSID.Visible = toon;
-            lbTextWifiWEP.Visible = toon;
-            lbTextWifiWPA.Visible = toon;
-            lbWifiSSID.Visible = toon;
-            lbWifiWEP.Visible = toon;
-            lbWifiWPA.Visible = toon;
-            lbWifiWEP.ForeColor = Color.Lime;
+            this.lbTextWifiSSID.Visible = toon;
+            this.lbTextWifiWEP.Visible = toon;
+            this.lbTextWifiWPA.Visible = toon;
+            this.lbWifiSSID.Visible = toon;
+            this.lbWifiWEP.Visible = toon;
+            this.lbWifiWPA.Visible = toon;
+            this.lbWifiWEP.ForeColor = Color.Lime;
         }
 
         /// <summary>
@@ -1192,63 +1230,66 @@ namespace CodeGreen
         private void ToonInventoryItems()
         {
             lbItemCommandInfo.Visible = false;
-            tbCommand.Visible = false;
-            tbCommand.Text = "";
+            this.tbCommand.Visible = false;
+            this.tbCommand.Text = string.Empty;
 
             if (IsItemInventory("listbankaccounts") == true)
             {
-                pbItemListaccountumbersbank.Location = new Point(10, 14);
-                pbItemListaccountumbersbank.Visible = true;
-            }
-            else { pbItemListaccountumbersbank.Visible = false; }
-
-            if (IsItemInventory("wepcracker") == true)
-            {
-                pbItemWifiWEPCracker.Location = new Point(110, 14);
-                pbItemWifiWEPCracker.Visible = true;
+                this.pbItemListaccountumbersbank.Location = new Point(10, 14);
+                this.pbItemListaccountumbersbank.Visible = true;
             }
             else
             {
-                pbItemWifiWEPCracker.Visible = false;
+                this.pbItemListaccountumbersbank.Visible = false;
+            }
+
+            if (IsItemInventory("wepcracker") == true)
+            {
+                this.pbItemWifiWEPCracker.Location = new Point(110, 14);
+                this.pbItemWifiWEPCracker.Visible = true;
+            }
+            else
+            {
+                this.pbItemWifiWEPCracker.Visible = false;
             }
 
             if (IsItemInventory("keylogger") == true)
             {
-                pbItemKeylogger.Location = new Point(210, 14);
-                pbItemKeylogger.Visible = true;
+                this.pbItemKeylogger.Location = new Point(210, 14);
+                this.pbItemKeylogger.Visible = true;
             }
             else
             {
-                pbItemKeylogger.Visible = false; 
+                this.pbItemKeylogger.Visible = false; 
             }
 
             if (IsItemInventory("netwerkscanner") == true)
             {
-                pbItemNetworkScanner.Location = new Point(310, 14);
-                pbItemNetworkScanner.Visible = true;
+                this.pbItemNetworkScanner.Location = new Point(310, 14);
+                this.pbItemNetworkScanner.Visible = true;
             }
             else
             {
-                pbItemNetworkScanner.Visible = false;
+                this.pbItemNetworkScanner.Visible = false;
             }
 
             if (IsItemInventory("worm") == true)
             {
-                pbItemWorm.Location = new Point(410, 14);
-                pbItemWorm.Visible = true;
+                this.pbItemWorm.Location = new Point(410, 14);
+                this.pbItemWorm.Visible = true;
             }
             else 
             { 
-                pbItemWorm.Visible = false; 
+                this.pbItemWorm.Visible = false; 
             }
-            if (IsItemInventory("coderedvirus") == true)
+            if (this.IsItemInventory("coderedvirus") == true)
             {
-                pbItemCoderedvirus.Location = new Point(510, 14);
-                pbItemCoderedvirus.Visible = true;
+                this.pbItemCoderedvirus.Location = new Point(510, 14);
+                this.pbItemCoderedvirus.Visible = true;
             }
             else 
             {
-                pbItemCoderedvirus.Visible = false; 
+                this.pbItemCoderedvirus.Visible = false; 
             }
             
         }
@@ -1351,8 +1392,8 @@ namespace CodeGreen
         {
             if (CodeGreen.Properties.Settings.Default.controller)
             {
-                communication.DataAtmelController(data);
-                GetControllerHuis();
+                this.communication.DataAtmelController(data);
+                this.GetControllerHuis();
             }
         }
 
@@ -1406,13 +1447,23 @@ namespace CodeGreen
                 {
                     if (sender == huizen[i].Huisobj)
                     {
-                        if (werkbalk != WerkbalkState.HUIS) { werkbalk = WerkbalkState.HUIS; }
-                        if (getHuis(sender) == null) { misc.ToonBericht(7); return; }
-                        ToonHuisInfo(getHuis(sender));
+                        if (werkbalk != WerkbalkState.HUIS)
+                        {
+                            werkbalk = WerkbalkState.HUIS;
+                        }
+
+                        if (getHuis(sender) == null)
+                        {
+                            misc.ToonBericht(7);
+                        }
+                        else
+                        {
+                            this.ToonHuisInfo(getHuis(sender));
+                        }
                     }
                 }
             }
-            ToonWerkbalk();
+            this.ToonWerkbalk();
         }
 
         private void GameScreen_KeyDown(object sender, KeyEventArgs e)

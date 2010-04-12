@@ -23,7 +23,14 @@ namespace CodeGreen
     public class Bankaccount
     {
         #region datavelden
+        /// <summary>
+        /// name, password and accountnumber of account.
+        /// </summary>
         private string naam, password, rekeningnr;
+
+        /// <summary>
+        /// The saldo of the account
+        /// </summary>
         private int saldo;
         #endregion
 

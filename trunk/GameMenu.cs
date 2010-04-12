@@ -21,7 +21,6 @@ namespace CodeGreen
     public partial class GameMenu : Form
     {
         #region datavelden
-        //private List<TextBox> droptexten;
         private List<DropText> droptexten;
         private int n = 0;
         private Misc misc;
@@ -115,19 +114,19 @@ namespace CodeGreen
             {
                 if (sender == pbStartGame)
                 {
-                    pbStartGame.Image = CodeGreen.Properties.Resources.knop_start; //resourcehandler.loadimage("knop_start.png");
+                    pbStartGame.Image = CodeGreen.Properties.Resources.knop_start;
                 }
                 else if (sender == pbOptions)
                 {
-                    pbOptions.Image = CodeGreen.Properties.Resources.knop_options; //resourcehandler.loadimage("knop_options.png");
+                    pbOptions.Image = CodeGreen.Properties.Resources.knop_options;
                 }
                 else if (sender == pbHighscore)
                 {
-                    pbHighscore.Image = CodeGreen.Properties.Resources.knop_highscore; //resourcehandler.loadimage("knop_highscore.png");
+                    pbHighscore.Image = CodeGreen.Properties.Resources.knop_highscore;
                 }
                 else if (sender == pbExit)
                 {
-                    pbExit.Image = CodeGreen.Properties.Resources.knop_exit; //resourcehandler.loadimage("knop_exit.png");
+                    pbExit.Image = CodeGreen.Properties.Resources.knop_exit;
                 }
                 else 
                 {
@@ -204,7 +203,7 @@ namespace CodeGreen
         private void pbHighscore_Click(object sender, EventArgs e)
         {
             this.Hide();
-            lbHighscoreInfo highscore = new lbHighscoreInfo();
+            GameHighscore highscore = new GameHighscore();
             highscore.Show();
         }
 

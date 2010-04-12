@@ -1,7 +1,19 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+﻿//-----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="GNU">
+// 
+// This program is free software; you can redistribute it and/or modify it
+// Free Software Foundation; either version 2, 
+// or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// </copyright>
+//-----------------------------------------------------------------------
+using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information

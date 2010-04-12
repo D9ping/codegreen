@@ -23,8 +23,10 @@ namespace CodeGreen
     public class Bank
     {
         #region datavelden
+        /// <summary>
+        /// A list with account of the bank.
+        /// </summary>
         private List<Bankaccount> accounts;
-        private int i;
         #endregion
 
         #region constructor
@@ -129,7 +131,7 @@ namespace CodeGreen
         /// </summary>
         /// <param name="accountto">The account that get the money</param>
         /// <param name="accountfrom">The account where the money get away from.</param>
-        /// <return>True if succeed.</return>
+        /// <returns>True if succeed.</returns>
         public bool AlHetGeldOvermaken(Bankaccount accountto, Bankaccount accountfrom)
         {
             int geld = accountfrom.AccountSaldo;
@@ -156,7 +158,6 @@ namespace CodeGreen
         /// <returns>The new bank account number.</returns>
         public string RanBankAccnum()
         {
-            this.i = this.i++;
             Random ran = new Random();
             int getal = ran.Next(1, 256);
             return getal.ToString();

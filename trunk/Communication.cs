@@ -134,6 +134,7 @@ namespace CodeGreen
                     this.gekozenX = 2;
                 }
             }
+
             this.UpdateGelecteerdHuis();
         }
 
@@ -153,6 +154,7 @@ namespace CodeGreen
                     {
                         this.selectedhuis = "Pieter"; 
                     }
+
                     break;
 
                 case 2:
@@ -164,6 +166,7 @@ namespace CodeGreen
                     {
                         this.selectedhuis = "Your"; 
                     }
+
                     break;
 
                 case 3:
@@ -191,25 +194,26 @@ namespace CodeGreen
         /// Enable or disable the red led.
         /// </summary>
         /// <param name="status">Switch the let on or off.</param>
-        /// <returns></returns>
+        /// <returns>the data as bytes.</returns>
         public byte[] Roodledje1(bool status)
         {
             byte[] data = new byte[9];
-            data[0] = 0; //report id
-            data[1] = 1; //rood ledje
+            data[0] = 0;
+            data[1] = 1;
             if (status == true) 
             {
-                data[2] = 1; //ledje status
+                data[2] = 1; ////ledje status
             }
             else if (status == false)
             {
                 data[2] = 0; 
             }
-            //de rest 0
+
             for (int i = 3; i < 9; i++)
             {
                 data[i] = 0;
             }
+
             return data;
         }
 
@@ -217,25 +221,26 @@ namespace CodeGreen
         /// Enable or disable green led.
         /// </summary>
         /// <param name="status">Switch the let on or off.</param>
-        /// <returns></returns>
+        /// <returns>the data as bytes.</returns>
         public byte[] Groenledje1(bool status)
         {
             byte[] data = new byte[9];
-            data[0] = 0; //report id
-            data[1] = 2; //groen ledje
+            data[0] = 0; ////report id
+            data[1] = 2; ////groen ledje
             if (status == true) 
             {
-                data[2] = 1; //ledje status
+                data[2] = 1;
             }
             else if (status == false) 
             {
                 data[2] = 0;
             }
-            //de rest 0
+            
             for (int i = 3; i < 9; i++)
             {
                 data[i] = 0;
             }
+
             return data;
         }
 
@@ -243,24 +248,26 @@ namespace CodeGreen
         /// Enable or disable second red led.
         /// </summary>
         /// <param name="status">Switch the let on or off.</param>
-        /// <returns></returns>
+        /// <returns>the data as bytes</returns>
         public byte[] Roodledje2(bool status)
         {
             byte[] data = new byte[9];
-            data[0] = 0; //report id
-            data[1] = 4; //rood ledje
+            data[0] = 0; ////report id
+            data[1] = 4; ////red led
             if (status == true) 
             {
-                data[2] = 1; //ledje status
+                data[2] = 1; ////led status
             }
             else if (status == false)
             {
-                data[2] = 0; //de rest 0
+                data[2] = 0;
             }
+
             for (int i = 3; i < 9; i++)
             {
                 data[i] = 0;
             }
+
             return data;
         }
 

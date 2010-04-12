@@ -24,88 +24,140 @@ namespace CodeGreen
     public class Misc
     {
         #region datavelden
-        private bool errorshowed = false;
-        private bool showtext = false;
-        private int curlenword;
-        private int wait = 0;
-        private int curregel = 0;
-        private String blinktext;
-        private String curtext = "intro";
-        private String[] intro_regel;
-        private String[] friend_regel;
+        /// <summary>
+        /// If errer is already showed and text is showed.
+        /// </summary>
+        private bool errorshowed = false, showtext = false;
+
+        /// <summary>
+        /// The current length of the text,  wait time,  and current line valeau
+        /// </summary>
+        private int curlenword, wait = 0, curregel = 0;
+        
+        /// <summary>
+        /// Text of blink text and which text to play.
+        /// </summary>
+        private String blinktext, curtext = "intro";
+
+        /// <summary>
+        /// Story text
+        /// </summary>
+        private String[] introregel;
+
+        /// <summary>
+        /// Story text
+        /// </summary>
+        private String[] friendregel;
         #endregion
 
         #region constructor
         /// <summary>
-        /// Initializes a new instance of Misc class.
+        /// Initializes a new instance of the Misc class.
         /// </summary>
         public Misc()
         {
-            intro_regel = new String[7];
-            intro_regel[0] = "You work for microsol as a security expert.";
-            intro_regel[1] = "One day you fell a sleep at the office.";
-            intro_regel[2] = "Your boss does not take it, and fires you.";
-            intro_regel[3] = "It's time take back your job,\r\n by showing off what you are capable to.";
-            intro_regel[4] = "Try to hack as many houses\r\n in your neighbourhood as possible.";
-            intro_regel[5] = "Then let them attack your company main server so your bots\r\nwill generate enough traffic to let the server crash.";            
-            intro_regel[6] = "Now let get hacking.";
+            introregel = new String[7];
+            introregel[0] = "You work for microsol as a security expert.";
+            introregel[1] = "One day you fell a sleep at the office.";
+            introregel[2] = "Your boss does not take it, and fires you.";
+            introregel[3] = "It's time take back your job,\r\n by showing off what you are capable to.";
+            introregel[4] = "Try to hack as many houses\r\n in your neighbourhood as possible.";
+            introregel[5] = "Then let them attack your company main server so your bots\r\nwill generate enough traffic to let the server crash.";            
+            introregel[6] = "Now let get hacking.";
 
-            friend_regel = new String[4];
-            friend_regel[0] = "Your friend lives here, he works for The Bank.";
-            friend_regel[1] = "He is willing to give you a list";
-            friend_regel[2] = "of all bankaccounts in your neighbourhood.";
-            friend_regel[3] = "Click on accept, to get the list.";
+            friendregel = new String[4];
+            friendregel[0] = "Your friend lives here, he works for The Bank.";
+            friendregel[1] = "He is willing to give you a list";
+            friendregel[2] = "of all bankaccounts in your neighbourhood.";
+            friendregel[3] = "Click on accept, to get the list.";
         }
         #endregion
 
         #region properties
+        /// <summary>
+        /// Gets or sets the current length of the text.
+        /// </summary>
         public int Curlenword
         {
-            get { return curlenword; }
-            set { curlenword = value; }
+            get
+            {
+                return curlenword;
+            }
+
+            set
+            {
+                curlenword = value;
+            }
         }
+
+        /// <summary>
+        /// Gets or sets the current line of the story text.
+        /// </summary>
         public int HuidigeRegel
         {
-            get { return this.curregel; }
-            set { this.curregel = value; }
+            get
+            {
+                return this.curregel;
+            }
+
+            set
+            {
+                this.curregel = value;
+            }
         }
-        public String HuidigeTekst
+
+        /// <summary>
+        /// Gets the current text
+        /// </summary>
+        public string HuidigeTekst
         {
-            get { return curtext; }
+            get
+            {
+                return this.curtext;
+            }
         }
-        public String BlinkTekst
+
+        /// <summary>
+        /// Gets or sets a blink text.
+        /// </summary>
+        public string BlinkTekst
         {
-            set { this.blinktext = value; }
-            get { return blinktext; }
+            set
+            {
+                this.blinktext = value;
+            }
+
+            get
+            {
+                return blinktext;
+            }
         }
+
+        /// <summary>
+        /// Gets the current text length.
+        /// </summary>
         public int CurTekstLen
         {
             get
             {
                 if (this.curtext == "intro")
                 {
-                    return this.intro_regel[curregel].Length;
+                    return this.introregel[curregel].Length;
                 }
                 else
                 {
-                    return this.friend_regel[curregel].Length;
+                    return this.friendregel[curregel].Length;
                 }
             }
         }
-        /*
-        public int NumOfIntroRegels
-        {
-            get { return intro_regel.Length; }
-        }
-         */
         #endregion
 
         #region methoden
 
         /// <summary>
-        /// Deze methode handelt alle mogelijke fout meldingen af. 
+        /// Show a error message if not already showed.
         /// </summary>
-        /// <param name="msgnr"></param>
+        /// <param name="msgnr">The number of the message</param>
         public void ToonBericht(int msgnr)
         {
             if (errorshowed == false)
@@ -113,46 +165,50 @@ namespace CodeGreen
                 errorshowed = true;
                 switch (msgnr)
                 {
-                    //TODO: moet naar Engels vertaald worden.
                     case 1:
-                        MessageBox.Show("Error: Afbeelding niet gevonden.");
+                        MessageBox.Show("Error: Image not found.");
                         break;
+
                     case 2:
-                        MessageBox.Show("Error: onbekende menu knop.");
+                        MessageBox.Show("Error: unknow menu button.");
                         break;
-                    case 3:
-                        MessageBox.Show("Error: schrijven naar register mislukt.");
-                        break;
+
                     case 4:
-                        MessageBox.Show("Error: resource kon niet geladen worden.");
+                        MessageBox.Show("Error: resource cannot be loaded.");
                         break;
+
                     case 5:
                         MessageBox.Show("Error: sound file not found.");
                         break;
+
                     case 6:
-                        MessageBox.Show("Error: kan huizen niet aanmaken.");
+                        MessageBox.Show("Error: House cannot be created.");
                         break;
+
                     case 7:
-                        MessageBox.Show("Error: kan huis niet vinden.");
+                        MessageBox.Show("Error: House cannot be found.");
                         break;
+
                     case 8:
-                        MessageBox.Show("Error: kan item niet vinden.");
+                        MessageBox.Show("Error: Item cannot be found.");
                         break;
+
                     case 9:
                         MessageBox.Show("Error: item niet in inventory lijst.");
                         break;
-                    case 10: 
+
+                    case 10:
                         MessageBox.Show("Error: Onbekende huidige tekst"); 
                         break;
-                    case 11:
-                        MessageBox.Show("Error: kan item niet in database stoppen");
-                        break;
+
                     case 12:
                         MessageBox.Show("Error: Kan geld niet overmaken.");
                         break;
+
                     case 13:
-                        MessageBox.Show("Error: Kan niet met atmel controller verbinden.");
+                        MessageBox.Show("Error: Cannot connect with (atmel) controller.");
                         break;
+
                     default:
                         MessageBox.Show("Unknow error");
                         break;
@@ -161,19 +217,23 @@ namespace CodeGreen
             }
         }
 
+        /// <summary>
+        /// Show a exception.
+        /// </summary>
+        /// <param name="exc">the exception object.</param>
         public void ToonError(Exception exc)
         {
-            MessageBox.Show("Error: "+exc.Message+"\r\nLocation: "+exc.StackTrace);
+            MessageBox.Show("Error: " + exc.Message + "\r\nLocation: " + exc.StackTrace);
         }
 
         /// <summary>
         /// Gebruik op label text eigenschap om het een ouderwets type effect te geven.
         /// </summary>
-        /// <param name="word">woord met type effect.</param>
-        /// <returns>tekst</returns>
-        public String TypeWordEffect(String word)
+        /// <param name="word">the word/sentence to have the effect on.</param>
+        /// <returns>the shortende text</returns>
+        public string TypeWordEffect(String word)
         {
-            curlenword = get_len_type_text(word.Length);
+            curlenword = this.Get_len_type_text(word.Length);
 
             for (int i = 0; i <= word.Length; i++)
             {
@@ -185,6 +245,7 @@ namespace CodeGreen
                     }
                 }
             }
+
             return "";
         }
 
@@ -192,8 +253,8 @@ namespace CodeGreen
         /// Bepaalde hoelang de type text moet zijn.
         /// </summary>
         /// <param name="maxlenword">max lengte te typen</param>
-        /// <returns>positie</returns>
-        private int get_len_type_text(int maxlenword)
+        /// <returns>the length of the type text</returns>
+        private int Get_len_type_text(int maxlenword)
         {
             if (curlenword < maxlenword)
             {
@@ -213,17 +274,23 @@ namespace CodeGreen
             }
         }
 
-        public String TypeTextFull(String what)
+        /// <summary>
+        /// Type text on a story text array.
+        /// </summary>
+        /// <param name="what">what story</param>
+        /// <returns>The story text of the currect line at the current length.</returns>
+        public string TypeTextFull(string what)
         {
             int max_num_regels = 0;
             if (what == "intro") 
             {
-                max_num_regels = intro_regel.Length;
+                max_num_regels = introregel.Length;
             }
             else if (what == "friend")
             {
-                max_num_regels = friend_regel.Length;
+                max_num_regels = friendregel.Length;
             }
+
             for (int i = 0; i < max_num_regels; i++)
             {
                 if (curregel == i)
@@ -231,25 +298,30 @@ namespace CodeGreen
                     if (what == "intro")
                     {
                         curtext = "intro";
-                        return TypeWordEffect(intro_regel[i]);
+                        return TypeWordEffect(introregel[i]);
                     }
                     else if (what == "friend")
                     {
                         curtext = "friend";
-                        return TypeWordEffect(friend_regel[i]);
+                        return TypeWordEffect(friendregel[i]);
                     }
                 }
             }
+
             return "";
         }
 
+        /// <summary>
+        /// Do blink effect on blinktext.
+        /// </summary>
+        /// <returns>Empty string if blink is on</returns>
         public String BlinkWordEffect()
         {
             wait++;
             if (showtext == true)
             {
                 if (wait >= 5) { showtext = false; wait = 0; }
-                return blinktext;
+                return this.blinktext;
             }
             else
             {

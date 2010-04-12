@@ -15,24 +15,27 @@ namespace CodeGreen
 {
     using System;
     using System.Collections.Generic;
-    using System.Text;
 
-    class Inventory
+    /// <summary>
+    /// The inventory of the player.
+    /// </summary>
+    public class Inventory
     {
         #region datavelden
-        private List<Item> shopitems;
-        public List<Item> youritems;
-        //private void int[] i;
+        /// <summary>
+        /// A list of all shop items and a list of the items the player bought.
+        /// </summary>
+        private List<Item> shopitems, youritems;
         #endregion
 
         #region constructor
         /// <summary>
-        /// Initializes a new instance of Inventory class.
+        /// Initializes a new instance of the Inventory class.
         /// </summary>
         public Inventory()
-        {             
-            shopitems = new List<Item>();
-            youritems = new List<Item>();
+        {
+            this.shopitems = new List<Item>();
+            this.youritems = new List<Item>();
 
             Item[] items = new Item[6];
             items[0] = new Item("wepcracker", 75);
@@ -41,76 +44,107 @@ namespace CodeGreen
             items[3] = new Item("worm", 300);
             items[4] = new Item("coderedvirus", 1000);
             items[5] = new Item("pizza", 25);
-       
-            shopitems.AddRange(items);
+
+            this.shopitems.AddRange(items);
         }
         #endregion
 
         #region properties
-        public int numitems
+        /// <summary>
+        /// Gets the number of items in the shop.
+        /// </summary>
+        public int Numitems
         {
-            get { return shopitems.Count; }
+            get
+            {
+                return this.shopitems.Count; 
+            }
         }
         #endregion
 
         #region methoden
+
         /// <summary>
         /// Voeg een item van de winkel aan je inventory toe.
         /// </summary>
         /// <param name="naam">item naam: kijk in lijst constructor inventory.</param>
         /// <returns>als gelukt geeft true terug.</returns>
-        public bool addItemInventory(String naam)
+        public bool AddItemInventory(string naam)
         {
-            if (getItemShop(naam) != null)
+            if (this.GetItemShop(naam) != null)
             {
-                if (getItemInventory(naam) == null)
+                if (this.GetItemInventory(naam) == null)
                 {
-                    youritems.Add(getItemShop(naam));
+                    this.youritems.Add(this.GetItemShop(naam));
                     return true;
                 }
-                else { return false; }
             }
-            else
-            { return false; }
+
+            return false;
         }
 
-        public Item getItemShop(string naam)
+        /// <summary>
+        /// Search for a item in the shop.
+        /// </summary>
+        /// <param name="naam">The name to search on.</param>
+        /// <returns>The item where was searched for.</returns>
+        public Item GetItemShop(string naam)
         {
-            foreach (Item curitem in shopitems)
+            foreach (Item curitem in this.shopitems)
             {
                 if (curitem.NaamItem == naam)
                 {
                     return curitem;
                 }
             }
+
             return null;
         }
 
-        public Item getItemInventory(string naam)
+        /// <summary>
+        /// Search for a item in your inventory.
+        /// </summary>
+        /// <param name="naam">the name of the item to search for.</param>
+        /// <returns>The item. Null if not found.</returns>
+        public Item GetItemInventory(string naam)
         {
-            foreach (Item curitem in youritems)
+            foreach (Item curitem in this.youritems)
             {
                 if (curitem.NaamItem == naam)
                 {
                     return curitem;
                 }
             }
+
             return null;
         }
 
-        public Item getItemPos(int positie)
+        /// <summary>
+        /// Search for a item by it's position in the shop list.
+        /// </summary>
+        /// <param name="positie">The position in the shop list.</param>
+        /// <returns>The item where was searched for.</returns>
+        public Item GetItemPos(int positie)
         {
-            return shopitems[positie];
+            return this.shopitems[positie];
         }
 
         /// <summary>
         /// Voegt het item van vriend toe.
         /// </summary>
-        public void addBankaccountnrlist()
+        public void AddBankaccountnrlist()
         {
-            Item Bankaccountlist = new Item("listbankaccounts", 0);
-            youritems.Add(Bankaccountlist);
-        }        
+            Item bankaccountlist = new Item("listbankaccounts", 0);
+            this.youritems.Add(bankaccountlist);
+        }
+
+        /// <summary>
+        /// Empties your inventory.
+        /// </summary>
+        public void ResetInventory()
+        {
+            this.youritems.Clear();
+        }
         
         #endregion
     }
