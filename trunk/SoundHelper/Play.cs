@@ -14,8 +14,9 @@
 namespace SoundHelper
 {
     using System;
-    using System.Media;
     using System.IO;
+    using System.Media;
+    using System.Windows.Forms;
 
     class Play
     {
@@ -24,11 +25,9 @@ namespace SoundHelper
             
             if (String.IsNullOrEmpty(args[0]))
             {
-                System.Console.WriteLine("No argument passed. Dont lauch this file directly. Press enter to exit.");
-                System.Console.Read();
+                MessageBox.Show("No argument passed. Dont lauch this file directly. Press enter to exit.");
                 return;
             }
-            ////System.Console.WriteLine(args[0]);
 
             if (File.Exists(args[0]))
             {
@@ -37,12 +36,8 @@ namespace SoundHelper
             }
             else
             {
-                System.Console.WriteLine("soundfile not found." + args[0]);
-                System.Console.WriteLine("Press enter to exit.");
-                System.Console.Read();
+                MessageBox.Show("soundfile not found." + args[0]);
             }
-
-            ////System.Console.Read();
         }
     }
 }

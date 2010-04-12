@@ -39,7 +39,7 @@ Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\SQLite.NET.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\highscoren"; DestDir: "{app}"; Flags: touch
 ; external soundfiles not compiled in exe.
-Source: "..\bin\Debug\sounds\*"; DestDir: "{app}\sounds"; Flags: ignoreversion touch
+Source: "..\bin\Debug\sounds\*"; DestDir: "{app}\sounds";
 
 [Icons]
 Name: "{group}\CodeGreen"; WorkingDir: "{app}"; Filename: "{app}\CodeGreen.exe";
@@ -94,6 +94,7 @@ begin
             end;
 	end;
 end;
+
 
 
 

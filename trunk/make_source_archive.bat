@@ -22,7 +22,7 @@ echo 7-zip(7z.exe) should be installed in: %path7z%
 pause
 IF NOT EXIST %path7z% GOTO NO7ZDIR
 
-%path7z% a -tzip "%cd%\build\src_CodeGreen_v%VERSION%%VERSIONSTATUS%.zip" -r %cd%\*.cs %cd%\*.resx %cd%\*.config %cd%\*.sln %cd%\*.csproj %cd%\*.eqconfig %cd%\*.png %cd%\*.ico %cd%\*.jpg %cd%\*.bat %cd%\*.xsd %cd%\*.manifest %cd%\*.nsi %cd%\*.settings %cd%\*.wav %cd%\*.iss %cd%\*.csproj.user %cd%\*.txt
+%path7z% a -tzip "%cd%\build\src_CodeGreen_v%VERSION%%VERSIONSTATUS%.zip" -r %cd%\*.cs %cd%\*.resx %cd%\*.config %cd%\*.sln %cd%\*.csproj %cd%\*.eqconfig %cd%\*.png %cd%\*.bmp %cd%\*.ico %cd%\*.jpg %cd%\*.bat %cd%\*.xsd %cd%\*.manifest %cd%\*.nsi %cd%\*.settings %cd%\*.wav %cd%\*.iss %cd%\*.csproj.user %cd%\*.txt
 
 echo done.
 pause

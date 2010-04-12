@@ -13,13 +13,13 @@
     public class SoundEngine
     {
         private SoundPlayer musicplayer;
-
+        private Misc misc;
         /// <summary>
         /// Initializes a new instance of SoundEngine class.
         /// </summary>
         public SoundEngine()
         {
-            
+            misc = new Misc();
         }
 
         /// <summary>
@@ -82,11 +82,12 @@
                 string helperapppath = appdir + "\\soundhelper.exe";
                 try
                 {
-                    System.Diagnostics.Process.Start(helperapppath, soundfilepath);
+                    System.Diagnostics.Process.Start(helperapppath, "\"" + soundfilepath + "\"");
                     return true;
                 }
-                catch
+                catch (Exception exc)
                 {
+                    misc.ToonError(exc);
                     return false;
                 }
             }
