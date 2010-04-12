@@ -86,16 +86,16 @@ namespace CodeGreen
             Button buttontemp = (Button)sender;
             Item buyitem = inventory.GetItemShop(buttontemp.Name);
             
-            if (CodeGreen.Properties.Settings.Default.sound)
-            {
-                snd.PlaySoundEffect("buy.wav");
-            }
 
             showshopintro = false;
             //controlleer voor genoeg geld.
             if (Speler.AccountSaldo >= buyitem.Prijs)
             {   
                 if (inventory.AddItemInventory(buttontemp.Name) == true) {
+                    if (CodeGreen.Properties.Settings.Default.sound)
+                    {
+                        snd.PlaySoundEffect("buysucceed.wav");
+                    }
                     Speler.GeldOpnemen(buyitem.Prijs);
                     buttontemp.Click += null;
                     lbSpelerGeld.Refresh();
@@ -111,11 +111,19 @@ namespace CodeGreen
                 }
                 else 
                 {
+                    if (CodeGreen.Properties.Settings.Default.sound)
+                    {
+                        snd.PlaySoundEffect("buyfail.wav");
+                    }
                     lbTextShop.Text = "You already have this item.";
                 }
             }
             else
-            { 
+            {
+                if (CodeGreen.Properties.Settings.Default.sound)
+                {
+                    snd.PlaySoundEffect("buyfail.wav");
+                }
                 lbTextShop.Text = "You don't have enough money to buy that.";
             }
             ToonInventoryItems();
@@ -253,6 +261,10 @@ namespace CodeGreen
                 this.misc.BlinkTekst = "NO ACCESS, accountnummer doesn't exist.";
                 this.lbBanklogininfo.Text = misc.BlinkWordEffect();
                 this.cbAccountnummer.Text = "";
+                if (CodeGreen.Properties.Settings.Default.sound)
+                {
+                    snd.PlaySoundEffect("bankaccessfail.wav");
+                }
             }
             else if (tbAccountPassword.Text == string.Empty)
             {
@@ -264,10 +276,19 @@ namespace CodeGreen
                 misc.BlinkTekst = "NO ACCESS, wrong password.";
                 this.lbBanklogininfo.Text = misc.BlinkWordEffect();
                 this.tbAccountPassword.Text = string.Empty;
+                if (CodeGreen.Properties.Settings.Default.sound)
+                {
+                    snd.PlaySoundEffect("bankaccessfail.wav");
+                }
             }
             else
             {
                 //login was succesvol.
+                if (CodeGreen.Properties.Settings.Default.sound)
+                {
+                    snd.PlaySoundEffect("bankaccessgranted.wav");
+                }
+
                 this.lbBanklogininfo.Visible = true;
                 this.lbSaldo.Visible = true;
                 this.cbAccountnummer.Text = "";
@@ -769,6 +790,11 @@ namespace CodeGreen
                     {
                         lbItemCommandInfo.Text = "scanning";
                         tbCommand.Text = "";
+
+                        if (CodeGreen.Properties.Settings.Default.sound)
+                        {
+                            snd.PlaySoundEffect("scanning.wav");
+                        }
                     }
                 }
                 if (IsItemInventory("worm") == true)
@@ -820,10 +846,10 @@ namespace CodeGreen
                     }
                 }
 
-                if (this.tbCommand.Text == "cheatwin")
-                {
-                    this.progbarServerload.Value = 100;
-                }
+                ////if (this.tbCommand.Text == "cheatwin")
+                ////{
+                ////    this.progbarServerload.Value = 100;
+                ////}
             }
         }
 

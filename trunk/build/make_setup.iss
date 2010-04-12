@@ -24,10 +24,10 @@ PrivilegesRequired=admin
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
-Name: "french"; MessagesFile: "compiler:Languages\French.isl"
-Name: "german"; MessagesFile: "compiler:Languages\German.isl"
-Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
+;Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
+;Name: "french"; MessagesFile: "compiler:Languages\French.isl"
+;Name: "german"; MessagesFile: "compiler:Languages\German.isl"
+;Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
@@ -93,6 +93,8 @@ begin
             end;
 	end;
 end;
+
+
 
 
 
