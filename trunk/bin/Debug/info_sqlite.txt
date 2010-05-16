@@ -1,0 +1,2 @@
+Place SQLite3.dll and SQLite.NET.dll in this folder from
+http://prdownloads.sourceforge.net/adodotnetsqlite/SQLite.NET.0.21_x68_dll.zip?download
