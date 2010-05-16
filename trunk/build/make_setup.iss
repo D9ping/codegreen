@@ -2,8 +2,8 @@
 AppId={{E6136546-41EA-47FD-A62B-E487DB236052}
 AppName=CodeGreen
 AppVerName=CodeGreen
-AppVersion=1.5.0
-VersionInfoVersion=1.5.0.0
+AppVersion=1.5.1
+VersionInfoVersion=1.5.1.0
 AppPublisherURL=http://code.google.com/p/codegreen/
 AppSupportURL=http://code.google.com/p/codegreen/w/list
 DefaultDirName={pf}\CodeGreen
@@ -17,7 +17,7 @@ WizardSmallImageBackColor=clWhite
 LicenseFile=license.txt
 ;AppReadmeFile=changelog.txt
 OutputDir=..\build
-OutputBaseFilename=CodeGreen_setup_v1.5.0
+OutputBaseFilename=CodeGreen_setup_v1.5.1
 Compression=lzma
 SolidCompression=yes
 ; zorgt voor voldoen rechten onder win. vista/7 >.
@@ -25,19 +25,17 @@ PrivilegesRequired=admin
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-;Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
-;Name: "french"; MessagesFile: "compiler:Languages\French.isl"
-;Name: "german"; MessagesFile: "compiler:Languages\German.isl"
-;Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
+Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "..\bin\Debug\CodeGreen.exe"; DestDir: "{app}";
-Source: "..\bin\Debug\soundhelper.exe"; DestDir: "{app}";
-Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\CodeGreen.exe"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\soundhelper.exe"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\SQLite3.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\SQLite.NET.dll"; DestDir: "{app}"; Flags: touch
+Source: "..\bin\Debug\UsbLibrary.dll"; DestDir: "{app}"; Flags: touch
 Source: "..\bin\Debug\highscoren"; DestDir: "{app}"; Flags: touch
 ; external soundfiles not compiled in exe.
 Source: "..\bin\Debug\sounds\*"; DestDir: "{app}\sounds";
@@ -52,7 +50,7 @@ Filename: "{app}\CodeGreen.exe"; Description: "{cm:LaunchProgram,CodeGreen}"; Fl
 
 [CustomMessages]
 english.dotnetmissing=This setup requires the .NET Framework v3.0 SP1. Please download and install the .NET Framework v3.0 SP1 and run this setup again. Do you want to download the framework now?
-;dutch.dotnetmissing=Dit programma vereist .NET framework 3.0 SP1 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.0 SP1 nu downloaden?
+dutch.dotnetmissing=Dit programma vereist .NET framework 3.0 SP1 en dat is niet op uw computer gevonden. Wilt u .NET framework 3.0 SP1 nu downloaden?
 
 [code]
 function InitializeSetup(): Boolean;
@@ -95,6 +93,7 @@ begin
             end;
 	end;
 end;
+
 
 
 

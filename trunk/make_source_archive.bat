@@ -13,7 +13,7 @@ REM along with this program; if not, write to the Free Software
 REM Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA
 @echo off
 set path7z="C:\Program Files\7-Zip\7z.exe"
-set VERSION=1.5.0
+set VERSION=1.5.1
 set VERSIONSTATUS=""
 
 echo Making zip archive: src_CodeGreen_v%VERSION%%VERSIONSTATUS%.zip

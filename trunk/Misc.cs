@@ -213,6 +213,14 @@ namespace CodeGreen
                         MessageBox.Show("Error: Cannot connect with (atmel) controller.");
                         break;
 
+                    case 14:
+                        MessageBox.Show("Error: SQLite.NET.dll is missing.");
+                        break;
+                    case 15:
+                        MessageBox.Show("Error: SQLite3.dll is missing.");
+                        break;
+
+
                     default:
                         MessageBox.Show("Unknow error");
                         break;

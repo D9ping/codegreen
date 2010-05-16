@@ -3,8 +3,9 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using System.IO;
     using Finisar.SQLite;
-
+    
     public partial class GameHighscore : Form
     {
         #region datavelden
@@ -19,12 +20,23 @@
         {
             InitializeComponent();
             misc = new Misc();
-            ////connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\hiscoren.mdb");
-            this.connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
 
             setGroupboxen();
-            gethighscore();
             gbxHighscoren.Visible = true;
+
+            if (!File.Exists("SQLite.NET.dll"))
+            {
+                misc.ToonBericht(14);
+                return;
+            }
+            else if (!File.Exists("SQLite3.dll"))
+            {
+                misc.ToonBericht(15);
+                return;
+            }
+
+            this.connection = new SQLiteConnection("Data Source=highscoren;Version=3;New=False;Compress=False;");
+            gethighscore();
         }
 
         public GameHighscore(int timemin, int timesec, int geldover)
