@@ -46,7 +46,7 @@ As Creative Common Sampling Plus 1.0.
 
 *This game blinks a lot, what's wrong?*
 
-This game is developed on windows vista and runs best on windows vista.
+This game is developed on windows vista and runs best on windows vista or windows7
 
 You also need a fast CPU, 1.5Ghz or more is highly recommended.
 
