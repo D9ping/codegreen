@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------------------------
+ //-----------------------------------------------------------------------
 // <copyright file="Bank.cs" company="GNU">
 // 
 // This program is free software; you can redistribute it and/or modify it
@@ -63,7 +63,7 @@ namespace CodeGreen
         /// <param name="nm">The name of the account.</param>
         /// <param name="reknr">Rekening number</param>
         /// <param name="lenpassw">Lengte password</param>
-        /// <param name="money">How many geld</param>
+        /// <param name="money">Amount of money</param>
         /// <returns>True als gelukt is.</returns>
         public bool RegistreerAccount(string nm, string reknr, int lenpassw, int money)
         {
