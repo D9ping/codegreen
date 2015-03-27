@@ -1,0 +1,62 @@
+# Frequently Asked Question #
+
+
+---
+
+**How do I start?**
+
+Okay, I give you some hints on how to get started.
+
+The first thing you need to do is to buy a wep cracker in the game.
+
+This can be done by clicking on the cart icon, in the left bottom.
+
+Then in the nixxon shop windows press buy button for the wep cracker.
+
+Next you go to your inventory, by clicking on the bag icon.
+
+Then select your wepcracker, and then you need to figure out the command you need to enter.
+
+Hint: look at Jan de Vries house.
+
+
+---
+
+**What is this controller in the game options for?**
+
+It is possible to use the joystick from a `AVR AT90USB` system board to switch between house selection etc.
+
+It probably works with other devices too.
+
+But you need to find out what the `device id` and `vendor id` of that device is.
+
+And maybe some coding in Communication.cs is also needed.
+
+---
+
+
+**How does the highscore work?**
+
+How faster you succeed to reach the end of the game and with more money left the more
+
+points you get.
+
+
+---
+
+
+**How is the background music licensed?**
+
+As Creative Common Sampling Plus 1.0.
+
+
+---
+
+
+**This game blinks a lot, what's wrong?**
+
+This game is developed on windows vista and runs best on windows vista or windows7
+
+You also need a fast CPU, 1.5Ghz or more is highly recommended.
+
+See also SystemRequirements
