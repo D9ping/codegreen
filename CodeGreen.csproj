@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA60492A-9269-416D-8A07-D7AF11F37583}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeGreen</RootNamespace>
+    <AssemblyName>CodeGreen</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>icon_codegreen.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>CodeGreen.Program</StartupObject>
+    <ManifestCertificateThumbprint>2D2D4F0DBB45051362BF81B58B87C0B0C887364C</ManifestCertificateThumbprint>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <TargetZone>LocalIntranet</TargetZone>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://code.google.com/p/codegreen/</SupportUrl>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>CodeGreen</ProductName>
+    <PublisherName>CodeGreen</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.9.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Libs\SQLite.NET.0.21_x68_dll\SQLite.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="UsbLibrary, Version=1.0.3241.21323, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bank.cs" />
+    <Compile Include="Bankaccount.cs" />
+    <Compile Include="BigCheckbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BigCheckbox.Designer.cs">
+      <DependentUpon>BigCheckbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Communication.cs" />
+    <Compile Include="DropText.cs" />
+    <Compile Include="GameHighscore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameHighscore.Designer.cs">
+      <DependentUpon>GameHighscore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOptions.Designer.cs">
+      <DependentUpon>GameOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameMenu.Designer.cs">
+      <DependentUpon>GameMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="House.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Misc.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameOptions.resx">
+      <DependentUpon>GameOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameMenu.resx">
+      <DependentUpon>GameMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SoundEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BigCheckbox.resx">
+      <DependentUpon>BigCheckbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameHighscore.resx">
+      <DependentUpon>GameHighscore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\werkbalkknop_shop_on.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_shop_off.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_inventory_on.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_inventory_off.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_bank_on.png" />
+    <EmbeddedResource Include="Resources\werkbalkknop_bank_off.png" />
+    <EmbeddedResource Include="Resources\knop_start_selected.png" />
+    <EmbeddedResource Include="Resources\knop_start.png" />
+    <EmbeddedResource Include="Resources\knop_sound_on.png" />
+    <EmbeddedResource Include="Resources\knop_sound_off.png" />
+    <EmbeddedResource Include="Resources\knop_quitgame.png" />
+    <EmbeddedResource Include="Resources\knop_options_selected.png" />
+    <EmbeddedResource Include="Resources\knop_options.png" />
+    <EmbeddedResource Include="Resources\knop_highscore_selected.png" />
+    <EmbeddedResource Include="Resources\knop_highscore.png" />
+    <EmbeddedResource Include="Resources\knop_exit_selected.png" />
+    <EmbeddedResource Include="Resources\knop_exit.png" />
+    <EmbeddedResource Include="Resources\knop_backmainmenu_selected.png" />
+    <EmbeddedResource Include="Resources\knop_backmainmenu.png" />
+    <EmbeddedResource Include="Resources\item_aircrack_cracker.png" />
+    <EmbeddedResource Include="Resources\game_truck_driveright.png" />
+    <Content Include="icon_codegreen.ico" />
+    <EmbeddedResource Include="Resources\logo_CodeGreen.png" />
+    <EmbeddedResource Include="Resources\item_worm.png" />
+    <EmbeddedResource Include="Resources\item_listaccountnumbersbank.png" />
+    <EmbeddedResource Include="Resources\item_keylogger.png" />
+    <EmbeddedResource Include="Resources\item_codered_virus.png" />
+    <EmbeddedResource Include="Resources\hacker_tux.png" />
+    <EmbeddedResource Include="Resources\game_background.jpg" />
+    <EmbeddedResource Include="Resources\crash_server.png" />
+    <EmbeddedResource Include="Resources\controller_selected.png" />
+    <EmbeddedResource Include="Resources\controller_not_selected.png" />
+    <EmbeddedResource Include="Resources\cogegreen_icon_logo.png" />
+    <EmbeddedResource Include="Resources\checkbox_on.png" />
+    <EmbeddedResource Include="Resources\checkbox_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
